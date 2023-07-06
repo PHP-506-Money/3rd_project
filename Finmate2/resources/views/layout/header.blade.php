@@ -1,60 +1,104 @@
-<header>
-    @guest
-    <div class="headerlogo" onclick="location.href='{{ route('main') }}'">
-        <img src="{{ asset('/img/logo1.png') }}" alt="로고">
-        <p>FinMate:GoToMain</p>
-    </div>
-    <div class="headerMain">
-        <h1>@yield('header', 'header')</h1>
-        <nav class="nav">
-            <a href="{{ route('main') }}" class="nav-item {{ Request::is('/') ? 'is-active' : '' }}" active-color="#FF7676">main</a>
-            <a href="{{ route('users.registration') }}" class="nav-item {{ Request::is('users/registration') ? 'is-active' : '' }}" active-color="#FF7676">sign up</a>
-            <a href="{{ route('users.login') }}" class="nav-item {{ Request::is('users/login') ? 'is-active' : '' }}" active-color="#FF7676">login</a>
-            <span class="nav-indicator"></span>
-        </nav>
-    </div>
-    @endguest
-    @auth
-    <div class="headerlogo" onclick="location.href='{{ url('/assets'.'/'.auth()->user()->userid) }}'">
-        <img src="{{ asset('/img/logo1.png') }}" alt="로고">
-        <p>FinMate:MyAssets</p>
-    </div>
-    <div class="headerMain">
-        <h1>@yield('header', 'header')</h1>
-        <nav class="nav">
-            <div class="dropdown nav-item {{ Request::is('assets/*') || Request::is('assets/transactions/*') ? 'is-active' : '' }}" active-color="#FF7676">
-                <a href="{{ url('/assets'.'/' . auth()->user()->userid) }}"> 자산 </a>
-                <div class="dropdown-content">
-                    <a href="{{ url('/assets'.'/' . auth()->user()->userid) }}" class="nav-item">자산목록</a>
-                    <a href="{{url('/assets/transactions'.'/'.auth()->user()->userid)}}" class="nav-item">자산내역</a>
+<div id="header">
+
+
+    <div class="loading-bar on"></div>
+    <div class="inner">
+        <div class="logo">
+            <a href="{{ route('main') }}">
+
+                <img src="/resources/assets/images/common/logo.png" alt="logo">
+            </a>
+        </div>
+
+        @guest
+            <!-- 모바일 -->
+
+            <div class="menu">
+                <ul>
+                    <li >
+                        <a href="{{ route('users.login') }}">자산</a>
+                    </li>
+
+                    <li><a href="{{ route('users.login') }}">예산</a></li>
+
+                    <li><a href="{{ route('users.login') }}">목표</a></li>
+
+                    <li><a href="{{ route('users.login') }}">통계</a></li>
+
+                    <li><a href="{{ route('users.login') }}">업적</a></li>
+
+                </ul>
+            </div>
+            <div class="btn-cnt-area">
+
+
+                <div class="login_div_box log_box">
+                    <div onClick="location.href='{{ route('users.login') }}'">Login</div>
+
+                    <div onClick="location.href='{{ route('users.registration') }}'">Join</div>
+
+                </div>
+                <!-- <a href="/account/login" class="link"><div class="login-btn"></div></a> -->
+
+
+                <!-- <button class="search-icon mobile"></button> -->
+                <div class="sub-menu-btn">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
                 </div>
             </div>
-            <div class="dropdown nav-item {{ Request::is('mofin/*') || Request::is('users/profile/*') ? 'is-active' : '' }}" active-color="#FF7676">
-                <a href="{{ url('/users/profile'.'/' . auth()->user()->userid) }}"> 모핀 </a>
-                <div class="dropdown-content">
-                    <a href="{{ url('/users/profile'.'/' . auth()->user()->userid) }}" class="nav-item">모핀</a>
-                    <a href="{{url('/mofin'.'/' . auth()->user()->userid)}}" class="nav-item">뽑기</a>
+
+        @endguest
+        @auth
+            <!-- 모바일 -->
+
+            <div class="menu">
+                <ul>
+                    <li class="order">
+                        <a href="#none">자산</a>
+                        <div class="order_ob-wrap">
+                            <div class="order_ob">
+                                <button onclick="location.href='/menu/menu_list?class_id='">
+                                    <img src="https://cdn.goob-ne.com/goobne/resources/assets/images/common/order_ob01.svg" alt="" />자산
+                                </button>
+
+
+                                <button onClick="location.href='/account/login?return_url=/delivery/delivery_list'">
+                                    <img src="https://cdn.goob-ne.com/goobne/resources/assets/images/common/order_ob02.svg" alt="" />자산내역
+                                </button>
+
+
+                            </div>
+                        </div>
+                    </li>
+
+                    <li><a href="/menu/menu_main">예산</a></li>
+                    <li><a href="/store/search_store">목표</a></li>
+                    <li><a href="/brd/const/franchise">통계</a></li>
+                    <li><a href="/brd/event/list">업적</a></li>
+                </ul>
+            </div>
+            <div class="btn-cnt-area">
+
+
+                <div class="login_div_box log_box">
+                    <div onClick="location.href='{{route('users.modify')}}'">Myinfo</div>
+                    <div onClick="location.href='{{ route('users.logout') }}'">Logout</div>
+                </div>
+                <!-- <a href="/account/login" class="link"><div class="login-btn"></div></a> -->
+
+
+                <!-- <button class="search-icon mobile"></button> -->
+                <div class="sub-menu-btn">
+                    <div class="line"></div>
+                    <div class="line"></div>
+                    <div class="line"></div>
                 </div>
             </div>
-            <a href="{{ url('/goal'.'/' . auth()->user()->userid) }}" class="nav-item {{ Request::is('goal/*') ? 'is-active' : '' }}" active-color="#FF7676">목표</a>
-            <a href="{{ url('/rank'.'/' . auth()->user()->userid) }}" class="nav-item {{ Request::is('rank/*') ? 'is-active' : '' }}" active-color="#FF7676">랭킹</a>
-            <a href="{{ url('/budget'.'/' . auth()->user()->userid) }}" class="nav-item {{ Request::is('budget/*') || Request::is('budgetset') || Request::is('budget') ? 'is-active' : '' }}" active-color="#FF7676">예산</a>
 
-
-
-            <a href="{{ url('/static'.'/' . auth()->user()->userid) }}" class="nav-item {{ Request::is('static/*') ? 'is-active' : '' }}" active-color="#FF7676">통계</a>
-            <a href="{{ url('/achievements') }}" class="nav-item {{ Request::is('achievements') ? 'is-active' : '' }}" active-color="#FF7676">업적</a>
-            <span class="nav-indicator"></span>
-        </nav>
+        @endauth
+        
     </div>
-    <div class="logout">
-        <a href="{{route('users.modify')}}">Myinfo</a>
-        <a href="{{ route('users.logout') }}">Logout</a>
-    </div>
-    @endauth
 
-
-</header>
-
-<script src="{{ asset('/js/app.js') }}"></script>
-
+</div>

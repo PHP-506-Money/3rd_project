@@ -1,0 +1,15 @@
+#header .logo.app_logo {
+    width: 120px;
+}
+.app_logo {display: flex;align-items: center;}
+#header .logo.app_logo .app_back_icon{    width: auto;height: 15px;margin-right: 1rem;}
+.app_footer_ui{    position: fixed;
+    bottom: 0;left:0;
+    background: #fff;
+    padding: 1rem 6%;
+    width: 88%;border-top:1px solid #eee;z-index: 99;}
+.app_footer_ui_list{display:flex;justify-content: space-between;align-items: center;}
+.app_footer_ui_list li{width:auto;height:20px;cursor: pointer;}
+.app_footer_ui_list li img{height: 100%;width:auto;}
+.app_footer_ui_list li:nth-child(1),.app_footer_ui_list li:nth-child(5){height:10px;}
+.app_footer_ui_list li:nth-child(3){height:30px;}

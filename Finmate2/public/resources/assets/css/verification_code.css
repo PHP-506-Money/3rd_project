@@ -1,0 +1,14 @@
+.code_input_div{width:100%;position:relative;}
+.code_time{position:absolute;right:20px;top:50%;transform: translateY(-50%);color:#eb0000;font-size:1.2rem;}
+.join__input .input-area .l-input.btn_chk_input{padding-right:60px;}
+@media (max-width: 320px){
+.code_time{right:10px;}
+.join__input .input-area .l-input.btn_chk_input {
+    padding-right: 56px;
+}
+}
+@media (max-width: 280px){
+.join__input .input-area .l-input.btn_chk_input {
+    padding-right: 54px;
+}
+}
