@@ -1,0 +1,500 @@
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+* {
+    font-family: 'Pretendard-Regular';
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --main-color: #1C3879;
+    --sub-color: #FFFBF0;
+    --btn-color: #607EAA;
+    --active-color: #FF7676;
+}
+
+ul, ol, li {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:visited {
+    color: var(--main-color);
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    margin: 50px auto;
+    color: var(--main-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80vw;
+    height: 150px;
+}
+
+.headerlogo  {
+    width: 150px;
+    height: 150px;
+    text-align: center;
+    margin: 0 50px;
+    
+}
+
+.logout {
+    margin: 0 50px;
+}
+
+.headerlogo:hover {
+    cursor: pointer;
+}
+.headerlogo img {
+    width: 100px;
+    height: 100px;
+}
+
+.headerlogo p {
+    font-size: 20px;
+    font-weight: bold;
+    
+}
+
+.headerMain {
+    margin: 0 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.nav  {
+    margin-top: 20px;
+    display: inline-flex;
+    position: relative;
+    max-width: 100%;
+    background-color: var(--main-color);
+    padding: 0 20px;
+    border-radius: 40px;
+    box-shadow: 0 10px 40px rgba(159, 162, 177, 0.8);
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown a {
+    color: var(--sub-color);
+
+        text-decoration: none;
+        transition: 0.3s;
+
+        z-index: 1;
+        font-family: "DM Sans", sans-serif;
+        font-weight: 500;
+
+}
+
+.dropdown-content {
+    overflow: hidden;
+    display: none;
+    position: absolute;
+    width: 200%;
+    background-color: var(--main-color);
+    padding: 0 10px;
+    border-radius: 20px;
+    /* box-shadow: 0 10px 40px rgba(159, 162, 177, 0.8); */
+    top: 60px;
+    left: -20px;
+    white-space: nowrap;
+    /* z-index: 2; */
+
+}
+
+.dropdown:hover  .dropdown-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav-item {
+    color: var(--sub-color);
+    padding: 20px;
+    text-decoration: none;
+    transition: 0.3s;
+    margin: 0 6px;
+    z-index: 1;
+    font-family: "DM Sans", sans-serif;
+    font-weight: 500;
+    position: relative;
+}
+
+.nav-item:visited {
+    color: var(--sub-color);
+}
+
+.nav-item:before {
+    content: "";
+    position: absolute;
+    bottom: -6px;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: var(--sub-color);
+    border-radius: 8px 8px 0 0;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.nav-item:not(.is-active):hover:before {
+    opacity: 1;
+    bottom: 0;
+}
+
+.nav-item:not(.is-active):hover {
+    color: var(--active-color);
+}
+
+.nav-indicator {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 4px;
+    transition: 0.4s;
+    height: 5px;
+    z-index: 1;
+    border-radius: 8px 8px 0 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 50vh;
+}
+
+
+footer {
+    background-color: var(--main-color);
+    color: var(--sub-color);
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 80px;
+    overflow: hidden;
+}
+
+.footer-top {
+    display: flex;
+    padding: 30px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.footer-top .footer-top-left {
+    display: flex;
+}
+
+.footer-top .footer-top-left ul li {
+    padding: 10px;
+}
+
+.footer-top .footer-top-center {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.footer-top .footer-top-right {
+    text-align: center;
+}
+
+.footer-bottom {
+    width: 100%;
+    background-color: #0E255A;
+    text-align: center;
+    padding: 30px;
+}
+
+section {
+    width: 1320px;
+    margin: 0 auto;
+    text-align: center;
+    overflow: hidden;
+    display: flex;
+    color: var(--main-color);
+}
+
+section:nth-child(odd) {
+    background-color: var(--sub-color);
+}
+
+section .box {
+    width: 50%;
+    /* min-height: 650px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 50px;
+}
+
+section .box .text-box {
+    text-align: left;
+}
+
+section .box .text-box h2 {
+    margin-bottom: 50px;
+}
+
+section .box .text-box .subtitle {
+    font-size: 20px;
+}
+
+section .common-btn {
+    margin-top: 50px;
+    display: inline-block;
+    width: 180px;
+    height: 60px;
+    line-height: 60px;
+    font-size: 20px;
+    color: var(--sub-color);
+    text-align: center;
+    border-radius: 30px;
+    background: var(--btn-color);
+}
+
+section .common-btn:hover {
+    background: var(--active-color);
+}
+
+section .box img {
+    width: 80%;
+    height: 100%;
+}
+
+section .box img.str {
+    height: 70%;
+}
+
+section .bottombanner {
+    width: 100%;
+}
+
+section .bottombanner img {
+    margin-top: 10px;
+    width: 70%;
+}
+
+#go-to-top {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    right: 50px;
+    bottom: 50px;
+    border-radius: 50%;
+    z-index: 500;
+    overflow: hidden;
+}
+
+#go-to-top a {
+    opacity: 0.8;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-color: var(--main-color);
+}
+
+#go-to-top a .fa-chevron-up {
+    z-index: 600;
+    color: var(--sub-color);
+    position: fixed;
+    right: 72px;
+    bottom: 72px;
+}
+
+.scriptCalendar {
+    text-align: center;
+    background-color: var(--sub-color);
+    color: var(--main-color);
+    width: 1000px;
+    height: 800px;
+    margin-bottom: 50px;
+}
+
+.scriptCalendar>thead>tr>td {
+    width: 50px;
+    height: 50px;
+}
+
+.scriptCalendar>thead>tr:first-child>td {
+    font-weight: bold;
+}
+
+.scriptCalendar>thead>tr:last-child>td {
+    background-color: var(--main-color);
+    color: var(--sub-color);
+}
+
+.scriptCalendar>tbody>tr>td {
+    width: 50px;
+    height: 50px;
+    vertical-align: top;
+    padding-top: 10px;
+    box-sizing: border-box;
+}
+
+.scriptCalendar>tbody>tr>td:hover {
+    background-color: var(--ac-color);
+    /* color: var(--active-color); */
+}
+
+.calendarBtn {
+    cursor: pointer;
+}
+
+.listbox {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 60vh;
+}
+
+.listbox a {
+    color: var(--sub-color);
+}
+
+.assetTable , .table {
+    border-collapse: collapse;
+    background-color: var(--sub-color);
+    color: var(--main-color);
+    margin: 10px;
+    width: 80vw;
+    text-align: center;
+}
+
+.assetTable tbody, .assetTable thead {
+    width: 100%;
+    flex-direction: column;
+}
+
+.assetTable tr, .assetTable th, .assetTable td {
+    padding: 10px;
+    box-sizing: border-box;
+    min-width: 200px;
+    text-align: left;
+}
+
+
+.assetTable tr {
+    border-bottom: 1px solid var(--btn-color);
+    width: 100%;
+}
+
+.table td, .table th {
+    padding: 10px;
+}
+
+.button {
+    background-color: var(--btn-color);
+    color: var(--sub-color);
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 15px;
+    width: 280px;
+}
+
+.button.min {
+    width: 80px;
+}
+
+.receive-reward-button {
+    background-color: var(--active-color);
+    color: var(--sub-color);
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 15px;
+    width: 80px;
+}
+
+.receive-reward-button:disabled {
+    background-color: var(--btn-color);
+    position: relative;
+}
+
+.receive-reward-button:disabled::after {
+    content: ' - 비활성 - ';
+    background-color: var(--btn-color);
+    position: absolute;
+    left: 13px;
+    z-index: 1;
+}
+
+
+.receive-reward-button:disabled.received::after {
+    content: " - 보상후 - ";
+}
+
+.receive-reward-button:disabled.yet-to-achieve::after {
+    content: " - 달성전 - ";
+}
+.button:hover {
+    background-color: var(--active-color);
+}
+
+
+#monthly-income {
+    color: var(--main-color);
+}
+
+#monthly-expense {
+    color: var(--active-color);
+}
+
+.message {
+    background-color: var(--active-color);
+    color: white;
+    font-weight: 500;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+}
+
+.agreeform {
+    background-color: var(--sub-color);
+    color: var(--main-color);
+}
+
+.agreeform article {
+    margin: 12px;
+}
+
+.agreeform article dl {
+    width: 500px;
+    text-align: center;
+}
+
+.agreeform article dl dt input:not([type="checkbox"]), 
+.agreeform article dl dd input:not([type="checkbox"]) ,
+.agreeform article dl dt label,
+.agreeform article dl dd label {
+    width: 300px;
+}

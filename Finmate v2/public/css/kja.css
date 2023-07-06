@@ -1,0 +1,219 @@
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+*{
+    text-align: center;
+    font-family: 'Pretendard-Regular';
+}
+
+button{
+    background-color: var(--btn-color);
+    border:none;
+    width:50px;
+    height: 30px;
+    border-radius: 10px;
+    color : var(--sub-color);
+    cursor: pointer;
+}
+
+/********************* budget *********************/
+main{
+    background-color: var(--sub-color);
+    width:700px;
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    flex-direction:column;
+    /* flex-wrap: wrap; */
+    align-items: center;
+}
+
+.budget_a{
+    margin:-100px 0 30px 500px;
+}
+
+.monthBudget{
+    width: 600px;
+    height: 50px;
+    background-color: var(--btn-color);
+    border-radius: 15px;
+    display:flex;
+    flex-direction:row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    padding:10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+/* p{
+    color : var(--main-color);
+} */
+
+.monthBudget > p {
+    color : var(--sub-color);
+}
+
+.leftone{
+    width: 180px;
+    height: 180px;
+    border:8px solid var(--main-color);
+    border-radius: 50%;
+}
+
+.leftone>p {
+    padding:20px;
+}
+
+.weekbudget{
+    margin-top: 50px;
+}
+
+.weekbudget + p {
+    margin-top: 10px;
+}
+
+/********************* budgetsetting *********************/
+.budgetset{
+    background-color: var(--sub-color);
+    width:500px;
+    height: 500px;
+}
+
+h2 {
+    font-size: 500;
+    margin-top: 150px;
+}
+
+input{
+    width:200px;
+    height: 50px;
+    border:none;
+    border-bottom: 1px solid black;
+    background-color: var(--sub-color);
+    margin-top: 60px;
+}
+
+.backbtn{
+    display: inline-block;
+    margin: 80px;
+}
+
+a{
+    color : var(--main-color);
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: var(--active-color);
+}
+
+/********************* static *********************/
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    overflow: auto;
+    background-color: var(--main-color);
+    background-color: rgba(0, 0, 0, 0.863);
+}
+
+.modal_content {
+    background-color: var(--sub-color);
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+}
+
+.pop_bt{
+    font-size: 13pt; 
+    color: var(--main-color);
+    cursor: pointer;
+}
+
+.chartBar{
+    width: 550px;
+    height: 300px;
+}
+
+.chartDo{
+    width: 400px;
+    height: 400px;
+    margin-left: -40px;
+}
+
+.categoryChart{
+    display: flex;
+    flex-direction: row;
+    margin-left: 0;
+}
+
+.catdetail{
+    display: flex;
+    flex-direction: column;
+    margin: 30px;
+}
+
+
+.percent{
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+    margin-left: 100px;  
+}
+
+.percent>p{
+    width: 50px;
+    height: 50px;
+    margin : 10px;
+    padding-top: 10px;
+}
+
+.catdetail{
+    margin : 10px;
+}
+
+.catname{
+    margin-top: 10px;
+    width: 100px;
+}
+.catprice{
+    margin-bottom:25px;
+}
+
+h3{
+    margin-bottom: 20px;
+    font-size: 20px;
+    word-spacing: 5px;
+}
+
+#year{
+    margin-bottom: 30px;
+    margin-right: 10px;
+}
+
+.line{
+    border: 1px solid rgb(92, 92, 92);
+    margin-top: 50px;
+    margin-bottom:50px ;
+    width: 800px;
+}
+
+.allcategoryChart{
+    display: flex;
+    flex-direction: row;
+    width: 500px;
+    /* border-bottom : 2px solid var(--main-color); */
+}
+
+.maxEx{
+    position: relative;
+    left: -140px;
+}

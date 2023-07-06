@@ -1,0 +1,318 @@
+@font-face {
+    font-family: 'Pretendard-Regular';
+    src: url('https://cdn.jsdelivr.net/gh/Project-Noonnu/noonfonts_2107@1.1/Pretendard-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+*{
+    font-family: 'Pretendard-Regular';
+}
+
+a {
+    text-decoration: none;
+    color: var(--main-color);
+}
+
+#menu {
+    margin: 20px auto;
+    text-align: center;
+}
+
+#menu div {
+    position: relative;
+    display: inline-block;
+}
+
+.chara{
+    display: block;
+    width: 80px;
+    padding: 2px 16px;
+    cursor: pointer;
+}
+
+.arrow_box {
+    display: none;
+    position: absolute;
+    width: 100px;
+    padding: 8px;
+    left: 0;
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;  
+    border-radius: 8px;
+    background: #333;
+    color: #fff;
+    font-size: 14px;
+}
+
+.arrow_box:after {
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    margin-left: -10px;
+    border: solid transparent;
+    border-color: rgba(51, 51, 51, 0);
+    border-bottom-color: #333;
+    border-width: 10px;
+    pointer-events: none;
+    content: " ";
+}
+
+span:hover + p.arrow_box {
+    display: block;
+}
+
+#table {
+    width: 500px;
+    height: 300px;
+    background-color: var(--sub-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#form {
+    width: 700px;
+    height: 730px;
+    background-color: var(--sub-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#myinfo {
+    width: 400px;
+    height: 500px;
+    background-color: var(--sub-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.success {
+    background-color: var(--btn-color);
+    color: white;
+    font-weight: 500;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.error {
+    color: var(--active-color);
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+#errMsg {
+    text-align: center;
+    font-size: small;
+    color: red;
+    margin-top: 3px;
+}
+
+#errMsgId {
+    text-align: center;
+    font-size: small;
+    color: red;
+}
+
+label, input {
+    margin: 10px auto;
+    padding: 4px;
+    color: var(--btn-color);
+}
+
+label {
+    display: inline-block;
+	text-align: center;
+    font-weight: bold;
+}
+
+.label > label {
+    width: 80px;
+}
+
+.label2 > label {
+    width: 180px;
+    vertical-align: middle;
+}
+
+.label3 > label {
+    width: 110px;
+}
+
+.label5 > label {
+    width: 130px;
+}
+
+.label2 > input {
+    width: 300px;
+}
+
+.label3 > input {
+    width: 270px;
+}
+
+.label4 > input {
+    width: 200px;
+    text-align: center;
+}
+
+.label5 > input {
+    width: 200px;
+}
+
+input {
+    border: none;
+    outline: none;
+}
+
+.bottom {
+    display: flex;
+}
+
+.bottom2 {
+    margin-top: 10px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+#down {
+    margin: 10px;
+    font-size: small;
+}
+
+#down2 {
+    display: flex;
+    margin-top: 15px;
+    font-size: small;
+}
+
+.button {
+    background-color: var(--btn-color);
+    color: var(--sub-color);
+    border: none;
+    border-radius: 15px;
+    width: 105px;
+    height: 28px;
+    cursor: pointer;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content : center;
+}
+
+.button:hover {
+    background-color: var(--active-color);
+}
+
+#button, #button2 {
+    margin-top: 15px;
+    margin-bottom: 20px;
+}
+
+#button3 {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+#id, #password, #passwordchk, #name, #email, #phone {
+    margin: 10px;
+}
+
+.id, .password {
+    box-sizing : border-box;
+}
+
+.btn {
+    display: flex;
+    justify-content: center;
+}
+
+#btn {
+    margin-left: 20px;
+}
+
+.btn2 {
+    margin-top: 20px;
+    float: right;
+}
+
+
+#info {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--btn-color);
+    font-weight: bold;
+    margin: 15px;
+}
+
+#moffinname {
+    resize: none;
+    border-style: none;
+    background-color: transparent;
+    color: var(--btn-color);    
+    width: 120px;
+    font-size: 15px;
+    font-weight: 600;
+    text-align: center;
+}
+
+textarea {
+    margin-left: 10px;
+}
+
+textarea:focus {
+    outline-color: var(--main-color);
+}
+
+textarea::placeholder {
+    font-size: 11px;
+}
+
+#modify {
+    width: 500px;
+    height: 500px;
+    background-color: var(--sub-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.moffin {
+    z-index: 1;
+}
+
+.noneimg{
+    z-index: 2;
+}
+
+#charitem6 {
+    z-index: 0;
+}
+
+#btnoff {
+    display: none;
+}
+
+.bottom3 {
+    margin: 25px;
+}
+.listbox2{
+    background-color: #FFFBF0;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.listbox1{
+    margin-bottom: 50px;
+}
