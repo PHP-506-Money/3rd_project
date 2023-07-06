@@ -6,6 +6,9 @@
 
 @section('contents')
 
+<link href="{{ asset('/css/app.css') }}" rel="stylesheet">
+
+
 
 
 <div class="listbox">
