@@ -82,9 +82,11 @@
                     <li><a href="{{ url('/goal'.'/' . auth()->user()->userid) }}">목표</a></li>
                     <li><a href="{{ url('/static'.'/' . auth()->user()->userid) }}">통계</a></li>
                     <li><a href="{{ url('/achievements') }}">업적</a></li>
-                    <li class="mofin">
+                    <li class="order">
+
                         <a href="{{ url('/users/profile'.'/' . auth()->user()->userid) }}">모핀</a>
-                        <div class="mofin_ob">
+                        <div class="order_ob-wrap">
+                            <div class="order_ob">
                             <button onclick="location.href='{{ url('/users/profile'.'/' . auth()->user()->userid) }}'">
                                 <img src="https://cdn.goob-ne.com/goobne/resources/assets/images/common/order_ob01.svg" alt="" />모핀
                             </button>
@@ -94,7 +96,7 @@
                             <button onClick="location.href='{{ url('/rank'.'/' . auth()->user()->userid) }}'">
                                 <img src="https://cdn.goob-ne.com/goobne/resources/assets/images/common/order_ob02.svg" alt="" />랭킹
                             </button>
-
+                            </div>
                         </div>
 
                     </li>
