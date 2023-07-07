@@ -3,6 +3,9 @@
 
     <div class="loading-bar on"></div>
     <div class="inner">
+        
+
+        @guest
         <div class="logo">
             <a href="{{ route('main') }}">
 
@@ -10,7 +13,6 @@
             </a>
         </div>
 
-        @guest
             <!-- 모바일 -->
 
             <div class="menu">
@@ -49,6 +51,14 @@
 
         @endguest
         @auth
+        <div class="logo">
+            <a href="{{ url('/assets'.'/' . auth()->user()->userid) }}">
+
+
+                <img src="/resources/assets/images/common/logo.png" alt="logo">
+            </a>
+        </div>
+
             <!-- 모바일 -->
 
             <div class="menu">
