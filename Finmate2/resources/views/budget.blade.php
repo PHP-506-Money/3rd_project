@@ -51,7 +51,7 @@
                     </dl>
 
                     <dl class="total-price">
-                        <dt class="tit">남은금액 :</dt>
+                        <dt class="tit">이번 주 남은예산 :</dt>
 
                         <dd class="total"><span class="l-num" id="totPrice">{{number_format($data['leftBudget'])}}</span>원</dd>
                     </dl>
