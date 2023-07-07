@@ -3,35 +3,65 @@
 @section('title', 'Budget')
 
 @section('header', 'BUDGET')
+@section('aside')
+
 
 @section('contents')
+<div id="content">
+    <form id="domantForm" name="domantForm" method="get">
+        <input type="hidden" id="domant_id" name="domant_id">
+    </form>
 
-<link rel="stylesheet" href="{{ asset('/css/kja.css')  }}" >
+    <article class="l-layout login">
 
-@include('layout.errorsvalidate')
-<br>
+        <section class="login__inner">
+            @include('layout.errorsvalidate')
+            @if ($existingBudget)
+            <div class="l-title">한달 예산 수정하기</div>
+            <div class="login__form-wrap">
+                <div class="form members">
+                    <form id="table" class="members__form" action="{{route('budget.put')}}" method="post">
+                    @csrf
+                    @method('PUT')
+                        <div class="login__input">
+                            <div class="line">
+                                <label for="id">예산을 수정해 주세요</label>
+                                <div class="icon-input">
+                                    <input type="number" name="budgetprice" id="budgetprice">
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <button class="l-btn" type="submit">수정</button>
+                    </form>
+                    <div class="login__link">
+                        <a href="{{ route('budget.get',[auth()->user()->userid])}}">돌아가기</a>
+                    </div>
+                </div>
+            @else
+            <div class="l-title">한달 예산 설정하기</div>
+            <div class="login__form-wrap">
+                <div class="form members">
+                <form id="table" class="members__form" action="{{route('budget.post')}}" method="post">
+                    @csrf
+                    <div class="login__input">
+                        <div class="line">
+                            <label for="id">예산을 설정해 주세요</label>
+                            <div class="icon-input">
+                                <input type="number" name="budgetprice" id="budgetprice">
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <button class="l-btn" type="submit">설정</button>
+                    </form>
+            </div>
+            </div>
+            @endif
 
-    @if ($existingBudget)
-    <div class = "budgetset">
-    <h2>한달 예산 수정하기</h2>
-        <form action="{{route('budget.put')}}" method="post">
-            @csrf
-            @method('PUT')
-            <input type="number" name="budgetprice" id="budgetprice" placeholder="예산을 수정해주세요">
-            <button type = "submit"> 수정 </button>
-            <br>
-            <a href="{{ route('budget.get',[auth()->user()->userid])}}" class = "backbtn"> 돌아가기 </a>
-            </form>
-    </div>
-    @else
-        <div class = "budgetset">
-            <h2>한달 예산 설정하기</h2>
-            <form action="{{route('budget.post')}}" method="post">
-                @csrf
-                <input type="number" name="budgetprice" id="budgetprice" placeholder="예산을 입력해주세요" >
-                <button type = "submit"> 설정 </button>
-            </form>
-        </div>
-    @endif
+
+    </article>
+
+</div>
 
 @endsection
