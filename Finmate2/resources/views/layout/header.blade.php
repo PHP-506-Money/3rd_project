@@ -34,9 +34,7 @@
 
                 <div class="login_div_box log_box">
                     <div onClick="location.href='{{ route('users.login') }}'">Login</div>
-
                     <div onClick="location.href='{{ route('users.registration') }}'">Join</div>
-
                 </div>
                 <!-- <a href="/account/login" class="link"><div class="login-btn"></div></a> -->
 
@@ -56,27 +54,25 @@
             <div class="menu">
                 <ul>
                     <li class="order">
-                        <a href="#none">자산</a>
+                        <a href="{{ url('/assets'.'/' . auth()->user()->userid) }}">자산</a>
+
                         <div class="order_ob-wrap">
                             <div class="order_ob">
-                                <button onclick="location.href='/menu/menu_list?class_id='">
+                                <button onclick="location.href='{{ url('/assets'.'/' . auth()->user()->userid) }}'">
                                     <img src="https://cdn.goob-ne.com/goobne/resources/assets/images/common/order_ob01.svg" alt="" />자산
                                 </button>
-
-
-                                <button onClick="location.href='/account/login?return_url=/delivery/delivery_list'">
+                                <button onClick="location.href='{{url('/assets/transactions'.'/'.auth()->user()->userid)}}'">
                                     <img src="https://cdn.goob-ne.com/goobne/resources/assets/images/common/order_ob02.svg" alt="" />자산내역
                                 </button>
-
-
                             </div>
                         </div>
                     </li>
 
-                    <li><a href="/menu/menu_main">예산</a></li>
-                    <li><a href="/store/search_store">목표</a></li>
-                    <li><a href="/brd/const/franchise">통계</a></li>
-                    <li><a href="/brd/event/list">업적</a></li>
+                    <li><a href="{{ url('/budget'.'/' . auth()->user()->userid) }}">예산</a></li>
+                    <li><a href="{{ url('/goal'.'/' . auth()->user()->userid) }}">목표</a></li>
+                    <li><a href="{{ url('/static'.'/' . auth()->user()->userid) }}">통계</a></li>
+                    <li><a href="{{ url('/achievements') }}">업적</a></li>
+
                 </ul>
             </div>
             <div class="btn-cnt-area">
