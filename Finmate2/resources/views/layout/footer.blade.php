@@ -100,9 +100,9 @@
                 <a href="/directions">찾아오시는길</a>
             </div>
             <div class="sns-box">
-                <a href="https://www.instagram.com/the___goobster/" target="_blank" class="instar"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-                <a href="https://www.facebook.com/goobne" target="_blank" class="facebook"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
-                <a href="https://www.youtube.com/watch?v=c99aYibEys4" target="_blank" class="youtube"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+                <a href="#" target="_blank" class="instar"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                <a href="#" target="_blank" class="facebook"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+                <a href="#" target="_blank" class="youtube"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
 
             </div>
             <div class="number">
