@@ -71,7 +71,7 @@
     {{-- 모핀 프로필 종료 --}}
     <div class="container">
         <div class="title">
-            <h3> 내 아이템 목록(클릭시 장착/해제)</h3>
+            <h6>내 아이템 목록(클릭시 장착/해제)</h6>
         </div>
         <div class="itemlist"> {{-- 아이템 부분 --}}
             @foreach($itemname as $value)
