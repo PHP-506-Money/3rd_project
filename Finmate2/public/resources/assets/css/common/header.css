@@ -67,9 +67,9 @@
 .search-area .input-search {
     height: 28px;
     line-height: 28px;
-    color: #111111;
+    color: #1c3879;
     border: none;
-    border-bottom: 1px solid #21293B;
+    border-bottom: 1px solid #1c3879;
     box-sizing: border-box;
     outline: none;
     width: 270px;
@@ -80,7 +80,7 @@
 }
 
 .search-area .input-search::placeholder {
-    color: #111111;
+    color: #1c3879;
 }
 
 #header .search-icon {

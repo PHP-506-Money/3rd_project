@@ -84,8 +84,29 @@
                 <ul class="inline_block">
                     <li>
                         <p class="sub-text">전화문의 </p>
-                        <p class="tel">1234-1234</p>
+                        
                     </li>
+                    <li>
+                        <p class="tel">1234-1234</p>
+
+                    </li>
+                
+                </ul>
+            </div>
+            <div class="info-btn">
+                <a href="#none" class="terms">이용약관</a>
+                <a href="#none" class="privacy">개인정보처리방침</a>
+                <a href="#none" class="e_mail">이메일무단수집거부</a>
+                <a href="/directions">찾아오시는길</a>
+            </div>
+            <div class="sns-box">
+                <a href="https://www.instagram.com/the___goobster/" target="_blank" class="instar"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                <a href="https://www.facebook.com/goobne" target="_blank" class="facebook"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+                <a href="https://www.youtube.com/watch?v=c99aYibEys4" target="_blank" class="youtube"><i class="fa fa-youtube-play" aria-hidden="true"></i></a>
+
+            </div>
+            <div class="number">
+                <ul class="inline_block">
                     <li>
                         <p class="sub-text">팀 돈맡겨주시조 </p>
                     </li>
@@ -103,18 +124,7 @@
 
                 </ul>
             </div>
-            <div class="info-btn">
-                <a href="#none" class="terms">이용약관</a>
-                <a href="#none" class="privacy">개인정보처리방침</a>
-                <a href="#none" class="e_mail">이메일무단수집거부</a>
-                <a href="/directions">찾아오시는길</a>
-            </div>
-            <div class="sns-box">
-                <a href="https://www.instagram.com/the___goobster/" target="_blank" class="instar"></a>
-                <a href="https://www.facebook.com/goobne" target="_blank" class="facebook"></a>
-                <a href="https://blog.naver.com/goobne94" target="_blank" class="blog"></a>
-                <a href="https://www.youtube.com/watch?v=c99aYibEys4" target="_blank" class="youtube"></a>
-            </div>
+
         </div>
         <div class="text-box">
             <div class="info-list">
