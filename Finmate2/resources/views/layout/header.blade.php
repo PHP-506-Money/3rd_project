@@ -52,7 +52,7 @@
         @endguest
         @auth
         <div class="logo">
-            <a href="{{ url('/assets'.'/' . auth()->user()->userid) }}">
+            <a href="{{ url('/main2') }}">
 
 
                 <img src="/resources/assets/images/common/logo.png" alt="logo">

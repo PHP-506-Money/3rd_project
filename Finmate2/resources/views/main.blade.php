@@ -238,7 +238,7 @@
 					</div>
 				</div>
 
-				<div class="con-box">
+				{{-- <div class="con-box">
 					<div class="con_wrap">
 						<p class="l-main-title wow fadeInUp">Goobnews</p>
 						<div class="event-list-wrap">
@@ -417,7 +417,7 @@
 						</div>
 					</div>
 
-				</div>
+				</div> --}}
 
 				<div class="con-box">
 					<p class="title wow fadeInUp">Goobtube</p>
