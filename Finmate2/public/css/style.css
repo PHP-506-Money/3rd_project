@@ -4,9 +4,7 @@
     font-weight: 400;
     font-style: normal;
 }
-body{
-    margin-top: 200px;
-}
+
 *{
     font-family: 'Pretendard-Regular';
 }
@@ -317,4 +315,8 @@ textarea::placeholder {
 }
 .listbox1{
     margin-bottom: 50px;
+}
+
+.top1{
+    margin-top: 150px;
 }

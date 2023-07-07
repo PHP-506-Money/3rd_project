@@ -7,6 +7,7 @@
 @section('contents')
     <link rel="stylesheet" href="{{ asset('/css/style.css')  }}" >
     <link rel="stylesheet" href="{{ asset('/css/hj.css')  }}" >
+    <div class="top1"></div>
     <div class="success">{!!session()->has('success') ? session('success') : ""!!}</div>
     @include('layout.errorsvalidate')
     <div class="profile">{{-- 모핀 프로필 시작 --}}
