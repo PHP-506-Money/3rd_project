@@ -7,6 +7,7 @@ html {
 * {
     -webkit-overflow-scrolling: touch;
     -webkit-border-radius: 0;
+    border-radius: 0;
 }
 
 body {
@@ -444,7 +445,7 @@ select::-ms-expand {
 }
 
 .text_right {
-    text: right;
+    float: right;
 }
 
 .float_right {
@@ -2110,7 +2111,7 @@ input.input_style {
     ;
 }
 
-#header .sub-menu-btn {}
+
 
 .main-box .goobne-btn-box button span {
     font-family: 'NanumSquareRound';
@@ -2699,10 +2700,7 @@ input.input_style {
         line-height: 5rem;
     }
 
-    .store__notice,
-    .l-paging-num {
-        /* display: none; */
-    }
+
 
     .store__search-tab .tab-btn button,
     .store__search-tab .tab-desc {

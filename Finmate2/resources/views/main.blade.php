@@ -65,83 +65,16 @@
 								<div class="goobne-img">
 									<img src="/resources/assets/images/banner/main_slide2.png" alt="">
 								</div>
+								<button class="goobne-btn btn2">
+								    <div class="img">
+								        <img src="/resources/assets/images/common/main_bg_icon_06.png" alt="">
+								    </div>
+								</button>
+
 				
 							</div>
 						</div>
-						<div class="main-box main-box_hight">
-							<div class="main-txt-area wow fadeInUp">
-								<div class="goobne-text">
-									<p>Welcome</p>
-									<p class="mid">to the</p>
-									<p class="last">FIN. <span class="mid">MATE</span></p>
-								</div>
-								<div class="goobne-text line">
-									<p>Welcome</p>
-									<p class="mid">to the</p>
-									<p class="last">FIN. <span class="mid">MATE</span></p>
-								</div>
-							</div>
-							<div class="goobne-bg wow fadeInUp">
-								<div class="goobne-img">
-									<img src="/resources/assets/images/main/fin_bg_2.png" alt="">
-								</div>
-								<button class="goobne-btn btn1">
-									<div class="img">
-										<img src="https://cdn.goob-ne.com/goobne/resources/assets/images/common/main_bg_icon_01.png" alt="">
-									</div>
-									<span>✨자산관리<br>서비스 등장!</span>
-								</button>
-								<button class="goobne-btn btn2">
-									<div class="img">
-										<img src="/resources/assets/images/common/main_bg_icon_05.png" alt="">
-									</div>
-								</button>
-						
-								<button class="goobne-menu-btn btn1">
-									예산기능
-								</button>
-								<button class="goobne-menu-btn btn2">
-									통계기능
-								</button>
-							</div>
-						</div>
-						<div class="main-box main-box_hight">
-							<div class="main-txt-area wow fadeInUp">
-								<div class="goobne-text">
-									<p>Welcome</p>
-									<p class="mid">to the</p>
-									<p class="last">FIN. <span class="mid">MATE</span></p>
-								</div>
-								<div class="goobne-text line">
-									<p>Welcome</p>
-									<p class="mid">to the</p>
-									<p class="last">FIN. <span class="mid">MATE</span></p>
-								</div>
-							</div>
-							<div class="goobne-bg wow fadeInUp">
-								<div class="goobne-img">
-									<img src="/resources/assets/images/main/fin_bg_2.png" alt="">
-								</div>
-								<button class="goobne-btn btn1">
-									<div class="img">
-										<img src="https://cdn.goob-ne.com/goobne/resources/assets/images/common/main_bg_icon_01.png" alt="">
-									</div>
-									<span>✨자산관리<br>서비스 등장!</span>
-								</button>
-								<button class="goobne-btn btn2">
-									<div class="img">
-										<img src="/resources/assets/images/common/main_bg_icon_05.png" alt="">
-									</div>
-								</button>
-						
-								<button class="goobne-menu-btn btn1">
-									예산기능
-								</button>
-								<button class="goobne-menu-btn btn2">
-									통계기능
-								</button>
-							</div>
-						</div>
+
 
 				</div>
 
@@ -158,15 +91,20 @@
 
 							<a href="menu/menu_list?class_id=10" class="menu-list" target="self">
 								<div class="menu-img">
-									<img src="https://cdn.goob-ne.com/goobne/img/banner/166490b5a60b466787067d0ac6ff4338.jpg"
-										alt="CHICKEN">
+									<img src="/resources/assets/images/banner/assets.png"
+
+										alt="자산관리">
+
 								</div>
 								<p class="menu-name">✨자산관리</p>
 							</a>
 
                             <a href="menu/menu_list?class_id=10" class="menu-list  top" target="self">
                                 <div class="menu-img">
-                                    <img src="https://cdn.goob-ne.com/goobne/img/banner/166490b5a60b466787067d0ac6ff4338.jpg" alt="CHICKEN">
+                                    <img src="/resources/assets/images/banner/transaction.png"
+
+									alt="자산내역관리">
+
                                 </div>
                                 <p class="menu-name">자산내역관리</p>
                             </a>
@@ -206,8 +144,10 @@
 
 							<a href="menu/menu_list?class_id=10" class="menu-list  top" target="self">
 								<div class="menu-img">
-									<img src="https://cdn.goob-ne.com/goobne/img/banner/166490b5a60b466787067d0ac6ff4338.jpg"
-										alt="CHICKEN">
+									<img src="/resources/assets/images/banner/budget.png"
+
+										alt="예산설정">
+
 								</div>
 								<p class="menu-name">예산설정</p>
 							</a>
@@ -225,7 +165,7 @@
 
 							<a href="/menu/menu_list?class_id=12" class="menu-list  top" target="self">
 								<div class="menu-img">
-									<img src="https://cdn.goob-ne.com/goobne/img/banner/9919f5df23a041deaa338ef75844777d.jpg"
+									<img src="/resources/assets/images/banner/achieve.png"
 										alt="DESSERT">
 								</div>
 								<p class="menu-name">업적관리</p>
@@ -234,186 +174,7 @@
 					</div>
 				</div>
 
-				{{-- <div class="con-box">
-					<div class="con_wrap">
-						<p class="l-main-title wow fadeInUp">Goobnews</p>
-						<div class="event-list-wrap">
 
-
-
-							<div class="event-list on wow fadeInUp">
-								<a href="https://www.goobne.co.kr/brd/notice/view?seq=69443" target="self">
-									<div class="mo-thum">
-										<img src="https://cdn.goob-ne.com/goobne/img/banner/7b7a3c9067a14a2a9c091adbc2c15fc8.png"
-											alt="">
-									</div>
-									<div class="status half">
-										<p class="sub">[프로모션]</p>
-									</div>
-									<div class="event-title half">
-										<p class="main-text">굽네, 르세라핌 팬 사인회 개최…응모 이벤트 실시</p>
-									</div>
-								</a>
-							</div>
-
-
-							<div class="event-list  wow fadeInUp">
-								<a href="https://www.goobne.co.kr/brd/notice/view?seq=69239" target="self">
-									<div class="mo-thum">
-										<img src="https://cdn.goob-ne.com/goobne/img/banner/c8ee9ce979124167b472092ca91c4147.png"
-											alt="">
-									</div>
-									<div class="status half">
-										<p class="sub">[브랜드]</p>
-									</div>
-									<div class="event-title half">
-										<p class="main-text">굽네, 포토제닉 테이스트 "르세라핌 인 시카고" 광고 공개</p>
-									</div>
-								</a>
-							</div>
-
-
-							<div class="event-list  wow fadeInUp">
-								<a href="https://www.goobne.co.kr/brd/notice/view?seq=69157" target="self">
-									<div class="mo-thum">
-										<img src="https://cdn.goob-ne.com/goobne/img/banner/a820a4b3e2be44ae818e7454439a0526.png"
-											alt="">
-									</div>
-									<div class="status half">
-										<p class="sub">[브랜드]</p>
-									</div>
-									<div class="event-title half">
-										<p class="main-text">굽네, 모델로 르세라핌 발탁…신제품 티저 광고 공개</p>
-									</div>
-								</a>
-							</div>
-
-
-
-
-
-							<div class="event-list  wow fadeInUp">
-								<a href="https://www.goobne.co.kr/brd/notice/view?seq=69063" target="self">
-									<div class="mo-thum">
-										<img src="https://cdn.goob-ne.com/goobne/img/banner/21f477ee09b246048c6fa56786896705.jpg"
-											alt="">
-									</div>
-									<div class="status half">
-										<p class="sub">[ESG]</p>
-									</div>
-									<div class="event-title half">
-										<p class="main-text">굽네, 대한적십자사와 MOU 체결…</p>
-									</div>
-								</a>
-							</div>
-
-
-
-
-
-							<div class="event-list  wow fadeInUp">
-								<a href="https://www.goobne.co.kr/brd/notice/view?seq=68849" target="self">
-									<div class="mo-thum">
-										<img src="https://cdn.goob-ne.com/goobne/img/banner/bd4c1f347a3d49e88f3a1e26e00a7c13.png"
-											alt="">
-									</div>
-									<div class="status half">
-										<p class="sub">[신제품]</p>
-									</div>
-									<div class="event-title half">
-										<p class="main-text">굽네,‘곱빼기’ 출시… ’먹그레이드’ 트렌드 겨냥</p>
-									</div>
-								</a>
-							</div>
-
-
-						</div>
-					</div>
-
-					<a href="/brd/notice/list" class="news_view_more_btn">더보기</a>
-					<!-- //230130 수정 -->
-
-				</div>
-
-
-				<div class="con-box">
-					<div class="l-main-bg">
-						<p class="title wow fadeInUp">
-							<span class="instar">The Goobster</span>
-						</p>
-						<div class="goobster-box-wrap wow fadeInUp">
-							<div class="goobster-box">
-
-
-
-								<div class="img">
-									<a href="https://www.instagram.com/p/CtfeX9nBiew/?igshid=MTIzZWMxMTBkOA=="
-										class="menu-list" target="self">
-										<img src="https://cdn.goob-ne.com/goobne/img/banner/6cc06c76eb714a38bffd2defa0b576a5.jpg"
-											alt="플레이타운">
-									</a>
-								</div>
-
-
-
-								<div class="img">
-									<a href="https://www.instagram.com/p/CkmT8GHp5mq/?utm_source=ig_web_copy_link"
-										class="menu-list" target="self">
-										<img src="https://cdn.goob-ne.com/goobne/img/banner/0b9439be8f8743b9ba79c2f6b752169e.png"
-											alt="굽스터12_남해대첩">
-									</a>
-								</div>
-
-
-								<div class="img">
-									<a href="https://www.instagram.com/p/CfGZ5RYJzGX/?utm_source=ig_web_copy_link"
-										class="menu-list" target="_new">
-										<img src="https://cdn.goob-ne.com/goobne/img/banner/b05f58bd233444f49b0948f731d8e5db.png"
-											alt="굽스터11">
-									</a>
-								</div>
-
-
-								<div class="img">
-									<a href="https://www.instagram.com/p/Cd7u3tHBM14/?utm_source=ig_web_copy_link"
-										class="menu-list" target="_new">
-										<img src="https://cdn.goob-ne.com/goobne/img/banner/658e5529ddd34c318bf8565a957e6804.png"
-											alt="굽스터9">
-									</a>
-								</div>
-
-								<div class="img">
-									<a href="https://www.instagram.com/p/Csx4Ie-O6ja/?igshid=MTIzZWMxMTBkOA=="
-										class="menu-list" target="self">
-										<img src="https://cdn.goob-ne.com/goobne/img/banner/dd93cb6b5986445182a5bd006407c3e2.jpg"
-											alt="92데이">
-									</a>
-								</div>
-
-
-
-								<div class="img">
-									<a href="https://www.instagram.com/p/Ckpvpo1JJPo/?utm_source=ig_web_copy_link"
-										class="menu-list" target="self">
-										<img src="https://cdn.goob-ne.com/goobne/img/banner/77a929629d524bcb9724e7e5368a8d49.png"
-											alt="굽스터13_남해대첩">
-									</a>
-								</div>
-
-								<div class="img">
-									<a href="https://www.instagram.com/p/CkxeB7apQ7f/?utm_source=ig_web_copy_link"
-										class="menu-list" target="self">
-										<img src="https://cdn.goob-ne.com/goobne/img/banner/a64bcffc2b2b4a438b7f544feecc1791.jpg"
-											alt="굽스터14_남해대첩">
-									</a>
-								</div>
-
-
-							</div>
-						</div>
-					</div>
-
-				</div> --}}
 
 				<div class="con-box">
 				    <div class="con_wrap">
@@ -421,9 +182,6 @@
 				        <div class="event-list-wrap">
 				            <div class="event-list on wow fadeInUp">
 				                <a href="#" target="self">
-				                    <div class="mo-thum">
-				                        <img src="https://cdn.goob-ne.com/goobne/img/banner/7b7a3c9067a14a2a9c091adbc2c15fc8.png" alt="">
-				                    </div>
 				                    <div class="status half">
 				                        <p class="sub">[프로모션]</p>
 				                    </div>
@@ -434,9 +192,6 @@
 				            </div>
 				            <div class="event-list  wow fadeInUp">
 				                <a href="#" target="self">
-				                    <div class="mo-thum">
-				                        <img src="https://cdn.goob-ne.com/goobne/img/banner/c8ee9ce979124167b472092ca91c4147.png" alt="">
-				                    </div>
 				                    <div class="status half">
 				                        <p class="sub">[이벤트]</p>
 				                    </div>
@@ -449,9 +204,6 @@
 
 				            <div class="event-list  wow fadeInUp">
 				                <a href="#" target="self">
-				                    <div class="mo-thum">
-				                        <img src="https://cdn.goob-ne.com/goobne/img/banner/a820a4b3e2be44ae818e7454439a0526.png" alt="">
-				                    </div>
 				                    <div class="status half">
 				                        <p class="sub">[이벤트]</p>
 				                    </div>
@@ -467,9 +219,6 @@
 
 				            <div class="event-list  wow fadeInUp">
 				                <a href="#" target="self">
-				                    <div class="mo-thum">
-				                        <img src="https://cdn.goob-ne.com/goobne/img/banner/21f477ee09b246048c6fa56786896705.jpg" alt="">
-				                    </div>
 				                    <div class="status half">
 				                        <p class="sub">[공지]</p>
 				                    </div>
