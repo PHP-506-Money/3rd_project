@@ -200,7 +200,7 @@ li.goobne-text:hover {
     margin-top: -2rem;
 }
 
-@-webkit-keyframes rotate {
+@keyframes rotate {
     from {
         margin-top: 0;
     }
@@ -214,7 +214,7 @@ li.goobne-text:hover {
     }
 }
 
-@-webkit-keyframes rotate2 {
+@keyframes rotate2 {
     from {
         margin-bottom: 0;
     }
@@ -407,6 +407,8 @@ li.goobne-text:hover {
     font-family: 'Rubik', 'NanumSquareRound', 'Noto Sans KR', sans-serif;
 }
 
+
+
 .menu-box .slick-slide {
     margin: 0 50px;
 }
@@ -465,7 +467,7 @@ li.goobne-text:hover {
 }
 /* //230130 수정 */
 .event-list-wrap .event-list {
-    border-top: 1px solid #051c38790;
+    border-top: 1px solid #051c3879;
     box-sizing: border-box;
     padding: 5rem 0;
     position: relative;
@@ -490,7 +492,7 @@ li.goobne-text:hover {
 }
 
 .event-list-wrap .event-list:last-child {
-    border-bottom: 1px solid #051c38790;
+    border-bottom: 1px solid #051c3879;
 }
 
 .event-list-wrap .event-list.on {
@@ -610,8 +612,8 @@ li.goobne-text:hover {
     justify-content: center;
     width: 100%;
     height: 9rem;
-    border-top: 1px solid #051c38790;
-    border-bottom: 1px solid #051c38790;
+    border-top: 1px solid #051c3879;
+    border-bottom: 1px solid #051c3879;
     box-sizing: border-box;
     margin-top: 9rem;
 }
@@ -825,9 +827,7 @@ li.goobne-text:hover {
         left: 5px;
         margin-top: 3rem;
     }
-    .main-box .goobne-text .last {
-       /* transform: translateY(-2rem);*/
-    }
+
     
     .main-box .goobne-text p,
     .main-box .goobne-text span {
@@ -917,7 +917,7 @@ li.goobne-text:hover {
         padding-bottom: 6rem;
     }
 
-    .main-box .goobne-bg .goobne-btn {}
+
 
     .main-box .goobne-bg .goobne-btn.btn1 {
         width: 28.2vw;
@@ -1011,15 +1011,6 @@ li.goobne-text:hover {
         transform: translateY(0rem);
     }
 
-    .main-box .goobne-text.line {
-        /* position: absolute;
-        top:-2px;
-        left: 7px;
-        width: 100%;
-        margin: 0;
-        margin-top: 18rem;
-        z-index: 1; */
-    }
 
     /* .main-box .goobne-text p,
     .main-box .goobne-text span {
@@ -1208,7 +1199,7 @@ li.goobne-text:hover {
     }
 
     .event-list-wrap .event-list {
-        border-top: 1px solid #051c38790;
+        border-top: 1px solid #051c3879;
         padding:0;
         display: flex;
         align-items: center;
@@ -1373,7 +1364,7 @@ li.goobne-text:hover {
         padding: 8rem 0;
     }
 
-    @-webkit-keyframes rotate {
+    @keyframes rotate {
         from {
             margin-top: 0;
         }
@@ -1387,7 +1378,7 @@ li.goobne-text:hover {
         }
     }
 
-    @-webkit-keyframes rotate2 {
+    @keyframes rotate2 {
         from {
             margin-bottom: 0;
         }
@@ -1428,9 +1419,7 @@ li.goobne-text:hover {
         margin-bottom: 5rem;
     }
 
-    .main-box .goobne-text .last {
-        /*transform: translateY(-1rem);*/
-    }
+
 
     .main-box .goobne-text.line {
         top: -2px;

@@ -72,10 +72,7 @@
     transform: translate(-50%, 0);
     }
 	
-    #magnifying-glass_G {
-      
-    
-    }
+
 
 .test_b	{position: absolute;
     bottom: 18px;
@@ -252,7 +249,7 @@ flex-direction:column;
 	100% {margin-top: 10px;}
 }
 
--webkit-@keyframes motion {
+@keyframes motion {
 	0% {margin-top: 0px;}
 	100% {margin-top: 10px;}
 }

@@ -4155,7 +4155,7 @@ section {
     -webkit-animation-iteration-count: infinite;
             animation-iteration-count: infinite;
   }
-  @-webkit-keyframes rotate {
+  @keyframes rotate {
     from {
       margin-top: 0;
     }
@@ -4166,7 +4166,7 @@ section {
       margin-top: 0;
     }
   }
-  @-webkit-keyframes rotate2 {
+  @keyframes rotate2 {
     from {
       margin-bottom: 0;
     }

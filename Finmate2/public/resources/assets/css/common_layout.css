@@ -383,12 +383,7 @@
   }
 }
 
-.l-scroll-style {
-  /* 스크롤 사이즈 */
-  /*스크롤 bg*/
-  /*스크롤 모양 */
-  /*스크롤 위아래 버튼 없애기 */
-}
+
 
 .l-scroll-style::-webkit-scrollbar {
   width: 5px;
