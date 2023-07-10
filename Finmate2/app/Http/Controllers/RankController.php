@@ -38,6 +38,8 @@ class RankController extends Controller
 
     }
 
+    
+
     // public function search(Request $req){
 
     //     $usersearch = DB::table('users') 

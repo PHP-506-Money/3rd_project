@@ -41,18 +41,12 @@
                 <div class="goobne-tv-box wow fadeInUp">
                     <div class="goobne-tv-wrap">
 
-
-
-
                         <div class="img-box">
                             <a href="https://youtu.be/iF36IOPNeNQ" class="menu-list" target="self">
                                 <img src="https://cdn.goob-ne.com/goobne/img/banner/1a08342e73a14d79a63c69f2f5885add.jpg" alt="팬사인회">
+                                <h2>뽑기왕: ㅁㅁㅁ</h2>
                             </a>
                         </div>
-
-
-
-
 
                         <div class="img-box">
                             <a href="https://www.youtube.com/watch?v=9uGuB4mbdNI" class="menu-list" target="self">
@@ -60,97 +54,11 @@
                             </a>
                         </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                         <div class="img-box">
                             <a href="https://youtu.be/xbHNC__4-TU" class="menu-list" target="self">
                                 <img src="https://cdn.goob-ne.com/goobne/img/banner/8b8d313166d74486af1076d35ee968c9.png" alt="르세라핌 FULL">
                             </a>
                         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
                         <div class="img-box">
                             <a href="https://www.youtube.com/watch?v=z3zFldyCAWg" class="menu-list" target="self">
@@ -158,23 +66,11 @@
                             </a>
                         </div>
 
-
-
-
-
                         <div class="img-box">
                             <a href="https://www.youtube.com/watch?v=iDSS4nEbGLc" class="menu-list" target="_new">
                                 <img src="https://cdn.goob-ne.com/goobne/img/banner/2c4300e4258b4a75a1b7e461a1360f0d.jpg" alt="차승원">
                             </a>
                         </div>
-
-
-
-
-
-
-
-
 
                         <div class="img-box">
                             <a href="https://www.youtube.com/watch?v=tbXoEa9AYFE" class="menu-list" target="self">
@@ -182,30 +78,11 @@
                             </a>
                         </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
                         <div class="img-box">
                             <a href="https://www.youtube.com/watch?v=ID3IjxVvOT0" class="menu-list" target="self">
                                 <img src="https://cdn.goob-ne.com/goobne/img/banner/30b3bacf2cbb40c59c95efd8137947f8.jpg" alt="[굽튜브]불금치킨 구울레옹 1분">
                             </a>
                         </div>
-
-
-
-
-
-
-
 
                     </div>
                 </div>
