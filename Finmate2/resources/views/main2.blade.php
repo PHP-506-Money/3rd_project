@@ -34,9 +34,6 @@
                             <p class="menu-name">자산내역관리</p>
                         </a>
 
-
-
-
                         <a href="/menu/menu_list?class_id=11" class="menu-list " target="self">
                             <div class="menu-img">
                                 <img src="https://cdn.goob-ne.com/goobne/img/banner/c50121c1413542e582c03c5dd6d715cc.jpg" alt="PIZZA">
@@ -60,8 +57,6 @@
                             <p class="menu-name">목표설정</p>
                         </a>
 
-
-
                         <a href="menu/menu_list?class_id=10" class="menu-list  top" target="self">
                             <div class="menu-img">
                                 <img src="https://cdn.goob-ne.com/goobne/img/banner/166490b5a60b466787067d0ac6ff4338.jpg" alt="CHICKEN">
@@ -69,15 +64,12 @@
                             <p class="menu-name">예산설정</p>
                         </a>
 
-
                         <a href="/menu/menu_list?class_id=11" class="menu-list " target="self">
                             <div class="menu-img">
                                 <img src="/resources/assets/images/banner/static.png" alt="통계관리">
                             </div>
                             <p class="menu-name">통계관리</p>
                         </a>
-
-
 
                         <a href="/menu/menu_list?class_id=12" class="menu-list  top" target="self">
                             <div class="menu-img">
@@ -91,11 +83,8 @@
 
             <div class="con-box">
 					<div class="con_wrap">
-						<p class="l-main-title wow fadeInUp">Goobnews</p>
+						<p class="l-main-title wow fadeInUp">Fin news</p>
 						<div class="event-list-wrap">
-
-
-
 							<div class="event-list on wow fadeInUp">
 								<a href="https://www.goobne.co.kr/brd/notice/view?seq=69443" target="self">
 									<div class="mo-thum">
@@ -106,12 +95,10 @@
 										<p class="sub">[프로모션]</p>
 									</div>
 									<div class="event-title half">
-										<p class="main-text">굽네, 르세라핌 팬 사인회 개최…응모 이벤트 실시</p>
+										<p class="main-text">Fin.mate 서비스 시작</p>
 									</div>
 								</a>
 							</div>
-
-
 							<div class="event-list  wow fadeInUp">
 								<a href="https://www.goobne.co.kr/brd/notice/view?seq=69239" target="self">
 									<div class="mo-thum">
@@ -119,10 +106,10 @@
 											alt="">
 									</div>
 									<div class="status half">
-										<p class="sub">[브랜드]</p>
+										<p class="sub">[이벤트]</p>
 									</div>
 									<div class="event-title half">
-										<p class="main-text">굽네, 포토제닉 테이스트 "르세라핌 인 시카고" 광고 공개</p>
+										<p class="main-text">첫 자산연결 성공시 상품 추첨기회 제공</p>
 									</div>
 								</a>
 							</div>
@@ -135,10 +122,10 @@
 											alt="">
 									</div>
 									<div class="status half">
-										<p class="sub">[브랜드]</p>
+										<p class="sub">[이벤트]</p>
 									</div>
 									<div class="event-title half">
-										<p class="main-text">굽네, 모델로 르세라핌 발탁…신제품 티저 광고 공개</p>
+										<p class="main-text">첫 개시! 몇달간만 포인트를 600을 제공합니다</p>
 									</div>
 								</a>
 							</div>
@@ -154,10 +141,10 @@
 											alt="">
 									</div>
 									<div class="status half">
-										<p class="sub">[ESG]</p>
+										<p class="sub">[공지]</p>
 									</div>
 									<div class="event-title half">
-										<p class="main-text">굽네, 대한적십자사와 MOU 체결…</p>
+										<p class="main-text">2023.07.10 새벽 2시부터 5시 사이 점검이 있을 예정입니다.</p>
 									</div>
 								</a>
 							</div>
@@ -173,10 +160,10 @@
 											alt="">
 									</div>
 									<div class="status half">
-										<p class="sub">[신제품]</p>
+										<p class="sub">[공지]</p>
 									</div>
 									<div class="event-title half">
-										<p class="main-text">굽네,‘곱빼기’ 출시… ’먹그레이드’ 트렌드 겨냥</p>
+										<p class="main-text">이제 좀 귀찮다</p>
 									</div>
 								</a>
 							</div>
@@ -194,7 +181,7 @@
 				<div class="con-box">
 					<div class="l-main-bg">
 						<p class="title wow fadeInUp">
-							<span class="instar">The Goobster</span>
+							<span class="instar">인기많은 모핀이</span>
 						</p>
 						<div class="goobster-box-wrap wow fadeInUp">
 							<div class="goobster-box">
@@ -271,7 +258,7 @@
 				</div>
 
             <div class="con-box">
-                <p class="title wow fadeInUp">Goobtube</p>
+                <p class="title wow fadeInUp">The Fin.mate</p>
                 <div id="infinite" class="goobne-slider wow fadeInUp">
                     <div class="container goobne-wrapper">
                         <ul class="goobne-line">
