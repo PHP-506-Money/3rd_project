@@ -8,6 +8,7 @@
 @php 
 @endphp
     <link rel="stylesheet" href="{{ asset('/css/style.css')  }}" >
+    <div class="top1"></div>
     @include('layout.errorsvalidate')
     <form id="table" action="{{route('users.updatepw.post')}}" method="post">
         @csrf
