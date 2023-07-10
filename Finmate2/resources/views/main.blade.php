@@ -65,13 +65,7 @@
 								<div class="goobne-img">
 									<img src="/resources/assets/images/banner/main_slide2.png" alt="">
 								</div>
-					
-								<button class="goobne-menu-btn btn2">
-									업적기능
-								</button>
-								<button class="goobne-menu-btn btn1">
-									뽑기기능
-								</button>
+				
 							</div>
 						</div>
 						<div class="main-box main-box_hight">
@@ -182,8 +176,9 @@
 
 							<a href="/menu/menu_list?class_id=11" class="menu-list " target="self">
 								<div class="menu-img">
-									<img src="https://cdn.goob-ne.com/goobne/img/banner/c50121c1413542e582c03c5dd6d715cc.jpg"
-										alt="PIZZA">
+									<img src="/resources/assets/images/banner/decoChar.png"
+
+										alt="꾸미기">
 								</div>
 								<p class="menu-name">모핀꾸미기</p>
 							</a>
@@ -200,8 +195,9 @@
 
 							<a href="menu/menu_list?class_id=13" class="menu-list " target="self">
 								<div class="menu-img">
-									<img src="https://cdn.goob-ne.com/goobne/img/banner/a13a7ca55c254637a8561e5aabb81840.jpg"
-										alt="BEST SET">
+									<img src="/resources/assets/images/banner/setGoal.png"
+
+										alt="목표">
 								</div>
 								<p class="menu-name">목표설정</p>
 							</a>
