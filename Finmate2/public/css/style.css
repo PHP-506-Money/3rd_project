@@ -1,7 +1,11 @@
+/* 전체 css */
+
 a {
     text-decoration: none;
     color: var(--main-color);
 }
+
+/* registration, login, modify */
 
 #menu {
     margin: 20px auto;
@@ -84,6 +88,8 @@ span:hover + p.arrow_box {
     text-align: center;
 }
 
+/* 성공 메세지, 실패 메시지 */
+
 .success {
     background-color: var(--btn-color);
     color: white;
@@ -110,6 +116,8 @@ span:hover + p.arrow_box {
     font-size: small;
     color: red;
 }
+
+/* 라벨, 인풋창 */
 
 label, input {
     margin: 10px auto;
@@ -184,6 +192,8 @@ input {
     font-size: small;
 }
 
+/* 버튼 */
+
 .button {
     background-color: var(--btn-color);
     color: var(--sub-color);
@@ -234,6 +244,7 @@ input {
     float: right;
 }
 
+/* profile */
 
 #info {
     display: flex;
@@ -268,6 +279,8 @@ textarea::placeholder {
     font-size: 11px;
 }
 
+/* modify */
+
 #modify {
     width: 500px;
     height: 500px;
@@ -277,6 +290,8 @@ textarea::placeholder {
     align-items: center;
     text-align: center;
 }
+
+/* profile */
 
 .moffin {
     z-index: 1;
