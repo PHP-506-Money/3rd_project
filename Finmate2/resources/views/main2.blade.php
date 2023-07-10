@@ -8,254 +8,12 @@
     <div class="inner">
         <div class="main-slick-wrap">
 
-            <div class="con-box menu-box">
-                <div class="inner">
-                    <br>
-                    <br>
-                    <br>
-                    <br>
+            
 
-                    <p class="l-main-title wow fadeInUp">Our Service</p>
-                    <div class="menu-list-wrap wow fadeInUp">
+            
 
 
-
-                        <a href="menu/menu_list?class_id=10" class="menu-list" target="self">
-                            <div class="menu-img">
-                                <img src="https://cdn.goob-ne.com/goobne/img/banner/166490b5a60b466787067d0ac6ff4338.jpg" alt="CHICKEN">
-                            </div>
-                            <p class="menu-name">✨자산관리</p>
-                        </a>
-
-                        <a href="menu/menu_list?class_id=10" class="menu-list  top" target="self">
-                            <div class="menu-img">
-                                <img src="https://cdn.goob-ne.com/goobne/img/banner/166490b5a60b466787067d0ac6ff4338.jpg" alt="CHICKEN">
-                            </div>
-                            <p class="menu-name">자산내역관리</p>
-                        </a>
-
-                        <a href="/menu/menu_list?class_id=11" class="menu-list " target="self">
-                            <div class="menu-img">
-                                <img src="https://cdn.goob-ne.com/goobne/img/banner/c50121c1413542e582c03c5dd6d715cc.jpg" alt="PIZZA">
-                            </div>
-                            <p class="menu-name">모핀꾸미기</p>
-                        </a>
-
-
-                        <a href="/menu/menu_list?class_id=12" class="menu-list  top" target="self">
-                            <div class="menu-img">
-                                <img src="/resources/assets/images/banner/itemdraw.png" alt="아이템뽑기">
-                            </div>
-                            <p class="menu-name">아이템뽑기</p>
-                        </a>
-
-
-                        <a href="menu/menu_list?class_id=13" class="menu-list " target="self">
-                            <div class="menu-img">
-                                <img src="https://cdn.goob-ne.com/goobne/img/banner/a13a7ca55c254637a8561e5aabb81840.jpg" alt="BEST SET">
-                            </div>
-                            <p class="menu-name">목표설정</p>
-                        </a>
-
-                        <a href="menu/menu_list?class_id=10" class="menu-list  top" target="self">
-                            <div class="menu-img">
-                                <img src="https://cdn.goob-ne.com/goobne/img/banner/166490b5a60b466787067d0ac6ff4338.jpg" alt="CHICKEN">
-                            </div>
-                            <p class="menu-name">예산설정</p>
-                        </a>
-
-                        <a href="/menu/menu_list?class_id=11" class="menu-list " target="self">
-                            <div class="menu-img">
-                                <img src="/resources/assets/images/banner/static.png" alt="통계관리">
-                            </div>
-                            <p class="menu-name">통계관리</p>
-                        </a>
-
-                        <a href="/menu/menu_list?class_id=12" class="menu-list  top" target="self">
-                            <div class="menu-img">
-                                <img src="https://cdn.goob-ne.com/goobne/img/banner/9919f5df23a041deaa338ef75844777d.jpg" alt="DESSERT">
-                            </div>
-                            <p class="menu-name">업적관리</p>
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="con-box">
-					<div class="con_wrap">
-						<p class="l-main-title wow fadeInUp">Fin news</p>
-						<div class="event-list-wrap">
-							<div class="event-list on wow fadeInUp">
-								<a href="https://www.goobne.co.kr/brd/notice/view?seq=69443" target="self">
-									<div class="mo-thum">
-										<img src="https://cdn.goob-ne.com/goobne/img/banner/7b7a3c9067a14a2a9c091adbc2c15fc8.png"
-											alt="">
-									</div>
-									<div class="status half">
-										<p class="sub">[프로모션]</p>
-									</div>
-									<div class="event-title half">
-										<p class="main-text">Fin.mate 서비스 시작</p>
-									</div>
-								</a>
-							</div>
-							<div class="event-list  wow fadeInUp">
-								<a href="https://www.goobne.co.kr/brd/notice/view?seq=69239" target="self">
-									<div class="mo-thum">
-										<img src="https://cdn.goob-ne.com/goobne/img/banner/c8ee9ce979124167b472092ca91c4147.png"
-											alt="">
-									</div>
-									<div class="status half">
-										<p class="sub">[이벤트]</p>
-									</div>
-									<div class="event-title half">
-										<p class="main-text">첫 자산연결 성공시 상품 추첨기회 제공</p>
-									</div>
-								</a>
-							</div>
-
-
-							<div class="event-list  wow fadeInUp">
-								<a href="https://www.goobne.co.kr/brd/notice/view?seq=69157" target="self">
-									<div class="mo-thum">
-										<img src="https://cdn.goob-ne.com/goobne/img/banner/a820a4b3e2be44ae818e7454439a0526.png"
-											alt="">
-									</div>
-									<div class="status half">
-										<p class="sub">[이벤트]</p>
-									</div>
-									<div class="event-title half">
-										<p class="main-text">첫 개시! 몇달간만 포인트를 600을 제공합니다</p>
-									</div>
-								</a>
-							</div>
-
-
-
-
-
-							<div class="event-list  wow fadeInUp">
-								<a href="https://www.goobne.co.kr/brd/notice/view?seq=69063" target="self">
-									<div class="mo-thum">
-										<img src="https://cdn.goob-ne.com/goobne/img/banner/21f477ee09b246048c6fa56786896705.jpg"
-											alt="">
-									</div>
-									<div class="status half">
-										<p class="sub">[공지]</p>
-									</div>
-									<div class="event-title half">
-										<p class="main-text">2023.07.10 새벽 2시부터 5시 사이 점검이 있을 예정입니다.</p>
-									</div>
-								</a>
-							</div>
-
-
-
-
-
-							<div class="event-list  wow fadeInUp">
-								<a href="https://www.goobne.co.kr/brd/notice/view?seq=68849" target="self">
-									<div class="mo-thum">
-										<img src="https://cdn.goob-ne.com/goobne/img/banner/bd4c1f347a3d49e88f3a1e26e00a7c13.png"
-											alt="">
-									</div>
-									<div class="status half">
-										<p class="sub">[공지]</p>
-									</div>
-									<div class="event-title half">
-										<p class="main-text">이제 좀 귀찮다</p>
-									</div>
-								</a>
-							</div>
-
-
-						</div>
-					</div>
-
-					<a href="/brd/notice/list" class="news_view_more_btn">더보기</a>
-					<!-- //230130 수정 -->
-
-				</div>
-
-
-				<div class="con-box">
-					<div class="l-main-bg">
-						<p class="title wow fadeInUp">
-							<span class="instar">인기많은 모핀이</span>
-						</p>
-						<div class="goobster-box-wrap wow fadeInUp">
-							<div class="goobster-box">
-
-
-
-								<div class="img">
-									<a href="https://www.instagram.com/p/CtfeX9nBiew/?igshid=MTIzZWMxMTBkOA=="
-										class="menu-list" target="self">
-										<img src="https://cdn.goob-ne.com/goobne/img/banner/6cc06c76eb714a38bffd2defa0b576a5.jpg"
-											alt="플레이타운">
-									</a>
-								</div>
-
-
-
-								<div class="img">
-									<a href="https://www.instagram.com/p/CkmT8GHp5mq/?utm_source=ig_web_copy_link"
-										class="menu-list" target="self">
-										<img src="https://cdn.goob-ne.com/goobne/img/banner/0b9439be8f8743b9ba79c2f6b752169e.png"
-											alt="굽스터12_남해대첩">
-									</a>
-								</div>
-
-
-								<div class="img">
-									<a href="https://www.instagram.com/p/CfGZ5RYJzGX/?utm_source=ig_web_copy_link"
-										class="menu-list" target="_new">
-										<img src="https://cdn.goob-ne.com/goobne/img/banner/b05f58bd233444f49b0948f731d8e5db.png"
-											alt="굽스터11">
-									</a>
-								</div>
-
-
-								<div class="img">
-									<a href="https://www.instagram.com/p/Cd7u3tHBM14/?utm_source=ig_web_copy_link"
-										class="menu-list" target="_new">
-										<img src="https://cdn.goob-ne.com/goobne/img/banner/658e5529ddd34c318bf8565a957e6804.png"
-											alt="굽스터9">
-									</a>
-								</div>
-
-								<div class="img">
-									<a href="https://www.instagram.com/p/Csx4Ie-O6ja/?igshid=MTIzZWMxMTBkOA=="
-										class="menu-list" target="self">
-										<img src="https://cdn.goob-ne.com/goobne/img/banner/dd93cb6b5986445182a5bd006407c3e2.jpg"
-											alt="92데이">
-									</a>
-								</div>
-
-
-
-								<div class="img">
-									<a href="https://www.instagram.com/p/Ckpvpo1JJPo/?utm_source=ig_web_copy_link"
-										class="menu-list" target="self">
-										<img src="https://cdn.goob-ne.com/goobne/img/banner/77a929629d524bcb9724e7e5368a8d49.png"
-											alt="굽스터13_남해대첩">
-									</a>
-								</div>
-
-								<div class="img">
-									<a href="https://www.instagram.com/p/CkxeB7apQ7f/?utm_source=ig_web_copy_link"
-										class="menu-list" target="self">
-										<img src="https://cdn.goob-ne.com/goobne/img/banner/a64bcffc2b2b4a438b7f544feecc1791.jpg"
-											alt="굽스터14_남해대첩">
-									</a>
-								</div>
-
-
-							</div>
-						</div>
-					</div>
-
-				</div>
+				
 
             <div class="con-box">
                 <p class="title wow fadeInUp">The Fin.mate</p>
@@ -452,6 +210,72 @@
                     </div>
                 </div>
             </div>
+			<div class="con-box">
+			    <div class="l-main-bg">
+			        <p class="title wow fadeInUp">
+			            <span class="instar">인기많은 모핀이</span>
+			        </p>
+			        <div class="goobster-box-wrap wow fadeInUp">
+			            <div class="goobster-box">
+
+
+
+
+			                <div class="img">
+			                    <a href="https://www.instagram.com/p/CtfeX9nBiew/?igshid=MTIzZWMxMTBkOA==" class="menu-list" target="self">
+			                        <img src="https://cdn.goob-ne.com/goobne/img/banner/6cc06c76eb714a38bffd2defa0b576a5.jpg" alt="플레이타운">
+			                    </a>
+			                </div>
+
+
+
+			                <div class="img">
+			                    <a href="https://www.instagram.com/p/CkmT8GHp5mq/?utm_source=ig_web_copy_link" class="menu-list" target="self">
+			                        <img src="https://cdn.goob-ne.com/goobne/img/banner/0b9439be8f8743b9ba79c2f6b752169e.png" alt="굽스터12_남해대첩">
+			                    </a>
+			                </div>
+
+
+			                <div class="img">
+			                    <a href="https://www.instagram.com/p/CfGZ5RYJzGX/?utm_source=ig_web_copy_link" class="menu-list" target="_new">
+			                        <img src="https://cdn.goob-ne.com/goobne/img/banner/b05f58bd233444f49b0948f731d8e5db.png" alt="굽스터11">
+			                    </a>
+			                </div>
+
+
+			                <div class="img">
+			                    <a href="https://www.instagram.com/p/Cd7u3tHBM14/?utm_source=ig_web_copy_link" class="menu-list" target="_new">
+			                        <img src="https://cdn.goob-ne.com/goobne/img/banner/658e5529ddd34c318bf8565a957e6804.png" alt="굽스터9">
+			                    </a>
+			                </div>
+
+			                <div class="img">
+			                    <a href="https://www.instagram.com/p/Csx4Ie-O6ja/?igshid=MTIzZWMxMTBkOA==" class="menu-list" target="self">
+			                        <img src="https://cdn.goob-ne.com/goobne/img/banner/dd93cb6b5986445182a5bd006407c3e2.jpg" alt="92데이">
+			                    </a>
+			                </div>
+
+
+
+			                <div class="img">
+			                    <a href="https://www.instagram.com/p/Ckpvpo1JJPo/?utm_source=ig_web_copy_link" class="menu-list" target="self">
+			                        <img src="https://cdn.goob-ne.com/goobne/img/banner/77a929629d524bcb9724e7e5368a8d49.png" alt="굽스터13_남해대첩">
+			                    </a>
+			                </div>
+
+			                <div class="img">
+			                    <a href="https://www.instagram.com/p/CkxeB7apQ7f/?utm_source=ig_web_copy_link" class="menu-list" target="self">
+			                        <img src="https://cdn.goob-ne.com/goobne/img/banner/a64bcffc2b2b4a438b7f544feecc1791.jpg" alt="굽스터14_남해대첩">
+			                    </a>
+			                </div>
+
+
+			            </div>
+			        </div>
+			    </div>
+
+			</div>
+
         </div>
 
         @endsection

@@ -420,207 +420,96 @@
 				</div> --}}
 
 				<div class="con-box">
-					<p class="title wow fadeInUp">Goobtube</p>
-					<div id="infinite" class="goobne-slider wow fadeInUp">
-						<div class="container goobne-wrapper">
-							<ul class="goobne-line">
-								<li class="goobne-text">💥 동기부여형 자산관리</li>
-								<li class="goobne-text">💥 목표 예산 업적</li>
-								<li class="goobne-text">💥 캐릭터 꾸미기</li>
-								<li class="goobne-text">💥 아이템 뽑기</li>
-								<li class="goobne-text">💥 동기부여형 자산관리</li>
-								<li class="goobne-text">💥 목표 예산 업적</li>
-								<li class="goobne-text">💥 캐릭터 꾸미기</li>
-								<li class="goobne-text">💥 아이템 뽑기</li>
-								<li class="goobne-text">💥 동기부여형 자산관리</li>
-								<li class="goobne-text">💥 목표 예산 업적</li>
-								<li class="goobne-text">💥 캐릭터 꾸미기</li>
-								<li class="goobne-text">💥 아이템 뽑기</li>
-								<li class="goobne-text">💥 동기부여형 자산관리</li>
-								<li class="goobne-text">💥 목표 예산 업적</li>
-								<li class="goobne-text">💥 캐릭터 꾸미기</li>
-							</ul>
-						</div>
-					</div>
-					<div class="goobne-tv-box wow fadeInUp">
-						<div class="goobne-tv-wrap">
+				    <div class="con_wrap">
+				        <p class="l-main-title wow fadeInUp">Fin news</p>
+				        <div class="event-list-wrap">
+				            <div class="event-list on wow fadeInUp">
+				                <a href="https://www.goobne.co.kr/brd/notice/view?seq=69443" target="self">
+				                    <div class="mo-thum">
+				                        <img src="https://cdn.goob-ne.com/goobne/img/banner/7b7a3c9067a14a2a9c091adbc2c15fc8.png" alt="">
+				                    </div>
+				                    <div class="status half">
+				                        <p class="sub">[프로모션]</p>
+				                    </div>
+				                    <div class="event-title half">
+				                        <p class="main-text">Fin.mate 서비스 시작</p>
+				                    </div>
+				                </a>
+				            </div>
+				            <div class="event-list  wow fadeInUp">
+				                <a href="https://www.goobne.co.kr/brd/notice/view?seq=69239" target="self">
+				                    <div class="mo-thum">
+				                        <img src="https://cdn.goob-ne.com/goobne/img/banner/c8ee9ce979124167b472092ca91c4147.png" alt="">
+				                    </div>
+				                    <div class="status half">
+				                        <p class="sub">[이벤트]</p>
+				                    </div>
+				                    <div class="event-title half">
+				                        <p class="main-text">첫 자산연결 성공시 상품 추첨기회 제공</p>
+				                    </div>
+				                </a>
+				            </div>
+
+
+				            <div class="event-list  wow fadeInUp">
+				                <a href="https://www.goobne.co.kr/brd/notice/view?seq=69157" target="self">
+				                    <div class="mo-thum">
+				                        <img src="https://cdn.goob-ne.com/goobne/img/banner/a820a4b3e2be44ae818e7454439a0526.png" alt="">
+				                    </div>
+				                    <div class="status half">
+				                        <p class="sub">[이벤트]</p>
+				                    </div>
+				                    <div class="event-title half">
+				                        <p class="main-text">첫 개시! 몇달간만 포인트를 600을 제공합니다</p>
+				                    </div>
+				                </a>
+				            </div>
+
+
+
+
+
+				            <div class="event-list  wow fadeInUp">
+				                <a href="https://www.goobne.co.kr/brd/notice/view?seq=69063" target="self">
+				                    <div class="mo-thum">
+				                        <img src="https://cdn.goob-ne.com/goobne/img/banner/21f477ee09b246048c6fa56786896705.jpg" alt="">
+				                    </div>
+				                    <div class="status half">
+				                        <p class="sub">[공지]</p>
+				                    </div>
+				                    <div class="event-title half">
+				                        <p class="main-text">2023.07.10 새벽 2시부터 5시 사이 점검이 있을 예정입니다.</p>
+				                    </div>
+				                </a>
+				            </div>
+
+
+
+
+
+				            <div class="event-list  wow fadeInUp">
+				                <a href="https://www.goobne.co.kr/brd/notice/view?seq=68849" target="self">
+				                    <div class="mo-thum">
+				                        <img src="https://cdn.goob-ne.com/goobne/img/banner/bd4c1f347a3d49e88f3a1e26e00a7c13.png" alt="">
+				                    </div>
+				                    <div class="status half">
+				                        <p class="sub">[공지]</p>
+				                    </div>
+				                    <div class="event-title half">
+				                        <p class="main-text">이제 좀 귀찮다</p>
+				                    </div>
+				                </a>
+				            </div>
+
+
+				        </div>
+				    </div>
+
+				    <a href="/brd/notice/list" class="news_view_more_btn">더보기</a>
+				    <!-- //230130 수정 -->
 
-
-
-
-							<div class="img-box">
-								<a href="https://youtu.be/iF36IOPNeNQ" class="menu-list" target="self">
-									<img src="https://cdn.goob-ne.com/goobne/img/banner/1a08342e73a14d79a63c69f2f5885add.jpg"
-										alt="팬사인회">
-								</a>
-							</div>
-
-
-
-
-
-							<div class="img-box">
-								<a href="https://www.youtube.com/watch?v=9uGuB4mbdNI" class="menu-list" target="self">
-									<img src="https://cdn.goob-ne.com/goobne/img/banner/d7a7d0b3e54547f89ece15c7c3b685df.png"
-										alt="굽네플레이타운">
-								</a>
-							</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-							<div class="img-box">
-								<a href="https://youtu.be/xbHNC__4-TU" class="menu-list" target="self">
-									<img src="https://cdn.goob-ne.com/goobne/img/banner/8b8d313166d74486af1076d35ee968c9.png"
-										alt="르세라핌 FULL">
-								</a>
-							</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-							<div class="img-box">
-								<a href="https://www.youtube.com/watch?v=z3zFldyCAWg" class="menu-list" target="self">
-									<img src="https://cdn.goob-ne.com/goobne/img/banner/7763b2adddcf455abaace07df94abae1.jpg"
-										alt="구울레옹-남해대첩">
-								</a>
-							</div>
-
-
-
-
-
-							<div class="img-box">
-								<a href="https://www.youtube.com/watch?v=iDSS4nEbGLc" class="menu-list" target="_new">
-									<img src="https://cdn.goob-ne.com/goobne/img/banner/2c4300e4258b4a75a1b7e461a1360f0d.jpg"
-										alt="차승원">
-								</a>
-							</div>
-
-
-
-
-
-
-
-
-
-							<div class="img-box">
-								<a href="https://www.youtube.com/watch?v=tbXoEa9AYFE" class="menu-list" target="self">
-									<img src="https://cdn.goob-ne.com/goobne/img/banner/77037a18ce4f4d5f9172aca848bf3763.jpg"
-										alt="팝업스토어">
-								</a>
-							</div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-							<div class="img-box">
-								<a href="https://www.youtube.com/watch?v=ID3IjxVvOT0" class="menu-list" target="self">
-									<img src="https://cdn.goob-ne.com/goobne/img/banner/30b3bacf2cbb40c59c95efd8137947f8.jpg"
-										alt="[굽튜브]불금치킨 구울레옹 1분">
-								</a>
-							</div>
-
-
-
-
-
-
-
-
-						</div>
-					</div>
 				</div>
+
 			</div>
 
 @endsection
