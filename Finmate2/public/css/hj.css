@@ -33,9 +33,18 @@
     height :200px; 
 }
 
+#charitem5 {
+    z-index: 49;
+}
+
 #charitem6 {
     z-index: -10;
 }
+
+#charitem9 {
+    z-index: 1;
+}
+
 /* .charimg{
     width:300px; height:300px; position:absolute; right:50px; bottom:380px;
 }  */

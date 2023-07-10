@@ -32,11 +32,11 @@
                         @endif
                     @endforeach
                     <div class="charitem">
-                        <img id="charitem1" class="noneimg" src="{{ asset('/img/sunglasses.png') }}" style ="z-index : 50 ;">
+                        <img id="charitem1" class="noneimg" src="{{ asset('/img/sunglasses.png') }}">
                         <img id="charitem2" class="noneimg" src="{{ asset('/img/sword.png') }}" >
                         <img id="charitem3" class="noneimg" src="{{ asset('/img/safe.png') }}" >
                         <img id="charitem4" class="noneimg" src="{{ asset('/img/air.png') }}"   >
-                        <img id="charitem5" class="noneimg" src="{{ asset('/img/idcard.png') }}" style ="z-index : 49 ;" >
+                        <img id="charitem5" class="noneimg" src="{{ asset('/img/idcard.png') }}">
                         <img id="charitem6" class="noneimg" src="{{ asset('/img/wing.png') }}" >
                         <img id="charitem7" class="noneimg" src="{{ asset('/img/tea.png') }}" >
                         <img id="charitem8" class="noneimg" src="{{ asset('/img/bat.png') }}" >
