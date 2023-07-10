@@ -424,7 +424,7 @@
 				        <p class="l-main-title wow fadeInUp">Fin news</p>
 				        <div class="event-list-wrap">
 				            <div class="event-list on wow fadeInUp">
-				                <a href="https://www.goobne.co.kr/brd/notice/view?seq=69443" target="self">
+				                <a href="#" target="self">
 				                    <div class="mo-thum">
 				                        <img src="https://cdn.goob-ne.com/goobne/img/banner/7b7a3c9067a14a2a9c091adbc2c15fc8.png" alt="">
 				                    </div>
@@ -437,7 +437,7 @@
 				                </a>
 				            </div>
 				            <div class="event-list  wow fadeInUp">
-				                <a href="https://www.goobne.co.kr/brd/notice/view?seq=69239" target="self">
+				                <a href="#" target="self">
 				                    <div class="mo-thum">
 				                        <img src="https://cdn.goob-ne.com/goobne/img/banner/c8ee9ce979124167b472092ca91c4147.png" alt="">
 				                    </div>
@@ -452,7 +452,7 @@
 
 
 				            <div class="event-list  wow fadeInUp">
-				                <a href="https://www.goobne.co.kr/brd/notice/view?seq=69157" target="self">
+				                <a href="#" target="self">
 				                    <div class="mo-thum">
 				                        <img src="https://cdn.goob-ne.com/goobne/img/banner/a820a4b3e2be44ae818e7454439a0526.png" alt="">
 				                    </div>
@@ -470,7 +470,7 @@
 
 
 				            <div class="event-list  wow fadeInUp">
-				                <a href="https://www.goobne.co.kr/brd/notice/view?seq=69063" target="self">
+				                <a href="#" target="self">
 				                    <div class="mo-thum">
 				                        <img src="https://cdn.goob-ne.com/goobne/img/banner/21f477ee09b246048c6fa56786896705.jpg" alt="">
 				                    </div>
@@ -483,29 +483,8 @@
 				                </a>
 				            </div>
 
-
-
-
-
-				            <div class="event-list  wow fadeInUp">
-				                <a href="https://www.goobne.co.kr/brd/notice/view?seq=68849" target="self">
-				                    <div class="mo-thum">
-				                        <img src="https://cdn.goob-ne.com/goobne/img/banner/bd4c1f347a3d49e88f3a1e26e00a7c13.png" alt="">
-				                    </div>
-				                    <div class="status half">
-				                        <p class="sub">[공지]</p>
-				                    </div>
-				                    <div class="event-title half">
-				                        <p class="main-text">이제 좀 귀찮다</p>
-				                    </div>
-				                </a>
-				            </div>
-
-
 				        </div>
 				    </div>
-
-				    <a href="/brd/notice/list" class="news_view_more_btn">더보기</a>
 				    <!-- //230130 수정 -->
 
 				</div>

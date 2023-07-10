@@ -65,7 +65,7 @@ Route::middleware(['guest'])->group(function () {
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/', function () {
-        return Redirect('/assets'.'/'.auth()->user()->userid);
+        return view('main2');
     });
     // Users
     Route::get('/users/logout', [UserController::class, 'logout'])->name('users.logout');
