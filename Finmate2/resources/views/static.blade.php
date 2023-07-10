@@ -6,10 +6,10 @@
 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="https://code.jquery.com/jquery-latest.js"></script> 
-<link rel="stylesheet" href="{{ asset('/css/kja.css')  }}" >
+<link rel="stylesheet" href="{{ asset('/css/static.css')  }}" >
 
 @section('contents')
-
+    <div class="top1"></div>
     @if($assetchk === 0)
     <div id="myModal" class="modal">
         <div class="modal_content">
@@ -46,38 +46,38 @@
 
     @else
         <h3>{{ $currentYear }}년 월별 입지출 내역</h3>
-
         <div class = "chartBar">
-        <canvas id="monthChart" ></canvas>
+            <canvas id="monthChart" ></canvas>
         </div>
-            <div class="line"></div>
-
+            <div class="line2"></div>
             <h3>{{$mmonth}}월 카테고리별 지출 내역</h3>
             @if(empty($catdata))
-                <div>해당 월의 지출이 없습니다.</div>
+                <div class="empty">해당 월의 지출이 없습니다.</div>
             @else
-            <article>
-                <div class = "chartDo">
-                    <div class ="categoryChart">
-                        <canvas id="categoryChart" ></canvas>
-                        <div class = "allcategoryChart">
-                            <div class ="percent">
-                                @foreach($percent as $data)
-                                    <p>{{$data}}%</p>
-                                @endforeach
-                            </div>
-                        
-                            <div class="catdetail">
-                                @foreach($catdata as $data)
-                                    <p class="catname">{{$data->category}}</p>
-                                    <p class = "catprice">{{number_format($data->consumption)}}원</p>
-                                @endforeach
+                <div class="donutChart">
+                    <article>
+                        <div class = "chartDo">
+                            <div class ="categoryChart">
+                                <canvas id="categoryChart" ></canvas>
+                                <div class = "allcategoryChart">
+                                    <div class ="percent">
+                                        @foreach($percent as $data)
+                                            <p>{{$data}}%</p>
+                                        @endforeach
+                                    </div>
+                                
+                                    <div class="catdetail">
+                                        @foreach($catdata as $data)
+                                            <p class="catname">{{$data->category}}</p>
+                                            <p class = "catprice">{{number_format($data->consumption)}}원</p>
+                                        @endforeach
+                                    </div>
+                                </div>
+                                <p class="maxEx">최대 지출 카테고리  : {{$catdata[0]->category}}</p>
                             </div>
                         </div>
-                    </div>
-                </article>
-
-                <p class="maxEx">최대 지출 카테고리  : {{$catdata[0]->category}}</p>
+                    </article>
+                </div>
             @endif
 
 
