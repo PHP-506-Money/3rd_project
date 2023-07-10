@@ -125,3 +125,8 @@ h3{
 .chartBar {
     margin-top: 20px;
 }
+
+.modalMsg {
+    padding: 10px;
+    font-size: 15px;
+}

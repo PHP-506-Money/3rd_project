@@ -13,20 +13,16 @@
     @if($assetchk === 0)
     <div id="myModal" class="modal">
         <div class="modal_content">
-                    <p ><span><b><span> 고객님 </span></b></span></p>
-                    <p ><br /></p>
-                    <p ><span >연동된 자산이 없습니다.</span></p>
-                    <p ><span >자산을 연동해 주세요</span></p>
-                    <p ><span>확인을 누르시면 자산 연동하기로 이동합니다.</span></p>
-                    <p ><span><br /></span></p>
-                    
-                    <p ><br /></p>
-                    <p><br /></p>
-                <div onClick="close_pop();">
-                    <span class="pop_bt" >
-                        확인
-                    </span>
-                </div>
+            <div class="modalMsg">
+                고객님, 연동된 자산이 없습니다.<br><br>
+                자산을 연동해 주세요.<br><br>
+                확인을 누르시면 자산 연동하기로 이동합니다.<br><br>
+            </div>
+            <div onClick="close_pop();">
+                <span class="pop_bt" >
+                    확인
+                </span>
+            </div>
         </div>
     
         </div>
