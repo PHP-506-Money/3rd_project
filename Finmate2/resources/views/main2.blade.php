@@ -54,7 +54,7 @@
                                 </dl>
                                 <div class="diff__desc">
                                     <dl class="box">
-                                        <dt class="l-num">포인트 보유</dt>
+                                        <dt class="l-num">포인트 보유 TOP 1</dt>
                                         <dd>닉네임</dd>
                                         <dd>모핀이 보러가기</dd>
                                         <dd>카운트</dd>
@@ -69,7 +69,7 @@
                                         </div>
                                     </div>
                                     <dl class="box">
-                                        <dt class="l-num">아이템 뽑기</dt>
+                                        <dt class="l-num">아이템 뽑기 TOP 1</dt>
                                         <dd>닉네임</dd>
                                         <dd>모핀이 보러가기</dd>
                                         <dd>카운트</dd>
