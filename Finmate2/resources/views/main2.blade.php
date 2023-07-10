@@ -86,14 +86,23 @@
                                 <ul class="sys-cook__list">
                                     <li>
                                         <p class="l-num num">일일 예산</p>
-                                        <p class="l-num tit">오늘 예산 금액</p>
-                                        <p class="sub">남은 예산 : 금액</p>
-
+                                        <p class="l-num tit">오늘 예산 금액: {{number_format($data['dailyBudget'])}}</p>
+                                        <p class="sub">이번달 남은 예산 : {{number_format($all - $sumamount)}}</p>
                                     </li>
                                     <li>
                                         <p class="l-num num">일일 지출</p>
-                                        <p class="tit">오늘 지출금액</p>
-                                        <p class="sub">칭찬 or 조언</p>
+                                        <p class="tit">오늘 지출금액: {{number_format($data['sumDayAmount'])}}</p>
+                                        @if($data['dailyBudget'] < 0 || ($all - $sumamount) < 0 || $data['sumDayAmount'] < 0)
+
+                                            <p class="sub">예산을 초과하셨어요! <br> 지출을 조금 <br> 줄일 필요가 있습니다.</p>
+
+
+                                        @else
+                                            <p class="sub">잘하고 있어요! <br> 예산을 잘 지켜서 <br> 소비를 줄이는 건 <br> 부자의 지름길이죠!</p>
+
+
+                                        @endif
+                                        
                                     </li>
                                 </ul>
                             </div>

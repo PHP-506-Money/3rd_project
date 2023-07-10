@@ -34,6 +34,15 @@
                         </dd>
                     </dl>
 
+                    <dl class="total-price">
+                        <dt class="tit">이번 달 남은예산 :</dt>
+
+                        <dd class="total"><span class="l-num" id="totPrice">{{number_format($all - $sumamount)}}</span>원</dd>
+
+
+                    </dl>
+
+
                 </div>
                 <div class="half menu-detail__desc-area">
                     <div class="l-badge-wrap">

@@ -4,12 +4,14 @@
  * Directory    : Controllers
  * File Name    : BudgetController.php
  * History      : v001 0615 Kim new
+ *              : v002 0710 Noh update
  *******************************************/
 namespace App\Http\Controllers;
 
 use App\Models\Budget;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Session;
 
@@ -31,23 +33,22 @@ class BudgetController extends Controller
         }
 
         // 날짜계산
-        // 현재날짜와 현재 요일을 숫자로 가져온다 (0~6)
-        $today = date('Y-m-d');
-        $day = date('w');
+        $today = Carbon::now();
 
         // 현재년도와 현재 달을 구한다.
         $currentYear = date('Y');
         $currentMonth = date('m');
-        
-        // 이번주 시작일인 일요일부터 마지막날인 토요일 까지 계산
-        $startDay = date('Y-m-d', strtotime($today." -".$day."days"));
-        $endDay = date('Y-m-d', strtotime($startDay." +6days"));
 
-        // 년달일의 형태에서 월과 일로 바꾸기
-        $startDate =date('m-d',strtotime($startDay));
-        $endDate =date('m-d',strtotime($endDay));
+        // 이번주 시작과 끝
+        $startDate = $today->copy()->startOfWeek();
+        $endDate = $today->copy()->endOfWeek();
 
-        // $currentDay = date('d'); 
+
+        // 이번 달의 총 일수
+        $daysInMonth = $today->daysInMonth;
+
+        // 이번 주의 일수
+        $daysInWeek = $startDate->diffInDays($endDate) + 1;
 
         $query = DB::table('assets')
         ->join('transactions','assets.assetno','=','transactions.assetno')
@@ -60,22 +61,24 @@ class BudgetController extends Controller
         ->sum('transactions.amount');
 
         // 이번주 동안 지출한 금액의 합계
-        $sumWeekAmount =$query->whereBetween('transactions.trantime',[$startDay,$endDay])
+        $sumWeekAmount =$query->whereBetween('transactions.trantime',[$startDate, $endDate])
         ->sum('transactions.amount');
         
-        // 한달예산에서 주간예산 구하기(한달을 4주로 할지 5주로할지 고민)
-        $weekBudget = (intval($monthBudget))/4;
 
-        // 주간금액 중에 남은 금액 구하기(주간 금액에서 주간 지출금액은 뺀다.)
-        $usebudget = (intval($sumWeekAmount));
-        $leftBudget = $weekBudget-$usebudget;
+        // 지출하지 않은 월별 예산과 일일 예산 계산
+        $leftMonthlyBudget = $monthBudget - $sumAmount;
+        $weekBudget = $leftMonthlyBudget / $daysInMonth * $daysInWeek;
+        $remainingDaysInWeek = $today->diffInDays($endDate) + 1;
+        $leftBudget = $weekBudget - $sumWeekAmount;
+        $dailyBudget = $leftBudget / $remainingDaysInWeek;
 
         $arrResult = [
             'startDate' => $startDate,
             'endDate' => $endDate,
             'currentMonth' => $currentMonth,
             'weekBudget' => $weekBudget,
-            'leftBudget' => $leftBudget
+            'leftBudget' => $leftBudget,
+            'dailyBudget' => $dailyBudget
         ];
 
         return view('budget')
@@ -83,6 +86,79 @@ class BudgetController extends Controller
         ->with('sumamount',$sumAmount)
         ->with('sumweek',$sumWeekAmount)
         ->with('data',$arrResult);
+    }
+
+    function main2()
+    {
+
+        $userid = Auth::user()->userid;
+
+        // db table budgets에서 userid의 해당하는 첫번째레코드에서 지정 예산금액을 가져온다.
+        $monthBudget = DB::table('budgets')->where('userid', $userid)->value('budgetprice');
+
+        // 예산이 비어있어있는지 확인하고 에러메시지와 함께 설정페이지로 간다.(예산이 없을때 empty로 반환)
+        if (empty($monthBudget)) {
+            return redirect('/budgetset')->with('error', "예산을 설정해주세요!");
+        }
+
+        // 날짜계산
+        $today = Carbon::now();
+
+        // 현재년도와 현재 달을 구한다.
+        $currentYear = date('Y');
+        $currentMonth = date('m');
+
+        // 이번주 시작과 끝
+        $startDate = $today->copy()->startOfWeek();
+        $endDate = $today->copy()->endOfWeek();
+
+
+        // 이번 달의 총 일수
+        $daysInMonth = $today->daysInMonth;
+
+        // 이번 주의 일수
+        $daysInWeek = $startDate->diffInDays($endDate) + 1;
+
+        $query = DB::table('assets')
+        ->join('transactions', 'assets.assetno', '=', 'transactions.assetno')
+        ->where('assets.userid', $userid)
+            ->where('transactions.type', '1');
+
+        // 한달동안 지출한 금액의 합계
+        $sumAmount = $query->whereMonth('transactions.trantime', $currentMonth)
+            ->whereYear('transactions.trantime', $currentYear)
+            ->sum('transactions.amount');
+
+        // 이번주 동안 지출한 금액의 합계
+        $sumWeekAmount = $query->whereBetween('transactions.trantime', [$startDate, $endDate])
+            ->sum('transactions.amount');
+
+        $sumDayAmount = $query->where('transactions.trantime', $today)
+            ->sum('transactions.amount');
+
+
+        // 지출하지 않은 월별 예산과 일일 예산 계산
+        $leftMonthlyBudget = $monthBudget - $sumAmount;
+        $weekBudget = $leftMonthlyBudget / $daysInMonth * $daysInWeek;
+        $remainingDaysInWeek = $today->diffInDays($endDate) + 1;
+        $leftBudget = $weekBudget - $sumWeekAmount;
+        $dailyBudget = $leftBudget / $remainingDaysInWeek;
+
+        $arrResult = [
+            'startDate' => $startDate,
+            'endDate' => $endDate,
+            'currentMonth' => $currentMonth,
+            'weekBudget' => $weekBudget,
+            'leftBudget' => $leftBudget,
+            'dailyBudget' => $dailyBudget,
+            'sumDayAmount' => $sumDayAmount
+        ];
+
+        return view('main2')
+        ->with('all', $monthBudget)
+        ->with('sumamount', $sumAmount)
+        ->with('sumweek', $sumWeekAmount)
+        ->with('data', $arrResult);
     }
 
     // 예산 설정 페이지로
