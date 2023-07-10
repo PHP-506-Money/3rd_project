@@ -90,10 +90,10 @@
                             <button onclick="location.href='{{ url('/users/profile'.'/' . auth()->user()->userid) }}'">
                                 <img src="https://cdn.goob-ne.com/goobne/resources/assets/images/common/order_ob01.svg" alt="" />모핀
                             </button>
-                            <button onClick="location.href='{{url('/mofin'.'/' . auth()->user()->userid)}}'">
+                            <button onclick="location.href='{{url('/mofin'.'/' . auth()->user()->userid)}}'">
                                 <img src="https://cdn.goob-ne.com/goobne/resources/assets/images/common/order_ob02.svg" alt="" />뽑기
                             </button>
-                            <button onClick="location.href='{{ url('/rank'.'/' . auth()->user()->userid) }}'">
+                            <button onclick="location.href='{{ url('/rank'.'/' . auth()->user()->userid) }}'">
                                 <img src="https://cdn.goob-ne.com/goobne/resources/assets/images/common/order_ob02.svg" alt="" />랭킹
                             </button>
                             </div>

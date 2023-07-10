@@ -7,151 +7,121 @@
 <div id="content">
     <div class="inner">
         <div class="main-slick-wrap">
-
-            
-
-            
-
-
-				
-
             <div class="con-box">
                 <p class="title wow fadeInUp">The Fin.mate</p>
                 <div id="infinite" class="goobne-slider wow fadeInUp">
                     <div class="container goobne-wrapper">
                         <ul class="goobne-line">
-                            <li class="goobne-text">💥 동기부여형 자산관리</li>
-                            <li class="goobne-text">💥 목표 예산 업적</li>
-                            <li class="goobne-text">💥 캐릭터 꾸미기</li>
-                            <li class="goobne-text">💥 아이템 뽑기</li>
-                            <li class="goobne-text">💥 동기부여형 자산관리</li>
-                            <li class="goobne-text">💥 목표 예산 업적</li>
-                            <li class="goobne-text">💥 캐릭터 꾸미기</li>
-                            <li class="goobne-text">💥 아이템 뽑기</li>
-                            <li class="goobne-text">💥 동기부여형 자산관리</li>
-                            <li class="goobne-text">💥 목표 예산 업적</li>
-                            <li class="goobne-text">💥 캐릭터 꾸미기</li>
-                            <li class="goobne-text">💥 아이템 뽑기</li>
-                            <li class="goobne-text">💥 동기부여형 자산관리</li>
-                            <li class="goobne-text">💥 목표 예산 업적</li>
-                            <li class="goobne-text">💥 캐릭터 꾸미기</li>
+                            <li class="goobne-text" onclick="location.href='{{ url('/assets'.'/' . auth()->user()->userid) }}'">💥 내 자산 보러가기</li>
+                            <li class="goobne-text" onclick="location.href='{{url('/assets/transactions'.'/'.auth()->user()->userid)}}'">💥 내 자산 내역</li>
+                            <li class="goobne-text" onclick="location.href='{{ url('/goal'.'/' . auth()->user()->userid) }}'">💥 나의 목표</li>
+                            <li class="goobne-text" onclick="location.href='{{ url('/budget'.'/' . auth()->user()->userid) }}'">💥 예산 관리</li>
+                            <li class="goobne-text" onclick="location.href='{{ url('/achievements') }}'">💥 업적 관리</li>
+                            <li class="goobne-text" onclick="location.href='{{url('/mofin'.'/' . auth()->user()->userid)}}'">💥 포인트 뽑기</li>
+                            <li class="goobne-text" onclick="location.href='{{url('/mofin'.'/' . auth()->user()->userid)}}'">💥 아이템 뽑기</li>
+                            <li class="goobne-text" onclick="location.href='{{ url('/users/profile'.'/' . auth()->user()->userid) }}'">💥 캐릭터 꾸미기</li>
+                            <li class="goobne-text" onclick="location.href='{{ url('/static'.'/' . auth()->user()->userid) }}'">💥 통계 보러가기</li>
+                            <li class="goobne-text" onclick="location.href='{{route('users.modify')}}'">💥 내 정보</li>
+                            <li class="goobne-text" onclick="location.href='{{ url('/rank'.'/' . auth()->user()->userid) }}'">💥 랭킹 보러가기</li>
+                            <li class="goobne-text" onclick="location.href='{{ url('/assets'.'/' . auth()->user()->userid) }}'">💥 내 자산 보러가기</li>
+                            <li class="goobne-text" onclick="location.href='{{url('/assets/transactions'.'/'.auth()->user()->userid)}}'">💥 내 자산 내역</li>
+                            <li class="goobne-text" onclick="location.href='{{ url('/goal'.'/' . auth()->user()->userid) }}'">💥 나의 목표</li>
+                            <li class="goobne-text" onclick="location.href='{{ url('/budget'.'/' . auth()->user()->userid) }}'">💥 예산 관리</li>
+                            <li class="goobne-text" onclick="location.href='{{ url('/achievements') }}'">💥 업적 관리</li>
+                            <li class="goobne-text" onclick="location.href='{{url('/mofin'.'/' . auth()->user()->userid)}}'">💥 포인트 뽑기</li>
+                            <li class="goobne-text" onclick="location.href='{{url('/mofin'.'/' . auth()->user()->userid)}}'">💥 아이템 뽑기</li>
+                            <li class="goobne-text" onclick="location.href='{{ url('/users/profile'.'/' . auth()->user()->userid) }}'">💥 캐릭터 꾸미기</li>
+                            <li class="goobne-text" onclick="location.href='{{ url('/static'.'/' . auth()->user()->userid) }}'">💥 통계 보러가기</li>
+                            <li class="goobne-text" onclick="location.href='{{route('users.modify')}}'">💥 내 정보</li>
+                            <li class="goobne-text" onclick="location.href='{{ url('/rank'.'/' . auth()->user()->userid) }}'">💥 랭킹 보러가기</li>
                         </ul>
                     </div>
                 </div>
-                <div class="goobne-tv-box wow fadeInUp">
-                    <div class="goobne-tv-wrap">
 
-                        <div class="img-box">
-                            <a href="https://youtu.be/iF36IOPNeNQ" class="menu-list" target="self">
-                                <img src="https://cdn.goob-ne.com/goobne/img/banner/1a08342e73a14d79a63c69f2f5885add.jpg" alt="팬사인회">
-                                <h2>뽑기왕: ㅁㅁㅁ</h2>
-                            </a>
-                        </div>
+            </div>
+			
+            <article class="l-layout founded">
+                <div class="my_page my_correction_main my_page_order_main">
+                    <div class="l-inner">
 
-                        <div class="img-box">
-                            <a href="https://www.youtube.com/watch?v=9uGuB4mbdNI" class="menu-list" target="self">
-                                <img src="https://cdn.goob-ne.com/goobne/img/banner/d7a7d0b3e54547f89ece15c7c3b685df.png" alt="굽네플레이타운">
-                            </a>
-                        </div>
+                        <section class="founded__franchise">
+                            <div class="l-c-pt diff">
+                                <dl class="l-comm">
+                                    <dt class="tit">
+                                        랭킹
+                                    </dt>
+                                    <dd class="l-hidden">없음</dd>
+                                </dl>
+                                <div class="diff__desc">
+                                    <dl class="box">
+                                        <dt class="l-num">포인트 보유 TOP 1</dt>
+                                        <dd>닉네임</dd>
+                                        <dd>모핀이 보러가기</dd>
+                                        <dd>카운트</dd>
+                                    </dl>
+                                    <div class="center-box">
+                                        <p class="img">
+                                            <img src="https://cdn.goob-ne.com/goobne/resources/assets/images/contents/c-founded-diff.png" alt="오븐구이치킨">
+                                        </p>
+                                        <div class="text">
+                                            <span>로그인왕 : 닉네임</span>
+                                            <p>자주 와주셔서 감사합니다!</p>
+                                        </div>
+                                    </div>
+                                    <dl class="box">
+                                        <dt class="l-num">아이템 뽑기 TOP 1</dt>
+                                        <dd>닉네임</dd>
+                                        <dd>모핀이 보러가기</dd>
+                                        <dd>카운트</dd>
+                                    </dl>
+                                </div>
+                            </div>
 
-                        <div class="img-box">
-                            <a href="https://youtu.be/xbHNC__4-TU" class="menu-list" target="self">
-                                <img src="https://cdn.goob-ne.com/goobne/img/banner/8b8d313166d74486af1076d35ee968c9.png" alt="르세라핌 FULL">
-                            </a>
-                        </div>
+                            <div class="l-c-pt sys-cook">
+                                <dl class="l-comm">
+                                    <dt class="tit">
+                                        내 예산 현황
+                                    </dt>
+                                </dl>
+                                <ul class="sys-cook__list">
+                                    <li>
+                                        <p class="l-num num">일일 예산</p>
+                                        <p class="l-num tit">오늘 예산 금액</p>
+                                        <p class="sub">남은 예산 : 금액</p>
 
-                        <div class="img-box">
-                            <a href="https://www.youtube.com/watch?v=z3zFldyCAWg" class="menu-list" target="self">
-                                <img src="https://cdn.goob-ne.com/goobne/img/banner/7763b2adddcf455abaace07df94abae1.jpg" alt="구울레옹-남해대첩">
-                            </a>
-                        </div>
+                                    </li>
+                                    <li>
+                                        <p class="l-num num">일일 지출</p>
+                                        <p class="tit">오늘 지출금액</p>
+                                        <p class="sub">칭찬 or 조언</p>
+                                    </li>
+                                </ul>
+                            </div>
 
-                        <div class="img-box">
-                            <a href="https://www.youtube.com/watch?v=iDSS4nEbGLc" class="menu-list" target="_new">
-                                <img src="https://cdn.goob-ne.com/goobne/img/banner/2c4300e4258b4a75a1b7e461a1360f0d.jpg" alt="차승원">
-                            </a>
-                        </div>
+                            <div class="l-c-pt sys-pro">
+                                <dl class="l-comm">
+                                    <dt class="tit">
+                                        내 목표 현황
+                                    </dt>
+                                    <dd class="">대표목표 : 목표 이름</dd>
+                                </dl>
+                                <div class="sys-pro__half">
+                                    <div class="half">
+                                        <p class="text">목표 달성 률 및 게이지</p>
+                                    </div>
+                                    <div class="half">
+                                        <p class="text">칭찬 or 조언 </p>
+                                    </div>
+                                </div>
+                            </div>
 
-                        <div class="img-box">
-                            <a href="https://www.youtube.com/watch?v=tbXoEa9AYFE" class="menu-list" target="self">
-                                <img src="https://cdn.goob-ne.com/goobne/img/banner/77037a18ce4f4d5f9172aca848bf3763.jpg" alt="팝업스토어">
-                            </a>
-                        </div>
+                        </section>
 
-                        <div class="img-box">
-                            <a href="https://www.youtube.com/watch?v=ID3IjxVvOT0" class="menu-list" target="self">
-                                <img src="https://cdn.goob-ne.com/goobne/img/banner/30b3bacf2cbb40c59c95efd8137947f8.jpg" alt="[굽튜브]불금치킨 구울레옹 1분">
-                            </a>
-                        </div>
 
                     </div>
                 </div>
-            </div>
-			<div class="con-box">
-			    <div class="l-main-bg">
-			        <p class="title wow fadeInUp">
-			            <span class="instar">인기많은 모핀이</span>
-			        </p>
-			        <div class="goobster-box-wrap wow fadeInUp">
-			            <div class="goobster-box">
+            </article>
 
-
-
-
-			                <div class="img">
-			                    <a href="https://www.instagram.com/p/CtfeX9nBiew/?igshid=MTIzZWMxMTBkOA==" class="menu-list" target="self">
-			                        <img src="https://cdn.goob-ne.com/goobne/img/banner/6cc06c76eb714a38bffd2defa0b576a5.jpg" alt="플레이타운">
-			                    </a>
-			                </div>
-
-
-
-			                <div class="img">
-			                    <a href="https://www.instagram.com/p/CkmT8GHp5mq/?utm_source=ig_web_copy_link" class="menu-list" target="self">
-			                        <img src="https://cdn.goob-ne.com/goobne/img/banner/0b9439be8f8743b9ba79c2f6b752169e.png" alt="굽스터12_남해대첩">
-			                    </a>
-			                </div>
-
-
-			                <div class="img">
-			                    <a href="https://www.instagram.com/p/CfGZ5RYJzGX/?utm_source=ig_web_copy_link" class="menu-list" target="_new">
-			                        <img src="https://cdn.goob-ne.com/goobne/img/banner/b05f58bd233444f49b0948f731d8e5db.png" alt="굽스터11">
-			                    </a>
-			                </div>
-
-
-			                <div class="img">
-			                    <a href="https://www.instagram.com/p/Cd7u3tHBM14/?utm_source=ig_web_copy_link" class="menu-list" target="_new">
-			                        <img src="https://cdn.goob-ne.com/goobne/img/banner/658e5529ddd34c318bf8565a957e6804.png" alt="굽스터9">
-			                    </a>
-			                </div>
-
-			                <div class="img">
-			                    <a href="https://www.instagram.com/p/Csx4Ie-O6ja/?igshid=MTIzZWMxMTBkOA==" class="menu-list" target="self">
-			                        <img src="https://cdn.goob-ne.com/goobne/img/banner/dd93cb6b5986445182a5bd006407c3e2.jpg" alt="92데이">
-			                    </a>
-			                </div>
-
-
-
-			                <div class="img">
-			                    <a href="https://www.instagram.com/p/Ckpvpo1JJPo/?utm_source=ig_web_copy_link" class="menu-list" target="self">
-			                        <img src="https://cdn.goob-ne.com/goobne/img/banner/77a929629d524bcb9724e7e5368a8d49.png" alt="굽스터13_남해대첩">
-			                    </a>
-			                </div>
-
-			                <div class="img">
-			                    <a href="https://www.instagram.com/p/CkxeB7apQ7f/?utm_source=ig_web_copy_link" class="menu-list" target="self">
-			                        <img src="https://cdn.goob-ne.com/goobne/img/banner/a64bcffc2b2b4a438b7f544feecc1791.jpg" alt="굽스터14_남해대첩">
-			                    </a>
-			                </div>
-
-
-			            </div>
-			        </div>
-			    </div>
-
-			</div>
 
         </div>
 

@@ -82,6 +82,10 @@
     z-index: 1;
 }
 
+li.goobne-text:hover {
+    cursor: pointer;
+}
+
 .main-box .goobne-text .last {
     transform: translateY(-3rem);
 }
