@@ -23,14 +23,18 @@
 .noneimg{
     display: none;
     position: absolute;
-    left: 50%; /* Adjust the left position as per your requirement */
-    top: 35%; /* Adjust the top position as per your requirement */
+    left: 50%;
+    top: 35%;
     transform: translate(-50%, -50%);
-    z-index: 100;
 }
 
 .itemimg{
-    width : 200px; height :200px; 
+    width : 200px;
+    height :200px; 
+}
+
+#charitem6 {
+    z-index: -10;
 }
 /* .charimg{
     width:300px; height:300px; position:absolute; right:50px; bottom:380px;
