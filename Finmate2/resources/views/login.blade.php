@@ -47,7 +47,7 @@
                     <div class="login__link">
                         <a href="{{route('users.findid')}}">아이디 찾기</a>
                         <span class="l-bar"></span>
-                        <a href="{{route('users.findpw')}}">비밀번호찾기</a>
+                        <a href="{{route('users.findpw')}}">비밀번호 찾기</a>
 
                     </div>
                 </div>
