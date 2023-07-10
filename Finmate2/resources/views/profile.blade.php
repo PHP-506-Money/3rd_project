@@ -13,21 +13,6 @@
     <div class="profile">{{-- 모핀 프로필 시작 --}}
         <form id="myinfo" name="myinfo" action="{{route('users.profile.post')}}" method="post">
             @csrf
-                <div class="charitem">
-                    <img id="charitem1" class="noneimg" src="{{ asset('/img/sunglasses.png') }}" style ="z-index : 50 ;">
-                    <img id="charitem2" class="noneimg" src="{{ asset('/img/sword.png') }}" >
-                    <img id="charitem3" class="noneimg" src="{{ asset('/img/safe.png') }}" >
-                    <img id="charitem4" class="noneimg" src="{{ asset('/img/air.png') }}"   >
-                    <img id="charitem5" class="noneimg" src="{{ asset('/img/idcard.png') }}" style ="z-index : 49 ;" >
-                    <img id="charitem6" class="noneimg" src="{{ asset('/img/wing.png') }}" >
-                    <img id="charitem7" class="noneimg" src="{{ asset('/img/tea.png') }}" >
-                    <img id="charitem8" class="noneimg" src="{{ asset('/img/bat.png') }}" >
-                    <img id="charitem9" class="noneimg" src="{{ asset('/img/eyeing.png') }}" >
-                    <img id="charitem10" class="noneimg" src="{{ asset('/img/notebook.png') }}" >
-                    <img id="charitem11" class="noneimg" src="{{ asset('/img/hanbok.png') }}" >
-                    <img id="charitem12" class="noneimg" src="{{ asset('/img/hanbokbaji.png') }}" >
-                    <img id="charitem13" class="noneimg" src="{{ asset('/img/kindcloth.png') }}" >
-                </div>
                 <div class="moffin">
                     @foreach ($data as $user)
                         @if ($user->moffintype == 0)
@@ -46,6 +31,21 @@
                             <img src="{{ asset('/img/moffin6.png') }}" alt="">
                         @endif
                     @endforeach
+                    <div class="charitem">
+                        <img id="charitem1" class="noneimg" src="{{ asset('/img/sunglasses.png') }}" style ="z-index : 50 ;">
+                        <img id="charitem2" class="noneimg" src="{{ asset('/img/sword.png') }}" >
+                        <img id="charitem3" class="noneimg" src="{{ asset('/img/safe.png') }}" >
+                        <img id="charitem4" class="noneimg" src="{{ asset('/img/air.png') }}"   >
+                        <img id="charitem5" class="noneimg" src="{{ asset('/img/idcard.png') }}" style ="z-index : 49 ;" >
+                        <img id="charitem6" class="noneimg" src="{{ asset('/img/wing.png') }}" >
+                        <img id="charitem7" class="noneimg" src="{{ asset('/img/tea.png') }}" >
+                        <img id="charitem8" class="noneimg" src="{{ asset('/img/bat.png') }}" >
+                        <img id="charitem9" class="noneimg" src="{{ asset('/img/eyeing.png') }}" >
+                        <img id="charitem10" class="noneimg" src="{{ asset('/img/notebook.png') }}" >
+                        <img id="charitem11" class="noneimg" src="{{ asset('/img/hanbok.png') }}" >
+                        <img id="charitem12" class="noneimg" src="{{ asset('/img/hanbokbaji.png') }}" >
+                        <img id="charitem13" class="noneimg" src="{{ asset('/img/kindcloth.png') }}" >
+                    </div>
                 </div>
                 {{-- 다른 사용자의 프로필 조회 --}}
                 @if ($userid !== $id)
