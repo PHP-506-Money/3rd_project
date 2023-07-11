@@ -219,7 +219,17 @@ class UserController extends Controller
         return view('profile')->with('data', $result)->with('itemname', $itemonly)->with('id', $id)->with('userid', $userid);
     }
 
-    function profilepost(Request $req) {
+    function mofinname() {
+        $id = auth()->user()->userid; // 현재 로그인한 사용자의 ID를 가져옵니다.
+        $userid = auth()->user()->userid;
+        $result = User::select(['username', 'moffintype', 'moffinname'])
+        ->where('userid', $id)
+        ->get();
+    
+        return view('mofinname')->with('data', $result);
+    }
+
+    function mofinnamepost(Request $req) {
         $id = auth()->user()->userid;
 
         // 유효성 검사 방법 1
@@ -240,16 +250,6 @@ class UserController extends Controller
         return redirect()
         ->route('users.profile', ['userid' => $id])
         ->with('success', $success);
-    }
-
-    function mofinname() {
-        $id = auth()->user()->userid; // 현재 로그인한 사용자의 ID를 가져옵니다.
-        $userid = auth()->user()->userid;
-        $result = User::select(['username', 'moffintype', 'moffinname'])
-        ->where('userid', $id)
-        ->get();
-    
-        return view('mofinname')->with('data', $result);
     }
 
     function modify() {

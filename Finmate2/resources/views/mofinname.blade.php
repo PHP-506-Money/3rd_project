@@ -10,7 +10,7 @@
     <div class="success">{!!session()->has('success') ? session('success') : ""!!}</div>
     @include('layout.errorsvalidate')
     <div class="profile">
-        <form id="myinfo" name="myinfo" action="{{route('users.profile.post')}}" method="post">
+        <form id="myinfo" name="myinfo" action="{{route('users.mofinname.post')}}" method="post">
             @csrf
                 <div class="moffin">
                     @foreach ($data as $user)

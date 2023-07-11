@@ -112,8 +112,8 @@ Route::middleware(['auth'])->group(function () {
     //랭크
     Route::get('/rank/{userid}', [RankController::class,'index'])->name('rank.index');
     Route::get('/users/profile/{userid}', [UserController::class, 'profile'])->name('users.profile');
-    Route::post('/users/profilepost', [UserController::class, 'profilepost'])->name('users.profile.post');
     Route::get('/users/mofinname/', [UserController::class, 'mofinname'])->name('users.mofinname');
+    Route::post('/users/mofinnamepost', [UserController::class, 'mofinnamepost'])->name('users.mofinname.post');
     // Route::post('/rank/search', [RankController::class, 'search'])->name('rank.search');
 });
 
