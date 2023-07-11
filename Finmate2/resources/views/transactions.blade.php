@@ -47,6 +47,40 @@
     이번달 총 지출: <span id="monthly-expense"></span> 원
 </h3>
 
+{{-- 0706 v2 최혁재 --}}
+            <div>
+            <form action="{{ route('transactions.search',[auth()->user()->userid]) }}" method="post">
+            @csrf
+            <label for="startdate">시작일자</label>
+            <input type="date" class="" name="startdate" id="startdate" required>
+
+            <label for="enddate">종료일자</label>
+            <input type="date" class="" name="enddate" id="enddate" required >
+
+            <select name="search_tran">
+							<option value="2">전체</option>
+							<option value="0">입금</option>
+							<option value="1">출금</option>
+            </select> 
+            <select name="search_category">
+							<option value="44">전체</option>
+							<option value="0">외식</option>
+							<option value="1">편의점/마트</option>
+							<option value="2">유흥</option>
+							<option value="3">쇼핑</option>
+							<option value="4">주거생활</option>
+							<option value="5">건강관리</option>
+							<option value="6">교통</option>
+							<option value="7">통신</option>
+							<option value="8">저축</option>
+							<option value="9">기타</option>
+            </select> 
+            <button type="submit">검색</button>
+            </form>
+            </div>
+            @if(isset($data))
+                {{ var_dump($data )}}
+            @endif
 
     <table class="assetTable">
         <thead>

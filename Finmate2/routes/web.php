@@ -77,6 +77,8 @@ Route::middleware(['auth'])->group(function () {
 
     //transaction
     Route::get('/assets/transactions/{userid}', [TransactionController::class, 'index'])->name('transactions.index');
+    Route::post('/assets/transactions/search/{userid}', [TransactionController::class, 'search'])->name('transactions.search');
+
     
     // myinfo
     Route::get('/users/modify', [UserController::class, 'modify'])->name('users.modify');
