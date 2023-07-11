@@ -242,6 +242,16 @@ class UserController extends Controller
         ->with('success', $success);
     }
 
+    function mofinname() {
+        $id = auth()->user()->userid; // 현재 로그인한 사용자의 ID를 가져옵니다.
+        $userid = auth()->user()->userid;
+        $result = User::select(['username', 'moffintype', 'moffinname'])
+        ->where('userid', $id)
+        ->get();
+    
+        return view('mofinname')->with('data', $result);
+    }
+
     function modify() {
         $id = auth()->user()->userid; // 현재 로그인한 사용자의 ID를 가져옵니다.
         $result = User::select(['username', 'userid', 'userpw', 'useremail', 'phone'])

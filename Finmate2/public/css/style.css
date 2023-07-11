@@ -335,3 +335,11 @@ textarea::placeholder {
 h6 {
     text-align: center;
 }
+
+.moffinname {
+    text-align: center;
+}
+
+.moffin img {
+    width: 90%;
+}

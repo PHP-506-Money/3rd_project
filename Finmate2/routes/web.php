@@ -113,6 +113,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/rank/{userid}', [RankController::class,'index'])->name('rank.index');
     Route::get('/users/profile/{userid}', [UserController::class, 'profile'])->name('users.profile');
     Route::post('/users/profilepost', [UserController::class, 'profilepost'])->name('users.profile.post');
+    Route::get('/users/mofinname/', [UserController::class, 'mofinname'])->name('users.mofinname');
     // Route::post('/rank/search', [RankController::class, 'search'])->name('rank.search');
 });
 

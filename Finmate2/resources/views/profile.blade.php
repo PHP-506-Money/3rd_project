@@ -11,7 +11,7 @@
     <div class="success">{!!session()->has('success') ? session('success') : ""!!}</div>
     @include('layout.errorsvalidate')
     <div class="profile">{{-- 모핀 프로필 시작 --}}
-        <form id="myinfo" name="myinfo" action="{{route('users.profile.post')}}" method="post">
+        <form id="myinfo" name="myinfo" action="" method="post">
             @csrf
                 <div class="moffin">
                     @foreach ($data as $user)
@@ -62,8 +62,11 @@
                         {{ $user->username }} 님의 <textarea name="moffinname" id="moffinname" cols="10" rows="1" placeholder="한글, 영어 1~6자 입력" onfocus="this.placeholder = ''" onblur="this.placeholder = '한글, 영어 1~6자 입력'" required>{{ $user->moffinname }}</textarea>
                     </div>
                     <div class="bottom2">
-                        <button type="button" class="button" id="btn" onclick="moffinnameChan();">모핀이명 변경</button>
+                        <button type="button" class="button" id="btn">저장하기</button>
                         <button type="button" class="button" id="btn" onclick="btnClick();">공유하기</button>
+                    </div>
+                    <div class="moffinname">
+                        <a href="{{ route('users.mofinname') }}">모핀이명 변경</a>
                     </div>
         </form>
     </div>
