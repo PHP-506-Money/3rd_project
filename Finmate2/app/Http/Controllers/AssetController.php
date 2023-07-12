@@ -66,7 +66,7 @@ class AssetController extends Controller
             $transNamesDeposit = ['용돈', '계좌입금', '알바비', '아빠', '엄마'];
             $transNamesWithdraw = ['배민', '요기요', '쿠팡', '에이블리', '올리브영', '버스', '지하철', '마트', '편의점'];
 
-            for ($i = 1; $i <= 50;
+            for ($i = 1; $i <= 150;
                 $i++
             ) {
                 $transaction = new Transaction();
