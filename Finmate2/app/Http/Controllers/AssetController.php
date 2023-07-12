@@ -44,7 +44,7 @@ class AssetController extends Controller
         if($user->userid == $req->input('id') && Hash::check($req->input('password'), $user->userpw ) && $user->username == $req->input('name') && $user->phone == $req->input('phone')){
         //더미 데이터 추가 
         $assetCount = Asset::count();
-        $assetNames = ['토스뱅크', '신한은행', '현대카드', '대구은행', '카카오뱅크', '국민은행', '하나은행'];
+        $assetNames = ['토스뱅크', '신한은행', '현대카드', '대구은행', '카카오뱅크', '국민은행', '하나은행', '우리은행', '농협은행', '새마을금고', '기업은행'];
         $balanceMin = 100000;
         $balanceMax = 90000000;
 
@@ -58,7 +58,6 @@ class AssetController extends Controller
             }
 
             $assetNos = range($assetCount+2, $assetCount+10);
-            $assetBalances[$i] = [];
             $types = ['0', '1'];
             $payeeChars = ['0', '1', '2', '3', '4', '5', '6', '7', '8'];
             $amountMin = 1000;
@@ -82,10 +81,12 @@ class AssetController extends Controller
                 $transaction->type = $types[array_rand($types)];
                 $transaction->trantime = Carbon::now()->subYear()->addDays(rand(0, 365));
                 $categories = $payeeChars[array_rand($payeeChars)];
+                $transaction->amount = mt_rand($amountMin, $amountMax);
                 
                 if($transaction->type == '0'){
                     $transaction->char = '9';
                     $transaction->payee = $catNineName[array_rand($catNineName)];
+                    $transaction->balance = $asset->balance + $transaction->amount;
                 }else {
                     $transaction->char = $categories;
                     if ($categories == '0') {
@@ -107,9 +108,13 @@ class AssetController extends Controller
                     } else if ($categories == '8') {
                         $transaction->payee = $catEightName[array_rand($catEightName)];
                     }
+                    $transaction->balance = $asset->balance - $transaction->amount;
+                    
                 }
-                $transaction->amount = mt_rand($amountMin, $amountMax);
+
+                $asset->balance = $transaction->balance;
                 $transaction->save();
+
             }
             return response()->json(['success' => true, 'success' => '연동에 성공했습니다.']);            
         } else {

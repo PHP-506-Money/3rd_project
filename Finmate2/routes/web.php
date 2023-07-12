@@ -14,6 +14,7 @@ use App\Http\Controllers\ApiController;
 use App\Http\Controllers\BudgetController;
 use App\Http\Controllers\StaticController;
 use App\Http\Controllers\AchievementController;
+use App\Http\Controllers\MainTwoController;
 use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Asset;
@@ -64,7 +65,7 @@ Route::middleware(['guest'])->group(function () {
 
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/', [BudgetController::class, 'main2'])->name('main2');
+    Route::get('/', [MainTwoController::class, 'main2'])->name('main2');
     // Users
     Route::get('/users/logout', [UserController::class, 'logout'])->name('users.logout');
     Route::get('/users/withdraw', [UserController::class, 'withdraw'])->name('users.withdraw');
@@ -121,7 +122,7 @@ Route::get('/unauthorized-access', function () {
     return view('errors.unauthorized');
 });
 
-Route::get('/main2', [BudgetController::class, 'main2'])->name('main2');
+Route::get('/main2', [MainTwoController::class, 'main2'])->name('main2');
 
 Route::fallback(function() {
     return response()->view('errors.404', [], 404);

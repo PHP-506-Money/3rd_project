@@ -96,6 +96,8 @@
 
                                             <p class="sub">예산을 초과하셨어요! <br> 지출을 조금 <br> 줄일 필요가 있습니다.</p>
 
+                                        @elseif($data['dailyBudget'] == 0 && ($all - $sumamount) == 0 && $data['sumDayAmount'] == 0)
+                                            <p class="sub">예산을 설정해 주세요! <br> 예산 설정은 <br> 자산 관리의 시작입니다.</p>
 
                                         @else
                                             <p class="sub">잘하고 있어요! <br> 예산을 잘 지켜서 <br> 소비를 줄이는 건 <br> 부자의 지름길이죠!</p>
