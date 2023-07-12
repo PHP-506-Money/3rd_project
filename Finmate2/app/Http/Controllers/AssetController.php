@@ -63,8 +63,17 @@ class AssetController extends Controller
             $payeeChars = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
             $amountMin = 1000;
             $amountMax = 900000;
-            $transNamesDeposit = ['용돈', '계좌입금', '알바비', '아빠', '엄마'];
             $transNamesWithdraw = ['배민', '요기요', '쿠팡', '에이블리', '올리브영', '버스', '지하철', '마트', '편의점'];
+            $catZeroName = ['배민', '요기요', '삼계탕', '피자', '햄버거'];
+            $catOneName = ['이마트 트레이더스',  '편의점', '이마트', '홈플러스', '대백'];
+            $catTwoName = ['PC방', '삼순이포차', '소주한잔'];
+            $catThreeName = ['스파오', '탑텐', '에이블리','쿠팡', '신세계 백화점', '현대백화점'];
+            $catFourName = ['물세', '월세', '전기비'];
+            $catFiveName = ['곽병원', '한의원', '24시 헬스장'];
+            $catSixName = ['지하철', '버스', '택시'];
+            $catSevenName = ['휴대폰 소액 결제'];
+            $catEightName = ['적금', '저금통 저축'];
+            $catNineName = ['교보문고', '영풍문고', '알라딘'];
 
             for ($i = 1; $i <= 150;
                 $i++
@@ -74,61 +83,37 @@ class AssetController extends Controller
                 $transaction->type = $types[array_rand($types)];
                 $transaction->trantime = Carbon::now()->subYear()->addDays(rand(0, 365));
                 $categories = $payeeChars[array_rand($payeeChars)];
+                $transaction->char = $categories;
                 if($transaction->type == '0'){
-                    $transaction->char = $categories;
-                    if ($categories['0']){
-                        $transaction->payee = '밥은 사먹어~';
-                    } else if ($categories['1']){
-                        $transaction->payee = '장볼돈';
-                    } else if ($categories['2']){
-                        $transaction->payee = '피시방 갈 돈';
-                    } else if ($categories['3']) {
-                        $transaction->payee = '옷 살 돈';
-                    } else if ($categories['4']) {
-                        $transaction->payee = '집주인 줄 돈';
-                    } else if ($categories['5']) {
-                        $transaction->payee = '병원 가자';
-                    } else if ($categories['6']) {
-                        $transaction->payee = '교통비 내야지';
-                    } else if ($categories['7']) {
-                        $transaction->payee = '통신비 낼 돈';
-                    } else if ($categories['8']) {
-                        $transaction->payee = '저금 좀 하자';
-                    } else if ($categories['9']) {
-                        $transaction->payee = '책 살 거야';
-                    } else {
-                        $transaction->payee = $transNamesDeposit[array_rand($transNamesDeposit)];
-                    }
+                    $transaction->payee = '계좌입금';
                 }else {
-                    $transaction->char = $categories;
-                    if ($categories['0']) {
-                        $transaction->payee = '배민';
-                    } else if ($categories['1']) {
-                        $transaction->payee = '이마트 트레이더스';
-                    } else if ($categories['2']) {
-                        $transaction->payee = 'PC방';
-                    } else if ($categories['3']) {
-                        $transaction->payee = '스파오';
-                    } else if ($categories['4']) {
-                        $transaction->payee = '집주인 이체';
-                    } else if ($categories['5']) {
-                        $transaction->payee = '곽병원';
-                    } else if ($categories['6']) {
-                        $transaction->payee = '지하철';
-                    } else if ($categories['7']) {
-                        $transaction->payee = '휴대폰 소액 결제';
-                    } else if ($categories['8']) {
-                        $transaction->payee = '저축';
-                    } else if ($categories['9']) {
-                        $transaction->payee = '교보문고';
+                    if ($categories == '0') {
+                        $transaction->payee = $catZeroName[array_rand($catZeroName)];
+                    } else if ($categories == '1') {
+                        $transaction->payee = $catOneName[array_rand($catOneName)];
+                    } else if ($categories == '2') {
+                        $transaction->payee = $catTwoName[array_rand($catTwoName)];
+                    } else if ($categories == '3') {
+                        $transaction->payee = $catThreeName[array_rand($catThreeName)];
+                    } else if ($categories == '4') {
+                        $transaction->payee = $catFourName[array_rand($catFourName)];
+                    } else if ($categories == '5') {
+                        $transaction->payee = $catFiveName[array_rand($catFiveName)];
+                    } else if ($categories == '6') {
+                        $transaction->payee = $catSixName[array_rand($catSixName)];
+                    } else if ($categories == '7') {
+                        $transaction->payee = $catSevenName[array_rand($catSevenName)];
+                    } else if ($categories == '8') {
+                        $transaction->payee = $catEightName[array_rand($catEightName)];
+                    } else if ($categories == '9') {
+                        $transaction->payee = $catNineName[array_rand($catNineName)];
                     } else {
-                        $transaction->payee = $transNamesWithdraw[array_rand($transNamesDeposit)];
+                        $transaction->payee = $transNamesWithdraw[array_rand($transNamesWithdraw)];
                     }
                 }
                 $transaction->amount = mt_rand($amountMin, $amountMax);
                 $transaction->save();
             }
-
             return response()->json(['success' => true, 'success' => '연동에 성공했습니다.']);            
         } else {
             if($user->userid !== $req->input('id')){
