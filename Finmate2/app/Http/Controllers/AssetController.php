@@ -60,10 +60,9 @@ class AssetController extends Controller
             $assetNos = range($assetCount+2, $assetCount+10);
             $assetBalances[$i] = [];
             $types = ['0', '1'];
-            $payeeChars = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
+            $payeeChars = ['0', '1', '2', '3', '4', '5', '6', '7', '8'];
             $amountMin = 1000;
             $amountMax = 900000;
-            $transNamesWithdraw = ['배민', '요기요', '쿠팡', '에이블리', '올리브영', '버스', '지하철', '마트', '편의점'];
             $catZeroName = ['배민', '요기요', '삼계탕', '피자', '햄버거'];
             $catOneName = ['이마트 트레이더스',  '편의점', '이마트', '홈플러스', '대백'];
             $catTwoName = ['PC방', '삼순이포차', '소주한잔'];
@@ -73,7 +72,7 @@ class AssetController extends Controller
             $catSixName = ['지하철', '버스', '택시'];
             $catSevenName = ['휴대폰 소액 결제'];
             $catEightName = ['적금', '저금통 저축'];
-            $catNineName = ['교보문고', '영풍문고', '알라딘'];
+            $catNineName = ['계좌입금', '용돈', '밥은 사먹으렴 ~아빠가', '보너스'];
 
             for ($i = 1; $i <= 150;
                 $i++
@@ -83,10 +82,12 @@ class AssetController extends Controller
                 $transaction->type = $types[array_rand($types)];
                 $transaction->trantime = Carbon::now()->subYear()->addDays(rand(0, 365));
                 $categories = $payeeChars[array_rand($payeeChars)];
-                $transaction->char = $categories;
+                
                 if($transaction->type == '0'){
-                    $transaction->payee = '계좌입금';
+                    $transaction->char = '9';
+                    $transaction->payee = $catNineName[array_rand($catNineName)];
                 }else {
+                    $transaction->char = $categories;
                     if ($categories == '0') {
                         $transaction->payee = $catZeroName[array_rand($catZeroName)];
                     } else if ($categories == '1') {
@@ -105,10 +106,6 @@ class AssetController extends Controller
                         $transaction->payee = $catSevenName[array_rand($catSevenName)];
                     } else if ($categories == '8') {
                         $transaction->payee = $catEightName[array_rand($catEightName)];
-                    } else if ($categories == '9') {
-                        $transaction->payee = $catNineName[array_rand($catNineName)];
-                    } else {
-                        $transaction->payee = $transNamesWithdraw[array_rand($transNamesWithdraw)];
                     }
                 }
                 $transaction->amount = mt_rand($amountMin, $amountMax);
