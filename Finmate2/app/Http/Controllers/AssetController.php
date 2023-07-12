@@ -58,6 +58,7 @@ class AssetController extends Controller
             }
 
             $assetNos = range($assetCount+2, $assetCount+10);
+            $assetBalances[$i] = [];
             $types = ['0', '1'];
             $payeeChars = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
             $amountMin = 1000;
@@ -73,12 +74,57 @@ class AssetController extends Controller
                 $transaction->type = $types[array_rand($types)];
                 $transaction->trantime = Carbon::now()->subYear()->addDays(rand(0, 365));
                 if($transaction->type == '0'){
-                    $transaction->payee = $transNamesDeposit[array_rand($transNamesDeposit)];
+                    $transaction->char = $payeeChars[array_rand($payeeChars)];
+                    if ($payeeChars['0']){
+                        $transaction->payee = '밥은 사먹어~';
+                    } else if ($payeeChars['1']){
+                        $transaction->payee = '장볼돈';
+                    } else if ($payeeChars['2']){
+                        $transaction->payee = '피시방 갈 돈';
+                    } else if ($payeeChars['3']) {
+                        $transaction->payee = '옷 살 돈';
+                    } else if ($payeeChars['4']) {
+                        $transaction->payee = '집주인 줄 돈';
+                    } else if ($payeeChars['5']) {
+                        $transaction->payee = '병원 가자';
+                    } else if ($payeeChars['6']) {
+                        $transaction->payee = '교통비 내야지';
+                    } else if ($payeeChars['7']) {
+                        $transaction->payee = '통신비 낼 돈';
+                    } else if ($payeeChars['8']) {
+                        $transaction->payee = '저금 좀 하자';
+                    } else if ($payeeChars['9']) {
+                        $transaction->payee = '책 살 거야';
+                    } else {
+                        $transaction->payee = $transNamesDeposit[array_rand($transNamesDeposit)];
+                    }
                 }else {
-                    $transaction->payee = $transNamesWithdraw[array_rand($transNamesWithdraw)];
+                    $transaction->char = $payeeChars[array_rand($payeeChars)];
+                    if ($payeeChars['0']) {
+                        $transaction->payee = '배민';
+                    } else if ($payeeChars['1']) {
+                        $transaction->payee = '이마트 트레이더스';
+                    } else if ($payeeChars['2']) {
+                        $transaction->payee = 'PC방';
+                    } else if ($payeeChars['3']) {
+                        $transaction->payee = '스파오';
+                    } else if ($payeeChars['4']) {
+                        $transaction->payee = '집주인 이체';
+                    } else if ($payeeChars['5']) {
+                        $transaction->payee = '곽병원';
+                    } else if ($payeeChars['6']) {
+                        $transaction->payee = '지하철';
+                    } else if ($payeeChars['7']) {
+                        $transaction->payee = '휴대폰 소액 결제';
+                    } else if ($payeeChars['8']) {
+                        $transaction->payee = '저축';
+                    } else if ($payeeChars['9']) {
+                        $transaction->payee = '교보문고';
+                    } else {
+                        $transaction->payee = $transNamesWithdraw[array_rand($transNamesDeposit)];
+                    }
                 }
                 $transaction->amount = mt_rand($amountMin, $amountMax);
-                $transaction->char = $payeeChars[array_rand($payeeChars)];
                 $transaction->save();
             }
 
