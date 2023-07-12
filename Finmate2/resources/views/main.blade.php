@@ -208,7 +208,7 @@
 				                        <p class="sub">[이벤트]</p>
 				                    </div>
 				                    <div class="event-title half">
-				                        <p class="main-text">첫 개시! 몇달간만 포인트를 600을 제공합니다</p>
+				                        <p class="main-text">첫 이벤트! 3달간 포인트 100에서 600으로 증정합니다.</p>
 				                    </div>
 				                </a>
 				            </div>
