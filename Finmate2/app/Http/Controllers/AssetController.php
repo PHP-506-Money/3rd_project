@@ -73,52 +73,53 @@ class AssetController extends Controller
                 $transaction->assetno = $assetNos[array_rand($assetNos)];
                 $transaction->type = $types[array_rand($types)];
                 $transaction->trantime = Carbon::now()->subYear()->addDays(rand(0, 365));
+                $categories = $payeeChars[array_rand($payeeChars)];
                 if($transaction->type == '0'){
-                    $transaction->char = $payeeChars[array_rand($payeeChars)];
-                    if ($payeeChars['0']){
+                    $transaction->char = $categories;
+                    if ($categories['0']){
                         $transaction->payee = '밥은 사먹어~';
-                    } else if ($payeeChars['1']){
+                    } else if ($categories['1']){
                         $transaction->payee = '장볼돈';
-                    } else if ($payeeChars['2']){
+                    } else if ($categories['2']){
                         $transaction->payee = '피시방 갈 돈';
-                    } else if ($payeeChars['3']) {
+                    } else if ($categories['3']) {
                         $transaction->payee = '옷 살 돈';
-                    } else if ($payeeChars['4']) {
+                    } else if ($categories['4']) {
                         $transaction->payee = '집주인 줄 돈';
-                    } else if ($payeeChars['5']) {
+                    } else if ($categories['5']) {
                         $transaction->payee = '병원 가자';
-                    } else if ($payeeChars['6']) {
+                    } else if ($categories['6']) {
                         $transaction->payee = '교통비 내야지';
-                    } else if ($payeeChars['7']) {
+                    } else if ($categories['7']) {
                         $transaction->payee = '통신비 낼 돈';
-                    } else if ($payeeChars['8']) {
+                    } else if ($categories['8']) {
                         $transaction->payee = '저금 좀 하자';
-                    } else if ($payeeChars['9']) {
+                    } else if ($categories['9']) {
                         $transaction->payee = '책 살 거야';
                     } else {
                         $transaction->payee = $transNamesDeposit[array_rand($transNamesDeposit)];
                     }
                 }else {
-                    $transaction->char = $payeeChars[array_rand($payeeChars)];
-                    if ($payeeChars['0']) {
+                    $transaction->char = $categories;
+                    if ($categories['0']) {
                         $transaction->payee = '배민';
-                    } else if ($payeeChars['1']) {
+                    } else if ($categories['1']) {
                         $transaction->payee = '이마트 트레이더스';
-                    } else if ($payeeChars['2']) {
+                    } else if ($categories['2']) {
                         $transaction->payee = 'PC방';
-                    } else if ($payeeChars['3']) {
+                    } else if ($categories['3']) {
                         $transaction->payee = '스파오';
-                    } else if ($payeeChars['4']) {
+                    } else if ($categories['4']) {
                         $transaction->payee = '집주인 이체';
-                    } else if ($payeeChars['5']) {
+                    } else if ($categories['5']) {
                         $transaction->payee = '곽병원';
-                    } else if ($payeeChars['6']) {
+                    } else if ($categories['6']) {
                         $transaction->payee = '지하철';
-                    } else if ($payeeChars['7']) {
+                    } else if ($categories['7']) {
                         $transaction->payee = '휴대폰 소액 결제';
-                    } else if ($payeeChars['8']) {
+                    } else if ($categories['8']) {
                         $transaction->payee = '저축';
-                    } else if ($payeeChars['9']) {
+                    } else if ($categories['9']) {
                         $transaction->payee = '교보문고';
                     } else {
                         $transaction->payee = $transNamesWithdraw[array_rand($transNamesDeposit)];
