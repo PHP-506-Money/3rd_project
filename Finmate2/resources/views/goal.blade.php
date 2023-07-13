@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ asset('/css/style.css')  }}" >
 <h1>나의 목표</h1>
 
-<form action="{{ route('goal.insert',[auth()->user()->userid]) }}" method="post" class="listbox2" id="db1">
+<form action="{{ route('goal.post') }}" method="post" class="listbox2" id="db1">
     @method('POST')
     @csrf
         <label for="title">목표</label>
@@ -62,9 +62,9 @@ $num = 0;
                     <button type="button" class="button" onclick="toggleForm({{ $goal->goalno }})">수정</button>
                 </td>
                 <td>
-                    <form action="{{ route('goal.delete',[auth()->user()->userid]) }}" method="post">
+                    <form action="{{ route('goal.delete') }}" method="delete">
                         @csrf
-                        @method('post')
+                        @method('delete')
                         <input type="hidden" name="goalno" value="{{ $goal->goalno }}">
                         <button type="submit" class="button">삭제</button>
                     </form>
@@ -74,9 +74,9 @@ $num = 0;
 
             <tr>
                 <td colspan="8">
-                    <form action="{{ route('goal.update',[auth()->user()->userid]) }}" method="post" id="form_{{ $goal->goalno }}" style="display: none;">
+                    <form action="{{ route('goal.put') }}" method="put" id="form_{{ $goal->goalno }}" style="display: none;">
                         @csrf
-                        @method('post')
+                        @method('put')
                         <input type="hidden" name="goalno" value="{{ $goal->goalno }}">
 
                         <div class="">
@@ -133,9 +133,9 @@ $num = 0;
                 <td>{{ $goal->startperiod }}</td>
                 <td>{{ $goal->endperiod }}</td>
                 <td>
-                    <form action="{{ route('goal.delete',[auth()->user()->userid]) }}" method="post">
+                    <form action="{{ route('goal.delete') }}" method="delete">
                         @csrf
-                        @method('post')
+                        @method('delete')
                         <input type="hidden" name="goalno" value="{{ $goal->goalno }}">
                         <button type="submit" class="button">삭제</button>
                     </form>

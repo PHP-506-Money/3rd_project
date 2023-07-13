@@ -100,10 +100,10 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/static/{userid}' , [StaticController::class, 'static'])->name('static.get');
     
     //목표
-    Route::get('/goal/{userid}', [GoalController::class,'index'])->name('goal.index');
-    Route::post('/goal/insert/{userid}', [GoalController::class, 'insert'])->name('goal.insert');
-    Route::post('/goal/update/{userid}', [GoalController::class, 'update'])->name('goal.update');
-    Route::post('/goal/delete/{userid}', [GoalController::class, 'delete'])->name('goal.delete');
+    Route::get('/goal', [GoalController::class,'index'])->name('goal.index');
+    Route::post('/goal', [GoalController::class, 'post'])->name('goal.post');
+    Route::put('/goal', [GoalController::class, 'put'])->name('goal.put');
+    Route::delete('/goal', [GoalController::class, 'delete'])->name('goal.delete');
     
     //모핀
     Route::get('/mofin/{userid}', [MofinController::class,'index'])->name('mofin.index');

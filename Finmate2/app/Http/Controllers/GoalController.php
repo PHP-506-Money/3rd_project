@@ -13,13 +13,13 @@ use Illuminate\Support\Facades\DB;
 
 class GoalController extends Controller
 {
-    public function index($id)
+    public function index()
     {   
         
-        $current_user_id = auth()->user()->userid;
-        if ($current_user_id != $id) {
-            return redirect('/unauthorized-access'); // 잘못된 접근 페이지로 리다이렉트
-        }
+        $id = auth()->user()->userid;
+        // if ($current_user_id != $id) {
+        //     return redirect('/unauthorized-access'); // 잘못된 접근 페이지로 리다이렉트
+        // }
         // goals 테이블에서 userid로 삭제되지않은 전체 목표출력
         $results = DB::table('goals')->where('userid', $id)->where('deleted_at', null)->where('completed_at', null)->get();
         // $idsearch = DB::table('users')->where('userid', $id)->first();/********0623 del ***/ userid 로 통일
@@ -65,8 +65,9 @@ class GoalController extends Controller
 
 
 
-    public function insert($id,Request $Req)
+    public function post(Request $Req)
     {
+        $id = auth()->user()->userid;
         // 유효성 체크
         $Req->validate([
             'amount'   => 'numeric|min:100000|max:1000000000',
@@ -93,8 +94,9 @@ class GoalController extends Controller
 
 
 
-    public function update($id, Request $Req)
+    public function put(Request $Req)
 {
+    $id = auth()->user()->userid;
     $Req->validate([
         'amount'   => 'numeric|min:100000|max:1000000000',
         'startperiod' => 'required|date',
@@ -112,21 +114,22 @@ class GoalController extends Controller
 
     $upinfo->update($updatedData); //request 받은값을 업데이트 해줍니다
 
-    return redirect()->route('goal.index', ['userid' => $id]);
+    return redirect()->route('goal.index');
 }
 
 
 
 
 
-public function delete($id, Request $Req){
+public function delete(Request $Req){
+    $id = auth()->user()->userid;
         //request 받은 goalno있는 데이터를 삭제 플래그 추가합니다
         $delinfo = DB::table('goals')->where('userid', $id)->where('goalno', $Req->goalno);
             $delinfo -> update([
             'deleted_at' => now()
         ]);
         
-        return redirect()->route('goal.index', ['userid' => $id]);
+        return redirect()->route('goal.index');
 
 
 }

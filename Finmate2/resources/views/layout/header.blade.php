@@ -79,7 +79,7 @@
                     </li>
 
                     <li><a href="{{ url('/budget'.'/' . auth()->user()->userid) }}">예산</a></li>
-                    <li><a href="{{ url('/goal'.'/' . auth()->user()->userid) }}">목표</a></li>
+                    <li><a href="{{ url('/goal') }}">목표</a></li>
                     <li><a href="{{ url('/static'.'/' . auth()->user()->userid) }}">통계</a></li>
                     <li><a href="{{ url('/achievements') }}">업적</a></li>
                     <li class="order">
