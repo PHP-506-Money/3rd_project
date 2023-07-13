@@ -28,7 +28,7 @@
                 </div>
 
             </div>
-            <article class="l-layout founded">
+            <article class="l-layout founded" style="padding-top: 0;">
                 <div class="my_page my_correction_main my_page_order_main">
                     <div class="l-inner">
 
