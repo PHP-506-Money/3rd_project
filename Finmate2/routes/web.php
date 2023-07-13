@@ -122,7 +122,7 @@ Route::get('/unauthorized-access', function () {
     return view('errors.unauthorized');
 });
 
-Route::get('/main2', [MainTwoController::class, 'main2'])->name('main2');
+// Route::get('/main2', [MainTwoController::class, 'main2'])->name('main2');
 
 Route::fallback(function() {
     return response()->view('errors.404', [], 404);
