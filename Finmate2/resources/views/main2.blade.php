@@ -51,7 +51,7 @@
                                     </dl>
                                     <div class="center-box">
                                         <p class="img">
-                                            <img src="https://cdn.goob-ne.com/goobne/resources/assets/images/contents/c-founded-diff.png" alt="오븐구이치킨">
+                                            <img src="./resources/assets/images/main/crown.png" alt="왕관수여">
                                         </p>
                                         <div class="text">
                                             @foreach($loginrank as $value)
