@@ -91,7 +91,7 @@ Route::middleware(['auth'])->group(function () {
     Route::put('/achievements/{achievementId}/reward', [AchievementController::class, 'receiveAchievementReward'])->name('achievements.reward');
     
     // 예산 설정
-    Route::get('/budget/{userid}',[BudgetController::class, 'budget'])->name('budget.get');
+    Route::get('/budget',[BudgetController::class, 'budget'])->name('budget.get');
     Route::get('/budgetset',[BudgetController::class, 'budgetset'])->name('budgetset.get');
     Route::post('/budget',[BudgetController::class, 'setting'])->name('budget.post');
     Route::put('/budget',[BudgetController::class, 'edit'])->name('budget.put');
