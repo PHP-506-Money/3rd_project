@@ -55,3 +55,30 @@ span:hover + p.arrow_box {
 .chara img:active{
     background-color: black;
 }
+
+.success {
+    background-color: var(--btn-color);
+    color: white;
+    font-weight: 500;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.error {
+    color: var(--active-color);
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+#errMsg {
+    text-align: center;
+    font-size: small;
+    color: red;
+    margin-top: 3px;
+}
+
+#errMsgId {
+    text-align: center;
+    font-size: small;
+    color: red;
+}

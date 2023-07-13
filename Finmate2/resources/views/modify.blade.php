@@ -5,47 +5,72 @@
 @section('header', 'WELCOME TO FINMATE')
 
 @section('contents')
-    <link rel="stylesheet" href="{{ asset('/css/style.css')  }}" >
+    {{-- <link rel="stylesheet" href="{{ asset('/css/style.css')  }}" > --}}
     <div class="success">{!!session()->has('success') ? session('success') : ""!!}</div>
-    @include('layout.errorsvalidate')
-    <form id="modify" action="{{route('users.modify.post')}}" method="post">
-        @csrf
-        <div>
-            @foreach ($data as $user)
-                <div class="label3">
-                    <label for="name">이름</label>
-                    <input type="text" name="name" id="name" value="{{ $user->username }}" readonly>
-                </div>
-                <div class="label3">
-                    <label for="id">아이디</label>
-                    <input type="text" name="id" id="id" value="{{ $user->userid }}" readonly>
-                </div>
-                <div class="label3">
-                    <label for="password">비밀번호</label>
-                    <input type="password" name="password" id="password" placeholder="영문, 숫자, 특수문자 1개씩 포함하여 8~12자 입력" onfocus="this.placeholder = ''" onblur="this.placeholder = '영문, 숫자, 특수문자 1개씩 포함하여 8~12자 입력'" required>
-                </div>
-                <div class="label3">
-                    <label for="passwordchk">비밀번호 확인</label>
-                    <input type="password" name="passwordchk" id="passwordchk" placeholder="비밀번호란과 동일하게 입력해주세요." onfocus="this.placeholder = ''" onblur="this.placeholder = '비밀번호란과 동일하게 입력해주세요.'" required>
-                </div>
-                <div class="label3">
-                    <label for="email">이메일</label>
-                    <input type="email" name="email" id="email" value="{{ $user->useremail }}"" placeholder="이메일주소를 입력해주세요." onfocus="this.placeholder = ''" onblur="this.placeholder = '이메일주소를 입력해주세요.'" required>
-                    {{-- <button type="button" class="button" id="btn" onclick="btnclick();">인증하기</button> --}}
-                </div>
-                <div class="label3">
-                    <label for="phone">휴대폰</label>
-                    <input type="tel" name="phone" id="phone" value="{{ $user->phone }}" placeholder="휴대폰번호를 입력해주세요." onfocus="this.placeholder = ''" onblur="this.placeholder = '휴대폰번호를 입력해주세요.'" required>
-                </div>
+
+    <div id="content">
+        <article class="l-layout join">
+        @include('layout.errorsvalidate')
+            <div class="l-inner joinForm_l-inner">
+                <div class="l-title">회원 정보 수정</div>
+                <form id="modify" action="{{route('users.modify.post')}}" method="post">
+                @csrf
+                <section class="join__input">
+                <div>
+                    <div class="tit-area">
+                        <p class="tit">회원 정보</p>
+                    </div>
+                    @foreach ($data as $user)
+                        <div class="input-area">
+
+                            <div class="sec-line">
+                                <label for="name" class="title">이름</label>
+                                <input type="text" class="l-input short-input" name="name" id="name" value="{{ $user->username }}" readonly>
+                                <div id="errMsgId"></div>
+                                <div id="errMsg"></div>
+                            </div>
+
+                            <div class="sec-line">
+                                <label for="id" class="title">아이디</label>
+                                <input type="text" class="l-input short-input" name="id" id="id" value="{{ $user->userid }}" readonly>
+                                <div id="errMsgId"></div>
+                            </div>
+
+                            <div class="sec-line">
+                                <label for="password" class="title">비밀번호</label>
+                                <input type="password" class="l-input short-input" name="password" id="password" placeholder="영문, 숫자, 특수문자 1개씩 포함하여 8~12자 입력" onfocus="this.placeholder = ''" onblur="this.placeholder = '영문, 숫자, 특수문자 1개씩 포함하여 8~12자 입력'" required>
+                                <div id="errMsgId"></div>
+                            </div>
+
+                            <div class="sec-line">
+                                <label for="passwordchk" class="title">비밀번호 확인</label>
+                                <input type="password" class="l-input short-input" name="passwordchk" id="passwordchk" placeholder="비밀번호란과 동일하게 입력해주세요." onfocus="this.placeholder = ''" onblur="this.placeholder = '비밀번호란과 동일하게 입력해주세요.'" required>
+                                <div id="errMsgId"></div>
+                            </div>
+
+                            <div class="sec-line">
+                                <label for="email" class="title">이메일</label>
+                                <input type="email" class="l-input short-input" name="email" id="email" value="{{ $user->useremail }}"" placeholder="이메일주소를 입력해주세요." onfocus="this.placeholder = ''" onblur="this.placeholder = '이메일주소를 입력해주세요.'" required>
+                                <div id="errMsgId"></div>
+                                {{-- <button type="button" class="button" id="btn" onclick="btnclick();">인증하기</button> --}}
+                            </div>
+
+                            <div class="sec-line">
+                                <label for="phone" class="title">휴대폰</label>
+                                <input type="tel" class="l-input short-input" name="phone" id="phone" value="{{ $user->phone }}" placeholder="휴대폰번호를 입력해주세요." onfocus="this.placeholder = ''" onblur="this.placeholder = '휴대폰번호를 입력해주세요.'" required>
+                                <div id="errMsgId"></div>
+                            </div>
             @endforeach
-            <div class="btn">
-                <button type="submit" class="button" id="button">변경하기</button>
-            </div>
-            <div class="btn2">
-                <button type="button" class="button" id="button2" onclick="confirmWithdrawal()">회원탈퇴</button>
-            </div>
+                <button type="submit" class="l-btn" id="button">변경하기</button>
+                <button type="button" class="l-btn" id="button2" onclick="confirmWithdrawal()">회원탈퇴</button>
+                            </div>
         </div>
+                    </section>
     </form>
+
+        </div>
+    </article>
+</div>
 @endsection
 
 <script src="{{ asset('/js/user.js') }}"></script>

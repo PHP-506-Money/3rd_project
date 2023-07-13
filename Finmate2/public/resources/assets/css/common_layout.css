@@ -123,12 +123,18 @@
   height: 5rem;
   line-height: 5rem;
   border-radius: 5px;
-  border: 1px solid #000;
-  background-color: #000000;
+  border: 1px solid #15213d;
+  background-color: #1c3879;
   font-size: 1.6rem;
   font-weight: 400;
   color: #fff;
   text-align: center;
+  margin-top: 1rem;
+}
+
+.l-btn:hover {
+  border: 1px solid #5b76b4;
+  background-color: #355194;
 }
 
 .l-btn.line {

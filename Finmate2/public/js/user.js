@@ -120,7 +120,7 @@ function hideErrorMessage(input) {
 }
 
 // 입력 필드에 입력값이 변경될 때마다 유효성 체크
-const form = document.getElementById('form');
+const form = document.getElementById('joinForm');
 const inputs = Array.from(form.querySelectorAll('input'));
 inputs.forEach((input) => {
 input.addEventListener('input', () => {
