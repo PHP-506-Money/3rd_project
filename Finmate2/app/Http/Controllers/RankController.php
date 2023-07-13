@@ -34,7 +34,7 @@ class RankController extends Controller
         ->get();
         
         
-        return view('rank')->with('pointrank',$pointrank)->with('loginrank',$loginrank)->with('itemdrawrank',$itemdrawrank);
+        return view('rank')->with('pointrank', $pointrank)->with('loginrank', $loginrank)->with('itemdrawrank', $itemdrawrank);
 
     }
 
