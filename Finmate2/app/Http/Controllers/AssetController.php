@@ -73,7 +73,7 @@ class AssetController extends Controller
             $catEightName = ['적금', '저금통 저축'];
             $catNineName = ['계좌입금', '용돈', '밥은 사먹으렴 ~아빠가', '보너스'];
 
-            for ($i = 1; $i <= 200;
+            for ($i = 1; $i <= 364;
                 $i++
             ) {
                 $transaction = new Transaction();
