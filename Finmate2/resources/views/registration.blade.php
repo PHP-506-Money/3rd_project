@@ -55,10 +55,8 @@
                         <div class="sec-line">
                             <label for="phone" class="title">휴대폰<i class="point">*</i></label>
                             <div class="right">
-                                <div class="input-btn">
                                     <input type="tel" class="l-input short-input" name="phone" id="phone" value="{{ old('phone') }}" placeholder="휴대폰번호를 입력해주세요." onfocus="this.placeholder = ''" onblur="this.placeholder = '휴대폰번호를 입력해주세요.'" autocomplete="off" required>
                                     <div id="errMsgId"></div>
-                                </div>
                             </div>
                         </div>
                         
