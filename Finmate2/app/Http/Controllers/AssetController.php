@@ -73,13 +73,15 @@ class AssetController extends Controller
             $catEightName = ['적금', '저금통 저축'];
             $catNineName = ['계좌입금', '용돈', '밥은 사먹으렴 ~아빠가', '보너스'];
 
-            for ($i = 1; $i <= 150;
+            for ($i = 1; $i <= 200;
                 $i++
             ) {
                 $transaction = new Transaction();
                 $transaction->assetno = $assetNos[array_rand($assetNos)];
                 $transaction->type = $types[array_rand($types)];
-                $transaction->trantime = Carbon::now()->subYear()->addDays(rand(0, 365));
+                $randSec = rand(0, 8400);
+                // $transaction->trantime = Carbon::now()->subYear()->addDays(rand(0, 365));
+                $transaction->trantime = Carbon::now()->subDays(365 - $i)->addSeconds($randSec);
                 $categories = $payeeChars[array_rand($payeeChars)];
                 $transaction->amount = mt_rand($amountMin, $amountMax);
                 
@@ -109,14 +111,13 @@ class AssetController extends Controller
                         $transaction->payee = $catEightName[array_rand($catEightName)];
                     }
                     $transaction->balance = $asset->balance - $transaction->amount;
-                    
                 }
-
-                $asset->balance = $transaction->balance;
+                $asset->where('assetno', $transaction->assetno)->update(['balance' => $transaction->balance]);
+                $asset->save();
                 $transaction->save();
-
             }
-            return response()->json(['success' => true, 'success' => '연동에 성공했습니다.']);            
+            return response()->json(['success' => true, 'success' => '연동에 성공했습니다.']);
+            
         } else {
             if($user->userid !== $req->input('id')){
                 return response()->json(['success' => false, 'error' => '아이디가 등록된 유저 아이디와 일치하지 않습니다.']);
