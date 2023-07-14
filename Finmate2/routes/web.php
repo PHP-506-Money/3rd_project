@@ -111,11 +111,13 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/mofin/post/{userid}', [MofinController::class, 'point'])->name('mofin.point');
     Route::post('/mofin/item/{userno}', [MofinController::class,'item'])->name('mofin.item');
     Route::post('/mofin/{userid}', [MofinController::class,'search'])->name('mofin.search');
-    //랭크
-    Route::get('/rank/{userid}', [RankController::class,'index'])->name('rank.index');
     Route::get('/users/profile/{userid}', [UserController::class, 'profile'])->name('users.profile');
+    Route::post('/users/profile', [UserController::class, 'post'])->name('users.profile.post');
     Route::get('/users/mofinname/', [UserController::class, 'mofinname'])->name('users.mofinname');
     Route::post('/users/mofinnamepost', [UserController::class, 'mofinnamepost'])->name('users.mofinname.post');
+
+    //랭크
+    Route::get('/rank/{userid}', [RankController::class,'index'])->name('rank.index');
     // Route::post('/rank/search', [RankController::class, 'search'])->name('rank.search');
 });
 

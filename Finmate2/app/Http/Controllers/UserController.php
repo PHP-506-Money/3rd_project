@@ -3,7 +3,8 @@
  * Project Name : Finmate
  * Directory    : Controllers
  * File Name    : UserController.php
- * History      : v001 0615 EY.Sin new
+ * History      : v001 0615 EY.Sin
+ *                v002 0714 EY.Sin new
  *******************************************/
 
 namespace App\Http\Controllers;
@@ -227,6 +228,13 @@ class UserController extends Controller
         // v002 add end
 
         return view('profile')->with('data', $result)->with('items', $items)->with('id', $id)->with('userid', $userid);
+    }
+
+    // v002 add start
+    function itemflg() {
+        $userid = auth()->user()->userid;
+
+    return redirect()->route('users.profile');
     }
 
     function mofinname() {
