@@ -20,6 +20,11 @@ class NewGoalController extends Controller
     {   
         $id = auth()->user()->userid;
         $assets = Asset::where('userid', $id)->get();
+        $goals = Goal::where('userid', $id)->orderby('endday','asc')->get();
+        
+        if($goals){
+            return view('goal')->with('assets', $assets)->with('goals', $goals);    
+        }
         
         return view('goal')->with('assets', $assets);
     }
