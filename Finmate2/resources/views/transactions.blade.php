@@ -56,7 +56,7 @@
 
             <label for="enddate">종료일자</label>
             <input type="date" class="" name="enddate" id="enddate" required >
-
+            
             <select id = "search_tran" name="search_tran">
 							<option value="99">전체</option>
 							<option value="0">입금</option>
@@ -65,30 +65,15 @@
             <select id = "search_category" name="search_category">
 							<option value="99">전체</option>
                             @foreach($category as $value)
-							<option value="0">{{ $value->name }}</option>
+							<option value={{ $value->no }}>{{ $value->name }}</option>
                                 {{ $value->no }}
                                 {{ $value->name }}
                             @endforeach
-							<option value="1">편의점/마트</option>
-							<option value="2">유흥</option>
-							<option value="3">쇼핑</option>
-							<option value="4">주거생활</option>
-							<option value="5">건강관리</option>
-							<option value="6">교통</option>
-							<option value="7">통신</option>
-							<option value="8">저축</option>
-							<option value="9">입금</option>
             </select> 
             <button type="submit">검색</button>
             </form>
             </div>
 
-            <div>
-                @foreach($category as $value)
-                    {{ $value->no }}
-                    {{ $value->name }}
-                @endforeach
-            </div>
 
             {{-- <script>
                 $(document).ready(function(){
