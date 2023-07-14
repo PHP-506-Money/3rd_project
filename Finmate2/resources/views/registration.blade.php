@@ -67,35 +67,35 @@
                         </div>
                         <div id="menu">
     <label for="moffintype" class="title"></label>
-        <div>
-        <label for="rabbit">
+        <div >
+        <label for="rabbit" >
             <span id="chara">
-                <img src="{{ asset('/img/rabbit2.png') }}" alt="rabbit">
+                <img src="{{ asset('/img/rabbit2.png') }}" alt="rabbit" onclick="toggleImage('rabbit')" id="myImage">
             </span>
             <p class="arrow_box">저를 데려가주세요!</p>
-            <input type="radio" name="moffintype" id="rabbit" value="1">
+            <input type="radio" name="moffintype" id="rabbit" value="1" onchange="toggleImage('rabbit')">
     </label>
         </div>
-    <div>
+    <div class = "imgspace">
         <label for="penguin">
             <span id="chara">
-                <img src="{{ asset('/img/penguin2.png') }}" alt="penguin">
+                <img src="{{ asset('/img/penguin2.png') }}" alt="penguin" onclick="toggleImage('penguin')">
             </span>
                 <p class="arrow_box">날 데려가면 좋을걸?</p>
-                <input type="radio" name="moffintype" id="penguin" value="2">
+                <input type="radio" name="moffintype" id="penguin" value="2" onchange="toggleImage('penguin')">
         </label>
     </div>
-    <div>
+    <div class = "imgspace">
         <label for="panda">
             <span id="chara">
-                <img src="{{ asset('/img/panda2.png') }}" alt="panda">
+                <img src="{{ asset('/img/panda2.png') }}" alt="panda" onclick="toggleImage('panda')">
             </span>
             <p class="arrow_box">날 데려가라!</p>
-            <input type="radio" name="moffintype" id="panda" value="3">
+            <input type="radio" name="moffintype" id="panda" value="3" onchange="toggleImage('panda')">
         </label>
     </div>
 </div>
-                        <button type="submit" class="l-btn" >가입하기</button>
+                        <button type="submit" id="btnmove" >가입하기</button>
                     </div>
                 </section>
             </form>
@@ -104,5 +104,28 @@
 </div>
 
 <script src="{{ asset('/js/user.js') }}"></script>
+
+<script>
+    function toggleImage(character) {
+  var imageElement = document.getElementById(character + "Image");
+  var isBlackAndWhite = imageElement.src.includes("_bw.png");
+  var newImageSrc = isBlackAndWhite ? imageElement.src.replace("_bw.png", ".png") : imageElement.src.replace(".png", "_bw.png");
+  imageElement.src = newImageSrc;
+}
+
+function changeImage(selectedCharacter) {
+  var characters = ["rabbit", "penguin", "panda"];
+  characters.forEach(function(character) {
+    if (character !== selectedCharacter) {
+      var imageElement = document.getElementById(character + "Image");
+      var isBlackAndWhite = imageElement.src.includes("_bw.png");
+      if (!isBlackAndWhite) {
+        imageElement.src = imageElement.src.replace(".png", "_bw.png");
+      }
+    }
+  });
+}
+
+  </script>
 
 @endsection

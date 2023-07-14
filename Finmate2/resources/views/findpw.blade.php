@@ -16,9 +16,9 @@
                         @csrf
                         <div class="login__input">
                             <div class="line">
-                                <label for="name">이름</label>
+                                <label for="id">아이디</label>
                                 <div class="icon-input">
-                                    <input type="text" placeholder="이름을 입력해주세요" id="user-name1" name="name">
+                                    <input type="text" placeholder="아이디를 입력해주세요" id="id" name="id">
                                 </div>
                             </div>
                             <div class="line">
