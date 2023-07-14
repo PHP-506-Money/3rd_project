@@ -276,9 +276,16 @@ function history_back(){
 
 function toggleitem(itemNumber) {
     var charitem = document.getElementById('charitem' + itemNumber);
-    if (charitem.style.display === 'none') {
-        charitem.style.display = 'block';
-    } else {
-        charitem.style.display = 'none';
-    }
+    if (charitem.classList.contains("noneimg")) {
+        charitem.classList.remove("noneimg");
+        } else {
+            charitem.classList.add("noneimg");
+        }
 }
+
+// function toggleitem(itemNumber) {
+//     var charitem = document.getElementById(`charitem${itemNumber}`);
+//     charitem.addEventListener('click', function() {
+//         charitem.classList.toggle('noneimg');
+//     });
+// }

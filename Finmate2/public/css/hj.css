@@ -22,6 +22,9 @@
 
 .noneimg{
     display: none;
+}
+
+.imgposition{
     position: absolute;
     left: 50%;
     top: 34%;
@@ -29,8 +32,8 @@
 }
 
 .itemimg{
-    width : 200px;
-    height :200px; 
+    width: 200px;
+    height: 200px; 
 }
 
 #charitem5 {
