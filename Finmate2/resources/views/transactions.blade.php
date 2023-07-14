@@ -6,9 +6,8 @@
 
 @section('contents')
 
-
-<div>
-    <table class="scriptCalendar">
+<div style="margin-top:300px;  height: 600px;" >
+    <table class="scriptCalendar" style=" width:50%; height: 600px; text-align:center; font-size:30px; margin:0px auto; " >
         <thead>
             <tr>
                 <td class="calendarBtn" id="btnPrevCalendar">&#60;&#60;</td>
@@ -38,18 +37,18 @@
 
 <!-- 좌우 버튼 -->
 
-<h3>
+<h3 style=" width:50%; text-align:center; font-size:50px; margin:0px auto; margin-top:20px " >
     <button class="button min" id="previous-month-btn">&#60;&#60;</button>
     <span id="current-month"></span>월
     <button class="button min" id="next-month-btn">&#62;&#62;</button>
     <br>
-    이번달 총 수입: <span id="monthly-income"></span> 원
-    이번달 총 지출: <span id="monthly-expense"></span> 원
+    <span style="font-size:30px" > 이번달 총 수입: </span> <span id="monthly-income" style="font-size:40px"  ></span> 원
+    <span style="font-size:30px"> 이번달 총 지출: </span>  <span id="monthly-expense" style="font-size:40px" ></span> 원
 </h3>
 
 {{-- 0706 v2 최혁재 --}}
 {{-- 최신순 과거순 추가해야함 --}}
-            <div>
+            <div style=" width:50%; text-align:center; font-size:20px; margin:0px auto; margin: top 20px; " >
             <form action="{{ route('transactions.search',[auth()->user()->userid]) }}" method="post">
             @csrf
             <label for="startdate">시작일자</label>
@@ -80,7 +79,8 @@
             </form>
             </div>
             @if(isset($data))
-            <div class="l-layout notice">
+            <div style=" width:50%; text-align:center; font-size:25px; margin:0px auto; margin-top:20px " >
+                <span style="font-size:30px; color:red; margin-bottom : 10px;">검색결과</span><br>
                 @foreach($data as  $value)
                     @if($value->type == '0')
                         <span>입금</span>
@@ -98,7 +98,7 @@
             </div>
             @endif
 
-    <table class="assetTable">
+    <table class="assetTable" style=" width:50%; text-align:center; font-size:20px; margin:0px auto; margin-top:20px " >
         <thead>
             <tr>
                 <th>자산명</th>
