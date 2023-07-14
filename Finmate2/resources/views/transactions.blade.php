@@ -57,27 +57,33 @@
             <label for="enddate">종료일자</label>
             <input type="date" class="" name="enddate" id="enddate" required >
 
-            <select name="search_tran">
+            <select id = "search_tran" name="search_tran">
 							<option value="99">전체</option>
 							<option value="0">입금</option>
 							<option value="1">출금</option>
             </select> 
-            <select name="search_category">
+            <select id = "search_category" name="search_category">
 							<option value="99">전체</option>
-							<option value="0">외식</option>
-							<option value="1">편의점/마트</option>
-							<option value="2">유흥</option>
-							<option value="3">쇼핑</option>
-							<option value="4">주거생활</option>
-							<option value="5">건강관리</option>
-							<option value="6">교통</option>
-							<option value="7">통신</option>
-							<option value="8">저축</option>
-							<option value="9">입금</option>
+                            @foreach($category as $value)
+							<option value={{ $value->no }}>{{ $value->name }}</option>
+                                {{ $value->no }}
+                                {{ $value->name }}
+                            @endforeach
             </select> 
             <button type="submit">검색</button>
             </form>
             </div>
+
+
+            {{-- <script>
+                $(document).ready(function(){
+                    $('#search_tran').on('change',function() {
+                        var search_category1 = document.getElementById('#search_category')
+                        search_category1.style.display = 'none';
+                    });
+                });
+            </script> --}}
+
             @if(isset($data))
             <div id ="search_box" style=" width:50%; text-align:center; font-size:25px; margin:0px auto; margin-top:20px; display:block; " >
                 <span style="font-size:30px; color:red; margin-bottom : 10px;">검색결과   </span><button onclick="search_hidden()">  숨기기</button><br>
@@ -97,7 +103,8 @@
                 @endforeach
             </div>
             @endif
-
+            
+       
     <table class="assetTable" style=" width:50%; text-align:center; font-size:20px; margin:0px auto; margin-top:20px " >
         <thead>
             <tr>
