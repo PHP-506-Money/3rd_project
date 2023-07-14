@@ -152,7 +152,20 @@ class MofinController extends Controller
             return redirect()->route('mofin.index', ['userid' => $id])->with('data', $result)->with('itemname', $itemonly);
         }
     }
+    
+    public function search(Request $req, $id){
+        $result = DB::table('users')->select('userid')->where('userid',$req->search_name)->first();
 
+        if(empty($result)){
+            $errmsg = "존재하지 않는 아이디입니다";
+            // return redirect('rank',['userid' => $id])->with('errmsg',$errmsg);
+            return redirect()->route('rank.index', ['userid' => $id]);
+        }
+        else{
+            return redirect('users/profile/'.$req->search_name);
+        }
+
+    }
 
     /**
      * Show the form for creating a new resource.

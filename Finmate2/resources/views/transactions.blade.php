@@ -48,6 +48,7 @@
 </h3>
 
 {{-- 0706 v2 최혁재 --}}
+{{-- 최신순 과거순 추가해야함 --}}
             <div>
             <form action="{{ route('transactions.search',[auth()->user()->userid]) }}" method="post">
             @csrf
@@ -58,12 +59,12 @@
             <input type="date" class="" name="enddate" id="enddate" required >
 
             <select name="search_tran">
-							<option value="2">전체</option>
+							<option value="99">전체</option>
 							<option value="0">입금</option>
 							<option value="1">출금</option>
             </select> 
             <select name="search_category">
-							<option value="44">전체</option>
+							<option value="99">전체</option>
 							<option value="0">외식</option>
 							<option value="1">편의점/마트</option>
 							<option value="2">유흥</option>
@@ -73,13 +74,28 @@
 							<option value="6">교통</option>
 							<option value="7">통신</option>
 							<option value="8">저축</option>
-							<option value="9">기타</option>
+							<option value="9">입금</option>
             </select> 
             <button type="submit">검색</button>
             </form>
             </div>
             @if(isset($data))
-                {{ var_dump($data )}}
+            <div class="l-layout notice">
+                @foreach($data as  $value)
+                    @if($value->type == '0')
+                        <span>입금</span>
+                    @else
+                        <span>출금</span>
+                    @endif
+
+                    {{ $value->trantime }}
+                    {{ $value->name }}
+                    {{ $value->assetname }}
+                    {{ $value->amount}}
+                    {{ $value->payee}}
+                    <br>
+                @endforeach
+            </div>
             @endif
 
     <table class="assetTable">

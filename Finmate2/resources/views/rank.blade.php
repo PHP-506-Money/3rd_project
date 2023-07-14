@@ -107,6 +107,15 @@
     </li>
 </ul>
 </div>
+<div>
+
+    <form action="{{ route('mofin.search',[auth()->user()->userid]) }}" method="post">
+    @csrf
+    <label for="search_name"></label>
+    <input type="text" name="search_name" id ="search_name"> <button type="submit">검색해보기</button>
+    </form>
+
+</div>
 
 <script>location.href = "#tab1";
 </script>
