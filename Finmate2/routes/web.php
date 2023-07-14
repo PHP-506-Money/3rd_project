@@ -109,7 +109,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/mofin/{userid}', [MofinController::class,'index'])->name('mofin.index');
     Route::post('/mofin/post/{userid}', [MofinController::class, 'point'])->name('mofin.point');
     Route::post('/mofin/item/{userno}', [MofinController::class,'item'])->name('mofin.item');
-    
+    Route::post('/mofin/{userid}', [MofinController::class,'search'])->name('mofin.search');
     //랭크
     Route::get('/rank/{userid}', [RankController::class,'index'])->name('rank.index');
     Route::get('/users/profile/{userid}', [UserController::class, 'profile'])->name('users.profile');

@@ -104,16 +104,28 @@ class TransactionController extends Controller
         // AND NO = $req->input('search_category')
         // ORDER BY trantime DESC ;
 
+        // $data = DB::table('transactions')
+        // ->join('assets', 'transactions.assetno', '=', 'assets.assetno')
+        // ->join('categories', 'transactions.char', '=', 'categories.no')
+        // ->select('transactions.*', 'assets.assetname', 'categories.name')
+        // ->where('assets.userid', $userid)
+        // ->where('transactions.TYPE', $req->input('search_tran'))
+        // ->whereBetween('transactions.trantime', [$req->input('startdate'), $req->input('enddate')])
+        // ->where('no', $req->input('search_category'))
+        // ->orderBy('transactions.trantime', 'desc')
+        // ->get();
+
         $data = DB::table('transactions')
         ->join('assets', 'transactions.assetno', '=', 'assets.assetno')
         ->join('categories', 'transactions.char', '=', 'categories.no')
         ->select('transactions.*', 'assets.assetname', 'categories.name')
         ->where('assets.userid', $userid)
-        ->where('transactions.TYPE', $req->input('search_tran'))
+        ->where('transactions.TYPE', $req->input('search_tran') == 99 ? '*' : $req->input('search_tran'))
         ->whereBetween('transactions.trantime', [$req->input('startdate'), $req->input('enddate')])
-        ->where('no', $req->input('search_category'))
+        ->where('categories.no', $req->input('search_category') == 99 ? '*' : $req->input('search_category'))
         ->orderBy('transactions.trantime', 'desc')
-        ->get();
+        ->get()->toArray();
+
 
 
 
