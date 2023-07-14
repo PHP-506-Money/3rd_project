@@ -89,7 +89,8 @@
 
 
 
-							<a href="menu/menu_list?class_id=10" class="menu-list" target="self">
+							<a href="{{ route('users.login') }}" class="menu-list" target="self">
+
 								<div class="menu-img">
 									<img src="/resources/assets/images/banner/assets.png"
 
@@ -99,7 +100,8 @@
 								<p class="menu-name">✨자산관리</p>
 							</a>
 
-                            <a href="menu/menu_list?class_id=10" class="menu-list  top" target="self">
+                            <a href="{{ route('users.login') }}" class="menu-list  top" target="self">
+
                                 <div class="menu-img">
                                     <img src="/resources/assets/images/banner/transaction.png"
 
@@ -112,7 +114,8 @@
 
 
 
-							<a href="/menu/menu_list?class_id=11" class="menu-list " target="self">
+							<a href="{{ route('users.login') }}" class="menu-list " target="self">
+
 								<div class="menu-img">
 									<img src="/resources/assets/images/banner/decoChar.png"
 
@@ -122,7 +125,8 @@
 							</a>
 
 
-							<a href="/menu/menu_list?class_id=12" class="menu-list  top" target="self">
+							<a href="{{ route('users.login') }}" class="menu-list  top" target="self">
+
 								<div class="menu-img">
 									<img src="/resources/assets/images/banner/itemdraw.png"
 										alt="아이템뽑기">
@@ -131,7 +135,8 @@
 							</a>
 
 
-							<a href="menu/menu_list?class_id=13" class="menu-list " target="self">
+							<a href="{{ route('users.login') }}" class="menu-list " target="self">
+
 								<div class="menu-img">
 									<img src="/resources/assets/images/banner/setGoal.png"
 
@@ -142,7 +147,8 @@
 
 
 
-							<a href="menu/menu_list?class_id=10" class="menu-list  top" target="self">
+							<a href="{{ route('users.login') }}" class="menu-list  top" target="self">
+
 								<div class="menu-img">
 									<img src="/resources/assets/images/banner/budget.png"
 
@@ -153,7 +159,8 @@
 							</a>
 
 
-							<a href="/menu/menu_list?class_id=11" class="menu-list " target="self">
+							<a href="{{ route('users.login') }}" class="menu-list " target="self">
+
 								<div class="menu-img">
 									<img src="/resources/assets/images/banner/static.png"
 										alt="통계관리">
@@ -163,7 +170,8 @@
 
 
 
-							<a href="/menu/menu_list?class_id=12" class="menu-list  top" target="self">
+							<a href="{{ route('users.login') }}" class="menu-list  top" target="self">
+
 								<div class="menu-img">
 									<img src="/resources/assets/images/banner/achieve.png"
 										alt="DESSERT">
@@ -181,7 +189,8 @@
 				        <p class="l-main-title wow fadeInUp">Fin news</p>
 				        <div class="event-list-wrap">
 				            <div class="event-list on wow fadeInUp">
-				                <a href="#" target="self">
+				                <a href="{{ route('users.login') }}" target="self">
+
 				                    <div class="status half">
 				                        <p class="sub">[프로모션]</p>
 				                    </div>
@@ -191,7 +200,8 @@
 				                </a>
 				            </div>
 				            <div class="event-list  wow fadeInUp">
-				                <a href="#" target="self">
+				                <a href="{{ route('users.login') }}" target="self">
+
 				                    <div class="status half">
 				                        <p class="sub">[이벤트]</p>
 				                    </div>
@@ -203,7 +213,8 @@
 
 
 				            <div class="event-list  wow fadeInUp">
-				                <a href="#" target="self">
+				                <a href="{{ route('users.login') }}" target="self">
+
 				                    <div class="status half">
 				                        <p class="sub">[이벤트]</p>
 				                    </div>
@@ -218,7 +229,8 @@
 
 
 				            <div class="event-list  wow fadeInUp">
-				                <a href="#" target="self">
+				                <a href="{{ route('users.login') }}" target="self">
+
 				                    <div class="status half">
 				                        <p class="sub">[공지]</p>
 				                    </div>
