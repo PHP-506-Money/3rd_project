@@ -64,17 +64,17 @@
         </form>
     </article>
 
+
     <article class="l-layout founded" style="width: 80vw; margin: 0 auto;">
         <form id="db2" name="db2" action="{{ route('goal.put') }}" method="post" class="listbox2">
-            @include('layout.errorsvalidate')
+            {{-- @include('layout.errorsvalidate') --}}
             @method('put')
             @csrf
             <div class="l-inner">
-                <div class="l-title"> 나의 목표들</div>
                 @if($goals)
+                <div class="l-title"> 진행중인 목표 </div>
                 @foreach($goals as $goal)
-
-
+                <input type="hidden" name="goal_id" value="{{ $goal->id }}" />
                 <section class="notice__detail">
                     <table class="member_table cscenter_table">
                         <colgroup>
@@ -94,7 +94,6 @@
                                 </td>
                             </tr>
                             @endif
-
                             <tr>
                                 <th>목표</th>
                                 <td colspan="3">
@@ -108,15 +107,14 @@
                                 <td colspan="3">{{ $goal->assetname }}</td>
                             </tr>
                             <tr>
-                                <th>금액</th>
+                                <th>목표 금액</th>
                                 <td colspan="3">
-                                    <input type="number" name="amount" id="amount" placeholder="{{$goal->amount}}" min="100000" max="10000000000" class="input_style input_cs">
-
+                                    <input type="number" name="amount" id="amount" placeholder="{{number_format($goal->amount)}} 원" min="100000" max="10000000000" class="input_style input_cs">
                                 </td>
                             </tr>
                             <tr>
                                 <th>남은 금액</th>
-                                <td colspan="3">{{ $goal->amount - $goal->balance }}원</td>
+                                <td colspan="3">{{ number_format($goal->amount - $goal->balance) }} 원</td>
                             </tr>
                             <tr>
                                 <th>남은 기간</th>
@@ -136,13 +134,108 @@
                 <ul class="list_info_line list_info_line_btn">
                     <form id="db3" name="db3" action="{{ route('goal.delete') }}" method="delete">
                         @method('delete')
-
+                        <input type="hidden" name="goal_id" value="{{ $goal->goalno }}" />
                         <button type="button" class="l-btn line" onclick="confirmData3()" style="margin-top:0;">삭제하기</button>
                     </form>
                     <button type="button" class="l-btn notice-list-btn" onclick="confirmData2()" style="margin-top:0;">수정하기</button>
-
                 </ul>
                 @endforeach
+                @endif
+                @if($goalsCom)
+                <div class="l-title" style="margin-top:30px;"> 달성한 목표</div>
+                @foreach($goalsCom as $goalsCom)
+                <section class="notice__detail">
+                    <table class="member_table cscenter_table">
+                        <colgroup>
+                            <col width="10%" class="th_col th_col_01">
+                            <col width="40%" class="td_col th_col_02">
+                            <col width="10%" class="th_col th_col_03">
+                            <col width="40%" class="td_col th_col_04">
+                        </colgroup>
+                        <tbody>
+                                <tr>
+                                    <th>목표</th>
+                                    <td colspan="3">{{$goalsCom->title}}</td>
+                                </tr>
+                                <tr>
+                                    <th>목표 자산</th>
+                                    <td colspan="3">{{ $goalsCom->assetname }} 원</td>
+                                </tr>
+                                <tr>
+                                    <th>목표한 금액</th>
+                                    <td colspan="3">
+                                        {{number_format($goalsCom->amount)}} 원
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>목표일</th>
+                                    <td colspan="3">
+                                        {{$goalsCom->endday}}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th>달성일</th>
+                                    <td colspan="3">
+                                        {{$goalsCom->completed_at}}
+                                    </td>
+                                </tr>
+
+                        </tbody>
+                    </table>
+                </section>
+                @endforeach
+
+                @endif
+                @if($goalsFail)
+
+                <div class="l-title" style="margin-top:30px;"> 실패한 목표</div>
+
+                @foreach($goalsFail as $goalsFail)
+
+
+                <section class="notice__detail">
+                    <table class="member_table cscenter_table">
+                        <colgroup>
+                            <col width="10%" class="th_col th_col_01">
+                            <col width="40%" class="td_col th_col_02">
+                            <col width="10%" class="th_col th_col_03">
+                            <col width="40%" class="td_col th_col_04">
+                        </colgroup>
+                        <tbody>
+                            <tr>
+                                <th>목표</th>    
+                                <td colspan="3">{{$goalsFail->title}}</td>
+                            </tr>
+                            <tr>
+                                <th>목표 자산</th>
+                                <td colspan="3">{{ $goalsFail->assetname }}</td>
+
+
+                            </tr>
+                            <tr>
+                                <th>목표한 금액</th>
+
+                                <td colspan="3">
+                                    {{number_format($goalsFail->amount)}} 원
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>남은 금액</th>
+                                <td colspan="3">{{ number_format($goalsFail->amount - $goalsFail->balance) }} 원</td>
+                            </tr>
+                            <tr>
+                                <th>목표일</th>
+                                <td colspan="3">
+                                    {{$goalsFail->endday}}
+
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+                @endforeach
+
+
                 @endif
             </div>
         </form>

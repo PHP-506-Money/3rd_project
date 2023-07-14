@@ -103,8 +103,8 @@ Route::middleware(['auth'])->group(function () {
     //목표
     Route::get('/goal', [NewGoalController::class,'index'])->name('goal.index');
     Route::post('/goal', [NewGoalController::class, 'post'])->name('goal.post');
-    Route::put('/goal', [GoalController::class, 'put'])->name('goal.put');
-    Route::delete('/goal', [GoalController::class, 'delete'])->name('goal.delete');
+    Route::put('/goal', [NewGoalController::class, 'put'])->name('goal.put');
+    Route::delete('/goal', [NewGoalController::class, 'delete'])->name('goal.delete');
     
     //모핀
     Route::get('/mofin/{userid}', [MofinController::class,'index'])->name('mofin.index');

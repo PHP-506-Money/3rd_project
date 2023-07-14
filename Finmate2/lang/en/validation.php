@@ -131,7 +131,7 @@ return [
     'starts_with' => 'The :attribute must start with one of the following: :values.',
     'string' => 'The :attribute must be a string.',
     'timezone' => 'The :attribute must be a valid timezone.',
-    'unique' => '이미 가입되어 있는 :attribute입니다.',
+    'unique' => '이미 등록된 :attribute입니다.',
     'uploaded' => 'The :attribute failed to upload.',
     'url' => 'The :attribute must be a valid URL.',
     'uuid' => 'The :attribute must be a valid UUID.',
@@ -173,7 +173,9 @@ return [
         'passwordchk'   => '비밀번호 확인',
         'moffintype'    => '나의 모핀이 선택',
         'moffinname'    => '모핀이명',
-        'budgetprice'   => '예산'
+        'budgetprice'   => '예산',
+        'asset' => '자산'
+
     ],
 
 ];
