@@ -79,31 +79,31 @@
         <div class="itemlist"> {{-- 아이템 부분 --}}
             @foreach($itemname as $value)
                 @if($value === '선글라스')
-                    <button class="itembtn"  onclick="toggleitem1()" > <img src="{{ asset('/img/sunglasses.png') }}" class = "itemimg">  </button>
+                    <button class="itembtn"  onclick="toggleitem(1)" > <img src="{{ asset('/img/sunglasses.png') }}" class = "itemimg">  </button>
                 @elseif($value === '검')
-                    <button class="itembtn"   onclick="toggleitem2()" > <img src="{{ asset('/img/sword.png') }}" class = "itemimg">  </button>
+                    <button class="itembtn"   onclick="toggleitem(2)" > <img src="{{ asset('/img/sword.png') }}" class = "itemimg">  </button>
                 @elseif($value === '안전모')
-                    <button class="itembtn"   onclick="toggleitem3()" > <img src="{{ asset('/img/safe.png') }}"  class = "itemimg"> </button>
+                    <button class="itembtn"   onclick="toggleitem(3)" > <img src="{{ asset('/img/safe.png') }}"  class = "itemimg"> </button>
                 @elseif($value === '에어팟맥스')
-                    <button class="itembtn"   onclick="toggleitem4()" > <img src="{{ asset('/img/air.png') }}"  class = "itemimg">  </button>
+                    <button class="itembtn"   onclick="toggleitem(4)" > <img src="{{ asset('/img/air.png') }}"  class = "itemimg">  </button>
                 @elseif($value === '사원증')
-                    <button class="itembtn"   onclick="toggleitem5()" > <img src="{{ asset('/img/idcard.png') }}"  class = "itemimg"> </button>
+                    <button class="itembtn"   onclick="toggleitem(5)" > <img src="{{ asset('/img/idcard.png') }}"  class = "itemimg"> </button>
                 @elseif($value === '날개')
-                    <button class="itembtn"   onclick="toggleitem6()" > <img src="{{ asset('/img/wing.png') }}"  class = "itemimg"> </button>
+                    <button class="itembtn"   onclick="toggleitem(6)" > <img src="{{ asset('/img/wing.png') }}"  class = "itemimg"> </button>
                 @elseif($value === '티셔츠')
-                    <button class="itembtn"   onclick="toggleitem7()" > <img src="{{ asset('/img/tea.png') }}"  class = "itemimg"> </button>
+                    <button class="itembtn"   onclick="toggleitem(7)" > <img src="{{ asset('/img/tea.png') }}"  class = "itemimg"> </button>
                 @elseif($value === '야구배트')
-                    <button class="itembtn"   onclick="toggleitem8()" > <img src="{{ asset('/img/bat.png') }}"  class = "itemimg"> </button>
+                    <button class="itembtn"   onclick="toggleitem(8)" > <img src="{{ asset('/img/bat.png') }}"  class = "itemimg"> </button>
                 @elseif($value === '아잉눈')
-                    <button class="itembtn"   onclick="toggleitem9()" > <img src="{{ asset('/img/eyeing.png') }}"  class = "itemimg"> </button>
+                    <button class="itembtn"   onclick="toggleitem(9)" > <img src="{{ asset('/img/eyeing.png') }}"  class = "itemimg"> </button>
                 @elseif($value === '노트북')
-                    <button class="itembtn"   onclick="toggleitem10()" > <img src="{{ asset('/img/notebook.png') }}"  class = "itemimg"> </button>
+                    <button class="itembtn"   onclick="toggleitem(10)" > <img src="{{ asset('/img/notebook.png') }}"  class = "itemimg"> </button>
                 @elseif($value === '여성한복')
-                    <button class="itembtn"   onclick="toggleitem11()" > <img src="{{ asset('/img/hanbok.png') }}"  class = "itemimg"> </button>
+                    <button class="itembtn"   onclick="toggleitem(11)" > <img src="{{ asset('/img/hanbok.png') }}"  class = "itemimg"> </button>
                 @elseif($value === '남성한복')
-                    <button class="itembtn"   onclick="toggleitem12()" > <img src="{{ asset('/img/hanbokbaji.png') }}"  class = "itemimg"> </button>
+                    <button class="itembtn"   onclick="toggleitem(12)" > <img src="{{ asset('/img/hanbokbaji.png') }}"  class = "itemimg"> </button>
                 @elseif($value === '유아복')
-                    <button class="itembtn"   onclick="toggleitem13()" > <img src="{{ asset('/img/kindcloth.png') }}"  class = "itemimg"> </button>
+                    <button class="itembtn"   onclick="toggleitem(13)" > <img src="{{ asset('/img/kindcloth.png') }}"  class = "itemimg"> </button>
                 @endif    
             @endforeach
         </div>
