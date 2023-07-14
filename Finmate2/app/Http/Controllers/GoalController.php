@@ -7,6 +7,8 @@
  *******************************************/
 namespace App\Http\Controllers;
 
+use App\Models\Asset;
+use App\Models\Goal;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
@@ -20,6 +22,15 @@ class GoalController extends Controller
         // if ($current_user_id != $id) {
         //     return redirect('/unauthorized-access'); // 잘못된 접근 페이지로 리다이렉트
         // }
+
+        // v002 add start
+
+        $assets = Asset::where('userid', $id)->get();
+
+        // v002 add end
+
+
+
         // goals 테이블에서 userid로 삭제되지않은 전체 목표출력
         $results = DB::table('goals')->where('userid', $id)->where('deleted_at', null)->where('completed_at', null)->get();
         // $idsearch = DB::table('users')->where('userid', $id)->first();/********0623 del ***/ userid 로 통일
@@ -57,38 +68,71 @@ class GoalController extends Controller
                 // $goalint[] = $income-$outcome ; //v002 del
                 $goalint = $income - $outcome; //v002 add
                 }
-            return view('goal')->with('data', $results)->with('goalint',$goalint)->with('data1',$result1);
+            return view('goal')
+            ->with('data', $results)
+            ->with('goalint',$goalint)
+            ->with('data1',$result1)
+            ->with('assets', $assets);
         }
         else{
-            return view('goal')->with('data', $results)->with('data1',$result1);
+            return view('goal')->with('data', $results)->with('data1',$result1)->with('assets', $assets);;
         }
     }
 
 
 
-    public function post(Request $Req)
+    // public function post(Request $Req)
+    // {
+    //     $id = auth()->user()->userid;
+    //     // 유효성 체크
+    //     $Req->validate([
+    //         'amount'   => 'numeric|min:100000|max:1000000000',
+    //         'startperiod' => 'required|date',
+    //         'endperiod'   => 'required|date|after:startperiod'
+    //     ]);
+
+    //     $userno = User::where('userid', $id)
+    //         ->pluck('userno')
+    //         ->first();
+    //     $data['userno'] = $userno;
+    //     $data['userid'] = $id;
+    //     $data['title'] = $Req->title;
+    //     $data['amount'] = $Req->amount;
+    //     $data['startperiod'] = $Req->startperiod;
+    //     $data['endperiod'] = $Req->endperiod;
+    //     $data['created_at'] = now();    
+    //     DB::table('goals')->insert($data); // request 받은값을 등록해줍니다
+
+    //     return redirect()->route('goal.index', ['userid' => $id]);
+    // }
+
+
+    public function post(Request $request)
     {
-        $id = auth()->user()->userid;
-        // 유효성 체크
-        $Req->validate([
-            'amount'   => 'numeric|min:100000|max:1000000000',
-            'startperiod' => 'required|date',
-            'endperiod'   => 'required|date|after:startperiod'
+        // 유효성 검사
+        $request->validate([
+            'title' => 'required|max:15',
+            'goal_amount' => 'required|integer|min:100000|max:10000000000',
+            'goal_days' => 'required|integer|min:1'
         ]);
-        
-        $userno = User::where('userid', $id)
-            ->pluck('userno')
-            ->first();
-        $data['userno'] = $userno;
-        $data['userid'] = $id;
-        $data['title'] = $Req->title;
-        $data['amount'] = $Req->amount;
-        $data['startperiod'] = $Req->startperiod;
-        $data['endperiod'] = $Req->endperiod;
-        $data['created_at'] = now();    
-        DB::table('goals')->insert($data); // request 받은값을 등록해줍니다
-    
-        return redirect()->route('goal.index', ['userid' => $id]);
+
+        // 시작일은 현재 날짜로 지정
+        $start_date = date('Y-m-d');
+        // 종료일은 시작일로부터 goal_days 이후로 지정
+        $end_date = date('Y-m-d', strtotime("+$request->goal_days days"));
+
+        // 목표 저장
+        $goal = new Goal;
+        $goal->title = $request->title;
+        $goal->userid = auth()->user()->userid;
+        $goal->assetno = $request->asset;
+        $goal->amount = $request->goal_amount;
+        $goal->start_date = $start_date;
+        $goal->end_date = $end_date;
+        $goal->save();
+
+        // 웹 사이트로 리디렉션
+        return redirect('/goals');
     }
 
 
