@@ -54,7 +54,8 @@ class GoalController extends Controller
 
                 }
                 // 수입에서 지출을 뺀뒤 $goalint 에 담아줍니다
-                $goalint[] = $income-$outcome ;
+                // $goalint[] = $income-$outcome ; //v002 del
+                $goalint = $income - $outcome; //v002 add
                 }
             return view('goal')->with('data', $results)->with('goalint',$goalint)->with('data1',$result1);
         }
