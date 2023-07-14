@@ -88,11 +88,34 @@ class MainTwoController extends Controller
                 'sumDayAmount' => 0
             ];
 
+            $pointrank = DB::table('users')
+            ->select('point', 'username', 'userid')
+            ->whereNull('deleted_at')
+            ->orderBy('point', 'desc')
+            ->limit(1)
+            ->get();
+
+            $loginrank = DB::table('users')
+            ->select('login_count', 'username', 'userid')
+            ->whereNull('deleted_at')
+            ->orderBy('login_count', 'desc')
+            ->limit(1)
+            ->get();
+
+            $itemdrawrank = DB::table('users')
+            ->select('item_draw_count', 'username', 'userid')
+            ->whereNull('deleted_at')
+            ->orderBy('item_draw_count', 'desc')
+            ->limit(1)
+            ->get();
             return view('main2')
             ->with('all', 0)
             ->with('sumamount', 0)
             ->with('sumweek', 0)
-            ->with('data', $arrResult);
+            ->with('data', $arrResult)
+            ->with('pointrank', $pointrank)
+            ->with('loginrank', $loginrank)
+            ->with('itemdrawrank', $itemdrawrank);
         }
         $arrResult = [
             'startDate' => $startDate,

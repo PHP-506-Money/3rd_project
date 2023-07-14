@@ -11,6 +11,7 @@ use App\Models\Asset;
 use App\Models\Goal;
 use Illuminate\Http\Request;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 
 class GoalController extends Controller
@@ -117,9 +118,9 @@ class GoalController extends Controller
         ]);
 
         // 시작일은 현재 날짜로 지정
-        $start_date = date('Y-m-d');
+        $start_date = Carbon::now();
         // 종료일은 시작일로부터 goal_days 이후로 지정
-        $end_date = date('Y-m-d', strtotime("+$request->goal_days days"));
+        $end_date = $start_date + strtotime($request->goal_days);
 
         // 목표 저장
         $goal = new Goal;
