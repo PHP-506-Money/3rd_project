@@ -15,6 +15,7 @@ use App\Http\Controllers\BudgetController;
 use App\Http\Controllers\StaticController;
 use App\Http\Controllers\AchievementController;
 use App\Http\Controllers\MainTwoController;
+use App\Http\Controllers\NewGoalController;
 use App\Http\Controllers\TransactionController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Asset;
@@ -100,8 +101,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/static/{userid}' , [StaticController::class, 'static'])->name('static.get');
     
     //목표
-    Route::get('/goal', [GoalController::class,'index'])->name('goal.index');
-    Route::post('/goal', [GoalController::class, 'post'])->name('goal.post');
+    Route::get('/goal', [NewGoalController::class,'index'])->name('goal.index');
+    Route::post('/goal', [NewGoalController::class, 'post'])->name('goal.post');
     Route::put('/goal', [GoalController::class, 'put'])->name('goal.put');
     Route::delete('/goal', [GoalController::class, 'delete'])->name('goal.delete');
     
