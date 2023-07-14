@@ -104,13 +104,16 @@
                         <tr>
                             <th>시작일자</th>
                             <td colspan="3">
-                                <input type="date" name="startperiod" id="startperiod" required placeholder="{{ $goal->startperiod }}" class="input_style input_cs">
+                                <input type="date" name="startperiod" id="startperiod" required placeholder="{{ $goal->startperiod }}" value="{{ $goal->startperiod }}" class="input_style input_cs">
+
                             </td>
                         </tr>
                         <tr>
                             <th>목표일자</th>
                             <td colspan="3">
-                                <input type="date" name="endperiod" id="endperiod" required placeholder="{{ $goal->endperiod }}" class="input_style input_cs">
+                                <input type="date" name="endperiod" id="endperiod" required value="{{ $goal->endperiod }}" placeholder="{{ $goal->endperiod }}" class="input_style input_cs">
+
+
                             </td>
                         </tr>
                         <tr>
