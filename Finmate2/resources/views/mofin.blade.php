@@ -7,9 +7,12 @@
 @section('contents')
 
 <link rel="stylesheet" href="{{ asset('/css/hj.css') }}">
+<div class="l-title" >
+<br><br><br><br>
 <h1>캐릭터 관리</h1>
-<br>
+
 <h2>나의 포인트: {{$data->point}}</h2><br><br><br>
+</div>
 
 <div class="random">
     <div class="randombox">
