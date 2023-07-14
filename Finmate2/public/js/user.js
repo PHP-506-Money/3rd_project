@@ -274,11 +274,34 @@ function history_back(){
 //     }
 // }
 
+// function toggleitem(itemNumber) {
+//     var charitem = document.getElementById(`charitem${itemNumber}`);
+//     charitem.addEventListener('click', function() {
+//         charitem.classList.toggle('noneimg');
+//     });
+// }
+
 function toggleitem(itemNumber) {
     var charitem = document.getElementById('charitem' + itemNumber);
-    if (charitem.style.display === 'none') {
-        charitem.style.display = 'block';
-    } else {
-        charitem.style.display = 'none';
-    }
+    if (charitem.classList.contains("noneimg")) {
+        charitem.classList.remove("noneimg");
+        } else {
+            charitem.classList.add("noneimg");
+        }
 }
+
+// function saveItem() {
+//     var itemflg = document.querySelector('.noneimg') ? 0 : 1;
+
+//     // 서버로 itemflg 전송
+//     // 아래는 예시로 Ajax를 사용하여 서버로 전송하는 코드입니다.
+//     var xhr = new XMLHttpRequest();
+//     xhr.open('POST', '/save-itemflg', true);
+//     xhr.setRequestHeader('Content-Type', 'application/json');
+//     xhr.onreadystatechange = function () {
+//         if (xhr.readyState === 4 && xhr.status === 200) {
+//             console.log('Itemflg 저장 완료');
+//         }
+//     };
+//     xhr.send(JSON.stringify({ itemflg: itemflg }));
+// }
