@@ -115,19 +115,33 @@ class TransactionController extends Controller
         // ->orderBy('transactions.trantime', 'desc')
         // ->get();
 
+        // $data = DB::table('transactions')
+        // ->join('assets', 'transactions.assetno', '=', 'assets.assetno')
+        // ->join('categories', 'transactions.char', '=', 'categories.no')
+        // ->select('transactions.*', 'assets.assetname', 'categories.name')
+        // ->where('assets.userid', $userid)
+        // ->where('transactions.TYPE', $req->input('search_tran') == 99 ? '*' : $req->input('search_tran'))
+        // ->whereBetween('transactions.trantime', [$req->input('startdate'), $req->input('enddate')])
+        // ->where('categories.no', $req->input('search_category') == 99 ? '*' : $req->input('search_category'))
+        // ->orderBy('transactions.trantime', 'desc')
+        // ->get()->toArray();
+
+
         $data = DB::table('transactions')
         ->join('assets', 'transactions.assetno', '=', 'assets.assetno')
         ->join('categories', 'transactions.char', '=', 'categories.no')
         ->select('transactions.*', 'assets.assetname', 'categories.name')
         ->where('assets.userid', $userid)
-        ->where('transactions.TYPE', $req->input('search_tran') == 99 ? '*' : $req->input('search_tran'))
+        ->when($req->input('search_tran') != 99, function ($query) use ($req) {
+            $query->where('transactions.TYPE', $req->input('search_tran'));
+        })
         ->whereBetween('transactions.trantime', [$req->input('startdate'), $req->input('enddate')])
-        ->where('categories.no', $req->input('search_category') == 99 ? '*' : $req->input('search_category'))
+        ->when($req->input('search_category') != 99, function ($query) use ($req) {
+            $query->where('categories.no', $req->input('search_category'));
+        })
         ->orderBy('transactions.trantime', 'desc')
-        ->get()->toArray();
-
-
-
+        ->get()
+        ->toArray();
 
 
         return view('transactions', [
