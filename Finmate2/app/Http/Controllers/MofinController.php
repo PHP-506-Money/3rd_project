@@ -3,7 +3,8 @@
  * Project Name : Finmate
  * Directory    : Controllers
  * File Name    : MofinController.php
- * History      : v001 0615 Choi new
+ * History      : v001 0615 Choi
+ *                v002 0714 Sin new
  *******************************************/
 namespace App\Http\Controllers;
 
@@ -113,10 +114,33 @@ class MofinController extends Controller
         ->update(['point' =>$newPoint, 'item_draw_count' => $result->item_draw_count + 1]);
 
         $randomitem = rand(1,13); // 랜덤으로 아이템번호 1~12
+
         $data['userno'] = $result->userno;
         $data['userid'] = $id;
         $data['itemno'] = $randomitem;
-        DB::table('items')->insert($data); // 당첨된 아이템번호로 items 테이블에 추가
+
+        // v002 del
+        // DB::table('items')->insert($data); // 당첨된 아이템번호로 items 테이블에 추가
+
+        // v002 add start
+        // 아이템번호와 일치하는 아이템이 이미 있는지 확인
+        $existingItem = DB::table('items')
+        ->where('userid', $id)
+        ->where('itemno', $randomitem)
+        ->first();
+        
+        if ($existingItem) {
+            // 이미 해당 아이템이 있으면 itemcount를 증가시킴
+            DB::table('items')
+                ->where('userno', $existingItem->userno)
+                ->where('itemno', $randomitem)
+                ->increment('itemcount');
+        } else {
+            // 해당 아이템이 없으면 아이템을 추가
+            DB::table('items')->insert($data);
+        }
+        // v002 add end
+
         $pt1 =  DB::table('iteminfos')->where('itemno', $randomitem)->value('itemname');//당첨된 아이템 번호를 기준으로 iteminfos 테이블에서 아이템명 가지고오기
         $pt1 = '축하합니다. '.$pt1.' 아이템 당첨';
 
