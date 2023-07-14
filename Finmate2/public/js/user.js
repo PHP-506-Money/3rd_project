@@ -164,111 +164,121 @@ function confirmWithdrawal() {
         return false;
     }
 }
-function toggleitem1() {
-    var charitem1 = document.getElementById('charitem1');
-    if (charitem1.style.display === 'none') {
-        charitem1.style.display = 'block';
-    } else {
-        charitem1.style.display = 'none';
-    }
-}
-    function toggleitem2() {
-    var charitem2 = document.getElementById('charitem2');
-    if (charitem2.style.display === 'none') {
-        charitem2.style.display = 'block';
-    } else {
-        charitem2.style.display = 'none';
-    }
-}
-    function toggleitem3() {
-    var charitem3 = document.getElementById('charitem3');
-    if (charitem3.style.display === 'none') {
-        charitem3.style.display = 'block';
-    } else {
-        charitem3.style.display = 'none';
-    }
-}
-    function toggleitem4() {
-    var charitem4 = document.getElementById('charitem4');
-    if (charitem4.style.display === 'none') {
-        charitem4.style.display = 'block';
-    } else {
-        charitem4.style.display = 'none';
-    }
-}
-    function toggleitem5() {
-    var charitem5 = document.getElementById('charitem5');
-    if (charitem5.style.display === 'none') {
-        charitem5.style.display = 'block';
-    } else {
-        charitem5.style.display = 'none';
-    }
-}
-    function toggleitem6() {
-    var charitem6 = document.getElementById('charitem6');
-    if (charitem6.style.display === 'none') {
-        charitem6.style.display = 'block';
-    } else {
-        charitem6.style.display = 'none';
-    }
-}
-    function toggleitem7() {
-    var charitem7 = document.getElementById('charitem7');
-    if (charitem7.style.display === 'none') {
-        charitem7.style.display = 'block';
-    } else {
-        charitem7.style.display = 'none';
-    }
-}
-    function toggleitem8() {
-    var charitem8 = document.getElementById('charitem8');
-    if (charitem8.style.display === 'none') {
-        charitem8.style.display = 'block';
-    } else {
-        charitem8.style.display = 'none';
-    }
-}
-    function toggleitem9() {
-    var charitem9 = document.getElementById('charitem9');
-    if (charitem9.style.display === 'none') {
-        charitem9.style.display = 'block';
-    } else {
-        charitem9.style.display = 'none';
-    }
-}
-    function toggleitem10() {
-    var charitem10 = document.getElementById('charitem10');
-    if (charitem10.style.display === 'none') {
-        charitem10.style.display = 'block';
-    } else {
-        charitem10.style.display = 'none';
-    }
-}
-function toggleitem11() {
-    var charitem11 = document.getElementById('charitem11');
-    if (charitem11.style.display === 'none') {
-        charitem11.style.display = 'block';
-    } else {
-        charitem11.style.display = 'none';
-    }
-}
-function toggleitem12() {
-    var charitem12 = document.getElementById('charitem12');
-    if (charitem12.style.display === 'none') {
-        charitem12.style.display = 'block';
-    } else {
-        charitem12.style.display = 'none';
-    }
-}
-function toggleitem13() {
-    var charitem13 = document.getElementById('charitem13');
-    if (charitem13.style.display === 'none') {
-        charitem13.style.display = 'block';
-    } else {
-        charitem13.style.display = 'none';
-    }
+
+function history_back(){
+    history.back();
 }
 
-    function history_back(){
-        history.back();
+// function toggleitem1() {
+//     var charitem1 = document.getElementById('charitem1');
+//     if (charitem1.style.display === 'none') {
+//         charitem1.style.display = 'block';
+//     } else {
+//         charitem1.style.display = 'none';
+//     }
+// }
+//     function toggleitem2() {
+//     var charitem2 = document.getElementById('charitem2');
+//     if (charitem2.style.display === 'none') {
+//         charitem2.style.display = 'block';
+//     } else {
+//         charitem2.style.display = 'none';
+//     }
+// }
+//     function toggleitem3() {
+//     var charitem3 = document.getElementById('charitem3');
+//     if (charitem3.style.display === 'none') {
+//         charitem3.style.display = 'block';
+//     } else {
+//         charitem3.style.display = 'none';
+//     }
+// }
+//     function toggleitem4() {
+//     var charitem4 = document.getElementById('charitem4');
+//     if (charitem4.style.display === 'none') {
+//         charitem4.style.display = 'block';
+//     } else {
+//         charitem4.style.display = 'none';
+//     }
+// }
+//     function toggleitem5() {
+//     var charitem5 = document.getElementById('charitem5');
+//     if (charitem5.style.display === 'none') {
+//         charitem5.style.display = 'block';
+//     } else {
+//         charitem5.style.display = 'none';
+//     }
+// }
+//     function toggleitem6() {
+//     var charitem6 = document.getElementById('charitem6');
+//     if (charitem6.style.display === 'none') {
+//         charitem6.style.display = 'block';
+//     } else {
+//         charitem6.style.display = 'none';
+//     }
+// }
+//     function toggleitem7() {
+//     var charitem7 = document.getElementById('charitem7');
+//     if (charitem7.style.display === 'none') {
+//         charitem7.style.display = 'block';
+//     } else {
+//         charitem7.style.display = 'none';
+//     }
+// }
+//     function toggleitem8() {
+//     var charitem8 = document.getElementById('charitem8');
+//     if (charitem8.style.display === 'none') {
+//         charitem8.style.display = 'block';
+//     } else {
+//         charitem8.style.display = 'none';
+//     }
+// }
+//     function toggleitem9() {
+//     var charitem9 = document.getElementById('charitem9');
+//     if (charitem9.style.display === 'none') {
+//         charitem9.style.display = 'block';
+//     } else {
+//         charitem9.style.display = 'none';
+//     }
+// }
+//     function toggleitem10() {
+//     var charitem10 = document.getElementById('charitem10');
+//     if (charitem10.style.display === 'none') {
+//         charitem10.style.display = 'block';
+//     } else {
+//         charitem10.style.display = 'none';
+//     }
+// }
+// function toggleitem11() {
+//     var charitem11 = document.getElementById('charitem11');
+//     if (charitem11.style.display === 'none') {
+//         charitem11.style.display = 'block';
+//     } else {
+//         charitem11.style.display = 'none';
+//     }
+// }
+// function toggleitem12() {
+//     var charitem12 = document.getElementById('charitem12');
+//     if (charitem12.style.display === 'none') {
+//         charitem12.style.display = 'block';
+//     } else {
+//         charitem12.style.display = 'none';
+//     }
+// }
+// function toggleitem13() {
+//     var charitem13 = document.getElementById('charitem13');
+//     if (charitem13.style.display === 'none') {
+//         charitem13.style.display = 'block';
+//     } else {
+//         charitem13.style.display = 'none';
+//     }
+// }
+
+function toggleitem(itemNumber) {
+    var charitem = document.getElementById('charitem' + itemNumber);
+    if (charitem.style.display === 'none') {
+        charitem.style.display = 'block';
+    } else {
+        charitem.style.display = 'none';
     }
+}
