@@ -17,16 +17,18 @@ use Illuminate\Support\Facades\DB;
 class NewGoalController extends Controller
 {
     public function index()
-    {   
+    {
         $id = auth()->user()->userid;
         $assets = Asset::where('userid', $id)->get();
-        $goals = Goal::where('userid', $id)->orderby('endday','asc')->get();
-        
-        if($goals){
-            return view('goal')->with('assets', $assets)->with('goals', $goals);    
-        }
-        
-        return view('goal')->with('assets', $assets);
+        $goals = Goal::select('goals.*', 'assets.assetname', 'assets.balance')
+        ->join('assets', 'assets.assetno', '=', 'goals.assetno')
+        ->where('goals.userid', $id)
+        ->where('goals.iscom', 0)
+        ->orderBy('goals.endday', 'asc')
+        ->get();
+
+        return view('goal')->with('assets', $assets)->with('goals', $goals);
+
     }
 
     public function post(Request $req)

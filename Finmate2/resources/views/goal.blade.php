@@ -73,6 +73,8 @@
                 <div class="l-title"> 나의 목표들</div>
                 @if($goals)
                 @foreach($goals as $goal)
+
+
                 <section class="notice__detail">
                     <table class="member_table cscenter_table">
                         <colgroup>
@@ -82,6 +84,17 @@
                             <col width="40%" class="td_col th_col_04">
                         </colgroup>
                         <tbody>
+                            @if(now()->diffInDays($goal->endday) + 1 < 7)
+                            <tr>
+                                <th>!!!</th>
+                                <td colspan="3">
+                                    <div class="search_form">
+                                        <h2 style="color:red;">목표달성일이 일주일 보다 적게 남았습니다</h2>
+                                    </div>
+                                </td>
+                            </tr>
+                            @endif
+
                             <tr>
                                 <th>목표</th>
                                 <td colspan="3">
@@ -91,6 +104,10 @@
                                 </td>
                             </tr>
                             <tr>
+                                <th>목표 자산</th>
+                                <td colspan="3">{{ $goal->assetname }}</td>
+                            </tr>
+                            <tr>
                                 <th>금액</th>
                                 <td colspan="3">
                                     <input type="number" name="amount" id="amount" placeholder="{{$goal->amount}}" min="100000" max="10000000000" class="input_style input_cs">
@@ -98,10 +115,19 @@
                                 </td>
                             </tr>
                             <tr>
+                                <th>남은 금액</th>
+                                <td colspan="3">{{ $goal->amount - $goal->balance }}원</td>
+                            </tr>
+                            <tr>
+                                <th>남은 기간</th>
+                                <td colspan="3">
+                                    <input type="number" name="goal_days" id="goal_days" min="1" placeholder="{{ now()->diffInDays($goal->endday) + 1 }}일" required class="input_style input_cs">
+                                </td>
+                            </tr>
+                            <tr>
                                 <th>목표일</th>
                                 <td colspan="3">
-                                    <input type="number" name="goal_days" id="goal_days" min="1" placeholder="{{$goal->endday}}" required class="input_style input_cs">
-
+                                    {{$goal->endday}}
                                 </td>
                             </tr>
                         </tbody>
