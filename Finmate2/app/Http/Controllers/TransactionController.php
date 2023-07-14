@@ -24,7 +24,8 @@ class TransactionController extends Controller
         User::where('userid', $userid)
         ->increment('history_check_count', 1);
 
-        
+        $category =  DB::table('categories')->select('*')->orderBy('no','asc')->get()->toArray();
+
         $transactions = Transaction::join('assets', 'transactions.assetno', '=', 'assets.assetno')
             ->join('categories', 'transactions.char', '=', 'categories.no')
             ->select('transactions.*' , 'assets.assetname', 'categories.name')
@@ -48,7 +49,8 @@ class TransactionController extends Controller
         return view('transactions', [
             'transactions' => $transactions,
             'monthly_income' => $monthly_income,
-            'monthly_expense' => $monthly_expense
+            'monthly_expense' => $monthly_expense,
+            'category' => $category
         ]);
     }
     public function search(Request $req, $userid)
@@ -81,8 +83,6 @@ class TransactionController extends Controller
                 $monthly_expense[$date] = ($monthly_expense[$date] ?? 0) + $transaction->amount;
             }
         }
-
-        $test = $req->input('startdate');
 
         // SELECT transactions.*, assets.assetname, categories.name
         // FROM transactions
