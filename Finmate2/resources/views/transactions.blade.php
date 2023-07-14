@@ -79,8 +79,8 @@
             </form>
             </div>
             @if(isset($data))
-            <div style=" width:50%; text-align:center; font-size:25px; margin:0px auto; margin-top:20px " >
-                <span style="font-size:30px; color:red; margin-bottom : 10px;">검색결과</span><br>
+            <div id ="search_box" style=" width:50%; text-align:center; font-size:25px; margin:0px auto; margin-top:20px; display:block; " >
+                <span style="font-size:30px; color:red; margin-bottom : 10px;">검색결과   </span><button onclick="search_hidden()">  숨기기</button><br>
                 @foreach($data as  $value)
                     @if($value->type == '0')
                         <span>입금</span>
@@ -140,6 +140,14 @@
 </div>
 
 <script>
+    function search_hidden(){
+        var scbox = document.getElementById('#search_box');
+            if (scbox.style.display === 'none') {
+        scbox.style.display = 'block';
+        } else {
+        scbox.style.display = 'none';
+        }
+    }
 
     function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
