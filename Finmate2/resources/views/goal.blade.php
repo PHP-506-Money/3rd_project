@@ -36,12 +36,20 @@
                             <tr>
                                 <th>자산 선택</th>
                                 <td colspan="3">
+                                    @if(count($assets) > 0)
                                     @foreach ($assets as $asset)
                                     <div class="form-check">
                                         <input style="appearance: button;" class="form-check-input" type="radio" name="asset" id="asset{{ $asset->assetno }}" value="{{ $asset->assetno }}" required>
                                         <label class="form-check-label" name="asset" for="asset{{ $asset->assetno }}">자산명: {{ $asset->assetname }}  (잔액: {{number_format($asset->balance) }}원)</label>
                                     </div>
                                     @endforeach
+                                    @else
+                                    <div class="form-check">
+                                        <p>자산이 연동 되지 않았습니다.</p>
+                                        <p>자산을 먼저 연동해주세요</p>
+                                        <p><a href="{{ url('/assets'.'/' . auth()->user()->userid) }}">연동하러 가기 (click)</a></p>
+                                    </div>
+                                    @endif
                                 </td>
                             </tr>
                             <tr>

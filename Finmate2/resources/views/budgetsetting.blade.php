@@ -42,24 +42,32 @@
             <div class="l-title">한달 예산 설정하기</div>
             <div class="login__form-wrap">
                 <div class="form members">
-                <form id="table" class="members__form" action="{{route('budget.post')}}" method="post">
-                    @csrf
-                    <div class="login__input">
-                        <div class="line">
-                            <label for="id">예산을 설정해 주세요</label>
-                            <div class="icon-input">
-                                <input type="number" name="budgetprice" id="budgetprice">
+                    @if($assetLinked > 0)
+                    <form id="table" class="members__form" action="{{route('budget.post')}}" method="post">
+                        @csrf
+                        <div class="login__input">
+                            <div class="line">
+                                <label for="budgetprice">예산을 설정해 주세요</label>
+                                <div class="icon-input">
+                                    <input type="number" name="budgetprice" id="budgetprice">
+                                </div>
                             </div>
+                        </div>
+                        <br>
+                        <button class="l-btn" type="submit">설정</button>
+                    </form>
+                    @else
+                    <div class="login__input">
+                        <div class="line" >
+                            <h2>* 자산을 먼저 연동해 주세요</h2>
                         </div>
                     </div>
                     <br>
-                    <button class="l-btn" type="submit">설정</button>
-                    </form>
-            </div>
+                        <button class="l-btn" type="button" onclick="location.href='{{ url('/assets'.'/' . auth()->user()->userid) }}'">연동하러가기</button>
+                    @endif
+                </div>
             </div>
             @endif
-
-
     </article>
 
 </div>

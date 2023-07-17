@@ -8,6 +8,7 @@
  *******************************************/
 namespace App\Http\Controllers;
 
+use App\Models\Asset;
 use App\Models\Budget;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -20,10 +21,12 @@ class BudgetController extends Controller
     function budget() {
 
         $userid = auth()->user()->userid;
-        // if ($current_user_id != $userid) {
-        //     return redirect('/unauthorized-access'); // 잘못된 접근 페이지로 리다이렉트
-        // }
+
         
+        // if($assetLinked <= 0){
+        //     return redirect('/assets'.'/'. $userid)->with('alert', "자산을 연동해주세요!");
+        // }
+
         // db table budgets에서 userid의 해당하는 첫번째레코드에서 지정 예산금액을 가져온다.
         $monthBudget = DB::table('budgets')->where('userid', $userid)->value('budgetprice');
         
@@ -94,8 +97,10 @@ class BudgetController extends Controller
         
         // Budget 모델의 find() 메서드를 사용하여 budgets 테이블에서 예산 레코드를 가져온다 해당하는 아이디의 예산 레코드가 없을 시 null을 반환한다.
         $existingBudget = Budget::find($user);
+        $assetLinked = Asset::where('userid', $user)->count();
 
-        return view('budgetsetting', compact('existingBudget'));
+        return view('budgetsetting', compact('existingBudget'))
+            ->with('assetLinked', $assetLinked);
     }
 
     function setting(Request $req) {
@@ -110,7 +115,7 @@ class BudgetController extends Controller
 
         DB::insert('insert into budgets (userid,budgetprice,created_at,updated_at) values (?,?,?,?)', [$user,$req->budgetprice, $date, $date]);
 
-        return redirect('/budget/'.$user);
+        return redirect('/budget');
     }
 
     function edit(Request $req) {
@@ -128,6 +133,6 @@ class BudgetController extends Controller
         $budget->updated_at = $date;
         $budget->save();
 
-        return redirect('/budget/'.$user);
+        return redirect('/budget');
     } 
 }
