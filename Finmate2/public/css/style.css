@@ -256,6 +256,24 @@ input {
     margin: 15px;
 }
 
+#info2 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: var(--btn-color);
+    font-weight: bold;
+    font-size: large;
+    margin-top: 10px;
+    margin-bottom: 25px;
+}
+
+.back {
+    margin-top: 15px;
+    margin-bottom: 0px;
+    text-align: center;
+}
+
 #moffinname {
     resize: none;
     border-style: none;

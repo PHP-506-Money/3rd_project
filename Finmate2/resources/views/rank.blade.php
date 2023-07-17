@@ -107,20 +107,25 @@
     </li>
 </ul>
 </div>
-<div>
+        <div style="text-align:center;">(닉네임클릭시 클릭한 회원의 모핀이를 구경할수있습니다!)</div>
+    @if(session()->has('errmsg'))
+        {{ session('errmsg') }}
+    @endif
 
-    <form action="{{ route('mofin.search',[auth()->user()->userid]) }}" method="post">
-    @csrf
-    <label for="search_name"></label>
-    <input type="text" name="search_name" id ="search_name"> <button type="submit">검색해보기</button>
-    </form>
+    <div>
 
-</div>
+        <form action="{{ route('mofin.search',[auth()->user()->userid]) }}" method="post">
+        @csrf
+        <label for="search_name"></label>
+        <input type="text" name="search_name" id ="search_name" placeholder="아이디를 검색해보세요"> <button type="submit">검색해보기</button>
+        </form>
 
-<script>location.href = "#tab1";
-</script>
-<h5>(닉네임클릭시 클릭한 회원의 모핀이를 구경할수있습니다!)</h5>
-@endsection
+    </div>
+
+    <script>location.href = "#tab1";
+    </script>
+    
+    @endsection
 
 
 

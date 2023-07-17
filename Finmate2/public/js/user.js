@@ -104,7 +104,7 @@ function validateInput(input) {
 // 에러 메시지 표시 함수
 function showErrorMessage(input, message) {
     const parent = input.parentElement;
-    const errMsgId = parent.querySelector('#errMsgId');
+    const errMsgId = parent.querySelector('#chkerr');
     errMsgId.textContent = message;
     errMsgId.style.display = 'block';
     input.classList.add('error');
@@ -113,7 +113,7 @@ function showErrorMessage(input, message) {
 // 에러 메시지 숨기기 함수
 function hideErrorMessage(input) {
     const parent = input.parentElement;
-    const errMsgId = parent.querySelector('#errMsgId');
+    const errMsgId = parent.querySelector('#chkerr');
     errMsgId.textContent = '';
     errMsgId.style.display = 'none';
     input.classList.remove('error');
@@ -290,18 +290,35 @@ function toggleitem(itemNumber) {
         }
 }
 
-// function saveItem() {
-//     var itemflg = document.querySelector('.noneimg') ? 0 : 1;
+// function updateItemFlg(event) {
+//     event.preventDefault(); // 폼의 기본 동작인 페이지 이동을 막습니다.
 
-//     // 서버로 itemflg 전송
-//     // 아래는 예시로 Ajax를 사용하여 서버로 전송하는 코드입니다.
-//     var xhr = new XMLHttpRequest();
-//     xhr.open('POST', '/save-itemflg', true);
-//     xhr.setRequestHeader('Content-Type', 'application/json');
-//     xhr.onreadystatechange = function () {
-//         if (xhr.readyState === 4 && xhr.status === 200) {
-//             console.log('Itemflg 저장 완료');
-//         }
-//     };
-//     xhr.send(JSON.stringify({ itemflg: itemflg }));
+//     // 각 아이템의 itemno와 itemflg를 업데이트합니다.
+//     var items = document.getElementsByClassName('itembtn');
+//     for (var i = 0; i < items.length; i++) {
+//         var item = items[i];
+//         var itemno = item.getAttribute('data-itemno');
+//         var itemflg = item.classList.contains('noneimg') ? 0 : 1;
+
+//         // AJAX 요청을 보내서 itemflg를 업데이트합니다.
+//         var formData = new FormData();
+//         formData.append('itemno', itemno);
+//         formData.append('itemflg', itemflg);
+//         var request = new XMLHttpRequest();
+//         request.open('POST', '{{ route('users.profile.post') }}');
+//         request.onreadystatechange = function() {
+//             if (request.readyState === XMLHttpRequest.DONE) {
+//                 if (request.status === 200) {
+//                     console.log('Itemflg updated successfully!');
+//                 } else {
+//                     console.error('Failed to update itemflg.');
+//                 }
+//             }
+//         };
+//         request.send(formData);
+//     }
 // }
+
+// document.getElementById('saveBtn').addEventListener('click', function() {
+//     document.getElementById('myinfo').submit(); // 폼을 제출합니다.
+// });
