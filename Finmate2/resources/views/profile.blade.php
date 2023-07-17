@@ -57,13 +57,14 @@
                 </div>
                 {{-- 다른 사용자의 프로필 조회 --}}
                 @if ($userid !== $id)
-                    <div id="info">
+                    <div id="info2">
                         {{ $user->username }} 님의 {{ $user->moffinname }}
                     </div>
-                    <div class="bottom3"></div>
+                    <div class="back">
+                        <input type="button" value="돌아가기" onclick="history_back()">
+                    </div>
         </form>
     </div>
-        <div><input type="button" value="돌아가기" onclick="history_back()"></div>
                 {{-- 현재 로그인한 사용자의 경우 --}}
                 @else
                     <div id="info">
