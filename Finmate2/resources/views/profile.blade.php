@@ -15,6 +15,9 @@
             @csrf
                 <div class="moffin">
                     @foreach ($data as $user)
+                    <img src="{{ asset('/img/moffin' . $user->moffintype . '.png') }}" alt="">
+                    @endforeach
+                    {{-- @foreach ($data as $user)
                         @if ($user->moffintype == 0)
                             <img src="{{ asset('/img/moffin2.png') }}">
                         @elseif ($user->moffintype == 1)
@@ -30,7 +33,7 @@
                         @elseif ($user->moffintype == 6)
                             <img src="{{ asset('/img/moffin6.png') }}" alt="">
                         @endif
-                    @endforeach
+                    @endforeach --}}
                     <div class="charitem">
                         @foreach ($items as $item)
                             <img id="charitem{{ $item->itemno }}" class="{{ $item->itemflg == 1 ? '' : 'noneimg' }} imgposition" src="{{ asset('/img/charitem'.$item->itemno.'.png') }}">
