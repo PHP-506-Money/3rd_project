@@ -139,6 +139,7 @@
                                 </div>
                             </div>
 
+                            @endforeach
                             @else
                             <div class="l-c-pt sys-pro">
                                 <dl class="l-comm">
@@ -161,7 +162,6 @@
 
                                 
                             @endif
-                            @endforeach
                         </section>
 
 
