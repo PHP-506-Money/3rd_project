@@ -77,7 +77,7 @@ span:hover + p.arrow_box {
     align-items: center;
 }
 
-#myinfo {
+.myinfo {
     width: 400px;
     height: 500px;
     background-color: var(--sub-color);
@@ -179,6 +179,8 @@ input {
     margin-bottom: 20px;
     display: flex;
     align-items: center;
+    text-align: center;
+    justify-content: center;
 }
 
 #down {
@@ -310,18 +312,6 @@ textarea::placeholder {
 }
 
 /* profile */
-
-.moffin {
-    z-index: 1;
-}
-
-.noneimg{
-    z-index: 2;
-}
-
-#charitem6 {
-    z-index: 0;
-}
 
 #btnoff {
     display: none;
