@@ -13,6 +13,8 @@
     <div class="profile">{{-- 모핀 프로필 시작 --}}
         <div class="myinfo">
             <form id="myinfo" name="myinfo" action="{{route('users.itemflg')}}" method="post" onsubmit="return updateItemFlg()">
+                
+
                 @csrf
                     <div class="moffin">
                         @foreach ($data as $user)
@@ -20,6 +22,9 @@
                         @endforeach
                         <div class="charitem">
                             @foreach ($items as $item)
+                                <input type="hidden" name="itemflg" value="{{$item->itemflg}}">
+
+
                                 <img id="charitem{{ $item->itemno }}" class="{{ $item->itemflg == 1 ? '' : 'noneimg' }} imgposition" src="{{ asset('/img/charitem'.$item->itemno.'.png') }}">
                             @endforeach
                         </div>
@@ -55,7 +60,8 @@
                             </div>
                             <div class="itemlist"> {{-- 아이템 부분 --}}
                                 @foreach ($items as $item)
-                                        <button type="button" class="itembtn" name="itemno" onclick="toggleitem({{ $item->itemno }})">
+                                <input type="hidden" name="itemno" value="{{$item->itemno}}">
+                                        <button type="button" class="itembtn" onclick="toggleitem({{ $item->itemno }})">
                                             <img src="{{ asset('/img/charitem'.$item->itemno.'.png') }}" class="itemimg">
                                         </button>
                                 @endforeach
