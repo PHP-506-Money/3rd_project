@@ -11,7 +11,7 @@
     <div class="success">{!!session()->has('success') ? session('success') : ""!!}</div>
     @include('layout.errorsvalidate')
     <div class="profile">{{-- 모핀 프로필 시작 --}}
-        <form id="myinfo" name="myinfo" action="{{route('users.profile.post')}}" method="post">
+        <form id="myinfo" name="myinfo" action="{{route('users.itemflg')}}" method="post" onsubmit="return updateItemFlg()">
             @csrf
                 <div class="moffin">
                     @foreach ($data as $user)
@@ -70,7 +70,7 @@
                         {{ $user->username }} 님의 <textarea name="moffinname" id="moffinname" cols="10" rows="1" placeholder="한글, 영어 1~6자 입력" onfocus="this.placeholder = ''" onblur="this.placeholder = '한글, 영어 1~6자 입력'" required>{{ $user->moffinname }}</textarea>
                     </div>
                     <div class="bottom2">
-                        <button type="button" class="button" id="btn" onclick="saveItem();">저장하기</button>
+                        <button type="submit" class="button" id="savebtn">저장하기</button>
                         <button type="button" class="button" id="btn" onclick="btnClick();">공유하기</button>
                     </div>
                     <div class="moffinname">
@@ -127,3 +127,50 @@
 @endsection
 
 <script src="{{ asset('/js/user.js') }}"></script>
+<script>
+    function updateItemFlg() {
+        // 폼 내의 모든 아이템 버튼을 선택합니다.
+        var itemButtons = document.getElementsByClassName('itembtn');
+
+        // 선택한 각 아이템 버튼의 상태를 확인하고 업데이트합니다.
+        for (var i = 0; i < itemButtons.length; i++) {
+            var itemButton = itemButtons[i];
+            var itemNo = itemButton.getAttribute('data-itemno');
+            var itemFlg = itemButton.classList.contains('noneimg') ? 0 : 1;
+
+            // TODO: 서버로 아이템 상태를 업데이트하는 AJAX 요청을 보냅니다.
+            // AJAX 요청을 사용하여 서버에 아이템 상태를 전달하고 업데이트합니다.
+            var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+
+            // AJAX 요청을 보냅니다.
+            fetch('{{ route("users.itemflg") }}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRF-TOKEN': csrfToken
+                },
+                body: JSON.stringify({
+                    itemno: itemNo,
+                    itemflg: itemFlg
+                })
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error(response.status + ' : API 응답 오류');
+                }
+                return response.json();
+            })
+            .then(data => {
+                // 응답 결과를 처리합니다.
+                if (data.success) {
+                    console.log('아이템 상태 업데이트 성공');
+                } else {
+                    console.error('아이템 상태 업데이트 실패:', data.error);
+                }
+            })
+            .catch(error => {
+                console.error('아이템 상태 업데이트 오류:', error);
+            });
+        }
+    }
+</script>

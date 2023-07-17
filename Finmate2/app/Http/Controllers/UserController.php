@@ -207,7 +207,7 @@ class UserController extends Controller
         ->where('userid', $id)
         ->get();
         
-        // v002 del
+        // v002 del start
         // $item_name = DB::table('iteminfos AS info')
         // ->select('info.itemname')
         // ->join('items AS tem', 'info.itemno', '=', 'tem.itemno')
@@ -217,7 +217,8 @@ class UserController extends Controller
         // ->toArray();// 컬렉션 객체를 다시 배열로 바꿔줌
 
         // $itemonly = array_unique($item_name);// 유저가 가진 아이템이 중복값이 많아서 출력할때 중복값 제거하기위해서 unique써서 $itemonly에 담아줌
-                
+        // v002 del end        
+
         // v002 add start
         $items = DB::table('items')
         ->select('itemno', 'itemflg')
@@ -231,10 +232,27 @@ class UserController extends Controller
     }
 
     // v002 add start
-    function itemflg() {
+    function itemflg(Request $req)
+    {
         $userid = auth()->user()->userid;
-
-    return redirect()->route('users.profile');
+        $itemno = $req->input('itemno');
+        $itemflg = $req->input('itemflg');
+    
+        // itemno와 userid에 해당하는 아이템을 찾습니다.
+        $item = DB::table('items')->where('userid', $userid)->where('itemno', $itemno)->first();
+    
+        if ($item) {
+            // 아이템이 존재하면 itemflg를 업데이트합니다.
+            DB::table('items')->where('itemno', $itemno)->where('userid', $userid)->update(['itemflg' => $itemflg]);
+    
+            // 업데이트가 성공했을 때 응답을 반환합니다.
+            return response()->json(['success' => true]);
+            // return var_dump($item);
+        }
+    
+        // 아이템이 존재하지 않을 때 에러 응답을 반환합니다.
+        // return response()->json(['success' => false, 'error' => 'Item not found']);
+        return var_dump($item);
     }
 
     function mofinname() {
