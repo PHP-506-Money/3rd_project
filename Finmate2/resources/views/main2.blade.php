@@ -109,24 +109,59 @@
                                     </li>
                                 </ul>
                             </div>
+                            @foreach($goals as $goal)
+                            @if($goal)
+
 
                             <div class="l-c-pt sys-pro">
                                 <dl class="l-comm">
                                     <dt class="tit">
                                         내 목표 현황
                                     </dt>
-                                    <dd class="">대표목표 : 목표 이름</dd>
+                                    <dd> 가장 임박한 목표 : {{$goal->title}}</dd>
+
                                 </dl>
                                 <div class="sys-pro__half">
                                     <div class="half">
-                                        <p class="text">목표 달성 률 및 게이지</p>
+                                        <p class="text">목표 달성 률: {{ number_format(($goal->balance) / ($goal->amount) * 100)  }}%</p>
+
+
+                                        <p class="text">남은 기간: {{ now()->diffInDays($goal->endday) + 1 }}일</p>
+
                                     </div>
                                     <div class="half">
-                                        <p class="text">칭찬 or 조언 </p>
+                                        <p class="text">하루에 모아야 하는 돈: {{ number_format(($goal->amount - $goal->balance) / (now()->diffInDays($goal->endday) + 1)) }} 원</p>
+
+
+
+                                        <p class="text" onclick="location.href='{{url('/goal')}}'">내 목표 보러가기(click)</p>
                                     </div>
                                 </div>
                             </div>
 
+                            @else
+                            <div class="l-c-pt sys-pro">
+                                <dl class="l-comm">
+                                    <dt class="tit">
+                                        내 목표 현황
+                                    </dt>
+                                    <dd> 설정된 목표가 없습니다. </dd>
+                                </dl>
+                                <div class="sys-pro__half">
+                                    <div class="half">
+                                        <p class="text">목표를 설정해 주세요.</p>
+                                        {{-- <p class="text">남은 기간: 000일</p> --}}
+                                    </div>
+                                    <div class="half">
+                                        {{-- <p class="text">하루에 모아야 하는 돈: 000000000 원</p> --}}
+                                        <p class="text" onclick="location.href='{{url('/goal')}}'">내 목표 설정하기(click)</p>
+                                    </div>
+                                </div>
+                            </div>
+
+                                
+                            @endif
+                            @endforeach
                         </section>
 
 

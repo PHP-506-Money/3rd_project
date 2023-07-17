@@ -10,6 +10,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Budget;
+use App\Models\Goal;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Carbon;
@@ -27,11 +28,6 @@ class MainTwoController extends Controller
 
         // db table budgets에서 userid의 해당하는 첫번째레코드에서 지정 예산금액을 가져온다.
         $monthBudget = DB::table('budgets')->where('userid', $userid)->value('budgetprice');
-
-        // 예산이 비어있어있는지 확인하고 에러메시지와 함께 설정페이지로 간다.(예산이 없을때 empty로 반환)
-        // if (empty($monthBudget)) {
-        //     return redirect('/budgetset')->with('error', "예산을 설정해주세요!");
-        // }
 
         // 날짜계산
         $today = Carbon::now();
@@ -75,8 +71,36 @@ class MainTwoController extends Controller
         $remainingDaysInWeek = $today->diffInDays($endDate) + 1;
         $leftBudget = $weekBudget - $sumWeekAmount;
         $dailyBudget = $leftBudget / $remainingDaysInWeek;
+        $pointrank = DB::table('users')
+            ->select('point', 'username', 'userid')
+            ->whereNull('deleted_at')
+            ->orderBy('point', 'desc')
+            ->limit(1)
+            ->get();
 
+        $loginrank = DB::table('users')
+            ->select('login_count', 'username', 'userid')
+            ->whereNull('deleted_at')
+            ->orderBy('login_count', 'desc')
+            ->limit(1)
+            ->get();
 
+        $itemdrawrank = DB::table('users')
+            ->select('item_draw_count', 'username', 'userid')
+            ->whereNull('deleted_at')
+            ->orderBy('item_draw_count', 'desc')
+            ->limit(1)
+            ->get();
+
+        $goals = Goal::select('goals.*', 'assets.assetname', 'assets.balance')
+        ->join('assets', 'assets.assetno', '=', 'goals.assetno')
+        ->where('goals.userid', $userid)
+        ->where('goals.iscom', 0)
+        ->orderBy('goals.endday', 'asc')
+        ->limit(1)
+            ->get();
+
+        //예산이 없는 경우
         if (empty($monthBudget)) {
             $arrResult = [
                 'startDate' => $startDate,
@@ -88,65 +112,20 @@ class MainTwoController extends Controller
                 'sumDayAmount' => 0
             ];
 
-            $pointrank = DB::table('users')
-            ->select('point', 'username', 'userid')
-            ->whereNull('deleted_at')
-            ->orderBy('point', 'desc')
-            ->limit(1)
-            ->get();
-
-            $loginrank = DB::table('users')
-            ->select('login_count', 'username', 'userid')
-            ->whereNull('deleted_at')
-            ->orderBy('login_count', 'desc')
-            ->limit(1)
-            ->get();
-
-            $itemdrawrank = DB::table('users')
-            ->select('item_draw_count', 'username', 'userid')
-            ->whereNull('deleted_at')
-            ->orderBy('item_draw_count', 'desc')
-            ->limit(1)
-            ->get();
-            return view('main2')
-            ->with('all', 0)
-            ->with('sumamount', 0)
-            ->with('sumweek', 0)
-            ->with('data', $arrResult)
-            ->with('pointrank', $pointrank)
-            ->with('loginrank', $loginrank)
-            ->with('itemdrawrank', $itemdrawrank);
+            $monthBudget = 0;
+            $sumAmount = 0;
+            $sumWeekAmount = 0;
+        }else{
+            $arrResult = [
+                'startDate' => $startDate,
+                'endDate' => $endDate,
+                'currentMonth' => $currentMonth,
+                'weekBudget' => $weekBudget,
+                'leftBudget' => $leftBudget,
+                'dailyBudget' => $dailyBudget,
+                'sumDayAmount' => $sumDayAmount
+            ];
         }
-        $arrResult = [
-            'startDate' => $startDate,
-            'endDate' => $endDate,
-            'currentMonth' => $currentMonth,
-            'weekBudget' => $weekBudget,
-            'leftBudget' => $leftBudget,
-            'dailyBudget' => $dailyBudget,
-            'sumDayAmount' => $sumDayAmount
-        ];
-
-        $pointrank = DB::table('users')
-        ->select('point', 'username', 'userid')
-        ->whereNull('deleted_at')
-        ->orderBy('point', 'desc')
-        ->limit(1)
-        ->get();
-
-        $loginrank = DB::table('users')
-        ->select('login_count', 'username', 'userid')
-        ->whereNull('deleted_at')
-        ->orderBy('login_count', 'desc')
-        ->limit(1)
-        ->get();
-
-        $itemdrawrank = DB::table('users')
-        ->select('item_draw_count', 'username', 'userid')
-        ->whereNull('deleted_at')
-        ->orderBy('item_draw_count', 'desc')
-        ->limit(1)
-        ->get();
 
         return view('main2')
             ->with('all', $monthBudget)
@@ -155,7 +134,8 @@ class MainTwoController extends Controller
             ->with('data', $arrResult)
             ->with('pointrank', $pointrank)
             ->with('loginrank', $loginrank)
-            ->with('itemdrawrank', $itemdrawrank);
+            ->with('itemdrawrank', $itemdrawrank)
+            ->with('goals', $goals);
             
     }
 
