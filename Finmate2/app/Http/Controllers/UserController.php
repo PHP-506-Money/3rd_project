@@ -246,18 +246,19 @@ class UserController extends Controller
             DB::table('items')->where('itemno', $itemno)->where('userid', $userid)->update(['itemflg' => $itemflg]);
     
             // 업데이트가 성공했을 때 응답을 반환합니다.
-            return response()->json(['success' => true]);
-            // return var_dump($item);
+            // return response()->json(['success' => true]);
+            return var_dump($itemno, $itemflg);
         }
     
         // 아이템이 존재하지 않을 때 에러 응답을 반환합니다.
         // return response()->json(['success' => false, 'error' => 'Item not found']);
-        return var_dump($item);
+        // return redirect()
+        // ->route('users.profile', ['userid' => $userid]);
+        return var_dump($item, $itemno, $itemflg, $req);
     }
 
     function mofinname() {
         $id = auth()->user()->userid; // 현재 로그인한 사용자의 ID를 가져옵니다.
-        $userid = auth()->user()->userid;
         $result = User::select(['username', 'moffintype', 'moffinname'])
         ->where('userid', $id)
         ->get();

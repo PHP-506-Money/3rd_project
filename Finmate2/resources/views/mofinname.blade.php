@@ -10,25 +10,11 @@
     <div class="success">{!!session()->has('success') ? session('success') : ""!!}</div>
     @include('layout.errorsvalidate')
     <div class="profile">
-        <form id="myinfo" name="myinfo" action="{{route('users.mofinname.post')}}" method="post">
+        <form class="myinfo" name="myinfo" action="{{route('users.mofinname.post')}}" method="post">
             @csrf
                 <div class="moffin">
                     @foreach ($data as $user)
-                        @if ($user->moffintype == 0)
-                            <img src="{{ asset('/img/moffin2.png') }}">
-                        @elseif ($user->moffintype == 1)
-                            <img src="{{ asset('/img/rabbit3.png') }}">
-                        @elseif ($user->moffintype == 2)
-                            <img src="{{ asset('/img/penguin3.png') }}">
-                        @elseif ($user->moffintype == 3)
-                            <img src="{{ asset('/img/panda3.png') }}" alt="">
-                        @elseif ($user->moffintype == 4)
-                            <img src="{{ asset('/img/moffin4.png') }}" alt="">
-                        @elseif ($user->moffintype == 5)
-                            <img src="{{ asset('/img/moffin5.png') }}" alt="">
-                        @elseif ($user->moffintype == 6)
-                            <img src="{{ asset('/img/moffin6.png') }}" alt="">
-                        @endif
+                    <img src="{{ asset('/img/moffin' . $user->moffintype . '.png') }}" alt="">
                     @endforeach
                 </div>
                 <div id="info">

@@ -290,35 +290,48 @@ function toggleitem(itemNumber) {
         }
 }
 
-// function updateItemFlg(event) {
-//     event.preventDefault(); // 폼의 기본 동작인 페이지 이동을 막습니다.
+function updateItemFlg() {
+    // 폼 내의 모든 아이템 버튼을 선택합니다.
+    var itemButtons = document.getElementsByClassName('itembtn');
 
-//     // 각 아이템의 itemno와 itemflg를 업데이트합니다.
-//     var items = document.getElementsByClassName('itembtn');
-//     for (var i = 0; i < items.length; i++) {
-//         var item = items[i];
-//         var itemno = item.getAttribute('data-itemno');
-//         var itemflg = item.classList.contains('noneimg') ? 0 : 1;
+    // 선택한 각 아이템 버튼의 상태를 확인하고 업데이트합니다.
+    for (var i = 0; i < itemButtons.length; i++) {
+        var itemButton = itemButtons[i];
+        var itemNo = itemButton.getAttribute('itemno');
+        var itemFlg = itemButton.classList.contains('noneimg') ? 0 : 1;
 
-//         // AJAX 요청을 보내서 itemflg를 업데이트합니다.
-//         var formData = new FormData();
-//         formData.append('itemno', itemno);
-//         formData.append('itemflg', itemflg);
-//         var request = new XMLHttpRequest();
-//         request.open('POST', '{{ route('users.profile.post') }}');
-//         request.onreadystatechange = function() {
-//             if (request.readyState === XMLHttpRequest.DONE) {
-//                 if (request.status === 200) {
-//                     console.log('Itemflg updated successfully!');
-//                 } else {
-//                     console.error('Failed to update itemflg.');
-//                 }
-//             }
-//         };
-//         request.send(formData);
-//     }
-// }
+        // TODO: 서버로 아이템 상태를 업데이트하는 AJAX 요청을 보냅니다.
+        // AJAX 요청을 사용하여 서버에 아이템 상태를 전달하고 업데이트합니다.
+        var csrfToken = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
 
-// document.getElementById('saveBtn').addEventListener('click', function() {
-//     document.getElementById('myinfo').submit(); // 폼을 제출합니다.
-// });
+        // AJAX 요청을 보냅니다.
+        fetch('{{ route("users.itemflg") }}', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRF-TOKEN': csrfToken
+            },
+            body: JSON.stringify({
+                itemno: itemNo,
+                itemflg: itemFlg
+            })
+        })
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(response.status + ' : API 응답 오류');
+            }
+            return response.json();
+        })
+        .then(data => {
+            // 응답 결과를 처리합니다.
+            if (data.success) {
+                console.log('아이템 상태 업데이트 성공');
+            } else {
+                console.error('아이템 상태 업데이트 실패:', data.error);
+            }
+        })
+        .catch(error => {
+            console.error('아이템 상태 업데이트 오류:', error);
+        });
+    }
+}
