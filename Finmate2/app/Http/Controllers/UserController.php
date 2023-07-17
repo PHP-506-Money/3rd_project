@@ -238,21 +238,22 @@ class UserController extends Controller
         $itemno = $req->itemno;
         // $itemflg = $req->input('itemflg');
         $itemflg = $req->itemflg;
-    
-        // itemno와 userid에 해당하는 아이템을 찾습니다.
-        if($itemflg == 0){
-            DB::table('items')->where('userid', $userid)->where('itemno', $itemno)->update(['itemflg' => 1]);
-            return redirect()
-                ->route('users.profile', ['userid' => $userid]);
-                // ->with('success', $success);
+
+        $item = DB::table('items')->where('userid', $userid)->where('itemno', $itemno)->first();
+
+        if ($item) {
+            // itemno와 userid에 해당하는 아이템을 찾습니다.
+            if($itemflg == 0){
+                DB::table('items')->where('userid', $userid)->where('itemno', $itemno)->update(['itemflg' => 1]);
+            }
+            else if($itemflg == 1){
+                DB::table('items')->where('userid', $userid)->where('itemno', $itemno)->update(['itemflg' => 0]);
+            }
+            // return redirect()
+            // ->route('users.profile', ['userid' => $userid]);
+            // DB::table('items')->where('userid', $userid)->where('itemno', $itemno)->update(['itemflg' => $itemflg]);
         }
-        
-        // $item = DB::table('items')->where('userid', $userid)->where('itemno', $itemno)->first();
-    
-        // if ($item) {
-        //     // 아이템이 존재하면 itemflg를 업데이트합니다.
-        //     DB::table('items')->where('itemno', $itemno)->where('userid', $userid);
-    
+
         //     // 업데이트가 성공했을 때 응답을 반환합니다.
         //     // return response()->json(['success' => true]);
         //     return var_dump($itemno);
@@ -260,9 +261,9 @@ class UserController extends Controller
     
         // 아이템이 존재하지 않을 때 에러 응답을 반환합니다.
         // return response()->json(['success' => false, 'error' => 'Item not found']);
-        // return redirect()
-        // ->route('users.profile', ['userid' => $userid]);
-        return var_dump($itemno, $itemflg);
+        return redirect()
+        ->route('users.profile', ['userid' => $userid]);
+        // return var_dump($item, $itemno, $itemflg);
     }
 
     function mofinname() {

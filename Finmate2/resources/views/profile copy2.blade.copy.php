@@ -12,7 +12,7 @@
     @include('layout.errorsvalidate')
     <div class="profile">{{-- 모핀 프로필 시작 --}}
         <div class="myinfo">
-            <form id="myinfo" name="myinfo" action="{{route('users.itemflg')}}" method="post" onsubmit="return updateItemFlg()">
+            <form id="myinfo" name="myinfo" action="{{route('users.itemflg')}}" method="post">
                 
 
                 @csrf
@@ -58,10 +58,10 @@
                             </div>
                             <div class="itemlist"> {{-- 아이템 부분 --}}
                                 @foreach ($items as $item)
-                                <input type="hidden" name="itemno" value="{{ $item->itemno }}">
-                                <button type="button" class="itembtn" onclick="toggleitem({{ $item->itemno }})">
-                                    <img src="{{ asset('/img/charitem'.$item->itemno.'.png') }}" class="itemimg">
-                                </button>
+                                    <input type="hidden" name="itemno" value="{{$item->itemno}}">
+                                    <button type="button" class="itembtn" onclick="toggleitem({{ $item->itemno }})">
+                                        <img src="{{ asset('/img/charitem'.$item->itemno.'.png') }}" class="itemimg">
+                                    </button>
                                 @endforeach
                             </div>
                         </div>
