@@ -109,8 +109,9 @@
                                     </li>
                                 </ul>
                             </div>
+                            @if(count($goals) > 0)
+
                             @foreach($goals as $goal)
-                            @if($goal)
                             <div class="l-c-pt sys-pro">
                                 <dl class="l-comm">
                                     <dt class="tit">
@@ -136,6 +137,7 @@
                                     </div>
                                 </div>
                             </div>
+                            @endforeach
 
                             @else
                             <div class="l-c-pt sys-pro">
@@ -147,7 +149,7 @@
                                 </dl>
                                 <div class="sys-pro__half">
                                     <div class="half">
-                                        <p class="text">목표를 설정해 주세요.</p>
+                                        <p class="text">목표를 설정해 주세요 -> </p>
                                     </div>
                                     <div class="half">
                                         <p class="text" onclick="location.href='{{url('/goal')}}'">내 목표 설정하기(click)</p>
@@ -155,7 +157,6 @@
                                 </div>
                             </div>
                             @endif
-                            @endforeach
                         </section>
 
 
