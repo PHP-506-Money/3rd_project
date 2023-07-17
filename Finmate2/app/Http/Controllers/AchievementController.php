@@ -8,6 +8,7 @@ use App\Models\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\AchieveUser;
+use App\Models\Goal;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Carbon;
@@ -74,6 +75,9 @@ class AchievementController extends Controller
         }
 
         $userprogress = Auth::user();
+        $goalsCom = Goal::where('userid', $user)
+        ->where('iscom', 1)->count();
+
         $progress = 0;
         switch ($achievement->id) { //업적 아이디 불러와서 카운트랑 업적 요구사항으로 프로그래스 확인
             case 1:
@@ -87,6 +91,9 @@ class AchievementController extends Controller
                 break;
             case 4:
                 $progress = ($userprogress->history_check_count / $achievement->requires) * 100;
+                break;
+            case 5:
+                $progress = ($goalsCom / $achievement->requires) * 100;
                 break;
         }
 
@@ -159,26 +166,32 @@ class AchievementController extends Controller
             $progress = 0;
             $isAchieved = false;
             $reward_received = 0;
+            $goalsCom = Goal::where('userid', $user)
+            ->where('iscom', 1)->count();
 
             switch ($achievement->id) {
                 case 1:
-                    $progress = ($user->login_count / 10) * 100;
+                    $progress = ($user->login_count / $achievement->requires) * 100;
                     $isAchieved = $user->login_count >= $achievement->requires;
                     break;
 
                 case 2:
-                    $progress = ($user->point_draw_count / 10) * 100;
+                    $progress = ($user->point_draw_count / $achievement->requires) * 100;
                     $isAchieved = $user->point_draw_count >= $achievement->requires;
                     break;
 
                 case 3:
-                    $progress = ($user->item_draw_count / 10) * 100;
+                    $progress = ($user->item_draw_count / $achievement->requires) * 100;
                     $isAchieved = $user->item_draw_count >= $achievement->requires;
                     break;
 
                 case 4:
-                    $progress = ($user->history_check_count / 10) * 100;
+                    $progress = ($user->history_check_count / $achievement->requires) * 100;
                     $isAchieved = $user->history_check_count >= $achievement->requires;
+                    break;
+                case 5:
+                    $progress = ($goalsCom / $achievement->requires) * 100;
+                    $isAchieved = $goalsCom >= $achievement->requires;
                     break;
             }
 
