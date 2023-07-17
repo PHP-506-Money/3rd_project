@@ -98,7 +98,7 @@ class MainTwoController extends Controller
         ->where('goals.iscom', 0)
         ->orderBy('goals.endday', 'asc')
         ->limit(1)
-            ->get();
+        ->get();
 
         //예산이 없는 경우
         if (empty($monthBudget)) {
