@@ -182,6 +182,7 @@ class MofinController extends Controller
 
         if(empty($result)){
             $errmsg = "존재하지 않는 아이디입니다";
+            session()->flash('errmsg', $errmsg);
             // return redirect('rank',['userid' => $id])->with('errmsg',$errmsg);
             return redirect()->route('rank.index', ['userid' => $id]);
         }

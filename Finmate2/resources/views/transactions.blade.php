@@ -66,8 +66,6 @@
 							<option value="99">전체</option>
                             @foreach($category as $value)
 							<option value={{ $value->no }}>{{ $value->name }}</option>
-                                {{ $value->no }}
-                                {{ $value->name }}
                             @endforeach
             </select> 
             <button type="submit">검색</button>
@@ -83,6 +81,20 @@
                     });
                 });
             </script> --}}
+
+            <script>
+                $(document).ready(function() {
+                    $('#search_tran').on('change', function() {
+                        var search_category1 = document.getElementById('search_category');
+                        if ($('#search_tran').val() === '0') {
+                            search_category1.style.display = 'none';
+                            search_category1.value = '9';
+                        } else {
+                            search_category1.style.display = 'inline-block';
+                        }
+                    });
+                });
+            </script>
 
             @if(isset($data))
             <div id ="search_box" style=" width:50%; text-align:center; font-size:25px; margin:0px auto; margin-top:20px; display:block; " >
@@ -104,7 +116,8 @@
             </div>
             @endif
             
-       
+    @if(!isset($data))
+        
     <table class="assetTable" style=" width:50%; text-align:center; font-size:20px; margin:0px auto; margin-top:20px " >
         <thead>
             <tr>
@@ -144,11 +157,12 @@
         </tbody>
 
     </table>
-</div>
+    @endif
+
 
 <script>
     function search_hidden(){
-        var scbox = document.getElementById('#search_box');
+        var scbox = document.getElementById('search_box');
             if (scbox.style.display === 'none') {
         scbox.style.display = 'block';
         } else {
