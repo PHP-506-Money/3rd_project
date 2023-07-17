@@ -104,7 +104,7 @@ function validateInput(input) {
 // 에러 메시지 표시 함수
 function showErrorMessage(input, message) {
     const parent = input.parentElement;
-    const errMsgId = parent.querySelector('#errMsgId');
+    const errMsgId = parent.querySelector('#chkerr');
     errMsgId.textContent = message;
     errMsgId.style.display = 'block';
     input.classList.add('error');
@@ -113,7 +113,7 @@ function showErrorMessage(input, message) {
 // 에러 메시지 숨기기 함수
 function hideErrorMessage(input) {
     const parent = input.parentElement;
-    const errMsgId = parent.querySelector('#errMsgId');
+    const errMsgId = parent.querySelector('#chkerr');
     errMsgId.textContent = '';
     errMsgId.style.display = 'none';
     input.classList.remove('error');

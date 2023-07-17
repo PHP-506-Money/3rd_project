@@ -1873,14 +1873,14 @@ input.input_style {
     font-size: 1.5rem;
 }
 
-.join__input .input-area .sec-line .right .selectpicker {
+.join__input .input-area .sec-line .selectpicker {
     width: 100%;
     min-width: auto;
     height: 40px;
     font-size: 1.5rem;
 }
 
-.join__input .input-area .sec-line .right.address_select .selectpicker {
+.join__input .input-area .sec-line .address_select .selectpicker {
     margin-bottom: 1rem;
 }
 
@@ -1888,11 +1888,11 @@ input.input_style {
     display: flex;
 }
 
-.join__input .input-area .sec-line .right .inline_block li {
+.join__input .input-area .sec-line .inline_block li {
     margin: 0 1rem 0 0;
 }
 
-.join__input .input-area .sec-line .right .inline_block li .selectpicker {
+.join__input .input-area .sec-line .inline_block li .selectpicker {
     margin-bottom: 0;
     margin-right: 1rem;
 }
@@ -1907,7 +1907,7 @@ input.input_style {
     margin-bottom: 0.3rem;
 }
 
-.join__input .input-area .sec-line .right.radio-area,
+.join__input .input-area .sec-line .radio-area,
 .join__input .input-area label.title {
     margin-top: 0.5rem;
 }
@@ -1975,11 +1975,11 @@ input.input_style {
     height: 395px;
 }
 
-.payment .join__input .input-area .sec-line .right.radio-area {
+.payment .join__input .input-area .sec-line  .radio-area {
     justify-content: space-between;
 }
 
-.payment .join__input .input-area .sec-line .right.radio-area .l-radio {
+.payment .join__input .input-area .sec-line .radio-area .l-radio {
     margin-right: 1rem;
 }
 
@@ -2693,7 +2693,7 @@ input.input_style {
 
     .join__input .input-area .l-input,
     .join__input .input-area .l-btn,
-    .join__input .input-area .sec-line .right .selectpicker,
+    .join__input .input-area .sec-line  .selectpicker,
     .join__input .selectpicker,
     .modal-cnt-wrapper .find-cnt-area .popup_08 .l-btn {
         height: 5rem;
@@ -3345,7 +3345,7 @@ input.input_style {
         padding: 1.2rem 0;
     }
 
-    .payment .join__input .input-area .sec-line .right.radio-area .l-radio {
+    .payment .join__input .input-area .sec-line.radio-area .l-radio {
         margin-left: 0;
         margin-right: 0;
     }
@@ -3407,8 +3407,8 @@ input.input_style {
         font-size: 1.5rem;
     }
 
-    .payment .join__input .input-area .sec-line .right.radio-area .l-radio_btn,
-    .payment .join__input .input-area .sec-line .right.radio-area .l-radio_btn:first-child {
+    .payment .join__input .input-area .sec-line .radio-area .l-radio_btn,
+    .payment .join__input .input-area .sec-line .radio-area .l-radio_btn:first-child {
         width: 48% !important;
         margin: 0;
     }
@@ -3549,7 +3549,7 @@ input.input_style {
         display: none;
     }
 
-    .join__input .input-area .sec-line .right .selectpicker {
+    .join__input .input-area .sec-line  .selectpicker {
         font-size: 1.4rem;
     }
 
