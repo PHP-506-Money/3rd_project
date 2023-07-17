@@ -72,16 +72,6 @@
             </form>
             </div>
 
-
-            {{-- <script>
-                $(document).ready(function(){
-                    $('#search_tran').on('change',function() {
-                        var search_category1 = document.getElementById('#search_category')
-                        search_category1.style.display = 'none';
-                    });
-                });
-            </script> --}}
-
             <script>
                 $(document).ready(function() {
                     $('#search_tran').on('change', function() {
@@ -98,7 +88,8 @@
 
             @if(isset($data))
             <div id ="search_box" style=" width:50%; text-align:center; font-size:25px; margin:0px auto; margin-top:20px; display:block; " >
-                <span style="font-size:30px; color:red; margin-bottom : 10px;">검색결과   </span><button onclick="search_hidden()">  숨기기</button><br>
+                <span style="font-size:30px; color:red; margin-bottom : 10px;">검색결과   </span><button onclick="SearchBox()">숨기기</button><br><br>
+                <button>최신순</button>
                 @foreach($data as  $value)
                     @if($value->type == '0')
                         <span>입금</span>
@@ -116,9 +107,7 @@
             </div>
             @endif
             
-    @if(!isset($data))
-        
-    <table class="assetTable" style=" width:50%; text-align:center; font-size:20px; margin:0px auto; margin-top:20px " >
+    <table id="assetTable" class="assetTable" style=" width:50%; text-align:center; font-size:20px; margin:0px auto; margin-top:20px " >
         <thead>
             <tr>
                 <th>자산명</th>
@@ -157,18 +146,28 @@
         </tbody>
 
     </table>
-    @endif
+
 
 
 <script>
-    function search_hidden(){
-        var scbox = document.getElementById('search_box');
-            if (scbox.style.display === 'none') {
-        scbox.style.display = 'block';
-        } else {
-        scbox.style.display = 'none';
-        }
+    function SearchBox() {
+        var searchBox = document.getElementById("search_box");
+        var assetTable = document.getElementById("assetTable");
+
+
+            searchBox.style.display = "none";
+            assetTable.style.display = "table";
+        
     }
+
+    // 검색 결과가 있을 때 assetTable 숨김 처리
+    @if(isset($data))
+    var searchBox = document.getElementById("search_box");
+    var assetTable = document.getElementById("assetTable");
+    searchBox.style.display = "block";
+    assetTable.style.display = "none";
+    @endif
+    
 
     function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");

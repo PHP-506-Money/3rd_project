@@ -60,13 +60,40 @@
             <div class="login__sns">
                 <p class="tit">SNS 간편 회원가입</p>
                 <div class="btn-area">
-                    <button type="button" onclick="javascript:snsLogin('kakao');"><img src="/resources/assets/images/icon/l-kakao.png" alt="카카오아이콘"></button>
+                    <button type="button" onclick="kakaoLogin()"><img src="{{ asset('/img/kakao_login.png') }}" alt="카카오아이콘"></button>
                 </div>
+                
+
             </div>
         </section>
 
     </article>
 
 </div>
+        <script src="https://developers.kakao.com./sdk/js/kakao.js"></script>
+        <script>
+            //js key
+        	//4699cc71bdf057335511bc15da234da1
+            window.Kakao.init("4699cc71bdf057335511bc15da234da1");
 
+            function kakaoLogin(){
+                window.Kakao.Auth.login({
+                    scope:'profile_nickname, account_email, gender',
+                    success: function(authObj){
+                        console.log(authObj);
+                        window.Kakao.API.request({
+                            url:'/v2/user/me',
+                            success: res => {
+                                const kakao_account = res.kakao_account;
+                                console.log(kakao_account);
+                            }
+                        })
+                    }
+                });
+
+            }
+                
+
+    
+    </script>
 @endsection
