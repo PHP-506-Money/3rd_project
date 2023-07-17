@@ -89,7 +89,6 @@
             @if(isset($data))
             <div id ="search_box" style=" width:50%; text-align:center; font-size:25px; margin:0px auto; margin-top:20px; display:block; " >
                 <span style="font-size:30px; color:red; margin-bottom : 10px;">검색결과   </span><button onclick="SearchBox()">숨기기</button><br><br>
-                <button>최신순</button>
                 @foreach($data as  $value)
                     @if($value->type == '0')
                         <span>입금</span>
