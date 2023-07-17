@@ -1,16 +1,13 @@
 @extends('layout.layout')
-
 @section('title', 'goals')
-
 @section('header', 'GOAL')
 
 @section('contents')
-
     <article class="l-layout founded" style="width: 80vw; margin: 0 auto;">
         <form id="db1" name="db1" action="{{ route('goal.post') }}" method="post" class="listbox2">
+            @csrf
         @include('layout.errorsvalidate')
             @method('POST')
-            @csrf
             <div class="l-inner">
                 <div class="l-title"> 나의 목표 정하기</div>
                 <section class="notice__detail">
@@ -26,14 +23,14 @@
                                 <th>목표</th>
                                 <td colspan="3">
                                     <div class="search_form">
-                                        <input type="text" name="title" id="title" required placeholder="목표" class="input_style input_cs" onkeyup="srchBr();">
+                                        <input type="text" name="title" id="title" required placeholder="목표를 입력해주세요" class="input_style input_cs" onkeyup="srchBr();">
                                     </div>
                                 </td>
                             </tr>
                             <tr>
                                 <th>금액</th>
                                 <td colspan="3">
-                                    <input type="number" name="amount" id="amount" placeholder="금액 최소 10만 ~ 최대 100억" min="100000" max="10000000000" class="input_style input_cs">
+                                    <input type="number" name="amount" id="amount" placeholder="금액 최소 10만 ~ 최대 100억 숫자로 입력해주세요" min="100000" max="10000000000" class="input_style input_cs">
                                 </td>
                             </tr>
                             <tr>
@@ -50,7 +47,7 @@
                             <tr>
                                 <th>기간(일)</th>
                                 <td colspan="3">
-                                    <input type="number" name="goal_days" id="goal_days" min="1" placeholder="기간을 입력하세요" required class="input_style input_cs">
+                                    <input type="number" name="goal_days" id="goal_days" min="1" placeholder="숫자로 기간을 입력하세요(일단위)" required class="input_style input_cs">
                                 </td>
                             </tr>
                         </tbody>
@@ -64,17 +61,17 @@
         </form>
     </article>
 
-
     <article class="l-layout founded" style="width: 80vw; margin: 0 auto;">
-        <form id="db2" name="db2" action="{{ route('goal.put') }}" method="post" class="listbox2">
-            {{-- @include('layout.errorsvalidate') --}}
-            @method('put')
-            @csrf
             <div class="l-inner">
                 @if($goals)
                 <div class="l-title"> 진행중인 목표 </div>
                 @foreach($goals as $goal)
-                <input type="hidden" name="goal_id" value="{{ $goal->id }}" />
+                <form id="db2{{ $goal->goalno }}" name="db2{{ $goal->goalno }}" action="{{ route('goal.put') }}" method="post" class="listbox2">
+
+
+                @csrf
+                @method('put')
+                <input type="hidden" name="set_goal_id" value="{{ $goal->goalno }}" />
                 <section class="notice__detail">
                     <table class="member_table cscenter_table">
                         <colgroup>
@@ -98,7 +95,9 @@
                                 <th>목표</th>
                                 <td colspan="3">
                                     <div class="search_form">
-                                        <input type="text" name="title" id="title" required placeholder="{{$goal->title}}" class="input_style input_cs" onkeyup="srchBr();">
+                                        <input type="text" name="set_title" id="set_title" required placeholder="{{$goal->title}}" class="input_style input_cs" onkeyup="srchBr();">
+
+
                                     </div>
                                 </td>
                             </tr>
@@ -109,7 +108,8 @@
                             <tr>
                                 <th>목표 금액</th>
                                 <td colspan="3">
-                                    <input type="number" name="amount" id="amount" placeholder="{{number_format($goal->amount)}} 원" min="100000" max="10000000000" class="input_style input_cs">
+                                    <input type="number" name="set_amount" id="amount" placeholder="{{number_format($goal->amount)}} 원" min="100000" max="10000000000" class="input_style input_cs">
+
                                 </td>
                             </tr>
                             <tr>
@@ -119,7 +119,8 @@
                             <tr>
                                 <th>남은 기간</th>
                                 <td colspan="3">
-                                    <input type="number" name="goal_days" id="goal_days" min="1" placeholder="{{ now()->diffInDays($goal->endday) + 1 }}일" required class="input_style input_cs">
+                                    <input type="number" name="set_goal_days" id="goal_days" min="1" placeholder="{{ now()->diffInDays($goal->endday) + 1 }}일" required class="input_style input_cs">
+
                                 </td>
                             </tr>
                             <tr>
@@ -132,12 +133,21 @@
                     </table>
                 </section>
                 <ul class="list_info_line list_info_line_btn">
-                    <form id="db3" name="db3" action="{{ route('goal.delete') }}" method="delete">
+                    <button type="button" class="l-btn notice-list-btn" onclick="confirmData2({{ $goal->goalno }})" style="margin-top:0;">수정하기</button>
+
+                </ul>
+            </form>
+                
+                <ul class="list_info_line list_info_line_btn">
+                    <form id="db3{{ $goal->goalno }}" name="db3{{ $goal->goalno }}" action="{{ route('goal.delete') }}" method="post">
+
+
+                        @csrf
                         @method('delete')
-                        <input type="hidden" name="goal_id" value="{{ $goal->goalno }}" />
-                        <button type="button" class="l-btn line" onclick="confirmData3()" style="margin-top:0;">삭제하기</button>
+                        <input type="hidden" name="del_goal_id" value="{{ $goal->goalno }}" />
+                        <button type="button" class="l-btn line" onclick="confirmData3({{ $goal->goalno }})" style="margin-top:10px;">삭제하기</button>
+
                     </form>
-                    <button type="button" class="l-btn notice-list-btn" onclick="confirmData2()" style="margin-top:0;">수정하기</button>
                 </ul>
                 @endforeach
                 @endif
@@ -238,7 +248,7 @@
 
                 @endif
             </div>
-        </form>
+        {{-- </form> --}}
 
         <script>
             function confirmData() {
@@ -247,16 +257,17 @@
                 }
             }
 
-            function confirmData2() {
+            function confirmData2($goalid) {
+
             if (confirm("수정하시겠습니까?")) {
-            document.getElementById("db2").submit();
-            }
+                document.getElementById("db2" + $goalid).submit();
+                }
             }
 
-            function confirmData3() {
+            function confirmData3($goalid) {
             if (confirm("삭제하시겠습니까?")) {
-            document.getElementById("db3").submit();
-            }
+                document.getElementById("db3" + $goalid).submit();
+                }
             }
 
         </script>

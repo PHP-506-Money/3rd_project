@@ -52,6 +52,7 @@ class NewGoalController extends Controller
         ->orderBy('goals.endday', 'asc')
         ->get();
 
+        //달성
         $goalsCom = Goal::select('goals.*', 'assets.assetname', 'assets.balance')
         ->join('assets', 'assets.assetno', '=', 'goals.assetno')
         ->where('goals.userid', $id)
@@ -59,6 +60,7 @@ class NewGoalController extends Controller
         ->orderBy('goals.endday', 'asc')
         ->get();
 
+        //실패
         $goalsFail = Goal::select('goals.*', 'assets.assetname', 'assets.balance')
         ->join('assets', 'assets.assetno', '=', 'goals.assetno')
         ->where('goals.userid', $id)
@@ -95,39 +97,39 @@ class NewGoalController extends Controller
         $goal->endday = now()->addDays($req->goal_days);
         $goal->save();
 
-        return redirect('/goal');
+        return redirect()->route('goal.post');
     }
 
     public function put(Request $req)
     {
-        $id = auth()->user()->userid;
+        // $id = auth()->user()->userid;
 
         $req->validate([
-            'title' => 'required',
-            'amount' => 'required|integer|min:100000|max:10000000000',
-            'asset' => 'required',
-            'goal_days' => 'required|integer|min:1'
+            'set_title' => 'required',
+            'set_amount' => 'required|integer|min:100000|max:10000000000',
+            'set_goal_days' => 'required|integer|min:1'
         ]);
 
-        $goal = Goal::where('goalno', $req->goal_id);
-        $goal->title = $req->title;
-        $goal->amount = $req->amount;
-        $goal->assetno = $req->asset;
-        $goal->userid = $id;
-        $goal->endday = now()->addDays($req->goal_days);
-        $goal->save();
+        DB::table('goals')
+        ->where('goalno', $req->set_goal_id)
+        ->update([
+                'title' => $req->set_title 
+                , 'amount' => $req->set_amount
+                , 'updated_at' => now()
+                , 'endday' => now()->addDays($req->set_goal_days)
+                ]);
 
-        return redirect('/goal');
+        return redirect()->route('goal.put');
     }
 
     public function delete(Request $req)
     {
-        $id = auth()->user()->userid;
+        // $date = Carbon::now();
+        DB::table('goals')
+        ->where('goalno' , $req->del_goal_id )
+        ->update(['updated_at' => now(), 'deleted_at' => now()]);
 
-        // Update the deleted_at column with the current date
-        Goal::where('userid', $id)->where('goalno', $req->goal_id)->update(['deleted_at' => now()]);
-
-        return redirect('/goal');
+        return redirect()->route('goal.delete');
     }
 
 
