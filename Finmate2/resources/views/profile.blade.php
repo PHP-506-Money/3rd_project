@@ -16,7 +16,7 @@
                 @csrf
                     <div class="moffin">
                         @foreach ($data as $user)
-                        <img src="{{ asset('/img/moffin' . $user->moffintype . '.png') }}" alt="">
+                        <img class ="mof" src="{{ asset('/img/moffin' . $user->moffintype . '.png') }}" alt="">
                         @endforeach
                         <div class="charitem">
                             @foreach ($items as $item)

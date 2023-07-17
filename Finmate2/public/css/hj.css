@@ -36,7 +36,17 @@
     height: 200px; 
 }
 
-#charitem5 {
+.mof {
+    position: relative;
+    z-index: 1;
+}
+
+#charitem1, #charitem3, #charitem4, #charitem7, #charitem8, #charitem10, #charitem11, #charitem12, #charitem13
+{
+    z-index: 2;
+}
+
+#charitem2, #charitem5 {
     z-index: 3;
 }
 
@@ -45,7 +55,7 @@
 }
 
 #charitem9 {
-    z-index: 2;
+    z-index: 1;
 }
 
 /* .charimg{
