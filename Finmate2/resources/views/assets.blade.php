@@ -46,28 +46,31 @@
 <a class="news_view_more_btn" href="{{url('/assets/transactions'.'/'.auth()->user()->userid)}}">내 자산 내역 보러가기</a>
 
 
+<div id="content">
+    <article class="l-layout notice" >
+        <div class="l-inner">
+            <section class="notice__table">
+                <table id="dataTable">
+                    <tr>
+                        <th>자산명</th>
+                        <th>잔액</th>
+                    </tr>
+                    @foreach($assets as $asset)
+                    <tr>
+                        <td>{{$asset->assetname}}</td>
+                        <td>{{number_format($asset->balance)}}원</td>
 
 
+                    </tr>
 
-<table class="assetTable">
-    <tr>
-        <th>자산명</th>
-        <th>잔액</th>
-    </tr>
-    @foreach($assets as $asset)
-    <tr>
-        <td>{{$asset->assetname}}</td>
-        <td>{{number_format($asset->balance)}}원</td>
+                    @endforeach
 
 
-    </tr>
-
-    @endforeach
-
-
-</table>
-
-
+                </table>
+            </section>
+        </div>
+    </article>
+</div>
 
 @endif
 </div>
