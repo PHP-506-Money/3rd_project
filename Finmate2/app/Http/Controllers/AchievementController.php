@@ -5,10 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Achievement;
 use App\Models\achieve_users;
 use App\Models\User;
-
 use App\Http\Controllers\Controller;
 use App\Models\AchieveUser;
 use App\Models\Goal;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Carbon;
@@ -56,8 +56,9 @@ class AchievementController extends Controller
         return view('achievements', compact('achievements'));
     }
 
-    public function receiveAchievementReward(Request $request, $achievementId)
+    public function receiveAchievementReward($achievementId)
     {
+
         if (!auth()->check()) {
             return response()->json(['error' => '로그인 후 이용하세요.'], 403);
         }
@@ -75,26 +76,20 @@ class AchievementController extends Controller
         }
 
         $userprogress = Auth::user();
-        $goalsCom = Goal::where('userid', $user)
-        ->where('iscom', 1)->count();
+        $goalsCom = DB::table('goals')->where('userid', $user)->where('iscom', 1)->count();
 
         $progress = 0;
-        switch ($achievement->id) { //업적 아이디 불러와서 카운트랑 업적 요구사항으로 프로그래스 확인
-            case 1:
-                $progress = ($userprogress->login_count / $achievement->requires) * 100;
-                break;
-            case 2:
-                $progress = ($userprogress->point_draw_count / $achievement->requires) * 100;
-                break;
-            case 3:
-                $progress = ($userprogress->item_draw_count / $achievement->requires) * 100;
-                break;
-            case 4:
-                $progress = ($userprogress->history_check_count / $achievement->requires) * 100;
-                break;
-            case 5:
-                $progress = ($goalsCom / $achievement->requires) * 100;
-                break;
+        $achievementId = $achievement->id;
+        if ($achievementId === 1 || $achievementId === 6 || $achievementId === 11) {
+            $progress = ($userprogress->login_count / $achievement->requires) * 100;
+        } elseif ($achievementId === 2 || $achievementId === 7 || $achievementId === 12) {
+            $progress = ($userprogress->point_draw_count / $achievement->requires) * 100;
+        } elseif ($achievementId === 3 || $achievementId === 8 || $achievementId === 13) {
+            $progress = ($userprogress->item_draw_count / $achievement->requires) * 100;
+        } elseif ($achievementId === 4 || $achievementId === 9 || $achievementId === 14) {
+            $progress = ($userprogress->history_check_count / $achievement->requires) * 100;
+        } elseif ($achievementId === 5 || $achievementId === 10 || $achievementId === 15) {
+            $progress = ($goalsCom / $achievement->requires) * 100;
         }
 
         if ($progress < 100) {
@@ -125,6 +120,8 @@ class AchievementController extends Controller
         $achieve_user = AchieveUser::where('userid', $user)
             ->where('achievementsid', $achievement->id)
             ->first();
+
+        
 
         if (!$achieve_user) {
             $achieve_user = new AchieveUser();
@@ -166,40 +163,33 @@ class AchievementController extends Controller
             $progress = 0;
             $isAchieved = false;
             $reward_received = 0;
-            $goalsCom = Goal::where('userid', $user)
-            ->where('iscom', 1)->count();
+            $goalsCom = DB::table('goals')->where('userid', $user->userid)->where('iscom', 1)->count();
 
-            switch ($achievement->id) {
-                case 1:
-                    $progress = ($user->login_count / $achievement->requires) * 100;
-                    $isAchieved = $user->login_count >= $achievement->requires;
-                    break;
-
-                case 2:
-                    $progress = ($user->point_draw_count / $achievement->requires) * 100;
-                    $isAchieved = $user->point_draw_count >= $achievement->requires;
-                    break;
-
-                case 3:
-                    $progress = ($user->item_draw_count / $achievement->requires) * 100;
-                    $isAchieved = $user->item_draw_count >= $achievement->requires;
-                    break;
-
-                case 4:
-                    $progress = ($user->history_check_count / $achievement->requires) * 100;
-                    $isAchieved = $user->history_check_count >= $achievement->requires;
-                    break;
-                case 5:
-                    $progress = ($goalsCom / $achievement->requires) * 100;
-                    $isAchieved = $goalsCom >= $achievement->requires;
-                    break;
+            $achievementId = $achievement->id;
+            if ($achievementId === 1 || $achievementId === 6 || $achievementId === 11) {
+                $progress = ($user->login_count / $achievement->requires) * 100;
+                $isAchieved = $user->login_count >= $achievement->requires;
+            } elseif ($achievementId === 2 || $achievementId === 7 || $achievementId === 12) {
+                $progress = ($user->point_draw_count / $achievement->requires) * 100;
+                $isAchieved = $user->point_draw_count >= $achievement->requires;
+            } elseif ($achievementId === 3 || $achievementId === 8 || $achievementId === 13) {
+                $progress = ($user->item_draw_count / $achievement->requires) * 100;
+                $isAchieved = $user->item_draw_count >= $achievement->requires;
+            } elseif ($achievementId === 4 || $achievementId === 9 || $achievementId === 14) {
+                $progress = ($user->history_check_count / $achievement->requires) * 100;
+                $isAchieved = $user->history_check_count >= $achievement->requires;
+            } elseif ($achievementId === 5 || $achievementId === 10 || $achievementId === 15) {
+                $progress = ($goalsCom / $achievement->requires) * 100;
+                $isAchieved = $goalsCom >= $achievement->requires;
             }
 
             if ($isAchieved) {
                 $achieve_user = AchieveUser::where('userid', $user->userid)
                 ->where('achievementsid', $achievement->id)
                 ->first();
+                
                 $reward_received = $achieve_user->reward_received;
+                
                 // If an entry does not exist, create one
                 if (!$achieve_user) {
                     $achieve_user = new AchieveUser([

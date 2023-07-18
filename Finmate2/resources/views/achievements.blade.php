@@ -12,7 +12,6 @@
 content: "보상받기";
 }
 
-
 .receive-reward-button:disabled.received::after {
 content: "보상받음";
 }
@@ -29,8 +28,6 @@ content: "달성전";
             <div class="l-title">나의 업적</div>
             <br>
             <br>
-
-            <!-- 공지사항 리스트 영역  -->
             <section class="notice__table">
                 <table id="dataTable">
                     <colgroup>
@@ -50,26 +47,19 @@ content: "달성전";
                     </thead>
                     <tbody>
                         @foreach ($achievements as $achievement)
-
                         <tr data-achievement-id="{{ $achievement->id }}">
                             <th>{{ $achievement->name }}</th>
-                            <td>{{ $achievement->description }}</td>
-
+                            <td>{{ $achievement->description }} {{ $achievement->requires }}회 하시면 이 업적이 달성됩니다.</td>
                             <td class="progress"></td>
                             <td class="achievement-status"></td>
-
                             <td>
                                 <button class="receive-reward-button" onclick="receiveReward({{ $achievement->id }})"></button>
-
                             </td>
-
                         </tr>
                         @endforeach
-
                     </tbody>
                 </table>
             </section>
-
         </div>
     </article>
 </div>
@@ -143,9 +133,9 @@ content: "달성전";
         } else {
         receiveRewardButton.classList.remove("received");
         }
-
-
     }
+
+    
 
 </script>
 

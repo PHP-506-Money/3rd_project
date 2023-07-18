@@ -60,6 +60,13 @@ class NewGoalController extends Controller
         ->orderBy('goals.endday', 'asc')
         ->get();
 
+        if($goalsCom){
+            DB::table('achieve_users')
+            ->join('goals', 'goals.userid', '=', 'achieve_users.userid')
+            ->where('goals.iscom', 1)
+            ->update(['achieve_users.completed_at' => now()]);
+        }
+
         //실패
         $goalsFail = Goal::select('goals.*', 'assets.assetname', 'assets.balance')
         ->join('assets', 'assets.assetno', '=', 'goals.assetno')
