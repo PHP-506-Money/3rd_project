@@ -94,10 +94,10 @@
                 </ul>
             </div>
             <div class="info-btn">
-                <a href="#none" class="terms">이용약관</a>
-                <a href="#none" class="privacy">개인정보처리방침</a>
-                <a href="#none" class="e_mail">이메일무단수집거부</a>
-                <a href="/directions">찾아오시는길</a>
+                <a href="#" class="terms">이용약관</a>
+                <a href="#" class="privacy">개인정보처리방침</a>
+                <a href="#" class="e_mail">이메일 무단수집 거부</a>
+                <a href="/directions">찾아오시는 길</a>
             </div>
             <div class="sns-box">
                 <a href="#" target="_blank" class="instar"><i class="fa fa-instagram" aria-hidden="true"></i></a>
@@ -111,12 +111,10 @@
                         <p class="sub-text">팀 돈맡겨주시조 </p>
                     </li>
                     <li>
-                        <p class="sub-text"><i class="fa fa-github" style="font-size:16px"></i>신은영 <i class="fa fa-github" style="font-size:16px"></i>김진아 </p>
-
-
+                        <p class="sub-text"><a href="https://github.com/EunyoungSin" class="fa fa-github" style="font-size:17px; font-weight:bold;">신은영 </a> <a href="https://github.com/Headh1" class="fa fa-github" style="font-size:17px; font-weight:bold;">김진아 </a> </p>
                     </li>
                     <li>
-                        <p class="sub-text"><i class="fa fa-github" style="font-size:16px"></i>노수빈 <i class="fa fa-github" style="font-size:16px"></i>최혁재 </p>
+                        <p class="sub-text"><a href="https://github.com/snoh6839" class="fa fa-github" style="font-size:17px; font-weight:bold;">노수빈 </a> <a href="https://github.com/Choihyukjae" class="fa fa-github" style="font-size:17px; font-weight:bold;">최혁재 </a> </p>
 
 
 
@@ -130,10 +128,9 @@
             <div class="info-list">
                 <p class="text-list">팀 돈맡겨주시조: 신은영 김진아 노수빈 최혁재</p>
                 <p class="text-list">주소 대구광역시 그린아트컴퓨터학원</p>
-                <p class="text-list">사업자등록번호 111-22-33333</p>
-                <p class="text-list">TEL 053-1234-1234</p>
-                <p class="text-list">FAX 053-1234-1234</p>
-                <p class="text-list">광고 제휴 문의 aaa@bbb.com</p>
+                <p class="text-list">TEL 053-572-1005</p>
+                <p class="text-list">FAX 053-422-9122</p>
+                <p class="text-list">광고 제휴 문의 fin.matee@gmail.com</p>
             </div>
             <p class="copyright">© 2023 FIN.MATE.ALL RIGHT RESERVED</p>
         </div>

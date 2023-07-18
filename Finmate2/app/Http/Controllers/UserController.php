@@ -235,35 +235,18 @@ class UserController extends Controller
     function itemflg(Request $req)
     {
         $userid = auth()->user()->userid;
-        $itemno = $req->itemno;
-        // $itemflg = $req->input('itemflg');
-        $itemflg = $req->itemflg;
     
-        // itemno와 userid에 해당하는 아이템을 찾습니다.
-        if($itemflg == 0){
-            DB::table('items')->where('userid', $userid)->where('itemno', $itemno)->update(['itemflg' => 1]);
-            return redirect()
-                ->route('users.profile', ['userid' => $userid]);
-                // ->with('success', $success);
+        // DB에서 총 아이템 컬럼 개수 카운트
+        $itemCnt = DB::table('iteminfos')->count();
+
+        // 1~itemCnt까지 itemflg를 업데이트
+        for ($i = 1; $i <= $itemCnt; $i++) {
+            DB::table('items')->where('userid', $userid)->where('itemno', $req->{"itemno$i"})->update(['itemflg' => $req->{"itemflg$i"}]);
         }
-        
-        // $item = DB::table('items')->where('userid', $userid)->where('itemno', $itemno)->first();
     
-        // if ($item) {
-        //     // 아이템이 존재하면 itemflg를 업데이트합니다.
-        //     DB::table('items')->where('itemno', $itemno)->where('userid', $userid);
-    
-        //     // 업데이트가 성공했을 때 응답을 반환합니다.
-        //     // return response()->json(['success' => true]);
-        //     return var_dump($itemno);
-        // }
-    
-        // 아이템이 존재하지 않을 때 에러 응답을 반환합니다.
-        // return response()->json(['success' => false, 'error' => 'Item not found']);
-        // return redirect()
-        // ->route('users.profile', ['userid' => $userid]);
-        return var_dump($itemno, $itemflg);
+        return redirect()->route('users.profile', ['userid' => $userid]);
     }
+    // v002 add end
 
     function mofinname() {
         $id = auth()->user()->userid; // 현재 로그인한 사용자의 ID를 가져옵니다.
