@@ -285,9 +285,11 @@ function toggleitem(itemNumber) {
     var charitem = document.getElementById('charitem' + itemNumber);
     if (charitem.classList.contains("noneimg")) {
         charitem.classList.remove("noneimg");
-        } else {
-            charitem.classList.add("noneimg");
-        }
+        charitem.previousElementSibling.value = 1; // Update itemflg to 1
+    } else {
+        charitem.classList.add("noneimg");
+        charitem.previousElementSibling.value = 0; // Update itemflg to 0
+    }
 }
 
 // function updateItemFlg() {

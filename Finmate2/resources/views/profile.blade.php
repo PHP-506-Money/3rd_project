@@ -22,7 +22,7 @@
                         @endforeach
                         <div class="charitem">
                             @foreach ($items as $item)
-                                <input type="hidden" name="itemflg" value="{{ $item->itemflg }}">
+                                <input type="hidden" name="itemflg{{ $item->itemno }}" value="{{ $item->itemflg }}">
                                 <img id="charitem{{ $item->itemno }}" class="{{ $item->itemflg == 1 ? '' : 'noneimg' }} imgposition" src="{{ asset('/img/charitem'.$item->itemno.'.png') }}">
                             @endforeach
                         </div>
@@ -58,7 +58,7 @@
                             </div>
                             <div class="itemlist"> {{-- 아이템 부분 --}}
                                 @foreach ($items as $item)
-                                <input type="hidden" name="itemno" value="{{ $item->itemno }}">
+                                <input type="hidden" name="itemno{{ $item->itemno }}" value="{{ $item->itemno }}">
                                 <button type="button" class="itembtn" onclick="toggleitem({{ $item->itemno }})">
                                     <img src="{{ asset('/img/charitem'.$item->itemno.'.png') }}" class="itemimg">
                                 </button>
