@@ -91,3 +91,89 @@ span:hover + p.arrow_box {
     font-size: small;
 }
 
+/*******    랭킹    *********/
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #1C3879;
+    text-align: center;
+}
+
+th {
+    background-color: #1C3879;
+    color: white;
+}
+td{
+    /* background-color: #FFFBF0; */
+}
+
+ul{list-style:none;}
+
+.tabmenu{ 
+  width:80%; 
+  margin: 0 auto;
+  position:relative; 
+  height: 780px;
+  margin-top: 30px;
+}
+.tabmenu ul li{
+  display:  inline-block;
+  width:33.33%; 
+  float:left;  
+  text-align:center; 
+  /* background :#f9f9f9; */
+}
+.tabmenu ul li a{
+  display:block;
+  line-height:40px;
+  height:40px;
+  text-decoration:none; 
+  color: #000;
+}
+.tapbtn {
+    font-size: 2.1rem;
+    font-weight: 700;
+    color:rgb(124, 124, 124);
+}
+
+.tabCon{
+  display:none; 
+  text-align:center; 
+  padding: 20px;
+  box-sizing: border-box; 
+  position:absolute; 
+  left:3px; top:40px; 
+  width: 100%;
+
+}
+.btnCon:target  {
+  border-bottom: 1px solid black;
+}
+
+.tapbtn:target {
+    color:rgb(0, 0, 0);
+}
+
+.btnCon:target .tabCon{
+  display: block;
+}
+thead{
+    font-size: 1.7rem;
+}
+
+tbody{
+    font-size: 1.5rem;
+}
+
+.rankname{
+    font-size: 1.9rem;
+    margin-top: 1.5rem;
+}
