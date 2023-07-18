@@ -236,14 +236,17 @@ class UserController extends Controller
     {
         $userid = auth()->user()->userid;
     
+        // DB에서 총 아이템 컬럼 개수 카운트
         $itemCnt = DB::table('iteminfos')->count();
 
+        // 1~itemCnt까지 itemflg를 업데이트
         for ($i = 1; $i <= $itemCnt; $i++) {
             DB::table('items')->where('userid', $userid)->where('itemno', $req->{"itemno$i"})->update(['itemflg' => $req->{"itemflg$i"}]);
         }
     
         return redirect()->route('users.profile', ['userid' => $userid]);
     }
+    // v002 add end
 
     function mofinname() {
         $id = auth()->user()->userid; // 현재 로그인한 사용자의 ID를 가져옵니다.
