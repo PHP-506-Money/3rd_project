@@ -7,6 +7,25 @@
 @section('contents')
 
 <link rel="stylesheet" href="{{ asset('/css/hj.css') }}">
+<style>
+       @media (max-width: 1024px) {
+        .item-box {
+            width: 40%;
+            margin: 20px;
+            height: 40%;
+            padding: 60px
+        }
+    }
+
+   @media (max-width: 768px) {
+        .item-box {
+            width: 100%;
+            height: 40%;
+            margin: 20px;
+            padding: 100px
+        }
+    }
+</style>
 <div class="l-title" >
 <br><br><br><br>
 <h1>캐릭터 관리</h1>
@@ -38,7 +57,7 @@
     </div>
 </div>
 <br><br>
-<h2>내 컬렉션</h2>
+<div style="text-align : center; font-size:40px; ">내 컬렉션</div>
 
 <div class="item-list">
     @foreach ($itemname as $value)
