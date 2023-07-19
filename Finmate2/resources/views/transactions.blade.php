@@ -104,22 +104,38 @@
             @if(isset($data))
             <div id ="search_box" style=" width:50%; text-align:center; font-size:25px; margin:0px auto; margin-top:20px; display:block; " >
                 <span style="font-size:30px; color:red; margin-bottom : 10px;">검색결과   </span><button onclick="SearchBox()">숨기기</button><br><br>
+
+                <table> 
+                <thead>
+                <tr>
+                    <th>자산명</th>
+                    <th>거래구분</th>
+                    <th>거래처</th>
+                    <th>카테고리</th>
+                    <th>거래금액</th>
+                    <th>거래일시</th>
+                </tr>
+                </thead>
+                <tbody>
                 @foreach($data as  $value)
-                    @if($value->type == '0')
+                    <tr>
+                    <td>{{ $value->assetname }}
+                    <td>@if($value->type == '0')
                         <span>입금</span>
                     @else
                         <span>출금</span>
-                    @endif
-
-                    {{ $value->trantime }}
-                    {{ $value->name }}
-                    {{ $value->assetname }}
-                    {{ $value->amount}}
-                    {{ $value->payee}}
+                    @endif </td>
+                    <td>{{ $value->payee}}</td>
+                    <td>{{ $value->name }}</td>
+                    <td>{{ $value->amount}}</td>
+                    <td>{{ $value->trantime }}</td>
                     <br>
+                    </tr>
                 @endforeach
+                </tbody>
+                </table>
             </div>
-            @endif
+        @endif
             
     <table id="assetTable" class="assetTable" style=" width:50%; text-align:center; font-size:20px; margin:0px auto; margin-top:20px " >
         <thead>
