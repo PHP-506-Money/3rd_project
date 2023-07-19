@@ -61,7 +61,7 @@ class AssetController extends Controller
                 $asset->save();
             }
 
-            $assetNos = range($assetCount+1, $assetCount+10);
+            $assetNos = range($assetCount, $assetCount+9);
             $types = ['0', '1'];
             $payeeChars = ['0', '1', '2', '3', '4', '5', '6', '7', '8'];
             $amountMin = 1000;
