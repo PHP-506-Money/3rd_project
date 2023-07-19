@@ -38,10 +38,29 @@
     </script>
 
     @else
-        <h3>{{ $currentYear }}년 월별 입지출 내역</h3>
-        <div class = "chartBar">
-            <canvas id="monthChart" ></canvas>
+        <div id="currentyear">
+            <h3>
+                <button type="button" onclick="showLastYear()">
+                    ◀
+                </button>
+                {{ $currentYear }}년 월별 입지출 내역
+            </h3>
+            <div class="chartBar">
+                <canvas id="monthChart"></canvas>
+            </div>
         </div>
+        <div id="lastyear" class="none">
+            <h3>
+                {{ $lastYear }}년 월별 입지출 내역
+                <button type="button" onclick="showCurrentYear()">
+                    ▶
+                </button>
+            </h3>
+            <div class="chartBar">
+                <canvas id="lastMonthChart"></canvas>
+            </div>
+        </div>
+
             <div class="line2"></div>
             <h3>{{$mmonth}}월 카테고리별 지출 내역</h3>
             @if(empty($catdata))
@@ -77,18 +96,34 @@
         <script>
             let monthrcLabels = [];
             let monthrcData = [];
+            let lastMonthrcLabels = [];
+            let lastMonthrcData = [];
 
+            // 올해 월별 입금
             @foreach($monthrc as $data)
                 monthrcLabels.push("{{ $data->Month }}");
                 monthrcData.push({{ $data->consumption }});
             @endforeach
 
-            let monthexData = [];
+            // 작년 월별 입금
+            @foreach($lastmonthrc as $data)
+                lastMonthrcLabels.push("{{ $data->Month }}");
+                lastMonthrcData.push({{ $data->consumption }});
+            @endforeach
 
+            let monthexData = [];
+            let lastMonthexData = [];
+
+            // 올해 월별 지출
             @foreach($monthex as $data)
                 monthexData.push({{ $data->consumption }});
             @endforeach
-            
+
+            // 작년 월별 지출
+            @foreach($lastmonthex as $data)
+                lastMonthexData.push({{ $data->consumption }});
+            @endforeach
+
             let categoryLabels = [];
             let categoryData = [];
 
@@ -123,6 +158,34 @@
                         }
                     }
                 }
+            });
+
+                var lastMonthChart = new Chart(document.getElementById('lastMonthChart'), {
+                type: 'bar',
+                data: {
+                    labels: lastMonthrcLabels,
+                    datasets: [{
+                        label: '월별 입금',
+                        data: lastMonthrcData,
+                        backgroundColor: '#f07167',
+                        borderColor: '#f07167',
+                        borderWidth: 1
+                        },
+                        {
+                        label: '월별 지출',
+                        data: lastMonthexData,
+                        backgroundColor: '#b5e2fa',
+                        borderColor: '#b5e2fa',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    },
+                } 
             });
 
             var categoryChart = new Chart(document.getElementById('categoryChart'), {
@@ -165,6 +228,20 @@
                     }
                 }
             });
+
+            function showCurrentYear() {
+                var currentYear = document.getElementById('currentyear');
+                var lastYear = document.getElementById('lastyear');
+                currentYear.classList.remove('none');
+                lastYear.classList.add('none');
+            }
+
+            function showLastYear() {
+                var currentYear = document.getElementById('currentyear');
+                var lastYear = document.getElementById('lastyear');
+                currentYear.classList.add('none');
+                lastYear.classList.remove('none');
+            }
         </script>
 
 
