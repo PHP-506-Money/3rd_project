@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
 
 use function PHPUnit\Framework\isNull;
 
@@ -32,8 +33,10 @@ class RankController extends Controller
         ->orderBy('item_draw_count', 'desc')
         ->limit(10)
         ->get();
-        
-        
+
+        $id = auth()->user()->userid;
+        $userItem = DB::table('items')->select('itemno')->where('itemflg',1)->where('userid',$id)->get();
+
         return view('rank')->with('pointrank', $pointrank)->with('loginrank', $loginrank)->with('itemdrawrank', $itemdrawrank);
 
     }
