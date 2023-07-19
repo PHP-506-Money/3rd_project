@@ -29,22 +29,40 @@ class StaticController extends Controller
 
         // 현재 년도
         $currentYear = date('Y');
+        // 작년
+        $lastYear = date('Y')-1;
 
-        // 월별 입금
+        // 올해 월별 입금
         $monthRCStatic = DB::select("
         SELECT DATE_FORMAT(tran.trantime, '%m') AS Month, SUM(tran.amount) AS consumption
         FROM assets ass
         INNER JOIN transactions tran ON ass.assetno = tran.assetno
         WHERE ass.userid = ? and tran.type = '0' and YEAR(tran.trantime) = ?
-        GROUP BY Month ",[$userid,$currentYear]);
+        GROUP BY Month ",[$userid, $currentYear]);
+
+        // 작년 월별 입금
+        $lastMonthRCStatic = DB::select("
+        SELECT DATE_FORMAT(tran.trantime, '%m') AS Month, SUM(tran.amount) AS consumption
+        FROM assets ass
+        INNER JOIN transactions tran ON ass.assetno = tran.assetno
+        WHERE ass.userid = ? and tran.type = '0' and YEAR(tran.trantime) = ?
+        GROUP BY Month ",[$userid, $lastYear]);
         
-        // 월별 지출
+        // 올해 월별 지출
         $monthEXStatic = DB::select("
         SELECT DATE_FORMAT(tran.trantime, '%m') AS Month, SUM(tran.amount) AS consumption
         FROM assets ass
         INNER JOIN transactions tran ON ass.assetno = tran.assetno
         WHERE ass.userid = ? and tran.type = '1' and YEAR(tran.trantime) = ?
-        GROUP BY Month ",[$userid,$currentYear]);
+        GROUP BY Month ",[$userid, $currentYear]);
+
+        // 작년 월별 지출
+        $lastMonthEXStatic = DB::select("
+        SELECT DATE_FORMAT(tran.trantime, '%m') AS Month, SUM(tran.amount) AS consumption
+        FROM assets ass
+        INNER JOIN transactions tran ON ass.assetno = tran.assetno
+        WHERE ass.userid = ? and tran.type = '1' and YEAR(tran.trantime) = ?
+        GROUP BY Month ",[$userid, $lastYear]);
 
         // 현재 달
         $currentMonth = date('m');
@@ -55,7 +73,7 @@ class StaticController extends Controller
         FROM assets ass
         INNER JOIN transactions tran ON ass.assetno = tran.assetno
         WHERE ass.userid = ? and tran.type = '1' and YEAR(tran.trantime) = ? and MONTH(tran.trantime) = ?
-        GROUP BY day ",[$userid,$currentYear,$currentMonth]);
+        GROUP BY day ",[$userid, $currentYear, $currentMonth]);
 
         // 카테고리별 지출
         $catExpenses = DB::select( " select cat.name as category, SUM(tran.amount) AS consumption
@@ -67,7 +85,7 @@ class StaticController extends Controller
         and ass.userid = ?
         and tran.type='1'
         GROUP BY cat.no , cat.name
-        ORDER BY consumption desc ", [$currentYear,$currentMonth,$userid]);
+        ORDER BY consumption desc ", [$currentYear, $currentMonth, $userid]);
 
         // 현재달의 지출 합계
         $monthEXSum = DB::select("
@@ -75,7 +93,7 @@ class StaticController extends Controller
         FROM assets ass
         INNER JOIN transactions tran ON ass.assetno = tran.assetno
         WHERE ass.userid = ? and tran.type = '1' and YEAR(tran.trantime) = ? and Month(tran.trantime)=?
-        ",[$userid,$currentYear,$currentMonth]);
+        ",[$userid, $currentYear, $currentMonth]);
 
         // 달의 합계를 string에서 int 로 바꿔주기
         $resultSum = intval($monthEXSum[0]->consumption);

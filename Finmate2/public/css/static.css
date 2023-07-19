@@ -72,13 +72,13 @@ h3{
 
 .allcategoryChart{
     display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
 }
 
 .top1{
     margin-top: 150px;
-}
-
-*{
     text-align: center;
     justify-content: center;
     align-items: center;
