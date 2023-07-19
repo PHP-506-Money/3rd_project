@@ -1167,6 +1167,7 @@
   background-size: cover;
   margin-left: auto;
   margin-bottom: 3.2rem;
+  font-size: 2rem;
 }
 
 .aside__lnb-login {
@@ -1291,6 +1292,7 @@
     background: url(../images/icon/a-close.svg) center no-repeat;
     background-size: cover;
     margin-bottom: 2.2rem;
+    font-size: 2rem;
   }
   .aside__lnb-login {
     display: -webkit-box;

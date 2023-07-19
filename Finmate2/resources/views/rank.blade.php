@@ -29,8 +29,7 @@
         </form>
     </div>
 
-    <div class="tabmenu">
-        <ul>
+    <ul>
             <li id="tab1" class="btnCon"><a class="tapbtn first" href="#tab1">포인트</a>
                 <div class="tabCon">
                     <h2 class="rankname">포인트순위</h2>
@@ -44,18 +43,38 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @php
-                                $rank = 1 ; 
-                            @endphp
-                            @foreach($pointrank as $value)
+                            @foreach($pointrank as $key => $value)
                             <tr>
-                                <td>{{$rank}}</td>
+                            <div class = "rankContainer">
+                            @if($key == 0 )
+                                <div class="pointrankF">
+                                        <p>{{$key +1}}</p>
+                                        <img src="{{ asset('/img/moffin.png') }}" alt="모핀확인">
+                                        <p><a href={{ url('/users/profile'.'/' . $value->userid) }}>{{$value->username}}</a></p>
+                                        <p>{{$value->point}}</p>
+                                </div>
+                            @elseif($key == 1)
+                                <div class="pointrankS">
+                                        <p>{{$key +1}}</p>
+                                        <img src="{{ asset('/img/moffin.png') }}" alt="모핀확인">
+                                        <p><a href={{ url('/users/profile'.'/' . $value->userid) }}>{{$value->username}}</a></p>
+                                        <p>{{$value->point}}</p>
+                                </div>
+                            @elseif($key == 2)
+                                <div class="pointrankT">
+                                        <p>{{$key +1}}</p>
+                                        <img src="{{ asset('/img/moffin.png') }}" alt="모핀확인">
+                                        <p><a href={{ url('/users/profile'.'/' . $value->userid) }}>{{$value->username}}</a></p>
+                                        <p>{{$value->point}}</p>
+                                </div>
+                            </div>
+                            @elseif($key>2)
+                                <td>{{$key +1}}</td>
                                 <td><a href={{ url('/users/profile'.'/' . $value->userid) }}>{{$value->username}}</a></td>
                                 <td>{{$value->point}}</td>
+                            @endif
+                                
                             </tr>
-                            @php
-                                $rank++;
-                            @endphp
                             @endforeach
                         </tbody>
                     </table>
@@ -74,18 +93,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @php
-                                $login = 1 ; 
-                            @endphp
-                            @foreach($loginrank as $value)
+                            @foreach($loginrank as $key => $value)
                             <tr>
-                                <td>{{$login}}</td>
+                                <td>{{$key+1}}</td>
                                 <td><a href={{ url('/users/profile'.'/' . $value->userid) }}>{{$value->username}}</a></td>
                                 <td>{{$value->login_count}}</td>
                             </tr>
-                            @php
-                                $login++;
-                            @endphp
                             @endforeach
                         </tbody>
                     </table>
@@ -104,18 +117,12 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @php
-                                $item = 1 ; 
-                            @endphp
-                            @foreach($itemdrawrank as $value)
+                            @foreach($itemdrawrank as $key => $value)
                             <tr>
-                                <td>{{$item}}</td>
+                                <td>{{$key+1}}</td>
                                 <td><a href={{ url('/users/profile'.'/' . $value->userid) }}>{{$value->username}}</a></td>
                                 <td>{{$value->item_draw_count}}</td>
                             </tr>
-                            @php
-                                $item++;
-                            @endphp
                             @endforeach
                         </tbody>
                     </table>
