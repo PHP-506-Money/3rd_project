@@ -108,13 +108,13 @@
             <div class="number">
                 <ul class="inline_block">
                     <li>
-                        <p class="sub-text">팀 돈맡겨주시조 </p>
+                        <p class="sub-text sub-text-first">팀 돈맡겨주시조 </p>
                     </li>
                     <li>
-                        <p class="sub-text"><a href="https://github.com/EunyoungSin" class="fa fa-github" style="font-size:17px; font-weight:bold;">신은영 </a> <a href="https://github.com/Headh1" class="fa fa-github" style="font-size:17px; font-weight:bold;">김진아 </a> </p>
+                        <p class="sub-text"><a href="https://github.com/EunyoungSin" class="fa fa-github" style="font-size:1.5rem; font-weight:bold;">신은영 </a> <a href="https://github.com/Headh1" class="fa fa-github" style="font-size:1.5rem; font-weight:bold;">김진아 </a> </p>
                     </li>
                     <li>
-                        <p class="sub-text"><a href="https://github.com/snoh6839" class="fa fa-github" style="font-size:17px; font-weight:bold;">노수빈 </a> <a href="https://github.com/Choihyukjae" class="fa fa-github" style="font-size:17px; font-weight:bold;">최혁재 </a> </p>
+                        <p class="sub-text"><a href="https://github.com/snoh6839" class="fa fa-github" style="font-size:1.5rem; font-weight:bold;">노수빈 </a> <a href="https://github.com/Choihyukjae" class="fa fa-github" style="font-size:1.5rem; font-weight:bold;">최혁재 </a> </p>
 
 
 

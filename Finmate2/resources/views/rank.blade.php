@@ -43,16 +43,9 @@
             </thead>
             <tbody>
                 @foreach($pointrank as $key => $value)
-                @if($key == 0)
+                @if($key <3)
                     <p>{{$key +1}}</p>
-                    <p><a href={{ url('/users/profile'.'/' . $value->userid) }}>{{$value->username}}</a></p>
-                    <p>{{$value->point}}</p>
-                @elseif($key == 1)
-                    <p>{{$key +1}}</p>
-                    <p><a href={{ url('/users/profile'.'/' . $value->userid) }}>{{$value->username}}</a></p>
-                    <p>{{$value->point}}</p>
-                @elseif($key == 2)
-                    <p>{{$key +1}}</p>
+                    {{-- <img src="{{ asset('/img/moffin' . $user->moffintype . '.png') }}" alt=""> --}}
                     <p><a href={{ url('/users/profile'.'/' . $value->userid) }}>{{$value->username}}</a></p>
                     <p>{{$value->point}}</p>
                 @else
@@ -81,15 +74,7 @@
             </thead>
             <tbody>
                 @foreach($loginrank as $key => $value)
-                @if($key == 0)
-                    <p>{{$key +1}}</p>
-                    <p><a href={{ url('/users/profile'.'/' . $value->userid) }}>{{$value->username}}</a></p>
-                    <p>{{$value->login_count}}</p>
-                @elseif($key == 1)
-                    <p>{{$key +1}}</p>
-                    <p><a href={{ url('/users/profile'.'/' . $value->userid) }}>{{$value->username}}</a></p>
-                    <p>{{$value->login_count}}</p>
-                @elseif($key == 2)
+                @if($key <3)
                     <p>{{$key +1}}</p>
                     <p><a href={{ url('/users/profile'.'/' . $value->userid) }}>{{$value->username}}</a></p>
                     <p>{{$value->login_count}}</p>
@@ -121,15 +106,7 @@
             </thead>
             <tbody>
                 @foreach($itemdrawrank as $key => $value)
-                @if($key == 0)
-                    <p>{{$key +1}}</p>
-                    <p><a href={{ url('/users/profile'.'/' . $value->userid) }}>{{$value->username}}</a></p>
-                    <p>{{$value->item_draw_count}}</p>
-                @elseif($key == 1)
-                    <p>{{$key +1}}</p>
-                    <p><a href={{ url('/users/profile'.'/' . $value->userid) }}>{{$value->username}}</a></p>
-                    <p>{{$value->item_draw_count}}</p>
-                @elseif($key == 2)
+                @if($key < 3)
                     <p>{{$key +1}}</p>
                     <p><a href={{ url('/users/profile'.'/' . $value->userid) }}>{{$value->username}}</a></p>
                     <p>{{$value->item_draw_count}}</p>

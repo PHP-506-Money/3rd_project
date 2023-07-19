@@ -1,3 +1,5 @@
+@import url('https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.min.css');
+
 #menu {
     margin: 20px auto;
     text-align: center;
@@ -92,13 +94,28 @@ span:hover + p.arrow_box {
 }
 
 /*******    랭킹    *********/
+.rankTit {
+    margin-top: 10%;
+    font-family:'NanumSquareRound', 'Noto Sans KR', sans-serif;
+    text-align: center;
+    font-size: 1.6rem;
+}
+
+.mainTit{
+    font-size: 4rem;
+    font-weight: 900;
+}
+h5{
+    margin-top: 10px;
+}
 
 table {
-    width: 100%;
+    width: 80%;
     border-collapse: collapse;
     margin-bottom: 20px;
     text-align: center;
     border-radius: 10px;
+    margin: 0 auto;
 }
 
 th, td {
@@ -118,7 +135,7 @@ td{
 ul{list-style:none;}
 
 .tabmenu{ 
-  width:80%; 
+  width:90%; 
   margin: 0 auto;
   position:relative; 
   height: 780px;
@@ -126,7 +143,7 @@ ul{list-style:none;}
 }
 .tabmenu ul li{
   display:  inline-block;
-  width:33.33%; 
+  width:30%; 
   float:left;  
   text-align:center; 
   /* background :#f9f9f9; */
@@ -167,6 +184,7 @@ ul{list-style:none;}
 }
 thead{
     font-size: 1.7rem;
+    margin-bottom: 4rem;
 }
 
 tbody{
@@ -178,20 +196,17 @@ tbody{
     margin-top: 1.5rem;
 }
 
-.rankContainer{
+/* .rankContainer{
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    
-
-}
+    justify-content: space-around;
+} */
 
 .pointrankF , .pointrankS , .pointrankT{
     display: inline-block;
     border: 1px solid black;
     border-radius: 20px;
-    width: 30%;
-    height: 30%;
+    width: 15%;
+    height: 45%;
 }
 
 .pointrankF img, .pointrankS img, .pointrankT img {
