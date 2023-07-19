@@ -57,6 +57,21 @@
             <label for="enddate">종료일자</label>
             <input type="date" class="" name="enddate" id="enddate" required >
             
+            <select name="search_asset" id="search_asset">
+							<option value="99">전체</option>
+							<option value="토스뱅크">토스뱅크</option>
+							<option value="신한은행">신한은행</option>
+							<option value="현대카드">현대카드</option>
+							<option value="대구은행">대구은행</option>
+							<option value="카카오뱅크">카카오뱅크</option>
+							<option value="국민은행">국민은행</option>
+							<option value="하나은행">하나은행</option>
+							<option value="우리은행">우리은행</option>
+							<option value="농협은행">농협은행</option>
+							<option value="새마을금고">새마을금고</option>
+
+            </select>
+
             <select id = "search_tran" name="search_tran">
 							<option value="99">전체</option>
 							<option value="0">입금</option>
@@ -89,22 +104,38 @@
             @if(isset($data))
             <div id ="search_box" style=" width:50%; text-align:center; font-size:25px; margin:0px auto; margin-top:20px; display:block; " >
                 <span style="font-size:30px; color:red; margin-bottom : 10px;">검색결과   </span><button onclick="SearchBox()">숨기기</button><br><br>
+
+                <table> 
+                <thead>
+                <tr>
+                    <th>자산명</th>
+                    <th>거래구분</th>
+                    <th>거래처</th>
+                    <th>카테고리</th>
+                    <th>거래금액</th>
+                    <th>거래일시</th>
+                </tr>
+                </thead>
+                <tbody>
                 @foreach($data as  $value)
-                    @if($value->type == '0')
+                    <tr>
+                    <td>{{ $value->assetname }}
+                    <td>@if($value->type == '0')
                         <span>입금</span>
                     @else
                         <span>출금</span>
-                    @endif
-
-                    {{ $value->trantime }}
-                    {{ $value->name }}
-                    {{ $value->assetname }}
-                    {{ $value->amount}}
-                    {{ $value->payee}}
+                    @endif </td>
+                    <td>{{ $value->payee}}</td>
+                    <td>{{ $value->name }}</td>
+                    <td>{{ $value->amount}}</td>
+                    <td>{{ $value->trantime }}</td>
                     <br>
+                    </tr>
                 @endforeach
+                </tbody>
+                </table>
             </div>
-            @endif
+        @endif
             
     <table id="assetTable" class="assetTable" style=" width:50%; text-align:center; font-size:20px; margin:0px auto; margin-top:20px " >
         <thead>
