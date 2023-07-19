@@ -84,15 +84,8 @@ h3{
     align-items: center;
 }
 
-#monthChart {
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    margin: 0 auto;
-    width: 45vw;
-    min-width: 400px;
-    height: 25vh;
-    min-height: 200px;
+.none {
+    display:none;
 }
 
 .line2 {
@@ -124,7 +117,15 @@ h3{
 }
 
 .chartBar {
-    margin-top: 20px;
+    margin: 0 auto;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    width: 60vw;
+    min-width: 400px;
+    height: 40vh;
+    min-height: 200px;
 }
 
 .modalMsg {

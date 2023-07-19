@@ -3,7 +3,8 @@
  * Project Name : Finmate
  * Directory    : Controllers
  * File Name    : StaticController.php
- * History      : v001 0616 Kim new
+ * History      : v001 0616 Kim
+ *                v002 0719 Sin new
  *******************************************/
 
 namespace App\Http\Controllers;
@@ -29,8 +30,6 @@ class StaticController extends Controller
 
         // 현재 년도
         $currentYear = date('Y');
-        // 작년
-        $lastYear = date('Y')-1;
 
         // 올해 월별 입금
         $monthRCStatic = DB::select("
@@ -40,14 +39,6 @@ class StaticController extends Controller
         WHERE ass.userid = ? and tran.type = '0' and YEAR(tran.trantime) = ?
         GROUP BY Month ",[$userid, $currentYear]);
 
-        // 작년 월별 입금
-        $lastMonthRCStatic = DB::select("
-        SELECT DATE_FORMAT(tran.trantime, '%m') AS Month, SUM(tran.amount) AS consumption
-        FROM assets ass
-        INNER JOIN transactions tran ON ass.assetno = tran.assetno
-        WHERE ass.userid = ? and tran.type = '0' and YEAR(tran.trantime) = ?
-        GROUP BY Month ",[$userid, $lastYear]);
-        
         // 올해 월별 지출
         $monthEXStatic = DB::select("
         SELECT DATE_FORMAT(tran.trantime, '%m') AS Month, SUM(tran.amount) AS consumption
@@ -56,6 +47,18 @@ class StaticController extends Controller
         WHERE ass.userid = ? and tran.type = '1' and YEAR(tran.trantime) = ?
         GROUP BY Month ",[$userid, $currentYear]);
 
+        // v002 add start
+        // 작년
+        $lastYear = date('Y')-1;
+
+        // 작년 월별 입금
+        $lastMonthRCStatic = DB::select("
+        SELECT DATE_FORMAT(tran.trantime, '%m') AS Month, SUM(tran.amount) AS consumption
+        FROM assets ass
+        INNER JOIN transactions tran ON ass.assetno = tran.assetno
+        WHERE ass.userid = ? and tran.type = '0' and YEAR(tran.trantime) = ?
+        GROUP BY Month ",[$userid, $lastYear]);
+
         // 작년 월별 지출
         $lastMonthEXStatic = DB::select("
         SELECT DATE_FORMAT(tran.trantime, '%m') AS Month, SUM(tran.amount) AS consumption
@@ -63,11 +66,12 @@ class StaticController extends Controller
         INNER JOIN transactions tran ON ass.assetno = tran.assetno
         WHERE ass.userid = ? and tran.type = '1' and YEAR(tran.trantime) = ?
         GROUP BY Month ",[$userid, $lastYear]);
+        // v002 add end
 
         // 현재 달
         $currentMonth = date('m');
 
-        // 일별 지출
+        // 일별 지출 -> 사용 안됨
         $dayEXStatic = DB::select("
         SELECT DATE_FORMAT(tran.trantime, '%d') AS day, SUM(tran.amount) AS consumption
         FROM assets ass
@@ -108,26 +112,32 @@ class StaticController extends Controller
         if(isset($catPercent) && $assetchk !== 0){
         return view('static', [
             'currentYear' => $currentYear,
+            'lastYear' => $lastYear,
             'mmonth' => $currentMonth,
             'year' => $currentYear,
             'assetchk' => $assetchk
             ])
             ->with('monthrc',$monthRCStatic)
+            ->with('lastmonthrc',$lastMonthRCStatic)
             ->with('catdata',$catExpenses)
             ->with('monthex',$monthEXStatic)
+            ->with('lastmonthex',$lastMonthEXStatic)
             ->with('dayex',$dayEXStatic)
             ->with('percent',$catPercent);
             }
             else{
                 return view('static', [
                     'currentYear' => $currentYear,
+                    'lastYear' => $lastYear,
                     'mmonth' => $currentMonth,
                     'year' => $currentYear,
                     'assetchk' => $assetchk
                     ])
                     ->with('monthrc',$monthRCStatic)
+                    ->with('lastmonthrc',$lastMonthRCStatic)
                     ->with('catdata',$catExpenses)
                     ->with('monthex',$monthEXStatic)
+                    ->with('lastmonthex',$lastMonthEXStatic)
                     ->with('dayex',$dayEXStatic);
                     }
         }
