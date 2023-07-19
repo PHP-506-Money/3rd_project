@@ -74,61 +74,71 @@ width : 200px; height :200px;
 .random {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    /* margin-top: 20px; */
 }
+
+/* .randombox:hover {
+    transform: translateY(-5px);
+} */
 
 .randombox {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-right: 20px;
+    justify-content: center;
+    
     background-color: #FFFBF0;
-    padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease-in-out;
     width: 350px;
     height: 250px;
+    cursor: pointer;
+    position: relative;
 }
+
+.randombox:not(last-child){
+    margin-right: 20px;
+}
+/* .randombox {
+    margin-top: 20px;
+} */
 
 .randombox:hover {
     transform: translateY(-5px);
 }
 
-.randombtn {
-    background-color:#ffffff;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    transition: background-color 0.3s ease-in-out;
-    border-radius: 50%;
-    width: 200px;
-    height: 150px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.pointrandbox::after {
+    content: '포인트 뽑기 (- 100pt)';
+    position: absolute;
+    font-size: 2rem;
+    bottom: 4rem;
 }
 
-.randombtn:hover {
-    background-color: #201e25;
+.itemrandbox::after {
+    content: '아이템 뽑기 (- 500pt)';
+    position: absolute;
+    font-size: 2rem;
+    bottom: 4rem;
 }
 
 .randomimg {
     width: 120px;
     height: 120px;
+    padding: 65px 115px;
 }
 
-.randombox span {
+/* .randombox span {
     margin-top: 10px;
     text-align: center;
     font-size: 14px;
     color: #666666;
-}
+} */
 
-.randombox span.bold {
+/* .randombox span.bold {
     font-weight: bold;
     color: #333333;
-}
+} */
 
 .item-list {
     display: flex;
@@ -155,8 +165,8 @@ width : 200px; height :200px;
 }
 
 .item-img {
-    width: 80px;
-    height: 80px;
+    width: 100px;
+    height: 100px;
 }
 
 .item-name {

@@ -24,37 +24,48 @@
             margin: 20px;
             padding: 100px
         }
+
+        .random {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .randombox:not(last-child) {
+            margin-bottom: 1rem;
+        }
     }
 </style>
-<div class="l-title" >
-<br><br><br><br>
-<h1>캐릭터 관리</h1>
 
-<h2>나의 포인트: {{$data->point}}</h2><br><br><br>
+<div class="l-title" style="margin-top: 20rem;" >
+    <h2>
+        뽑기
+    </h2>
+    <p> 현재 포인트 : {{$data->point}} </p>
 </div>
 
 <div class="random">
-    <div class="randombox">
-        <form action="{{route('mofin.point',[auth()->user()->userid])}}" method="post">
-            @csrf
-            <button type="submit" class="randombtn">
-                <img class="randomimg" src="{{ asset('/img/randitem.png') }}">
-            </button>
-        </form>
-        <span class="bold">랜덤 포인트 뽑기</span>
-        <span>(100pt)</span>
-    </div>
+    <form action="{{route('mofin.point',[auth()->user()->userid])}}" method="post">
+        @csrf
+        <button type="submit" class="randombtn">
+            <div class="randombox pointrandbox">
 
-    <div class="randombox">
-        <form action="{{route('mofin.item',[auth()->user()->userid])}}" method="post">
-            @csrf
-            <button type="submit" class="randombtn">
-                <img class="randomimg" src="{{ asset('/img/randpoint.png') }}">
-            </button>
-        </form>
-        <span class="bold">랜덤 아이템 뽑기</span>
-        <span>(500pt)</span>
-    </div>
+            <img class="randomimg" src="{{ asset('/img/randitem.png') }}" onmouseover="this.src='{{ asset('/img/mouseoverpoint.png') }}'" onmouseout="this.src='{{ asset('/img/randitem.png') }}'">
+                {{-- <span class="bold">랜덤 포인트 뽑기</span>
+                <span>(100pt)</span> --}}
+            </div>
+        </button>
+    </form>
+
+    <form action="{{route('mofin.item',[auth()->user()->userid])}}" method="post">
+        @csrf
+        <button type="submit" class="randombtn">
+            <div class="randombox itemrandbox">
+                <img class="randomimg" src="{{ asset('/img/randpoint.png') }}" onmouseover="this.src='{{ asset('/img/mouseoveritem.png') }}'" onmouseout="this.src='{{ asset('/img/randpoint.png') }}'">
+                {{-- <span class="bold">랜덤 아이템 뽑기</span>
+                <span>(500pt)</span> --}}
+            </div>
+        </button>
+    </form>
 </div>
 <br><br>
 <div style="text-align : center; font-size:40px; ">내 컬렉션</div>
@@ -62,7 +73,8 @@
 <div class="item-list">
     @foreach ($itemname as $value)
         <div class="item-box">
-            @if ($value === '선글라스')
+            <img class="item-img" src="{{asset('/img/charitem'.$value->itemno.'.png')}}">
+            {{-- @if ($value === '선글라스')
                 <img class="item-img" src="{{ asset('/img/charitem1.png') }}">
             @elseif ($value === '검')
                 <img class="item-img" src="{{ asset('/img/charitem2.png') }}">
@@ -88,8 +100,9 @@
                 <img class="item-img" src="{{ asset('/img/charitem12.png') }}">
             @elseif($value === '유아복')
                 <img class="item-img" src="{{ asset('/img/charitem13.png') }}">
-            @endif
-            <span class="item-name">{{ $value }}</span>
+            @endif --}}
+            <span class="item-name">{{ $value->itemname }}</span>
+
         </div>
     @endforeach
 </div>

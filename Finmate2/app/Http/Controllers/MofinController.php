@@ -32,16 +32,21 @@ class MofinController extends Controller
         ->first();
 
         //유저가 가진 아이템을 조회
-        $item_name = DB::table('iteminfos AS info')
-        ->select('info.itemname')
-        ->join('items AS tem', 'info.itemno', '=', 'tem.itemno')
-        ->where('tem.userid', $id)
-        ->orderBy('info.itemno', 'ASC')
-        ->pluck('itemname')//아이템 이름반환(컬렉션 객체)
-        ->toArray();// 컬렉션 객체를 다시 배열로 바꿔줌
+        // $item_name = DB::table('iteminfos AS info')
+        // ->select('info.itemname')
+        // ->join('items AS tem', 'info.itemno', '=', 'tem.itemno')
+        // ->where('tem.userid', $id)
+        // ->orderBy('info.itemno', 'ASC')
+        // ->pluck('itemname')//아이템 이름반환(컬렉션 객체)
+        // ->toArray();// 컬렉션 객체를 다시 배열로 바꿔줌
 
-        $itemonly = array_unique($item_name);// 유저가 가진 아이템이 중복값이 많아서 출력할때 중복값 제거하기위해서 unique써서 $itemonly에 담아줌
-        return view('mofin')->with('data',$result)->with('itemname', $itemonly);
+        $itemname = DB::table('iteminfos')
+            ->join('items', 'iteminfos.itemno', '=', 'items.itemno')
+            ->where('items.userid', $id)
+            ->get();
+
+        // $itemonly = array_unique($item_name);// 유저가 가진 아이템이 중복값이 많아서 출력할때 중복값 제거하기위해서 unique써서 $itemonly에 담아줌
+        return view('mofin')->with('data',$result)->with('itemname', $itemname);
 
     }
 
