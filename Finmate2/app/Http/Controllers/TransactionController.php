@@ -133,6 +133,9 @@ class TransactionController extends Controller
         ->join('categories', 'transactions.char', '=', 'categories.no')
         ->select('transactions.*', 'assets.assetname', 'categories.name')
         ->where('assets.userid', $userid)
+        ->when($req->input('search_asset') != 99, function ($query) use ($req) {
+            $query->where('assetname', $req->input('search_asset'));
+        })
         ->when($req->input('search_tran') != 99, function ($query) use ($req) {
             $query->where('transactions.TYPE', $req->input('search_tran'));
         })

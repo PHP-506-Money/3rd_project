@@ -121,7 +121,16 @@
                                         <p class="asset-name">{{$asset->assetname}}</p>
                                         <p class="asset-balance">{{number_format($asset->balance)}}원</p>
                                           <div class="view-more-container">
-                                            <a class="view-more-link" href="{{url('/assets/transactions'.'/'.auth()->user()->userid)}}">자산 내역 보러가기</a>
+                                            <form action="{{ route('transactions.search',[auth()->user()->userid]) }}" method="post">
+                                            @csrf
+                                            <input type="hidden" name="startdate" value="20230701" >
+                                            <input type="hidden" name="enddate" value="20230719" >
+                                            <input type="hidden" name="search_asset" value="{{$asset->assetname}}" >
+                                            <input type="hidden" name="search_tran" value="99" >
+                                            <input type="hidden" name="search_category" value="99">
+                                            <button class="view-more-link" type="submit">자산내역보러가기</button>
+                                            </form>
+                                            {{-- <a class="view-more-link" href="{{ route('transactions.search',[auth()->user()->userid]) }}">자산 내역 보러가기</a> --}}
                                         </div>
                                     </div>
                                 </div>

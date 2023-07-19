@@ -57,6 +57,21 @@
             <label for="enddate">종료일자</label>
             <input type="date" class="" name="enddate" id="enddate" required >
             
+            <select name="search_asset" id="search_asset">
+							<option value="99">전체</option>
+							<option value="토스뱅크">토스뱅크</option>
+							<option value="신한은행">신한은행</option>
+							<option value="현대카드">현대카드</option>
+							<option value="대구은행">대구은행</option>
+							<option value="카카오뱅크">카카오뱅크</option>
+							<option value="국민은행">국민은행</option>
+							<option value="하나은행">하나은행</option>
+							<option value="우리은행">우리은행</option>
+							<option value="농협은행">농협은행</option>
+							<option value="새마을금고">새마을금고</option>
+
+            </select>
+
             <select id = "search_tran" name="search_tran">
 							<option value="99">전체</option>
 							<option value="0">입금</option>
