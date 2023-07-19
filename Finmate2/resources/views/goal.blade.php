@@ -16,12 +16,13 @@
     .que {
         position: relative;
         cursor: pointer;
+        color: #fff;
+        background-color: #1c3879;
+        padding: 2rem 0;
     }
 
     .que.on {
         font-weight: bold;
-        color: #1c3879;
-
     }
 
     .anw {
@@ -36,7 +37,7 @@
     .arrow-wrap {
         position: absolute;
         top: 50%;
-        right: 40rem;
+        right: 3vw;
         transform: translate(0, -50%);
     }
 
@@ -46,7 +47,7 @@
 
     .que .arrow-bottom {
         display: block;
-        color: #1c3879;
+        color: #fff;
     }
 
     .que.on .arrow-bottom {
@@ -55,7 +56,7 @@
 
     .que.on .arrow-top {
         display: block;
-        color: #1c3879;
+        color: #fff;
     }
 
 </style>
