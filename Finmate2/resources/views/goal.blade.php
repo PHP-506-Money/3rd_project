@@ -38,9 +38,19 @@
                                 <td colspan="3">
                                     @if(count($assets) > 0)
                                     @foreach ($assets as $asset)
-                                    <div class="form-check">
-                                        <input style="appearance: button;" class="form-check-input" type="radio" name="asset" id="asset{{ $asset->assetno }}" value="{{ $asset->assetno }}" required>
-                                        <label class="form-check-label" name="asset" for="asset{{ $asset->assetno }}">자산명: {{ $asset->assetname }}  (잔액: {{number_format($asset->balance) }}원)</label>
+                                        <style>
+                                            .asset-form-check {
+                                                padding: 3px 0;
+                                            }
+                                            .asset-radio:checked + label>img {
+                                                border: 3px solid #ff7676;
+                                            }
+                                        </style>
+                                    <div class="form-check asset-form-check">
+                                        <input class="form-check-input asset-radio" type="radio" name="asset" id="asset{{ $asset->assetno }}" value="{{ $asset->assetno }}" required>
+                                        <label class="form-check-label" name="asset" for="asset{{ $asset->assetno }}"><img style="border-radius: 3rem; width: 3rem; height: 3rem;" src="./resources/assets/images/banklogo/{{ $asset->assetname }}.png" alt="assetlogo"> {{ $asset->assetname }} (잔액: {{number_format($asset->balance) }}원)</label>
+
+
                                     </div>
                                     @endforeach
                                     @else
@@ -75,8 +85,6 @@
                 <div class="l-title"> 진행중인 목표 </div>
                 @foreach($goals as $goal)
                 <form id="db2{{ $goal->goalno }}" name="db2{{ $goal->goalno }}" action="{{ route('goal.put') }}" method="post" class="listbox2">
-
-
                 @csrf
                 @method('put')
                 <input type="hidden" name="set_goal_id" value="{{ $goal->goalno }}" />
@@ -142,9 +150,8 @@
                 </section>
                 <ul class="list_info_line list_info_line_btn">
                     <button type="button" class="l-btn notice-list-btn" onclick="confirmData2({{ $goal->goalno }})" style="margin-top:0;">수정하기</button>
-
                 </ul>
-            </form>
+                </form>
                 
                 <ul class="list_info_line list_info_line_btn">
                     <form id="db3{{ $goal->goalno }}" name="db3{{ $goal->goalno }}" action="{{ route('goal.delete') }}" method="post">
