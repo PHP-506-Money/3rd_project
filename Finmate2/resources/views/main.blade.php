@@ -41,7 +41,6 @@
 											alt="">
 									</div>
 								</button>
-
 								<button class="goobne-menu-btn btn1">
 									예산기능
 								</button>
@@ -70,95 +69,51 @@
 								        <img src="/resources/assets/images/common/main_bg_icon_06.png" alt="">
 								    </div>
 								</button>
-
-				
 							</div>
 						</div>
-
-
 				</div>
-
-
-
-
-
 				<div class="con-box menu-box">
 					<div class="inner">
 						<p class="l-main-title wow fadeInUp">Our Service</p>
 						<div class="menu-list-wrap wow fadeInUp">
-
-
-
 							<a href="{{ route('users.login') }}" class="menu-list" target="self">
-
 								<div class="menu-img">
-									<img src="/resources/assets/images/banner/assets.png"
-
-										alt="자산관리">
-
+									<img src="/resources/assets/images/banner/assets.png" alt="자산관리">
 								</div>
 								<p class="menu-name">✨자산관리</p>
 							</a>
-
                             <a href="{{ route('users.login') }}" class="menu-list  top" target="self">
-
                                 <div class="menu-img">
-                                    <img src="/resources/assets/images/banner/transaction.png"
-
-									alt="자산내역관리">
-
+                                    <img src="/resources/assets/images/banner/transaction.png" alt="자산내역관리">
                                 </div>
                                 <p class="menu-name">자산내역관리</p>
                             </a>
-
-
-
-
 							<a href="{{ route('users.login') }}" class="menu-list " target="self">
-
 								<div class="menu-img">
-									<img src="/resources/assets/images/banner/decoChar.png"
-
-										alt="꾸미기">
+									<img src="/resources/assets/images/banner/decoChar.png" alt="꾸미기">
 								</div>
 								<p class="menu-name">모핀꾸미기</p>
 							</a>
-
-
 							<a href="{{ route('users.login') }}" class="menu-list  top" target="self">
-
 								<div class="menu-img">
 									<img src="/resources/assets/images/banner/itemdraw.png"
 										alt="아이템뽑기">
 								</div>
 								<p class="menu-name">아이템뽑기</p>
 							</a>
-
-
 							<a href="{{ route('users.login') }}" class="menu-list " target="self">
-
 								<div class="menu-img">
 									<img src="/resources/assets/images/banner/setGoal.png"
-
 										alt="목표">
 								</div>
 								<p class="menu-name">목표설정</p>
 							</a>
-
-
-
 							<a href="{{ route('users.login') }}" class="menu-list  top" target="self">
-
 								<div class="menu-img">
-									<img src="/resources/assets/images/banner/budget.png"
-
-										alt="예산설정">
-
+									<img src="/resources/assets/images/banner/budget.png" alt="예산설정">
 								</div>
 								<p class="menu-name">예산설정</p>
 							</a>
-
-
 							<a href="{{ route('users.login') }}" class="menu-list " target="self">
 
 								<div class="menu-img">
@@ -167,11 +122,7 @@
 								</div>
 								<p class="menu-name">통계관리</p>
 							</a>
-
-
-
 							<a href="{{ route('users.login') }}" class="menu-list  top" target="self">
-
 								<div class="menu-img">
 									<img src="/resources/assets/images/banner/achieve.png"
 										alt="DESSERT">
@@ -181,18 +132,17 @@
 						</div>
 					</div>
 				</div>
-
-
-
 				<div class="con-box">
 				    <div class="con_wrap">
 				        <p class="l-main-title wow fadeInUp">Fin news</p>
 				        <div class="event-list-wrap">
-				            <div class="event-list on wow fadeInUp">
+				            <div class="event-list wow fadeInUp">
 				                <a href="{{ route('users.login') }}" target="self">
-
+									<div class="mo-thum">
+									    <img src="./resources/assets/images/main/catmo.jpg" alt="catmofin">
+									</div>
 				                    <div class="status half">
-				                        <p class="sub">[프로모션]</p>
+				                        <p class="sub">[공지]</p>
 				                    </div>
 				                    <div class="event-title half">
 				                        <p class="main-text">Fin.mate 서비스 시작</p>
@@ -201,36 +151,35 @@
 				            </div>
 				            <div class="event-list  wow fadeInUp">
 				                <a href="{{ route('users.login') }}" target="self">
-
+									<div class="mo-thum">
+									    <img src="./resources/assets/images/main/catmo.jpg" alt="catmofin">
+									</div>
 				                    <div class="status half">
 				                        <p class="sub">[이벤트]</p>
 				                    </div>
 				                    <div class="event-title half">
-				                        <p class="main-text">첫 자산연결 성공시 상품 추첨기회 제공</p>
+				                        <p class="main-text">첫 이벤트! 3달간 회원가입시 600포인트를 드립니다</p>
 				                    </div>
 				                </a>
 				            </div>
-
-
 				            <div class="event-list  wow fadeInUp">
 				                <a href="{{ route('users.login') }}" target="self">
-
+									<div class="mo-thum">
+									    <img src="./resources/assets/images/main/catmo.jpg" alt="catmofin">
+									</div>
 				                    <div class="status half">
-				                        <p class="sub">[이벤트]</p>
+				                        <p class="sub">[공지]</p>
 				                    </div>
 				                    <div class="event-title half">
-				                        <p class="main-text">첫 이벤트! 3달간 포인트 100에서 600으로 증정합니다.</p>
+				                        <p class="main-text">다음 모핀 친구는 어떤 동물일까요?</p>
 				                    </div>
 				                </a>
 				            </div>
-
-
-
-
-
 				            <div class="event-list  wow fadeInUp">
 				                <a href="{{ route('users.login') }}" target="self">
-
+									<div class="mo-thum">
+									    <img src="./resources/assets/images/main/catmo.jpg" alt="catmofin">
+									</div>
 				                    <div class="status half">
 				                        <p class="sub">[공지]</p>
 				                    </div>
@@ -239,13 +188,8 @@
 				                    </div>
 				                </a>
 				            </div>
-
 				        </div>
 				    </div>
-				    <!-- //230130 수정 -->
-
 				</div>
-
 			</div>
-
 @endsection
