@@ -9,7 +9,7 @@
 <link rel="stylesheet" href="{{ asset('/css/static.css')  }}" >
 
 @section('contents')
-    <div class="top1"></div>
+    <div class="top1">
     @if($assetchk === 0)
     <div id="myModal" class="modal">
         <div class="modal_content">
@@ -24,21 +24,18 @@
                 </span>
             </div>
         </div>
-    
-        </div>
+    </div>
 
-        <script type="text/javascript">
-        
+    <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function() {
-    document.getElementById('myModal').style.display = 'block';
-    });
+            document.getElementById('myModal').style.display = 'block';
+        });
 
-    function close_pop(flag) {
-    document.getElementById('myModal').style.display = 'none';
-    location.href = "{{ route('assets.index',[auth()->user()->userid]) }}";
-    }
-            
-        </script>
+        function close_pop(flag) {
+            document.getElementById('myModal').style.display = 'none';
+            location.href = "{{ route('assets.index',[auth()->user()->userid]) }}";
+        }
+    </script>
 
     @else
         <h3>{{ $currentYear }}년 월별 입지출 내역</h3>
@@ -78,57 +75,57 @@
 
 
         <script>
-                let monthrcLabels = [];
-                let monthrcData = [];
+            let monthrcLabels = [];
+            let monthrcData = [];
 
-                @foreach($monthrc as $data)
-                    monthrcLabels.push("{{ $data->Month }}");
-                    monthrcData.push({{ $data->consumption }});
-                @endforeach
+            @foreach($monthrc as $data)
+                monthrcLabels.push("{{ $data->Month }}");
+                monthrcData.push({{ $data->consumption }});
+            @endforeach
 
-                let monthexData = [];
+            let monthexData = [];
 
-                @foreach($monthex as $data)
-                    monthexData.push({{ $data->consumption }});
-                @endforeach
-                
-                let categoryLabels = [];
-                let categoryData = [];
+            @foreach($monthex as $data)
+                monthexData.push({{ $data->consumption }});
+            @endforeach
+            
+            let categoryLabels = [];
+            let categoryData = [];
 
-                @foreach($catdata as $data)
-                    categoryLabels.push("{{ $data->category }}");
-                    categoryData.push({{ $data->consumption }});
-                @endforeach
+            @foreach($catdata as $data)
+                categoryLabels.push("{{ $data->category }}");
+                categoryData.push({{ $data->consumption }});
+            @endforeach
 
-                var monthChart = new Chart(document.getElementById('monthChart'), {
-                    type: 'bar',
-                    data: {
-                        labels: monthrcLabels,
-                        datasets: [{
-                            label: '월별 입금',
-                            data: monthrcData,
-                            backgroundColor: '#f07167',
-                            borderColor: '#f07167',
-                            borderWidth: 1
-                            },
-                            {
-                            label: '월별 지출',
-                            data: monthexData,
-                            backgroundColor: '#b5e2fa',
-                            borderColor: '#b5e2fa',
-                            borderWidth: 1
-                        }]
-                    },
-                    options: {
-                        scales: {
-                            y: {
-                                beginAtZero: true
-                            }
+            var monthChart = new Chart(document.getElementById('monthChart'), {
+                type: 'bar',
+                data: {
+                    labels: monthrcLabels,
+                    datasets: [{
+                        label: '월별 입금',
+                        data: monthrcData,
+                        backgroundColor: '#f07167',
+                        borderColor: '#f07167',
+                        borderWidth: 1
+                        },
+                        {
+                        label: '월별 지출',
+                        data: monthexData,
+                        backgroundColor: '#b5e2fa',
+                        borderColor: '#b5e2fa',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
                         }
                     }
-                });
+                }
+            });
 
-                var categoryChart = new Chart(document.getElementById('categoryChart'), {
+            var categoryChart = new Chart(document.getElementById('categoryChart'), {
                 type: 'doughnut',
                 data: {
                     labels: categoryLabels,
@@ -172,5 +169,5 @@
 
 
     @endif
-
+</div>
 @endsection
