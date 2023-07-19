@@ -45,20 +45,23 @@ class AssetController extends Controller
         //더미 데이터 추가 
         $assetCount = Asset::count();
         $assetNames = ['토스뱅크', '신한은행', '현대카드', '대구은행', '카카오뱅크', '국민은행', '하나은행', '우리은행', '농협은행', '새마을금고', '기업은행'];
+        // $randAsset = shuffle($assetNames);
+        // for ($i=1; $i < 10 ; $i++) { 
+        //     $pickAsset = array_shift($randAsset[$i]);
+        // }
         $balanceMin = 100000;
         $balanceMax = 90000000;
 
-            for ($i = $assetCount+2; $i <= $assetCount+10; $i++) {
-                $randAsset = shuffle($assetNames);
+            for ($i = $assetCount+1; $i <= $assetCount+10; $i++) {
                 $asset = new Asset();
                 $asset->assetno = $i;
                 $asset->userid = $user->userid;
-                $asset->assetname = array_shift($randAsset[$i]);
+                $asset->assetname = array_shift($assetNames);
                 $asset->balance = mt_rand($balanceMin, $balanceMax);
                 $asset->save();
             }
 
-            $assetNos = range($assetCount+2, $assetCount+10);
+            $assetNos = range($assetCount+1, $assetCount+10);
             $types = ['0', '1'];
             $payeeChars = ['0', '1', '2', '3', '4', '5', '6', '7', '8'];
             $amountMin = 1000;
