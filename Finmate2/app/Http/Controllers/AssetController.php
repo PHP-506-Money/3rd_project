@@ -49,10 +49,11 @@ class AssetController extends Controller
         $balanceMax = 90000000;
 
             for ($i = $assetCount+2; $i <= $assetCount+10; $i++) {
+                $randAsset = shuffle($assetNames);
                 $asset = new Asset();
                 $asset->assetno = $i;
                 $asset->userid = $user->userid;
-                $asset->assetname = $assetNames[array_rand($assetNames)];
+                $asset->assetname = array_shift($randAsset[$i]);
                 $asset->balance = mt_rand($balanceMin, $balanceMax);
                 $asset->save();
             }
