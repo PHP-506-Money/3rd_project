@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\DB;
 
 class StaticController extends Controller
 {
-    function static( $userid) {
+    function static($userid) {
 
         $current_user_id = auth()->user()->userid;
         if ($current_user_id != $userid) {
@@ -69,29 +69,32 @@ class StaticController extends Controller
         // v002 add end
 
         // 현재 달
-        $currentMonth = date('m');
+        // $currentMonth = date('m'); // v002 del
+        $currentMonth = isset($_GET['mmonth']) ? $_GET['mmonth'] : date('m'); // v002 add
 
-        // 일별 지출 -> 사용 안됨
-        $dayEXStatic = DB::select("
-        SELECT DATE_FORMAT(tran.trantime, '%d') AS day, SUM(tran.amount) AS consumption
-        FROM assets ass
-        INNER JOIN transactions tran ON ass.assetno = tran.assetno
-        WHERE ass.userid = ? and tran.type = '1' and YEAR(tran.trantime) = ? and MONTH(tran.trantime) = ?
-        GROUP BY day ",[$userid, $currentYear, $currentMonth]);
+        // 일별 지출 -> 사용 안함
+        // $dayEXStatic = DB::select("
+        // SELECT DATE_FORMAT(tran.trantime, '%d') AS day, SUM(tran.amount) AS consumption
+        // FROM assets ass
+        // INNER JOIN transactions tran ON ass.assetno = tran.assetno
+        // WHERE ass.userid = ? and tran.type = '1' and YEAR(tran.trantime) = ? and MONTH(tran.trantime) = ?
+        // GROUP BY day ",[$userid, $currentYear, $currentMonth]);
 
-        // 카테고리별 지출
-        $catExpenses = DB::select( " select cat.name as category, SUM(tran.amount) AS consumption
-        FROM assets ass
-        INNER JOIN transactions tran ON ass.assetno = tran.assetno
-        INNER JOIN categories cat ON tran.char = cat.no
-        WHERE Year(tran.trantime) = ?
-        and Month(tran.trantime)= ?
-        and ass.userid = ?
-        and tran.type='1'
-        GROUP BY cat.no , cat.name
-        ORDER BY consumption desc ", [$currentYear, $currentMonth, $userid]);
+        // 현재 달의 카테고리별 지출
+        $catExpenses = DB::select("
+            SELECT cat.name AS category, SUM(tran.amount) AS consumption
+            FROM assets ass
+            INNER JOIN transactions tran ON ass.assetno = tran.assetno
+            INNER JOIN categories cat ON tran.char = cat.no
+            WHERE Year(tran.trantime) = ?
+            AND Month(tran.trantime) = ?
+            AND ass.userid = ?
+            AND tran.type='1'
+            GROUP BY cat.no, cat.name
+            ORDER BY consumption DESC
+        ", [$currentYear, $currentMonth, $userid]);
 
-        // 현재달의 지출 합계
+        // 현재 달의 지출 합계
         $monthEXSum = DB::select("
         SELECT SUM(tran.amount) AS consumption
         FROM assets ass
@@ -102,7 +105,7 @@ class StaticController extends Controller
         // 달의 합계를 string에서 int 로 바꿔주기
         $resultSum = intval($monthEXSum[0]->consumption);
 
-        // 지출별 퍼센트를 계산하여 배열로 만들어주기
+        // 이번달 지출별 퍼센트를 계산하여 배열로 만들어주기
         if(!empty($catExpenses)){
             foreach($catExpenses as $data){
                 $catPrice = $data->consumption;
@@ -122,7 +125,7 @@ class StaticController extends Controller
             ->with('catdata',$catExpenses)
             ->with('monthex',$monthEXStatic)
             ->with('lastmonthex',$lastMonthEXStatic)
-            ->with('dayex',$dayEXStatic)
+            // ->with('dayex',$dayEXStatic)
             ->with('percent',$catPercent);
             }
             else{
@@ -137,8 +140,8 @@ class StaticController extends Controller
                     ->with('lastmonthrc',$lastMonthRCStatic)
                     ->with('catdata',$catExpenses)
                     ->with('monthex',$monthEXStatic)
-                    ->with('lastmonthex',$lastMonthEXStatic)
-                    ->with('dayex',$dayEXStatic);
+                    ->with('lastmonthex',$lastMonthEXStatic);
+                    // ->with('dayex',$dayEXStatic);
                     }
         }
 

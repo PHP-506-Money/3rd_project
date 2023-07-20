@@ -61,16 +61,17 @@
             </div>
         </div>
 
-            <div class="line2"></div>
-            <h3>
-                <button type="button" onclick="">
-                    ◀
-                </button>
-                {{$mmonth}}월 카테고리별 지출 내역
-                <button type="button" onclick="">
-                    ▶
-                </button>
-            </h3>
+        <div class="line2"></div>
+        <h3>
+            <button type="button" onclick="showLastMonth()">
+                ◀
+            </button>
+            {{ $mmonth }}월 카테고리별 지출 내역
+            <input type="hidden" value="{{ $mmonth }}">
+            <button type="button" onclick="showNextMonth()">
+                ▶
+            </button>
+        </h3>
             @if(empty($catdata))
                 <div class="empty">해당 월의 지출이 없습니다.</div>
             @else
@@ -227,7 +228,7 @@
                     }]
                 },
                 options: {
-                    responsive: true,
+                    responsive: false,
                     cutoutPercentage: 50,
                     plugins: {
                         legend: {
@@ -250,8 +251,19 @@
                 currentYear.classList.add('none');
                 lastYear.classList.remove('none');
             }
-        </script>
 
+            function showLastMonth() {
+                var currentMonth = {{ $mmonth }};
+                var previousMonth = currentMonth === 1 ? 12 : currentMonth - 1;
+                location.href = "{{ route('static.get', [auth()->user()->userid]) }}?mmonth=" + previousMonth;
+            }
+
+            function showNextMonth() {
+                var currentMonth = {{ $mmonth }};
+                var nextMonth = currentMonth === 12 ? 1 : currentMonth + 1;
+                location.href = "{{ route('static.get', [auth()->user()->userid]) }}?mmonth=" + nextMonth;
+            }
+        </script>
 
     @endif
 </div>

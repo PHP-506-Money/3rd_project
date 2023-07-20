@@ -30,7 +30,7 @@
 .catdetail{
     display: flex;
     flex-direction: column;
-    margin: 30px;
+    margin : 10px;
 }
 
 .percent{
@@ -44,10 +44,6 @@
     height: 45px;
     margin : 10px;
     padding-top: 5px;
-}
-
-.catdetail{
-    margin : 10px;
 }
 
 .catname{
@@ -98,14 +94,15 @@ h3{
 }
 
 #categoryChart {
+    display: flex;
     text-align: center;
     justify-content: center;
     align-items: center;
     margin: 0 auto;
     width: 35vw;
-    min-width: 350px;
+    min-width: 400px;
     height: 20vh;
-    min-height: 350px;
+    min-height: 400px;
 }
 
 .donutChart {
