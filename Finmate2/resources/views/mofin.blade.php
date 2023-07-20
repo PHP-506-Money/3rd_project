@@ -267,7 +267,7 @@
 <div class="random">
     <form action="{{route('mofin.point',[auth()->user()->userid])}}" method="post">
         @csrf
-        <button type="submit" class="randombtn">
+        <button type="button" class="randombtn" onclick="form.submit(); customAlert.alert('{{ $pt1 }}');">
             <div class="randombox pointrandbox">
 
             <img class="randomimg" src="{{ asset('/img/randitem.png') }}" onmouseover="this.src='{{ asset('/img/mouseoverpoint.png') }}'" onmouseout="this.src='{{ asset('/img/randitem.png') }}'">
@@ -279,7 +279,7 @@
 
     <form action="{{route('mofin.item',[auth()->user()->userid])}}" method="post">
         @csrf
-        <button type="submit" class="randombtn">
+        <button type="button" class="randombtn" onclick="form.submit(); customAlert.alert('{{ $pt1 }}');">
             <div class="randombox itemrandbox">
                 <img class="randomimg" src="{{ asset('/img/randpoint.png') }}" onmouseover="this.src='{{ asset('/img/mouseoveritem.png') }}'" onmouseout="this.src='{{ asset('/img/randpoint.png') }}'">
                 {{-- <span class="bold">랜덤 아이템 뽑기</span>
@@ -360,6 +360,7 @@
         this.ok = function(){
         document.getElementById('dialogbox').style.display = "none";
         document.getElementById('dialogoverlay').style.display = "none";
+        // location.reload();
         }
         }
 
@@ -372,13 +373,11 @@
         }); */
     </script>
 
-@if($pt1)
-<script>
-    window.addEventListener('load', function() {
+{{-- @if($pt1 != null)
+    <script>
         customAlert.alert('{{ $pt1 }}');
-    });
-</script>
-@endif
+    </script>
+@endif --}}
 
 
 @endsection
