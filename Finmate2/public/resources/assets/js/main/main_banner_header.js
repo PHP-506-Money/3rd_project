@@ -83,8 +83,8 @@ if(!isMobile()){
  
         if( startBool ) {
             
-            var locUrl = location.href;
-            location.href = locUrl;        
+            // var locUrl = location.href;
+            // location.href = locUrl;        
             startBool = false;
             
         }
