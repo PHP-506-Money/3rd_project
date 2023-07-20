@@ -79,14 +79,13 @@
                     <article>
                         <div class = "chartDo">
                             <div class ="categoryChart">
-                                <canvas id="categoryChart" ></canvas>
+                                <canvas id="categoryChart"></canvas>
                                 <div class = "allcategoryChart">
                                     <div class ="percent">
                                         @foreach($percent as $data)
                                             <p>{{$data}}%</p>
                                         @endforeach
                                     </div>
-                                
                                     <div class="catdetail">
                                         @foreach($catdata as $data)
                                             <p class="catname">{{$data->category}}</p>
@@ -94,8 +93,8 @@
                                         @endforeach
                                     </div>
                                 </div>
-                                <p class="maxEx">최대 지출 카테고리  : {{$catdata[0]->category}}</p>
                             </div>
+                            <p class="maxEx">최대 지출 카테고리  : {{$catdata[0]->category}}</p>
                         </div>
                     </article>
                 </div>
@@ -103,6 +102,10 @@
 
 
         <script>
+            window.onresize = function(){
+                document.location.reload();
+            };
+
             let monthrcLabels = [];
             let monthrcData = [];
             let lastMonthrcLabels = [];
