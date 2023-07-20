@@ -36,14 +36,19 @@
 .percent{
     display: flex;
     flex-direction: column;
-    margin-top: 15px;
 }
 
 .percent>p{
-    width: 50px;
+    width: 45px;
     height: 45px;
-    margin : 10px;
-    padding-top: 5px;
+    margin: 12px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-weight: 600;
+    color: rgba(102, 102, 102);
+    border-radius: 100%;
 }
 
 .catname{
@@ -101,7 +106,7 @@ h3{
     margin: 0 auto;
     width: 35vw;
     min-width: 400px;
-    height: 20vh;
+    height: 25vh;
     min-height: 400px;
 }
 
@@ -128,4 +133,9 @@ h3{
 .modalMsg {
     padding: 10px;
     font-size: 15px;
+}
+
+.maxEX {
+    font-size: 17px;
+    font-weight: 600;
 }

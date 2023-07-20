@@ -78,22 +78,43 @@
                 <div class="donutChart">
                     <article>
                         <div class = "chartDo">
-                            <div class ="categoryChart">
+                            <div class ="categoryChar">
                                 <canvas id="categoryChart"></canvas>
-                                <div class = "allcategoryChart">
-                                    <div class ="percent">
+                                <div class="allcategoryChart">
+                                    @php
+                                        $colors = [
+                                            '#ffadad',
+                                            '#ffd6a5',
+                                            '#fdffb6',
+                                            '#d0f4de',
+                                            '#a8dadc',
+                                            '#bde0fe',
+                                            '#a1d3ff',
+                                            '#b8c0ff',
+                                            '#ffc8dd',
+                                        ];
+                                        $colorIndex = 0; // Counter to loop through colors array
+                                    @endphp
+                                    <div class="percent">
                                         @foreach($percent as $data)
-                                            <p>{{$data}}%</p>
+                                            @php
+                                                // Get the color for this iteration and update the counter
+                                                $color = $colors[$colorIndex];
+                                                $colorIndex = ($colorIndex + 1) % count($colors);
+                                            @endphp
+                                            <!-- Apply the background color to the p tag -->
+                                            <p style="background-color: {{$color}}">{{$data}}%</p>
                                         @endforeach
                                     </div>
                                     <div class="catdetail">
                                         @foreach($catdata as $data)
                                             <p class="catname">{{$data->category}}</p>
-                                            <p class = "catprice">{{number_format($data->consumption)}}원</p>
+                                            <p class="catprice">{{number_format($data->consumption)}}원</p>
                                         @endforeach
                                     </div>
                                 </div>
                             </div>
+                            <br>
                             <p class="maxEx">최대 지출 카테고리  : {{$catdata[0]->category}}</p>
                         </div>
                     </article>
@@ -102,10 +123,12 @@
 
 
         <script>
+            // 브라우저 사이즈 조정시마다 새로고침
             window.onresize = function(){
                 document.location.reload();
             };
 
+            // chart.js 데이터 입력 시작
             let monthrcLabels = [];
             let monthrcData = [];
             let lastMonthrcLabels = [];
@@ -144,6 +167,19 @@
                 categoryData.push({{ $data->consumption }});
             @endforeach
 
+            // 카테고리 색깔을 지정하는 배열
+            let colors = [
+                '#ffadad',
+                '#ffd6a5',
+                '#fdffb6',
+                '#d0f4de',
+                '#a8dadc',
+                '#bde0fe',
+                '#a1d3ff',
+                '#b8c0ff',
+                '#ffc8dd',
+            ];
+
             var monthChart = new Chart(document.getElementById('monthChart'), {
                 type: 'bar',
                 data: {
@@ -172,7 +208,7 @@
                 }
             });
 
-                var lastMonthChart = new Chart(document.getElementById('lastMonthChart'), {
+            var lastMonthChart = new Chart(document.getElementById('lastMonthChart'), {
                 type: 'bar',
                 data: {
                     labels: lastMonthrcLabels,
@@ -207,27 +243,9 @@
                     datasets: [{
                         label: '지출',
                         data: categoryData,
-                        backgroundColor: [
-                            '#ffadad',
-                            '#ffd6a5',
-                            '#fdffb6',
-                            '#d0f4de',
-                            '#bde0fe',
-                            '#a8dadc',
-                            '#b8c0ff',
-                            '#ffc8dd'
-                        ],
-                        borderColor: [
-                            '#ffadad',
-                            '#ffd6a5',
-                            '#fdffb6',
-                            '#d0f4de',
-                            '#bde0fe',
-                            '#a8dadc',
-                            '#b8c0ff',
-                            '#ffc8dd'
-                        ],
-                        borderWidth: 1
+                        backgroundColor: colors,
+                        borderColor: colors,
+                        borderWidth: 1,
                     }]
                 },
                 options: {
@@ -236,8 +254,14 @@
                     plugins: {
                         legend: {
                             position: 'left'
-                        }
-                    }
+                        },
+                    },
+                    tooltips: {
+                        enabled: false
+                    },
+                    hover: {
+                        animationDuration: 0
+                    },
                 }
             });
 
