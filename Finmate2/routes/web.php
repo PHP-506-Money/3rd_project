@@ -17,6 +17,7 @@ use App\Http\Controllers\AchievementController;
 use App\Http\Controllers\MainTwoController;
 use App\Http\Controllers\NewGoalController;
 use App\Http\Controllers\TransactionController;
+use App\Http\Controllers\SocialController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Asset;
 use App\Models\Transaction;
@@ -130,4 +131,6 @@ Route::get('/unauthorized-access', function () {
 Route::fallback(function() {
     return response()->view('errors.404', [], 404);
 });
+Route::get('/login/kakao',[SocialController::class,'redirectToKakao'])->name('login.kakao');
+Route::get('/login/kakao/callback',[SocialController::class,'handleKakaoCallback']);
 

@@ -58,9 +58,10 @@
 
             </div>
             <div class="login__sns">
-                <p class="tit">SNS 간편 회원가입</p>
+                <p class="tit">SNS 간편 로그인</p>
                 <div class="btn-area">
-                    <button type="button" onclick="kakaoLogin()"><img src="{{ asset('/img/kakao_login.png') }}" alt="카카오아이콘"></button>
+                    <a href="{{route('login.kakao')}}">카카오</a>
+                    {{-- <button type="button" onclick="kakaoLogin()"><img src="{{ asset('/img/kakao_login.png') }}" alt="카카오아이콘"></button> --}}
                 </div>
                 
 
@@ -70,7 +71,7 @@
     </article>
 
 </div>
-        <script src="https://developers.kakao.com./sdk/js/kakao.js"></script>
+        {{-- <script src="https://developers.kakao.com./sdk/js/kakao.js"></script>
         <script>
             //js key
         	//4699cc71bdf057335511bc15da234da1
@@ -84,16 +85,19 @@
                         window.Kakao.API.request({
                             url:'/v2/user/me',
                             success: res => {
+                                
                                 const kakao_account = res.kakao_account;
                                 console.log(kakao_account);
+                                exit;
+                                window.location.href = '/users/registration';
                             }
                         })
                     }
                 });
 
-            }
+            } --}}
                 
-
+{{--  --}}
     
-    </script>
+    {{-- </script> --}}
 @endsection
