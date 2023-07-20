@@ -25,6 +25,7 @@
     font-weight: 600;
     margin-left: 5px;
     color:#FBF5F0;
+    margin
 }
 
 #footer .info-box .number .tel {
@@ -396,5 +397,11 @@
     
     #mobile-nav a{
         font-size: 1.2rem;
+    }
+
+
+    .sub-text-first {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
     }
 }

@@ -62,7 +62,15 @@
         </div>
 
             <div class="line2"></div>
-            <h3>{{$mmonth}}월 카테고리별 지출 내역</h3>
+            <h3>
+                <button type="button" onclick="">
+                    ◀
+                </button>
+                {{$mmonth}}월 카테고리별 지출 내역
+                <button type="button" onclick="">
+                    ▶
+                </button>
+            </h3>
             @if(empty($catdata))
                 <div class="empty">해당 월의 지출이 없습니다.</div>
             @else

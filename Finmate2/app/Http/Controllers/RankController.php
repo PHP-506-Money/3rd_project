@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Log;
@@ -35,9 +36,20 @@ class RankController extends Controller
         ->get();
 
         $id = auth()->user()->userid;
-        $userItem = DB::table('items')->select('itemno')->where('itemflg',1)->where('userid',$id)->get();
+        $result = User::select(['username', 'moffintype', 'moffinname'])
+        ->where('userid', $id)
+        ->get();
 
-        return view('rank')->with('pointrank', $pointrank)->with('loginrank', $loginrank)->with('itemdrawrank', $itemdrawrank);
+        $items = DB::table('items')
+        ->select('itemno', 'itemflg')
+        ->where('userid', $id)
+        ->orderBy('itemno', 'ASC')
+        ->get() // 쿼리 결과를 가져옴
+        ->toArray();
+
+        // dump($usermoffin);
+
+        return view('rank')->with('data', $result)->with('items', $items)->with('pointrank', $pointrank)->with('loginrank', $loginrank)->with('itemdrawrank', $itemdrawrank);
 
     }
 
