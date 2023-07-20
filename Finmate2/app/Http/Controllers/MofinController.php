@@ -56,21 +56,29 @@ class MofinController extends Controller
         $result  = DB::table('users')
         ->where('userid', $id)
         ->first();
+
+        $itemname = DB::table('iteminfos')
+        ->join('items', 'iteminfos.itemno', '=', 'items.itemno')
+        ->where('items.userid', $id)
+        ->get();
+
+
         //포인트가 100미만일경우
         if($result->point < 100 ){
 
             $pt1 = '포인트가부족합니다!';
-            session()->flash('pt1', $pt1);
-            $item_name = DB::table('iteminfos AS info')
-            ->select('info.itemname')
-            ->join('items AS tem', 'info.itemno', '=', 'tem.itemno')
-            ->where('tem.userid', $id)
-            ->orderBy('info.itemno', 'ASC')
-            ->pluck('itemname')
-            ->toArray();
+            // session()->flash('pt1', $pt1);
+
+            // $item_name = DB::table('iteminfos AS info')
+            // ->select('info.itemname')
+            // ->join('items AS tem', 'info.itemno', '=', 'tem.itemno')
+            // ->where('tem.userid', $id)
+            // ->orderBy('info.itemno', 'ASC')
+            // ->pluck('itemname')
+            // ->toArray();
             
-            $itemonly = array_unique($item_name);
-            return redirect()->route('mofin.index', ['userid' => $id])->with('data', $result)->with('itemname', $itemonly);
+            // $itemonly = array_unique($item_name);
+            return view('mofin')->with('data', $result)->with('itemname', $itemname)->with('pt1', $pt1);
         }
         //포인트가 100 이상일경우
         else{
@@ -84,22 +92,24 @@ class MofinController extends Controller
             ->where('userid', $id)
             ->update(['point' =>$newPoint, 'point_draw_count' => $result->point_draw_count + 1]);
 
-        $randompoint = $randompoint . " 당첨되셨습니다";
+            $pt1 = $randompoint . "포인트가 당첨되셨습니다";
         
         // 일회성으로 세션에 $randompoint 를 담아줌
-        session()->flash('pt1', $randompoint);
+        // session()->flash('pt1', $randompoint);
 
-            $item_name = DB::table('iteminfos AS info')
-            ->select('info.itemname')
-            ->join('items AS tem', 'info.itemno', '=', 'tem.itemno')
-            ->where('tem.userid', $id)
-            ->orderBy('info.itemno', 'ASC')
-            ->pluck('itemname')
-            ->toArray();
+            // $item_name = DB::table('iteminfos AS info')
+            // ->select('info.itemname')
+            // ->join('items AS tem', 'info.itemno', '=', 'tem.itemno')
+            // ->where('tem.userid', $id)
+            // ->orderBy('info.itemno', 'ASC')
+            // ->pluck('itemname')
+            // ->toArray();
         
-            $itemonly = array_unique($item_name);
-            return redirect()->route('mofin.index', ['userid' => $id])->with('data', $result)->with('itemname', $itemonly);
+            // $itemonly = array_unique($item_name);
+            // return view('mofin')->with('data', $result)->with('itemname', $itemname);
         }
+
+        return view('mofin')->with('data', $result)->with('itemname', $itemname)->with('pt1', $pt1);
 
     }
 
@@ -108,6 +118,11 @@ class MofinController extends Controller
         $result  = DB::table('users')
         ->where('userid', $id)
         ->first();
+
+        $itemname = DB::table('iteminfos')
+            ->join('items', 'iteminfos.itemno', '=', 'items.itemno')
+            ->where('items.userid', $id)
+            ->get();
 
         //포인트가 500 이상일때
         if($result->point >= 500)
@@ -149,18 +164,21 @@ class MofinController extends Controller
         $pt1 =  DB::table('iteminfos')->where('itemno', $randomitem)->value('itemname');//당첨된 아이템 번호를 기준으로 iteminfos 테이블에서 아이템명 가지고오기
         $pt1 = '축하합니다. '.$pt1.' 아이템 당첨';
 
-        session()->flash('pt1', $pt1);// $pt 를 세션에 일회성으로 담아줌
+        // session()->flash('pt1', $pt1); // $pt 를 세션에 일회성으로 담아줌
 
-        $item_name = DB::table('iteminfos AS info')
-        ->select('info.itemname')
-        ->join('items AS tem', 'info.itemno', '=', 'tem.itemno')
-        ->where('tem.userid', $id)
-        ->orderBy('info.itemno', 'ASC')
-        ->pluck('itemname')
-        ->toArray();
+            // $item_name = DB::table('iteminfos AS info')
+            // ->select('info.itemname')
+            // ->join('items AS tem', 'info.itemno', '=', 'tem.itemno')
+            // ->where('tem.userid', $id)
+            // ->orderBy('info.itemno', 'ASC')
+            // ->pluck('itemname')
+            // ->toArray();
 
-        $itemonly = array_unique($item_name);
-        return redirect()->route('mofin.index', ['userid' => $id])->with('data', $result)->with('itemname', $itemonly);
+            // $itemonly = array_unique($item_name);
+
+            
+
+        // return view('mofin')->with('data', $result)->with('itemname', $itemname);
 
         }
         //포인트가 500 미만일경우
@@ -169,17 +187,18 @@ class MofinController extends Controller
             $pt1 = '포인트가부족합니다!';
             session()->flash('pt1', $pt1);
 
-            $item_name = DB::table('iteminfos AS info')
-            ->select('info.itemname')
-            ->join('items AS tem', 'info.itemno', '=', 'tem.itemno')
-            ->where('tem.userid', $id)
-            ->orderBy('info.itemno', 'ASC')
-            ->pluck('itemname')
-            ->toArray();
+            // $item_name = DB::table('iteminfos AS info')
+            // ->select('info.itemname')
+            // ->join('items AS tem', 'info.itemno', '=', 'tem.itemno')
+            // ->where('tem.userid', $id)
+            // ->orderBy('info.itemno', 'ASC')
+            // ->pluck('itemname')
+            // ->toArray();
             
-            $itemonly = array_unique($item_name);       
-            return redirect()->route('mofin.index', ['userid' => $id])->with('data', $result)->with('itemname', $itemonly);
+            // $itemonly = array_unique($item_name);       
+            // return view('mofin')->with('data', $result)->with('itemname', $itemname);
         }
+        return view('mofin')->with('data', $result)->with('itemname', $itemname)->with('pt1', $pt1);
     }
     
     public function search(Request $req, $id){
@@ -195,72 +214,5 @@ class MofinController extends Controller
             return redirect('users/profile/'.$req->search_name);
         }
 
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        // $result = User::find($id);
-        // return view('mofin')->with('data',$result);
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
     }
 }

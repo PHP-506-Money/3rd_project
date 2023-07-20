@@ -230,7 +230,7 @@
 
     #dialogbox>div>#dialogboxhead {
     background: rgb(5, 1, 70);
-    font-size: 19px;
+    font-size: 2rem;
     padding: 10px;
     color: rgb(255, 255, 255);
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -238,6 +238,7 @@
 
     #dialogbox>div>#dialogboxbody {
     background: rgb(5, 1, 47);
+    font-size: 2rem;
     padding: 20px;
     color: #FFF;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
@@ -252,6 +253,9 @@
     /*#endregion Alert*/
 
 </style>
+
+
+
 
 <div class="l-title" style="margin-top: 20rem;" >
     <h2>
@@ -324,7 +328,6 @@
     @endforeach
 </div>
 
-@if (session()->has('pt1'))
     <script>
 
         //커스텀 알러트
@@ -363,11 +366,19 @@
         let customAlert = new CustomAlert();
 
         // 페이지가 로드될 때 자동으로 실행되도록 수정
-        window.addEventListener('load', function() {
+        /* window.addEventListener('load', function() {
             customAlert.alert('{{ session('pt1') }}');
 
-        });
+        }); */
     </script>
+
+@if($pt1)
+<script>
+    window.addEventListener('load', function() {
+        customAlert.alert('{{ $pt1 }}');
+    });
+</script>
 @endif
+
 
 @endsection
