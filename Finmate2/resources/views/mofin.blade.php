@@ -96,7 +96,7 @@
     #dialogbox {
     display: none;
     position: absolute;
-    background: #1459a6;
+    background: #1C3879;;
     border-radius: 7px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.575);
     transition: 0.3s;
