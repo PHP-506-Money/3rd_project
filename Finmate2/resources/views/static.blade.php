@@ -44,20 +44,12 @@
                     ◀
                 </button>
                 {{ $currentYear }}년 월별 입지출 내역
-            </h3>
-            <div class="chartBar">
-                <canvas id="monthChart"></canvas>
-            </div>
-        </div>
-        <div id="lastyear" class="none">
-            <h3>
-                {{ $lastYear }}년 월별 입지출 내역
-                <button type="button" onclick="showCurrentYear()">
+                <button type="button" onclick="showNextYear()">
                     ▶
                 </button>
             </h3>
             <div class="chartBar">
-                <canvas id="lastMonthChart"></canvas>
+                <canvas id="monthChart"></canvas>
             </div>
         </div>
 
@@ -85,7 +77,7 @@
                                         $colors = [
                                             '#ffadad',
                                             '#ffd6a5',
-                                            '#fdffb6',
+                                            '#fff2b6',
                                             '#d0f4de',
                                             '#a8dadc',
                                             '#bde0fe',
@@ -131,8 +123,6 @@
             // chart.js 데이터 입력 시작
             let monthrcLabels = [];
             let monthrcData = [];
-            let lastMonthrcLabels = [];
-            let lastMonthrcData = [];
 
             // 올해 월별 입금
             @foreach($monthrc as $data)
@@ -140,23 +130,11 @@
                 monthrcData.push({{ $data->consumption }});
             @endforeach
 
-            // 작년 월별 입금
-            @foreach($lastmonthrc as $data)
-                lastMonthrcLabels.push("{{ $data->Month }}");
-                lastMonthrcData.push({{ $data->consumption }});
-            @endforeach
-
             let monthexData = [];
-            let lastMonthexData = [];
 
             // 올해 월별 지출
             @foreach($monthex as $data)
                 monthexData.push({{ $data->consumption }});
-            @endforeach
-
-            // 작년 월별 지출
-            @foreach($lastmonthex as $data)
-                lastMonthexData.push({{ $data->consumption }});
             @endforeach
 
             let categoryLabels = [];
@@ -171,7 +149,7 @@
             let colors = [
                 '#ffadad',
                 '#ffd6a5',
-                '#fdffb6',
+                '#fff2b6',
                 '#d0f4de',
                 '#a8dadc',
                 '#bde0fe',
@@ -208,34 +186,6 @@
                 }
             });
 
-            var lastMonthChart = new Chart(document.getElementById('lastMonthChart'), {
-                type: 'bar',
-                data: {
-                    labels: lastMonthrcLabels,
-                    datasets: [{
-                        label: '월별 입금',
-                        data: lastMonthrcData,
-                        backgroundColor: '#f07167',
-                        borderColor: '#f07167',
-                        borderWidth: 1
-                        },
-                        {
-                        label: '월별 지출',
-                        data: lastMonthexData,
-                        backgroundColor: '#b5e2fa',
-                        borderColor: '#b5e2fa',
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    scales: {
-                        y: {
-                            beginAtZero: true
-                        }
-                    },
-                } 
-            });
-
             var categoryChart = new Chart(document.getElementById('categoryChart'), {
                 type: 'doughnut',
                 data: {
@@ -265,30 +215,32 @@
                 }
             });
 
-            function showCurrentYear() {
-                var currentYear = document.getElementById('currentyear');
-                var lastYear = document.getElementById('lastyear');
-                currentYear.classList.remove('none');
-                lastYear.classList.add('none');
+            function showLastYear() {
+                var currentYear = {{ $year }};
+                var previousYear = currentYear - 1;
+                location.href = "{{ route('static.get', [auth()->user()->userid]) }}?year=" + previousYear + "&month={{ $mmonth }}";
             }
 
-            function showLastYear() {
-                var currentYear = document.getElementById('currentyear');
-                var lastYear = document.getElementById('lastyear');
-                currentYear.classList.add('none');
-                lastYear.classList.remove('none');
+            function showNextYear() {
+                var currentYear = {{ $year }};
+                var nextYear = currentYear + 1;
+                location.href = "{{ route('static.get', [auth()->user()->userid]) }}?year=" + nextYear + "&month={{ $mmonth }}";
             }
 
             function showLastMonth() {
                 var currentMonth = {{ $mmonth }};
+                var currentYear = {{ $year }}; // Add this line to get the current year
                 var previousMonth = currentMonth === 1 ? 12 : currentMonth - 1;
-                location.href = "{{ route('static.get', [auth()->user()->userid]) }}?mmonth=" + previousMonth;
+                var previousYear = currentMonth === 1 ? currentYear - 1 : currentYear; // Calculate the previous year if necessary
+                location.href = "{{ route('static.get', [auth()->user()->userid]) }}?year="+ previousYear + "&month=" + previousMonth;
             }
 
             function showNextMonth() {
                 var currentMonth = {{ $mmonth }};
+                var currentYear = {{ $year }}; // Add this line to get the current year
                 var nextMonth = currentMonth === 12 ? 1 : currentMonth + 1;
-                location.href = "{{ route('static.get', [auth()->user()->userid]) }}?mmonth=" + nextMonth;
+                var nextYear = currentMonth === 12 ? currentYear + 1 : currentYear; // Calculate the next year if necessary
+                location.href = "{{ route('static.get', [auth()->user()->userid]) }}?year="+ nextYear + "&month=" + nextMonth;
             }
         </script>
 

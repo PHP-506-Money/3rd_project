@@ -223,7 +223,6 @@ ul{list-style:none;}
 .tabmenu ul li{
   display:  inline-block;
   width:33.33%; 
-  float:left;  
   text-align:center; 
   background :#f9f9f9;
 }
@@ -253,7 +252,10 @@ ul{list-style:none;}
 }
 .container {
     display: contents;
+    text-align:center; 
+    align-items: center;
+    justify-content: center;
 }
 .title {
-    margin: 30px;
+    margin: 60px;
 }

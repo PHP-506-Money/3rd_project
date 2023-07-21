@@ -12,9 +12,7 @@
     @include('layout.errorsvalidate')
     <div class="profile">{{-- 모핀 프로필 시작 --}}
         <div class="myinfo">
-            <form id="myinfo" name="myinfo" action="{{route('users.itemflg')}}" method="post" onsubmit="return updateItemFlg()">
-                
-
+            <form id="myinfo" name="myinfo" action="{{route('users.itemflg')}}" method="post">
                 @csrf
                     <div class="moffin">
                         @foreach ($data as $user)
@@ -33,7 +31,7 @@
                             {{ $user->username }} 님의 {{ $user->moffinname }}
                         </div>
                         <div class="back">
-                            <input type="button" value="돌아가기" onclick="history_back()">
+                            <input type="button" class="back2" value="돌아가기" onclick="history_back()">
                         </div>
         </div>
     </div>
