@@ -80,7 +80,6 @@ content: "달성전";
                     alert(json.error);
                 } else if (json.success) {
                     alert(json.success);
-                    // 새로고침 또는 진행도 및 보상받기 버튼 업데이트를 통해 결과를 표시
                     location.reload();
                 }
             })

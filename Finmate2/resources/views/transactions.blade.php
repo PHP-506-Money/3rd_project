@@ -6,10 +6,110 @@
 
 @section('contents')
 
-<div style="margin-top:300px;  height: 600px;" >
-    <table class="scriptCalendar" style=" width:50%; height: 600px; text-align:center; font-size:30px; margin:0px auto; " >
+<style>
+    .scriptCalendar {
+        width: 50vw;
+    }
+
+    .scriptCalendarVal td {
+        font-size: 16px;
+        width: 90px;
+        height: 102px;
+    }
+
+    .calendarHead , .monthMoveWrap {
+        background-color: #1c3879;
+    }
+
+    .calendarHead td , .calendarHead td span {
+        color: #fff;
+        padding: 1rem 0;
+    }
+
+    .monthMoveWrap {
+        width: 50vw;
+        margin: 1rem auto;
+    }
+
+    .monthMoveWrap span , .monthMoveWrap button {
+        color: #fff;
+        padding: 2rem;
+        font-size: 2rem;
+    }
+
+    .calendarBtn:hover {
+        cursor: pointer;
+    }
+
+    .monthInEx {
+        font-size: 2rem;
+    }
+
+    .calendarDays td {
+        padding: 1.2rem 0;
+    }
+
+    .listbox {
+        margin-top: 18rem;
+    }
+
+    .listbox h3 {
+        text-align:center;
+    }
+
+    @media (max-width: 600px) {
+        .scriptCalendar {
+        width: 80vw;
+        }
+
+        .scriptCalendarVal td {
+        font-size: 12px;
+        }
+
+        .calendarHead td , .calendarHead td span {
+        color: #fff;
+        padding: 1rem 0;
+        font-size: 2rem;
+        }
+
+
+        .scriptCalendarVal td {
+        width: 80px;
+        height: 82px;
+        }
+
+        .monthMoveWrap {
+        width: 80vw;
+        }
+
+        .calendarDays td {
+        font-size: 1.2rem;
+        }
+    }
+
+    @media (max-width: 450px) {
+        .scriptCalendarVal td {
+        font-size: 10px;
+        }
+
+        .scriptCalendarVal td {
+        width: 80px;
+        height: 60px;
+        }
+
+        .calendarDays td {
+        font-size: 1rem;
+        }
+    }
+
+
+
+</style>
+
+<div style="margin-top:120px;  height: 600px;" >
+    <table class="scriptCalendar" style="height: 600px; text-align:center; font-size:30px; margin:0px auto; " >
         <thead>
-            <tr>
+            <tr class="calendarHead">
                 <td class="calendarBtn" id="btnPrevCalendar">&#60;&#60;</td>
                 <td colspan="5">
                     <span id="calYear">YYYY</span>년
@@ -17,7 +117,7 @@
                 </td>
                 <td class="calendarBtn" id="nextNextCalendar">&#62;&#62;</td>
             </tr>
-            <tr>
+            <tr class="calendarDays">
                 <td>일</td>
                 <td>월</td>
                 <td>화</td>
@@ -37,13 +137,17 @@
 
 <!-- 좌우 버튼 -->
 
-<h3 style=" width:50%; text-align:center; font-size:50px; margin:0px auto; margin-top:20px " >
+<h3>
+<div class="monthMoveWrap">
     <button class="button min" id="previous-month-btn">&#60;&#60;</button>
-    <span id="current-month"></span>월
+    <span id="current-month"></span>
     <button class="button min" id="next-month-btn">&#62;&#62;</button>
+</div>
+<div class="monthInEx">
+    <span> 이번달 총 수입: </span> <span id="monthly-income"></span> <span>원</span>
     <br>
-    <span style="font-size:30px" > 이번달 총 수입: </span> <span id="monthly-income" style="font-size:40px"  ></span> 원
-    <span style="font-size:30px"> 이번달 총 지출: </span>  <span id="monthly-expense" style="font-size:40px" ></span> 원
+    <span> 이번달 총 지출: </span> <span id="monthly-expense"></span> <span>원</span>
+</div>
 </h3>
 
 {{-- 0706 v2 최혁재 --}}
