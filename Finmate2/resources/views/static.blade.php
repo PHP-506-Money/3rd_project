@@ -67,6 +67,7 @@
             @if(empty($catdata))
                 <div class="empty">해당 월의 지출이 없습니다.</div>
             @else
+                <br><br>
                 <div class="donutChart">
                     <article>
                         <div class = "chartDo">
@@ -203,7 +204,7 @@
                     cutoutPercentage: 50,
                     plugins: {
                         legend: {
-                            position: 'left'
+                            display: false
                         },
                     },
                     tooltips: {
