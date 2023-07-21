@@ -54,6 +54,7 @@
         text-align: center;
         font-size: 16px;
         color: #ffffff;
+        width: 300px;
         background-color: black;
         padding: 10px 20px;
         border-radius: 5px;
@@ -118,11 +119,12 @@
                             @foreach($assets as $asset)
                                 <div class="asset-card wow fadeInUp">
                                     <div>
-                                        <img style="border-radius: 3rem; width: 3rem; height: 3rem;" src="{{asset('/resources/assets/images/banklogo/'.$asset->assetname.'.png')}}" alt="assetlogo">
-
+                                        <div style="float:left;">
                                         <p class="asset-name">{{$asset->assetname}}</p>
                                         <p class="asset-balance">{{number_format($asset->balance)}}원</p>
-                                        <div class="view-more-container">
+                                        </div>
+                                        <div style="display:inline-block; margin-left:9rem; " ><img style="border-radius: 3rem; width: 8rem; height: 10rem;" src="{{asset('/resources/assets/images/banklogo/'.$asset->assetname.'.png')}}" alt="assetlogo"></div>
+                                        <div  class="view-more-container">
                                             <form action="{{ route('transactions.search',[auth()->user()->userid]) }}" method="post">
                                             @csrf
                                             <input type="hidden" name="startdate" value="20220720" >
