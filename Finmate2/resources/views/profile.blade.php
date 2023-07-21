@@ -52,7 +52,7 @@
                         {{-- 모핀 프로필 종료 --}}
                         <div class="container">
                             <div class="title">
-                                <h6>내 아이템 목록(클릭시 장착/해제)</h6>
+                                INVENTORY<br>(클릭시 장착/해제)
                             </div>
                             <div class="itemlist"> {{-- 아이템 부분 --}}
                                 @foreach ($items as $item)
@@ -78,6 +78,6 @@
         textarea.select();
         document.execCommand("copy");
         document.body.removeChild(textarea);
-        alert("링크가 복사되었습니다. 필요하신 곳에 붙여넣기 하세요!");
+        alert("링크가 복사되었습니다. \n내가 꾸민 모핀이를 공유해보세요!");
     };
 </script>
