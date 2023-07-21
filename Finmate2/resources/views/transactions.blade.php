@@ -39,12 +39,17 @@
     }
     .scriptCalendar {
         width: 50vw;
+
     }
 
     .scriptCalendarVal td {
         font-size: 16px;
         width: 90px;
         height: 102px;
+        border: solid 1px rgba(128, 128, 128, 0.5);
+
+        border-radius: 0.8rem;
+        
     }
 
     .calendarHead , .monthMoveWrap {
@@ -148,13 +153,13 @@
                 <td class="calendarBtn" id="nextNextCalendar">&#62;&#62;</td>
             </tr>
             <tr class="calendarDays">
-                <td>일</td>
+                <td style = "color:red;">일</td>
                 <td>월</td>
                 <td>화</td>
                 <td>수</td>
                 <td>목</td>
                 <td>금</td>
-                <td>토</td>
+                <td style = "color:blue;" >토</td>
             </tr>
         </thead>
         <tbody class="scriptCalendarVal"></tbody>
