@@ -41,7 +41,7 @@
     z-index: 1;
 }
 
-#charitem1, #charitem3, #charitem4, #charitem7, #charitem8, #charitem10, #charitem11, #charitem12, #charitem13
+#charitem1, #charitem3, #charitem4, #charitem7, #charitem8, #charitem11, #charitem12, #charitem13
 {
     z-index: 2;
 }
@@ -50,7 +50,7 @@
     z-index: 3;
 }
 
-#charitem6 {
+#charitem6, #charitem10 {
     z-index: 0;
 }
 
@@ -67,6 +67,9 @@ width : 200px; height :200px;
 } */
 /* .itemlist{
     display: flex;
+    text-align:center; 
+    align-items: center;
+    justify-content: center;
 } */
 .text_1{
     text-align: center;
@@ -255,7 +258,4 @@ ul{list-style:none;}
     text-align:center; 
     align-items: center;
     justify-content: center;
-}
-.title {
-    margin: 60px;
 }
