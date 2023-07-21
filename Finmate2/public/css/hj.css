@@ -259,3 +259,8 @@ ul{list-style:none;}
     align-items: center;
     justify-content: center;
 }
+
+.title {
+    margin-top: 100px;
+    margin-bottom: 30px;
+}
