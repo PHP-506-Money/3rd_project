@@ -1,6 +1,6 @@
 @extends('layout.layout')
 
-@section('title', 'Myinfo')
+@section('title', 'MY MOFIN')
 
 @section('header', 'MY MOFIN')
 

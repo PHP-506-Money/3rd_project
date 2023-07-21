@@ -1,6 +1,6 @@
 @extends('layout.layout')
 
-@section('title', 'Login')
+@section('title', 'LOGIN TO FINMATE')
 
 @section('header', 'LOGIN TO FINMATE')
 @section('aside')
