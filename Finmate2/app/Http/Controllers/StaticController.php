@@ -29,7 +29,8 @@ class StaticController extends Controller
         }
 
         // 현재 년도
-        $currentYear = date('Y');
+        // $currentYear = date('Y'); // v002 del
+        $currentYear = isset($_GET['year']) ? $_GET['year'] : date('Y'); // v002 add
 
         // 올해 월별 입금
         $monthRCStatic = DB::select("
@@ -47,30 +48,9 @@ class StaticController extends Controller
         WHERE ass.userid = ? and tran.type = '1' and YEAR(tran.trantime) = ?
         GROUP BY Month ",[$userid, $currentYear]);
 
-        // v002 add start
-        // 작년
-        $lastYear = date('Y')-1;
-
-        // 작년 월별 입금
-        $lastMonthRCStatic = DB::select("
-        SELECT DATE_FORMAT(tran.trantime, '%m') AS Month, SUM(tran.amount) AS consumption
-        FROM assets ass
-        INNER JOIN transactions tran ON ass.assetno = tran.assetno
-        WHERE ass.userid = ? and tran.type = '0' and YEAR(tran.trantime) = ?
-        GROUP BY Month ",[$userid, $lastYear]);
-
-        // 작년 월별 지출
-        $lastMonthEXStatic = DB::select("
-        SELECT DATE_FORMAT(tran.trantime, '%m') AS Month, SUM(tran.amount) AS consumption
-        FROM assets ass
-        INNER JOIN transactions tran ON ass.assetno = tran.assetno
-        WHERE ass.userid = ? and tran.type = '1' and YEAR(tran.trantime) = ?
-        GROUP BY Month ",[$userid, $lastYear]);
-        // v002 add end
-
         // 현재 달
         // $currentMonth = date('m'); // v002 del
-        $currentMonth = isset($_GET['mmonth']) ? $_GET['mmonth'] : date('m'); // v002 add
+        $currentMonth = isset($_GET['month']) ? $_GET['month'] : date('n'); // v002 add
 
         // 일별 지출 -> 사용 안함
         // $dayEXStatic = DB::select("
@@ -80,7 +60,7 @@ class StaticController extends Controller
         // WHERE ass.userid = ? and tran.type = '1' and YEAR(tran.trantime) = ? and MONTH(tran.trantime) = ?
         // GROUP BY day ",[$userid, $currentYear, $currentMonth]);
 
-        // 현재 달의 카테고리별 지출
+        // 올해 현재 달의 카테고리별 지출
         $catExpenses = DB::select("
             SELECT cat.name AS category, SUM(tran.amount) AS consumption
             FROM assets ass
@@ -115,32 +95,26 @@ class StaticController extends Controller
         if(isset($catPercent) && $assetchk !== 0){
         return view('static', [
             'currentYear' => $currentYear,
-            'lastYear' => $lastYear,
             'mmonth' => $currentMonth,
             'year' => $currentYear,
             'assetchk' => $assetchk
             ])
             ->with('monthrc',$monthRCStatic)
-            ->with('lastmonthrc',$lastMonthRCStatic)
             ->with('catdata',$catExpenses)
             ->with('monthex',$monthEXStatic)
-            ->with('lastmonthex',$lastMonthEXStatic)
             // ->with('dayex',$dayEXStatic)
             ->with('percent',$catPercent);
             }
             else{
                 return view('static', [
                     'currentYear' => $currentYear,
-                    'lastYear' => $lastYear,
                     'mmonth' => $currentMonth,
                     'year' => $currentYear,
                     'assetchk' => $assetchk
                     ])
                     ->with('monthrc',$monthRCStatic)
-                    ->with('lastmonthrc',$lastMonthRCStatic)
                     ->with('catdata',$catExpenses)
-                    ->with('monthex',$monthEXStatic)
-                    ->with('lastmonthex',$lastMonthEXStatic);
+                    ->with('monthex',$monthEXStatic);
                     // ->with('dayex',$dayEXStatic);
                     }
         }
