@@ -60,7 +60,7 @@
             <div class="login__sns">
                 <p class="tit">SNS 간편 로그인</p>
                 <div class="btn-area">
-                    <a href="{{route('login.kakao')}}">카카오</a>
+                    <a href="{{route('login.kakao')}}" ><img src="{{ asset('/img/kakaotalk.png')}}" alt="카카오"></a>
                     {{-- <button type="button" onclick="kakaoLogin()"><img src="{{ asset('/img/kakao_login.png') }}" alt="카카오아이콘"></button> --}}
                 </div>
                 

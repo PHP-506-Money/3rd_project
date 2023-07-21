@@ -1,4 +1,11 @@
 <?php
+/******************************************
+ * Project Name : Finmate
+ * Directory    : Controllers
+ * File Name    : StaticController.php
+ * History      : v001 0616 Choi
+ *                v002 0719 Kim up
+ *******************************************/
 
 namespace App\Http\Controllers;
 
@@ -35,6 +42,7 @@ class RankController extends Controller
         ->limit(10)
         ->get();
 
+        // v002 add start kim email add
         $id = auth()->user()->userid;
         $result = User::select(['username', 'moffintype', 'moffinname'])
         ->where('userid', $id)
@@ -50,6 +58,7 @@ class RankController extends Controller
         // dump($usermoffin);
 
         return view('rank')->with('data', $result)->with('items', $items)->with('pointrank', $pointrank)->with('loginrank', $loginrank)->with('itemdrawrank', $itemdrawrank);
+        // v002 add end
 
     }
 

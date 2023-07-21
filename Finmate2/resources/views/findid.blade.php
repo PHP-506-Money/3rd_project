@@ -42,12 +42,7 @@
                 <p class="msg">아직 회원이 아니신가요?</p>
                 <a href="{{route('users.registration')}}"><button class="l-btn line" type="button">회원가입</button></a>
             </div>
-            <div class="login__sns">
-                <p class="tit">SNS 간편 회원가입</p>
-                <div class="btn-area">
-                    <button type="button"><img src="/resources/assets/images/icon/l-kakao.png" alt="카카오아이콘"></button>
-                </div>
-            </div>
+            
         </section>
     </article>
 </div>

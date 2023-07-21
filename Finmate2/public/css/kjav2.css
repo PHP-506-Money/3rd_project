@@ -93,6 +93,17 @@ span:hover + p.arrow_box {
     font-size: small;
 }
 
+[type="radio"]:not(:checked) { 
+    background-color: rgb(136, 13, 13);
+    width: 1rem;
+    height: 1rem;
+}
+[type="radio"]:checked { 
+    background-color: #2196f3; 
+    width: 1rem;
+    height: 1rem;
+}
+
 /*******    랭킹    *********/
 .rankTit {
     margin-top: 10%;
