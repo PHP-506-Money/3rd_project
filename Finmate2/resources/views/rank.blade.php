@@ -1,8 +1,8 @@
 @extends('layout.layout')
 
-@section('title', 'rank')
+@section('title', 'RANK')
 
-@section('header', 'Rank')
+@section('header', 'RANK')
 
 @section('contents')
 

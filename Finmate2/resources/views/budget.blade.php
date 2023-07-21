@@ -1,6 +1,6 @@
 @extends('layout.layout')
 
-@section('title', 'Budget')
+@section('title', 'BUDGET')
 
 @section('header', 'BUDGET')
 @section('aside')

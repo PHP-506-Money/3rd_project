@@ -1,6 +1,6 @@
 @extends('layout.layout')
 
-@section('title', 'static')
+@section('title', 'STATIC')
 
 @section('header', 'STATIC')
 
