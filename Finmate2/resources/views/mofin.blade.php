@@ -252,6 +252,10 @@
 
     /*#endregion Alert*/
 
+    .randomimg {
+        z-index: 3;
+    }
+
 </style>
 
 
