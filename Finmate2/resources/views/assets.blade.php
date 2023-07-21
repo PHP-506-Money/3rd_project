@@ -118,9 +118,9 @@
                             @foreach($assets as $asset)
                                 <div class="asset-card wow fadeInUp">
                                     <div>
+                                        <img style="border-radius: 3rem; width: 3rem; height: 3rem;" src="./resources/assets/images/banklogo/{{$asset->assetname}}.png" alt="assetlogo">
                                         <p class="asset-name">{{$asset->assetname}}</p>
                                         <p class="asset-balance">{{number_format($asset->balance)}}원</p>
-                                        <img style="border-radius: 3rem; width: 3rem; height: 3rem;" src="./resources/assets/images/banklogo/{{$asset->assetname}}.png" alt="assetlogo">
                                         <div class="view-more-container">
                                             <form action="{{ route('transactions.search',[auth()->user()->userid]) }}" method="post">
                                             @csrf
@@ -138,11 +138,6 @@
                             @endforeach
                         @endif
                     </div>
-                @php
-                    
-                    var_dump($asset->assetname)
-                @endphp
-                  
                 </div>
             </div>
         </div>
