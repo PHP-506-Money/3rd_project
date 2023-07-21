@@ -77,7 +77,7 @@
                                         $colors = [
                                             '#ffadad',
                                             '#ffd6a5',
-                                            '#fdffb6',
+                                            '#fff2b6',
                                             '#d0f4de',
                                             '#a8dadc',
                                             '#bde0fe',
@@ -149,7 +149,7 @@
             let colors = [
                 '#ffadad',
                 '#ffd6a5',
-                '#fdffb6',
+                '#fff2b6',
                 '#d0f4de',
                 '#a8dadc',
                 '#bde0fe',

@@ -253,8 +253,17 @@ class UserController extends Controller
         $result = User::select(['username', 'moffintype', 'moffinname'])
         ->where('userid', $id)
         ->get();
+
+        // v002 add start
+        $items = DB::table('items')
+        ->select('itemno', 'itemflg')
+        ->where('userid', $id)
+        ->orderBy('itemno', 'ASC')
+        ->get() // 쿼리 결과를 가져옴
+        ->toArray();// 컬렉션 객체를 다시 배열로 바꿔줌
+        // v002 add end
     
-        return view('mofinname')->with('data', $result);
+        return view('mofinname')->with('data', $result)->with('items', $items);
     }
 
     function mofinnamepost(Request $req) {
