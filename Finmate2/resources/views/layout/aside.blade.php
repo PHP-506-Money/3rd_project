@@ -41,9 +41,6 @@
                 <span class="bar"></span>
                 <a href="/users/registration" class="link">Join</a>
             </div>
-            <a href="/">
-                <img class="hamberger_banner" src="/resources/assets/images/banner/banner_aside.png">
-            </a>
             <div class="aside__scroll">
                 <ul class="aside__lnb-list">
                     <li class="list-arrow">
@@ -79,6 +76,9 @@
                     <dd>fin.matee@gmail.com</dd>
                 </dl>
 
+            <a href="/">
+                <img class="hamberger_banner" src="/resources/assets/images/banner/banner_aside.png">
+            </a>
 
             </div>
         </div>
