@@ -42,7 +42,7 @@
                         </div>
                         <div class="bottom2">
                             <button type="submit" class="button">저장하기</button>
-                            <button type="button" class="button" id="btn" onclick="btnClick();">공유하기</button>
+                            <button type="button" class="button" id="btn" onclick="clip();">공유하기</button>
                         </div>
                         <div class="moffinname">
                             <a href="{{ route('users.mofinname') }}">모핀이명 변경</a>
@@ -69,5 +69,15 @@
 
 <script src="{{ asset('/js/user.js') }}"></script>
 <script>
-
+    function clip(){
+        var url = '';
+        var textarea = document.createElement("textarea");
+        document.body.appendChild(textarea);
+        url = window.location.href; // 현재 접속한 url 복사
+        textarea.value = url;
+        textarea.select();
+        document.execCommand("copy");
+        document.body.removeChild(textarea);
+        alert("링크가 복사되었습니다. 필요하신 곳에 붙여넣기 하세요!");
+    };
 </script>
