@@ -259,19 +259,19 @@ ul{list-style:none;}
     text-align: center; 
     align-items: center;
     justify-content: center;
+    margin-top: 100px;
+    width: 65%;
+    background-color: #333333;
+    border-radius: 2px;
+    box-shadow: 3px 3px 10px rgba(119, 119, 119, 0.5);
+    padding: 30px;
 }
 
 .title {
-    margin-top: 100px;
     margin-bottom: 50px;
     color: #777777;
     font-size: 25px;
-}
-
-.itemlist {
-    width: 65%;
-    /* border-radius: 2px;
-    box-shadow: 3px 3px 10px rgba(119, 119, 119, 0.5); */
+    text-shadow: 2px 2px 2px rgb(0, 0, 0);
 }
 
 .itembtn {
@@ -282,9 +282,18 @@ ul{list-style:none;}
     border-left: thick double #373737;
     border-right: double #ffffff;
     border-bottom: double #ffffff;
+    box-shadow: 3px 3px 10px rgba(119, 119, 119, 0.5);
 }
 
 .itembtn img {
     width: 150px;
     height: 150px;
+}
+
+#wrap {
+    display: flex;
+    flex-direction: column;
+    text-align: center; 
+    align-items: center;
+    justify-content: center;
 }
