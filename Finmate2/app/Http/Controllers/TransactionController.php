@@ -85,49 +85,6 @@ class TransactionController extends Controller
             }
         }
 
-        // SELECT transactions.*, assets.assetname, categories.name
-        // FROM transactions
-        // JOIN assets ON transactions.assetno = assets.assetno
-        // JOIN categories ON transactions.char = categories.no
-        // WHERE assets.userid = 'test506'
-        // AND TYPE = 0 
-        // AND trantime BETWEEN 20230201 AND 20230601 
-        // AND NO = 1
-        // ORDER BY trantime DESC ;
-
-        // $data = SELECT transactions.*, assets.assetname, categories.name
-        // FROM transactions
-        // JOIN assets ON transactions.assetno = assets.assetno
-        // JOIN categories ON transactions.char = categories.no
-        // WHERE assets.userid = $userid
-        // AND TYPE = $req->input('search_tran')
-        // AND trantime BETWEEN $req->input('startdate') AND $req->input('enddate')
-        // AND NO = $req->input('search_category')
-        // ORDER BY trantime DESC ;
-
-        // $data = DB::table('transactions')
-        // ->join('assets', 'transactions.assetno', '=', 'assets.assetno')
-        // ->join('categories', 'transactions.char', '=', 'categories.no')
-        // ->select('transactions.*', 'assets.assetname', 'categories.name')
-        // ->where('assets.userid', $userid)
-        // ->where('transactions.TYPE', $req->input('search_tran'))
-        // ->whereBetween('transactions.trantime', [$req->input('startdate'), $req->input('enddate')])
-        // ->where('no', $req->input('search_category'))
-        // ->orderBy('transactions.trantime', 'desc')
-        // ->get();
-
-        // $data = DB::table('transactions')
-        // ->join('assets', 'transactions.assetno', '=', 'assets.assetno')
-        // ->join('categories', 'transactions.char', '=', 'categories.no')
-        // ->select('transactions.*', 'assets.assetname', 'categories.name')
-        // ->where('assets.userid', $userid)
-        // ->where('transactions.TYPE', $req->input('search_tran') == 99 ? '*' : $req->input('search_tran'))
-        // ->whereBetween('transactions.trantime', [$req->input('startdate'), $req->input('enddate')])
-        // ->where('categories.no', $req->input('search_category') == 99 ? '*' : $req->input('search_category'))
-        // ->orderBy('transactions.trantime', 'desc')
-        // ->get()->toArray();
-
-
         $data = DB::table('transactions')
         ->join('assets', 'transactions.assetno', '=', 'assets.assetno')
         ->join('categories', 'transactions.char', '=', 'categories.no')
