@@ -7,14 +7,49 @@
 @section('contents')
 
 <style>
+ ul {
+        font-size:20px;
+        list-style: none;
+        padding: 0;
+    }
+
+    li {
+        margin-bottom: 3px; /* 각 항목의 아래 여백 조정 */
+    }
+
+    li > span {
+        display: inline-block;
+        width: 120px; /* 각 데이터 필드의 고정 폭 조정 */
+        margin-right: 10px; /* 데이터 필드 간 간격 조정 */
+    }
+    #tran_time{
+        width:200px;
+    }
+    #payee_1{
+        width: 250px;
+    }
+    #type_1{
+        width:80px;
+    }
+    #value_name{
+        width:80px;
+    }
+    #li_title > span{
+        color: blue;
+    }
     .scriptCalendar {
         width: 50vw;
+
     }
 
     .scriptCalendarVal td {
         font-size: 16px;
         width: 90px;
         height: 102px;
+        border: solid 1px rgba(128, 128, 128, 0.5);
+
+        border-radius: 0.8rem;
+        
     }
 
     .calendarHead , .monthMoveWrap {
@@ -118,13 +153,13 @@
                 <td class="calendarBtn" id="nextNextCalendar">&#62;&#62;</td>
             </tr>
             <tr class="calendarDays">
-                <td>일</td>
+                <td style = "color:red;">일</td>
                 <td>월</td>
                 <td>화</td>
                 <td>수</td>
                 <td>목</td>
                 <td>금</td>
-                <td>토</td>
+                <td style = "color:blue;" >토</td>
             </tr>
         </thead>
         <tbody class="scriptCalendarVal"></tbody>
@@ -205,22 +240,30 @@
                 });
             </script>
 
-            @if(isset($data))
+@if(isset($data))
             <div id ="search_box" style=" width:50%; text-align:center; font-size:25px; margin:0px auto; margin-top:20px; display:block; " >
                 <span style="font-size:30px; color:red; margin-bottom : 10px;">검색결과   </span><button onclick="SearchBox()">숨기기</button><br><br>
-                    @foreach($data as  $value)
-                        {{ $value->assetname }}
-                            @if($value->type == '0')
-                                <span>입금</span>
-                            @else
-                                <span>출금</span>
-                            @endif
-                        {{ $value->payee }}
-                        {{ $value->name }}
-                        {{ $value->amount }}
-                        {{ $value->trantime }}
-                        <br>
-                    @endforeach
+                
+                    <ul>
+                        <li id = "li_title">
+                            <span>자산명</span>
+                            <span id="type_1">거래구분</span>
+                            <span id ="payee_1" >거래처</span>
+                            <span id ="value_name" >카테고리</span>
+                            <span>거래금액</span>
+                            <span id = "tran_time">거래일시</span>
+                        </li>
+                        @foreach($data as $value)
+                            <li>
+                                <span>{{ $value->assetname }}</span>
+                                <span id="type_1" > @if($value->type == '0') 입금 @else 출금 @endif</span>
+                                <span id ="payee_1">{{ $value->payee }}</span>
+                                <span id ="value_name">{{ $value->name }}</span>
+                                <span> {{ $value->amount }}</span>
+                                <span id = "tran_time">{{ $value->trantime }}</span>
+                            </li>
+                        @endforeach
+                    </ul>
             </div>
         @endif
             

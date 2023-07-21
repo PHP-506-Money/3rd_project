@@ -1,8 +1,8 @@
 @extends('layout.layout')
 
-@section('title', 'Modify')
+@section('title', 'MODIFY')
 
-@section('header', 'WELCOME TO FINMATE')
+@section('header', 'MODIFY')
 
 @section('contents')
     {{-- <link rel="stylesheet" href="{{ asset('/css/style.css')  }}" > --}}
@@ -51,7 +51,7 @@
 
                             <div class="sec-line">
                                 <label for="email" class="title">이메일<i class="point">*</i></label>
-                                <input type="email" class="l-input short-input" name="email" id="email" value="{{ $user->useremail }}"" placeholder="이메일주소를 입력해주세요." onfocus="this.placeholder = ''" onblur="this.placeholder = '이메일주소를 입력해주세요.'" required>
+                                <input type="email" class="l-input short-input" name="email" id="email" value="{{ $user->useremail }}" placeholder="이메일주소를 입력해주세요." onfocus="this.placeholder = ''" onblur="this.placeholder = '이메일주소를 입력해주세요.'" required>
                                 <div id="errMsgId"></div>
                                 {{-- <button type="button" class="button" id="btn" onclick="btnclick();">인증하기</button> --}}
                             </div>

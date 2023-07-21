@@ -120,10 +120,11 @@
                                     <div>
                                         <p class="asset-name">{{$asset->assetname}}</p>
                                         <p class="asset-balance">{{number_format($asset->balance)}}원</p>
-                                          <div class="view-more-container">
+                                        <img style="border-radius: 3rem; width: 3rem; height: 3rem;" src="./resources/assets/images/banklogo/{{$asset->assetname}}.png" alt="assetlogo">
+                                        <div class="view-more-container">
                                             <form action="{{ route('transactions.search',[auth()->user()->userid]) }}" method="post">
                                             @csrf
-                                            <input type="hidden" name="startdate" value="20230701" >
+                                            <input type="hidden" name="startdate" value="20220720" >
                                             <input type="hidden" name="enddate" value="20230719" >
                                             <input type="hidden" name="search_asset" value="{{$asset->assetname}}" >
                                             <input type="hidden" name="search_tran" value="99" >
@@ -137,7 +138,10 @@
                             @endforeach
                         @endif
                     </div>
-
+                @php
+                    
+                    var_dump($asset->assetname)
+                @endphp
                   
                 </div>
             </div>

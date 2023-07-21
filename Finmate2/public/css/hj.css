@@ -41,7 +41,7 @@
     z-index: 1;
 }
 
-#charitem1, #charitem3, #charitem4, #charitem7, #charitem8, #charitem11, #charitem12, #charitem13, #charitem15, #charitem16, #charitem17
+#charitem1, #charitem3, #charitem4, #charitem7, #charitem8, #charitem11, #charitem12, #charitem13, #charitem15, #charitem16, #charitem17, #charitem19, #charitem20, #charitem21, #charitem22
 {
     z-index: 2;
 }
@@ -254,13 +254,37 @@ ul{list-style:none;}
   display: block;
 }
 .container {
-    display: contents;
-    text-align:center; 
+    display: flex;
+    flex-direction: column;
+    text-align: center; 
     align-items: center;
     justify-content: center;
 }
 
 .title {
     margin-top: 100px;
-    margin-bottom: 30px;
+    margin-bottom: 50px;
+    color: #777777;
+    font-size: 25px;
+}
+
+.itemlist {
+    width: 65%;
+    /* border-radius: 2px;
+    box-shadow: 3px 3px 10px rgba(119, 119, 119, 0.5); */
+}
+
+.itembtn {
+    width: 150px;
+    height: 150px;
+    background-color: #8b8b8b;
+    border-top: thick double #373737;
+    border-left: thick double #373737;
+    border-right: double #ffffff;
+    border-bottom: double #ffffff;
+}
+
+.itembtn img {
+    width: 150px;
+    height: 150px;
 }

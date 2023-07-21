@@ -1,6 +1,6 @@
 @extends('layout.layout')
 
-@section('title', 'FindID')
+@section('title', 'FIND ID')
 
 @section('header', 'FIND ID')
 

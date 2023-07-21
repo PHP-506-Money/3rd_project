@@ -11,11 +11,11 @@
         <article class="l-layout login find-id">
             <section class="login__inner">
                 @include('layout.errorsvalidate')
-                <div class="l-title" id="l-title">비밀번호를 변경해 주세요.</div>
+                <div class="l-title" id="l-title">{{$data->userid}}님 비밀번호를 변경해 주세요.</div>
                 <div class="form members">
                     <form id="table" action="{{route('users.updatepw.post')}}" method="post">
                         @csrf
-                        @if ($user)
+                        @if ($data)
                             <div class="login__input">
                                 <div class="line">
                                     <label for="password" class="title">변경할 비밀번호</label>

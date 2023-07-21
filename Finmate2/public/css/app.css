@@ -331,9 +331,10 @@ section .bottombanner img {
     text-align: center;
     background-color: var(--sub-color);
     color: var(--main-color);
-    width: 1000px;
+    width: 100%;
     height: 800px;
     margin-bottom: 50px;
+    max-width: 1000px;
 }
 
 .scriptCalendar>thead>tr>td {
