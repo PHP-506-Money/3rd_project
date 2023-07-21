@@ -58,7 +58,7 @@
             <button type="button" onclick="showLastMonth()">
                 ◀
             </button>
-            {{ $mmonth }}월 카테고리별 지출 내역
+            {{ $currentYear }}년 {{ $mmonth }}월 카테고리별 지출 내역
             <input type="hidden" value="{{ $mmonth }}">
             <button type="button" onclick="showNextMonth()">
                 ▶
