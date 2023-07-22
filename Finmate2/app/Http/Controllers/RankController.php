@@ -22,42 +22,76 @@ class RankController extends Controller
     {
         
         $pointrank = DB::table('users')
-        ->select('point','username','userid')
+        ->select('point','username','userid','moffintype')
         ->whereNull('deleted_at')
         ->orderBy('point', 'desc')
         ->limit(10)
         ->get();
 
         $loginrank = DB::table('users')
-        ->select('login_count','username','userid')
+        ->select('login_count','username','userid','moffintype')
         ->whereNull('deleted_at')
         ->orderBy('login_count', 'desc')
         ->limit(10)
         ->get();
 
         $itemdrawrank = DB::table('users')
-        ->select('item_draw_count','username','userid')
+        ->select('item_draw_count','username','userid','moffintype')
         ->whereNull('deleted_at')
         ->orderBy('item_draw_count', 'desc')
         ->limit(10)
         ->get();
 
-        // v002 add start kim email add
-        $id = auth()->user()->userid;
-        $result = User::select(['username', 'moffintype', 'moffinname'])
-        ->where('userid', $id)
-        ->get();
+        // v002 add start kim  add
+        // $id = auth()->user()->userid;
 
-        $items = DB::table('items')
-        ->select('itemno', 'itemflg')
-        ->where('userid', $id)
-        ->orderBy('itemno', 'ASC')
-        ->get() // 쿼리 결과를 가져옴
-        ->toArray();
+        $pointranker = DB::select( " 
+        SELECT us.userid as userid , it.itemno as itemno , it.itemflg as itemflg
+        FROM users us INNER JOIN items it ON us.userid = it.userid
+        WHERE us.deleted_at IS NULL 
+        AND us.userid IN (
+            SELECT userid
+            FROM (
+                SELECT userid, RANK() OVER (ORDER BY point DESC) AS point_RANK
+                FROM users
+            ) ranked_users
+            WHERE point_RANK <= 3
+        )
+        ORDER by us.point desc " );
 
-        // dump($usermoffin);
+        $loginranker = DB::select(" 
+        SELECT us.userid as userid , it.itemno as itemno , it.itemflg as itemflg
+        FROM users us INNER JOIN items it ON us.userid = it.userid
+        WHERE us.deleted_at IS NULL 
+        AND us.userid IN (
+            SELECT userid
+            FROM (
+                SELECT userid, RANK() OVER (ORDER BY login_count DESC) AS point_RANK
+                FROM users
+            ) ranked_users
+            WHERE point_RANK <= 3
+        )
+        ORDER by us.login_count desc
+        ");
 
-        return view('rank')->with('data', $result)->with('items', $items)->with('pointrank', $pointrank)->with('loginrank', $loginrank)->with('itemdrawrank', $itemdrawrank);
+        $drawranker = DB::select(" 
+        SELECT us.userid as userid , it.itemno as itemno , it.itemflg as itemflg
+        FROM users us INNER JOIN items it ON us.userid = it.userid
+        WHERE us.deleted_at IS NULL 
+        AND us.userid IN (
+            SELECT userid
+            FROM (
+                SELECT userid, RANK() OVER (ORDER BY item_draw_count DESC) AS point_RANK
+                FROM users
+            ) ranked_users
+            WHERE point_RANK <= 3
+        )
+        ORDER by us.item_draw_count desc
+        ");
+        
+        return view('rank')
+        ->with('pointrank', $pointrank)->with('loginrank', $loginrank)->with('itemdrawrank', $itemdrawrank)
+        ->with('pointranker', $pointranker)->with('loginranker', $loginranker)->with('drawranker', $drawranker);
         // v002 add end
 
     }

@@ -222,11 +222,12 @@ ul{list-style:none;}
   /* background :#f9f9f9; */
 }
 .tabmenu ul li a{
-  display:block;
-  line-height:40px;
-  height:40px;
-  text-decoration:none; 
-  color: #000;
+    display:block;
+    line-height:40px;
+    height:40px;
+    text-decoration:none; 
+    /* color: #000; */
+
 }
 .tapbtn {
     font-size: 2.1rem;
@@ -286,3 +287,81 @@ tbody{
     width: 20%;
     height: 20%;
 }
+
+.tabname {
+    font-size: 2rem;
+    font-weight: 700;
+    border-bottom: 1px solid #979595;
+    color: #aaa9a9;
+}
+
+.tabname:target {
+    border-bottom: 1px solid #000000;
+    color: rgb(0, 0, 0);
+}
+
+.search-moffin{
+    margin:2rem auto;
+    width: 25rem;
+}
+
+#search_name {
+    border: 1px solid #6e6c6c6b;
+    padding: 0.5rem;
+    margin :0.5rem;
+    border-radius: 0.4rem ;
+}
+
+.rankeruser{
+    border: 1px solid rgb(197, 197, 194);
+    border-radius: 0.4rem ;
+    width: 15%;
+    height: 30%;
+    position: relative;
+}
+
+.rankeruser p{
+    font-size: 1.5rem;
+}
+
+#charitem1, #charitem3, #charitem4, #charitem7, #charitem8, #charitem11, #charitem12, #charitem13, #charitem15, #charitem16, #charitem17, #charitem19, #charitem20, #charitem21, #charitem22
+{
+    z-index: 2;
+}
+
+#charitem2, #charitem5 {
+    z-index: 3;
+}
+
+#charitem6, #charitem10, #charitem14 {
+    z-index: 0;
+}
+
+#charitem9 {
+    z-index: 1;
+}
+
+.moffin img {
+    width: 70%;
+}
+
+.charitem img {
+    width: 70%;
+}
+
+.mof {
+    position: relative;
+    z-index: 1;
+}
+
+.imgposition{
+    position: absolute;
+    left: 50%;
+    top: 40%;
+    transform: translate(-50%, -50%);
+}
+
+.noneimg{
+    display: none;
+}
+
