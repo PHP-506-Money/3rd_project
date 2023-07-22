@@ -53,8 +53,10 @@
                                         <img class ="mof" src="{{ asset('/img/moffin' . $value->moffintype . '.png') }}" alt="">
                                         <div class="charitem">
                                             @foreach ($pointranker as $item)
-                                                <input type="hidden" name="itemflg{{ $item->itemno }}" value="{{ $item->itemflg }}">
-                                                <img id="charitem{{ $item->itemno }}" class="{{ $item->itemflg == 1 ? '' : 'noneimg' }} imgposition" src="{{ asset('/img/charitem'.$item->itemno.'.png') }}">
+                                                @if($item->userid == $value->userid)
+                                                    <input type="hidden" name="itemflg{{ $item->itemno }}" value="{{ $item->itemflg }}">
+                                                    <img id="charitem{{ $item->itemno }}" class="{{ $item->itemflg == 1 ? '' : 'noneimg' }} imgposition" src="{{ asset('/img/charitem'.$item->itemno.'.png') }}">
+                                                @endif
                                             @endforeach
                                         </div>
                                     </div>
@@ -68,8 +70,10 @@
                                         <img class ="mof" src="{{ asset('/img/moffin' . $value->moffintype . '.png') }}" alt="">
                                         <div class="charitem">
                                             @foreach ($pointranker as $item)
-                                                <input type="hidden" name="itemflg{{ $item->itemno }}" value="{{ $item->itemflg }}">
-                                                <img id="charitem{{ $item->itemno }}" class="{{ $item->itemflg == 1 ? '' : 'noneimg' }} imgposition" src="{{ asset('/img/charitem'.$item->itemno.'.png') }}">
+                                                @if($item->userid == $value->userid)
+                                                    <input type="hidden" name="itemflg{{ $item->itemno }}" value="{{ $item->itemflg }}">
+                                                    <img id="charitem{{ $item->itemno }}" class="{{ $item->itemflg == 1 ? '' : 'noneimg' }} imgposition" src="{{ asset('/img/charitem'.$item->itemno.'.png') }}">
+                                                @endif
                                             @endforeach
                                         </div>
                                     </div>
@@ -83,8 +87,10 @@
                                         <img class ="mof" src="{{ asset('/img/moffin' . $value->moffintype . '.png') }}" alt="">
                                         <div class="charitem">
                                             @foreach ($pointranker as $item)
-                                                <input type="hidden" name="itemflg{{ $item->itemno }}" value="{{ $item->itemflg }}">
-                                                <img id="charitem{{ $item->itemno }}" class="{{ $item->itemflg == 1 ? '' : 'noneimg' }} imgposition" src="{{ asset('/img/charitem'.$item->itemno.'.png') }}">
+                                                @if($item->userid == $value->userid)
+                                                    <input type="hidden" name="itemflg{{ $item->itemno }}" value="{{ $item->itemflg }}">
+                                                    <img id="charitem{{ $item->itemno }}" class="{{ $item->itemflg == 1 ? '' : 'noneimg' }} imgposition" src="{{ asset('/img/charitem'.$item->itemno.'.png') }}">
+                                                @endif
                                             @endforeach
                                         </div>
                                     </div>
@@ -124,8 +130,10 @@
                                         <img class ="mof" src="{{ asset('/img/moffin' . $value->moffintype . '.png') }}" alt="">
                                         <div class="charitem">
                                             @foreach ($loginranker as $item)
-                                                <input type="hidden" name="itemflg{{ $item->itemno }}" value="{{ $item->itemflg }}">
-                                                <img id="charitem{{ $item->itemno }}" class="{{ $item->itemflg == 1 ? '' : 'noneimg' }} imgposition" src="{{ asset('/img/charitem'.$item->itemno.'.png') }}">
+                                                @if($item->userid == $value->userid)
+                                                    <input type="hidden" name="itemflg{{ $item->itemno }}" value="{{ $item->itemflg }}">
+                                                    <img id="charitem{{ $item->itemno }}" class="{{ $item->itemflg == 1 ? '' : 'noneimg' }} imgposition" src="{{ asset('/img/charitem'.$item->itemno.'.png') }}">
+                                                @endif
                                             @endforeach
                                         </div>
                                     </div>
@@ -139,8 +147,10 @@
                                         <img class ="mof" src="{{ asset('/img/moffin' . $value->moffintype . '.png') }}" alt="">
                                         <div class="charitem">
                                             @foreach ($loginranker as $item)
-                                                <input type="hidden" name="itemflg{{ $item->itemno }}" value="{{ $item->itemflg }}">
-                                                <img id="charitem{{ $item->itemno }}" class="{{ $item->itemflg == 1 ? '' : 'noneimg' }} imgposition" src="{{ asset('/img/charitem'.$item->itemno.'.png') }}">
+                                                @if($item->userid == $value->userid)
+                                                    <input type="hidden" name="itemflg{{ $item->itemno }}" value="{{ $item->itemflg }}">
+                                                    <img id="charitem{{ $item->itemno }}" class="{{ $item->itemflg == 1 ? '' : 'noneimg' }} imgposition" src="{{ asset('/img/charitem'.$item->itemno.'.png') }}">
+                                                @endif
                                             @endforeach
                                         </div>
                                     </div>
@@ -154,8 +164,10 @@
                                         <img class ="mof" src="{{ asset('/img/moffin' . $value->moffintype . '.png') }}" alt="">
                                         <div class="charitem">
                                             @foreach ($loginranker as $item)
-                                                <input type="hidden" name="itemflg{{ $item->itemno }}" value="{{ $item->itemflg }}">
-                                                <img id="charitem{{ $item->itemno }}" class="{{ $item->itemflg == 1 ? '' : 'noneimg' }} imgposition" src="{{ asset('/img/charitem'.$item->itemno.'.png') }}">
+                                            @if($item->userid == $value->userid)
+                                                    <input type="hidden" name="itemflg{{ $item->itemno }}" value="{{ $item->itemflg }}">
+                                                    <img id="charitem{{ $item->itemno }}" class="{{ $item->itemflg == 1 ? '' : 'noneimg' }} imgposition" src="{{ asset('/img/charitem'.$item->itemno.'.png') }}">
+                                                @endif
                                             @endforeach
                                         </div>
                                     </div>
@@ -195,8 +207,10 @@
                                         <img class ="mof" src="{{ asset('/img/moffin' . $value->moffintype . '.png') }}" alt="">
                                         <div class="charitem">
                                             @foreach ($drawranker as $item)
-                                                <input type="hidden" name="itemflg{{ $item->itemno }}" value="{{ $item->itemflg }}">
-                                                <img id="charitem{{ $item->itemno }}" class="{{ $item->itemflg == 1 ? '' : 'noneimg' }} imgposition" src="{{ asset('/img/charitem'.$item->itemno.'.png') }}">
+                                                @if($item->userid == $value->userid)
+                                                    <input type="hidden" name="itemflg{{ $item->itemno }}" value="{{ $item->itemflg }}">
+                                                    <img id="charitem{{ $item->itemno }}" class="{{ $item->itemflg == 1 ? '' : 'noneimg' }} imgposition" src="{{ asset('/img/charitem'.$item->itemno.'.png') }}">
+                                                @endif
                                             @endforeach
                                         </div>
                                     </div>
@@ -210,8 +224,10 @@
                                         <img class ="mof" src="{{ asset('/img/moffin' . $value->moffintype . '.png') }}" alt="">
                                         <div class="charitem">
                                             @foreach ($drawranker as $item)
-                                                <input type="hidden" name="itemflg{{ $item->itemno }}" value="{{ $item->itemflg }}">
-                                                <img id="charitem{{ $item->itemno }}" class="{{ $item->itemflg == 1 ? '' : 'noneimg' }} imgposition" src="{{ asset('/img/charitem'.$item->itemno.'.png') }}">
+                                                @if($item->userid == $value->userid)
+                                                    <input type="hidden" name="itemflg{{ $item->itemno }}" value="{{ $item->itemflg }}">
+                                                    <img id="charitem{{ $item->itemno }}" class="{{ $item->itemflg == 1 ? '' : 'noneimg' }} imgposition" src="{{ asset('/img/charitem'.$item->itemno.'.png') }}">
+                                                @endif
                                             @endforeach
                                         </div>
                                     </div>
@@ -225,8 +241,10 @@
                                         <img class ="mof" src="{{ asset('/img/moffin' . $value->moffintype . '.png') }}" alt="">
                                         <div class="charitem">
                                             @foreach ($drawranker as $item)
-                                                <input type="hidden" name="itemflg{{ $item->itemno }}" value="{{ $item->itemflg }}">
-                                                <img id="charitem{{ $item->itemno }}" class="{{ $item->itemflg == 1 ? '' : 'noneimg' }} imgposition" src="{{ asset('/img/charitem'.$item->itemno.'.png') }}">
+                                                @if($item->userid == $value->userid)
+                                                    <input type="hidden" name="itemflg{{ $item->itemno }}" value="{{ $item->itemflg }}">
+                                                    <img id="charitem{{ $item->itemno }}" class="{{ $item->itemflg == 1 ? '' : 'noneimg' }} imgposition" src="{{ asset('/img/charitem'.$item->itemno.'.png') }}">
+                                                @endif
                                             @endforeach
                                         </div>
                                     </div>
