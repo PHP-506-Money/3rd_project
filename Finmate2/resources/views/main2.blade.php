@@ -14,8 +14,8 @@
                         <ul class="goobne-line">
                             <li class="goobne-text" onclick="location.href='{{ url('/assets'.'/' . auth()->user()->userid) }}'">💥 내 자산 보러가기</li>
                             <li class="goobne-text" onclick="location.href='{{url('/assets/transactions'.'/'.auth()->user()->userid)}}'">💥 내 자산 내역 보러가기</li>
-                            <li class="goobne-text" onclick="location.href='{{ url('/goal'.'/' . auth()->user()->userid) }}'">💥 나의 목표 보러가기</li>
-                            <li class="goobne-text" onclick="location.href='{{ url('/budget'.'/' . auth()->user()->userid) }}'">💥 예산 관리 하러가기</li>
+                            <li class="goobne-text" onclick="location.href='{{ url('/goal') }}'">💥 나의 목표 보러가기</li>
+                            <li class="goobne-text" onclick="location.href='{{ url('/budget') }}'">💥 예산 관리 하러가기</li>
                             <li class="goobne-text" onclick="location.href='{{ url('/achievements') }}'">💥 업적 관리 하러가기</li>
                             <li class="goobne-text" onclick="location.href='{{url('/mofin'.'/' . auth()->user()->userid)}}'">💥 포인트 뽑으러 가기</li>
                             <li class="goobne-text" onclick="location.href='{{url('/mofin'.'/' . auth()->user()->userid)}}'">💥 아이템 뽑으러 가기</li>
