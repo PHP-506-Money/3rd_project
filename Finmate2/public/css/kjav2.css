@@ -10,7 +10,7 @@
     display: inline-block;
 }
 
-.chara{
+.mofin-rabbit , .mofin-panda , .mofin-penguin{
     display: block;
     width: 80px;
     padding: 2px 16px;
@@ -31,9 +31,9 @@
     font-size: 14px;
 }
 
-.chara img {
+/* .chara img {
     margin: 20px;
-}
+} */
 
 .arrow_box:after {
     position: absolute;
@@ -93,15 +93,77 @@ span:hover + p.arrow_box {
     font-size: small;
 }
 
-[type="radio"]:not(:checked) { 
-    background-color: rgb(136, 13, 13);
-    width: 1rem;
-    height: 1rem;
+/* [type="radio"]:not(:checked) { 
+    background-image: url('../img/none.png');
+    background-repeat: no-repeat;
+    width: 2.5rem;
+    height: 2.5rem;
 }
 [type="radio"]:checked { 
-    background-color: #2196f3; 
-    width: 1rem;
-    height: 1rem;
+    background-image: url('../img/chk.png');
+    background-repeat: no-repeat;
+    width: 2.5rem;
+    height: 2.5rem;
+} */
+
+label>.mofin-rabbit{
+    background-image: url('../img/rabbit2.png');
+    width: 100px;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+}
+
+label>.mofin-panda{
+    background-image: url('../img/panda2.png');
+    width: 100px;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: contain;
+
+}
+
+label>.mofin-penguin{
+    background-image: url('../img/penguin2.png');
+    width: 100px;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#rabbit:checked + label>.mofin-rabbit {
+    background-image: url('../img/rabbit3.png');
+    width: 100px;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#penguin:checked + label>.mofin-penguin {
+    background-image: url('../img/penguin3.png');
+    width: 100px;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#panda:checked + label>.mofin-panda {
+    background-image: url('../img/panda3.png');
+    width: 100px;
+    height: 200px;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+#panda:not(:checked) + label>.mofin-panda{
+    filter: grayscale(1);
+}
+#penguin:not(:checked) + label>.mofin-penguin{
+    filter: grayscale(1);
+}
+#panda:not(:checked) + label>.mofin-panda{
+    filter: grayscale(1);
 }
 
 /*******    랭킹    *********/

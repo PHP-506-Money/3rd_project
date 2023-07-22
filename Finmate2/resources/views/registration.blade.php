@@ -1,6 +1,6 @@
 @extends('layout.layout')
 
-@section('title', 'Registration')
+@section('title', 'SIGN UP TO FINMATE')
 
 @section('header', 'SIGN UP TO FINMATE')
 
@@ -47,16 +47,15 @@
                             <div class="sec-line">
                                 <label for="passwordchk" class="title">비밀번호 확인<i class="point">*</i></label>
                                 <div class="right">
-                                <input type="password" class="l-input short-input" name="passwordchk" id="passwordchk" placeholder="비밀번호란과 동일하게 입력해주세요." onfocus="this.placeholder = ''" onblur="this.placeholder = '비밀번호란과 동일하게 입력해주세요.'" required>
+                                <input type="password" class="l-input short-input " name="passwordchk" id="passwordchk" placeholder="비밀번호란과 동일하게 입력해주세요." onfocus="this.placeholder = ''" onblur="this.placeholder = '비밀번호란과 동일하게 입력해주세요.'" required>
                                 <div id="chkerr"></div>
                             </div>
                             </div>
                             <div class="sec-line">
                                 <label for="email" class="title">이메일<i class="point">*</i></label>
-                                <div class="input-btn" style="width:100%;">
-                                    <input input type="email" class="l-input short-input" name="email" id="email" value="{{ old('email') }}" placeholder="이메일주소를 입력해주세요." onfocus="this.placeholder = ''" onblur="this.placeholder = '이메일주소를 입력해주세요.'" autocomplete="off" required>
-                                    <button type="button" class="l-btn buttonn" id="btn">이메일 확인</button>
-                                    <div id="chkerr"></div>
+                                <div class="right">
+                                        <input input type="email" class="l-input short-input" name="email" id="email" value="{{ old('email') }}" placeholder="이메일주소를 입력해주세요." onfocus="this.placeholder = ''" onblur="this.placeholder = '이메일주소를 입력해주세요.'" autocomplete="off" required>
+                                        <div id="chkerr"></div>
                                 </div>
                             </div>
                         <div class="sec-line">
@@ -67,7 +66,6 @@
                             </div>
                         </div>
                         </div>
-                        
                     </section>
                     <section class="join__input">
                         <div class="tit-area">
@@ -75,31 +73,31 @@
                         </div>
                         <div id="menu">
     <label for="moffintype" class="title"></label>
-        <div >
-        <label for="rabbit" >
-            <span id="chara">
-                <img src="{{ asset('/img/rabbit2.png') }}" alt="rabbit" onclick="toggleImage('rabbit')">
-            </span>
-            <p class="arrow_box">저를 데려가주세요!</p>
-            <input type="radio" name="moffintype" id="rabbit" value="1" onchange="toggleImage('rabbit')">
-    </label>
+        <div>
+            <input type="radio" name="moffintype" id="rabbit" value="1">
+            <label for="rabbit">
+                <span class="mofin-rabbit">
+                    {{-- <img src="{{ asset('/img/rabbit2.png') }}" alt="rabbit"> --}}
+                </span>
+                <p class="arrow_box">저를 데려가주세요!</p>
+            </label>
         </div>
-    <div class = "imgspace">
+    <div>
+        <input type="radio" name="moffintype" id="penguin" value="2">
         <label for="penguin">
-            <span id="chara">
-                <img src="{{ asset('/img/penguin2.png') }}" alt="penguin" onclick="toggleImage('penguin')">
+            <span class="mofin-penguin">
+                {{-- <img src="{{ asset('/img/penguin2.png') }}" alt="penguin" > --}}
             </span>
                 <p class="arrow_box">날 데려가면 좋을걸?</p>
-                <input type="radio" name="moffintype" id="penguin" value="2" onchange="toggleImage('penguin')">
         </label>
     </div>
-    <div class = "imgspace">
+    <div>
+        <input type="radio" name="moffintype" id="panda" value="3">
         <label for="panda">
-            <span id="chara">
-                <img src="{{ asset('/img/panda2.png') }}" alt="panda" onclick="toggleImage('panda')">
+            <span class="mofin-panda">
+                {{-- <img src="{{ asset('/img/panda2.png') }}" alt="panda"> --}}
             </span>
             <p class="arrow_box">날 데려가라!</p>
-            <input type="radio" name="moffintype" id="panda" value="3" onchange="toggleImage('panda')">
         </label>
     </div>
 </div>
@@ -110,6 +108,7 @@
         </div>
     </article>
 </div>
+
 
 <script src="{{ asset('/js/user.js') }}"></script>
 @endsection

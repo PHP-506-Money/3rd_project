@@ -21,6 +21,7 @@ use App\Http\Controllers\SocialController;
 use Illuminate\Support\Facades\Route;
 use App\Models\Asset;
 use App\Models\Transaction;
+use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Redirect;
@@ -63,6 +64,11 @@ Route::middleware(['guest'])->group(function () {
     Route::post('/users/findpwpost', [UserController::class, 'findpwpost'])->name('users.findpw.post');
     Route::get('/users/updatepw', [UserController::class, 'updatepw'])->name('users.updatepw'); 
     Route::post('/users/updatepwpost', [UserController::class, 'updatepwpost'])->name('users.updatepw.post');
+
+    Route::get('/users/pwmail/{data}',[UserController::class,'pwexpiration'])->name('users.pwemail');
+    Route::get('/users/verrifymail',[UserController::class,'emailverify'])->name('users.verify');
+    Route::post('/users/chkmail',[UserController::class,'chkverify'])->name('users.chkverify');
+
 });
 
 
