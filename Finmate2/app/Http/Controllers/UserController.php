@@ -137,9 +137,9 @@ class UserController extends Controller
         $expire_at = $verify->expire_at;
         
         if($now > $expire_at) {
-            $error = '<div class="error">! 인증 코드가 만료했습니다.</div>';
+            $expiry = '인증 코드가 만료';
             // Mail::to($req->email)->send(new SendEmail($user,$verify));
-            return redirect()->back()->with('error', $error)->with('');
+            return view('emailverify')->with('expiry', $expiry)->with('verify',$verify);
         }
 
         $verify->email_verified = '1';

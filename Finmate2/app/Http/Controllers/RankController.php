@@ -42,8 +42,8 @@ class RankController extends Controller
         ->limit(10)
         ->get();
 
+        
         // v002 add start kim  add
-        // $id = auth()->user()->userid;
 
         $pointranker = DB::select( " 
         SELECT us.userid as userid , it.itemno as itemno , it.itemflg as itemflg

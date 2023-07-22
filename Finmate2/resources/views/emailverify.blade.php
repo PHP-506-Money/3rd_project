@@ -11,6 +11,9 @@
         <article class="l-layout login find-id">
             <section class="login__inner">
                 @include('layout.errorsvalidate')
+                @if($expiry)
+                        {{$expiry}}
+                    @endif
                 <div class="l-title" id="l-title">이메일을 인증해주세요.</div>
                 <div class="form members">
                     <form id="table" action="{{route('users.chkverify')}}" method="post">
@@ -22,10 +25,12 @@
                                 </div>
                             <button class="l-btn" type="submit">인증하기</button>
                     </form>
+                    
                 </div>
             </section>
         </article>
     </div>
+
 @endsection
 
 
