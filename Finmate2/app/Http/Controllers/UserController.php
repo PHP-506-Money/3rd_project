@@ -47,10 +47,10 @@ class UserController extends Controller
         }
 
         // $verifychk = User::where('userid',$req->id)->first();
-        if($user->email_verified == 0){
-            $exMsg = "인증이 완료되지 않았습니다. 인증을 먼저 해주세요";
-            return redirect()->route('emailverify')->with('verify',$user)->with('exmsg',$exMsg);
-        }
+        // if($user->email_verified == 0){
+        //     $exMsg = "인증이 완료되지 않았습니다. 인증을 먼저 해주세요";
+        //     return redirect()->route('emailverify')->with('verify',$user)->with('exmsg',$exMsg);
+        // }
 
         // 유저 인증작업
         Auth::login($user); // 테스트시 비활성화 하고 테스트하면 됨.
