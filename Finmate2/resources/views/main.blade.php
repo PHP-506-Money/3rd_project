@@ -52,23 +52,44 @@
 						<div class="main-box main-box_hight">
 							<div class="main-txt-area wow fadeInUp">
 								<div class="goobne-text">
-									<p>쉽고 재미있는</p>
-									<p class="last">자산관리 <span class="mid">서비스</span></p>
+									<p class="mid">당신만의 모핀이를</p>
+									<p class="last">골라<span class="mid"> 꾸며주세요!</span></p>
 								</div>
-								<div class="goobne-text line">
+								{{-- <div class="goobne-text line">
 									<p>쉽고 재미있는</p>
 									<p class="last">자산관리 <span class="mid">서비스</span></p>
+								</div> --}}
+								<div class="goobne-text line">
+									<p class="mid">당신만의 모핀이를</p>
+									<p class="last">골라<span class="mid"> 꾸며주세요!</span></p>
 								</div>
 							</div>
 							<div class="goobne-bg wow fadeInUp">
 								<div class="goobne-img">
-									<img src="/resources/assets/images/banner/main_slide2.png" alt="">
+									<img src="/resources/assets/images/banner/main_slide3.png" alt="">
 								</div>
-								<button class="goobne-btn btn2">
+								{{-- <button class="goobne-btn btn2">
 								    <div class="img">
 								        <img src="/resources/assets/images/common/main_bg_icon_06.png" alt="">
 								    </div>
-								</button>
+								</button> --}}
+							</div>
+						</div>
+												<div class="main-box main-box_hight">
+							<div class="main-txt-area wow fadeInUp">
+								<div class="goobne-text">
+									<p class="mid">목표를 설정하여</p>
+									<p class="last">달성해보세요!</span></p>
+								</div>
+								<div class="goobne-text line">
+									<p class="mid">목표를 설정하여</p>
+									<p class="last">달성해보세요!</span></p>
+								</div>
+							</div>
+							<div class="goobne-bg wow fadeInUp">
+								<div class="goobne-img">
+									<img src="/resources/assets/images/banner/main_slide4.png" alt="">
+								</div>
 							</div>
 						</div>
 				</div>

@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:url" content="http://192.168.0.110/main">
+    <meta property="og:type" content="website">
     <meta property="og:title" content="페이지 제목">
     <meta property="og:description" content="페이지 설명">
     <meta property="og:image" content="이미지 URL">
