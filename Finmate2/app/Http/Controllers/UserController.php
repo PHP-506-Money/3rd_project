@@ -50,7 +50,7 @@ class UserController extends Controller
         //     $error = "인증이 완료되지 않았습니다. 이메일을 통해 인증코드를 확인해 주세요.";
 
         //     $verifyCode = mt_rand(100000, 999999);
-        //     $expire_at = now()->addMinute(5);
+        //     $expire_at = now()->addMinute(1);
 
         //     $emailVerify['userid'] = $user->userid;
         //     $emailVerify['useremail'] = $user->useremail;
@@ -61,7 +61,7 @@ class UserController extends Controller
 
         //     Mail::to($user->useremail)->send(new SendEmail($user,$resentemail));
 
-        //     return redirect()->route('emailverify')->with('verify',$user)->with('error',$error);
+        //     return redirect()->route('users.verify')->with('verify',$user)->with('error',$error);
         // }
 
         // 유저 인증작업
@@ -110,7 +110,7 @@ class UserController extends Controller
         // v002 add start KIM 이메일인증 
         // $verifyCode = Str::random(5);
         $verifyCode = mt_rand(100000, 999999);
-        $expire_at = now()->addMinute(5);
+        $expire_at = now()->addMinute(1);
 
         $emailVerify['userid'] = $user->userid;
         $emailVerify['useremail'] = $user->useremail;
@@ -159,7 +159,7 @@ class UserController extends Controller
 
             $user = User::where('userid',$verify->userid)->first();
             $verifyCode = mt_rand(100000, 999999);
-            $expire_at = now()->addMinute(5);
+            $expire_at = now()->addMinute(1);
 
             $emailVerify['userid'] = $user->userid;
             $emailVerify['useremail'] = $user->useremail;
