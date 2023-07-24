@@ -46,15 +46,15 @@
     z-index: 2;
 }
 
-#charitem2, #charitem5 {
+#charitem2, #charitem5, #charitem14 {
     z-index: 3;
 }
 
-#charitem6, #charitem10, #charitem14 {
+#charitem6, #charitem10 {
     z-index: 0;
 }
 
-#charitem9 {
+#charitem9, #charitem18 {
     z-index: 1;
 }
 
