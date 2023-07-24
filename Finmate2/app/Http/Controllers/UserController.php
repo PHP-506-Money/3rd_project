@@ -46,10 +46,22 @@ class UserController extends Controller
             return redirect()->back()->with('error', $error);
         }
 
-        // $verifychk = User::where('userid',$req->id)->first();
         // if($user->email_verified == 0){
-        //     $exMsg = "인증이 완료되지 않았습니다. 인증을 먼저 해주세요";
-        //     return redirect()->route('emailverify')->with('verify',$user)->with('exmsg',$exMsg);
+        //     $error = "인증이 완료되지 않았습니다. 이메일을 통해 인증코드를 확인해 주세요.";
+
+        //     $verifyCode = mt_rand(100000, 999999);
+        //     $expire_at = now()->addMinute(5);
+
+        //     $emailVerify['userid'] = $user->userid;
+        //     $emailVerify['useremail'] = $user->useremail;
+        //     $emailVerify['token'] = $verifyCode;
+        //     $emailVerify['expire_at'] = $expire_at;
+
+        //     $resentemail = EmailVerify::create($emailVerify);
+
+        //     Mail::to($user->useremail)->send(new SendEmail($user,$resentemail));
+
+        //     return redirect()->route('emailverify')->with('verify',$user)->with('error',$error);
         // }
 
         // 유저 인증작업
@@ -261,7 +273,7 @@ class UserController extends Controller
         function pwexpiration($data){
             $verify = EmailVerify::where('token',$data)->first();
 
-            Log::debug('data',[$verify]);
+            // Log::debug('data',[$verify]);
             
         $now = now();
         $expire_at = $verify->expire_at;
