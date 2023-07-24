@@ -158,6 +158,11 @@
             height: 60px;
             font-size: 10px;
         }
+
+    }
+    .pagina{
+        width:100px;
+        height:100px;
     }
 
 
@@ -329,6 +334,7 @@
         </tbody>
 
     </table>
+            <div class="pagina">{{ $transactions->links() }}</div>
 
 
 
