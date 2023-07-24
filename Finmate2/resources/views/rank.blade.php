@@ -25,7 +25,7 @@
     <form action="{{ route('mofin.search',[auth()->user()->userid]) }}" method="post">
         @csrf
         <label for="search_name"></label>
-        <input type="text" name="search_name" id ="search_name" placeholder="아이디를 검색해보세요"> <button type="submit"><img src="{{ asset('/img/search1.png') }}" alt="돋보기"></button>
+        <input type="text" name="search_name" id ="search_name" placeholder="아이디를 검색해보세요"> <button type="submit"><img src="{{ asset('/img/search2.png') }}" alt="돋보기"></button>
     </form>
 </div>
 
