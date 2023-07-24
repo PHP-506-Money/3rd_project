@@ -206,7 +206,7 @@ class MofinController extends Controller
     }
     
     public function search(Request $req, $id){
-        $result = DB::table('users')->select('userid')->where('userid',$req->search_name)->first();
+        $result = DB::table('users')->select('userid')->whereNull('deleted_at')->where('userid',$req->search_name)->first();
 
         if(empty($result)){
             $errmsg = "존재하지 않는 아이디입니다";
