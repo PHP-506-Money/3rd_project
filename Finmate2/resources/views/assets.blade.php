@@ -123,7 +123,7 @@
                                         <p class="asset-name">{{$asset->assetname}}</p>
                                         <p class="asset-balance">{{number_format($asset->balance)}}원</p>
                                         </div>
-                                        <div style="display:inline-block; margin-left:9rem; " ><img style="border-radius: 3rem; width: 8rem; height: 10rem;" src="{{asset('/resources/assets/images/banklogo/'.$asset->assetname.'.png')}}" alt="assetlogo"></div>
+                                        <div style="display:inline-block; margin-left:9rem; " ><img style="border-radius: 3rem; width: 8rem; height: 8rem; padding-bottom:10px; " src="{{asset('/resources/assets/images/banklogo/'.$asset->assetname.'.png')}}" alt="assetlogo"></div>
                                         <div  class="view-more-container">
                                             <form action="{{ route('transactions.search',[auth()->user()->userid]) }}" method="post">
                                             @csrf
