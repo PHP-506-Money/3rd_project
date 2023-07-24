@@ -11,20 +11,20 @@
         <article class="l-layout login find-id">
             <section class="login__inner">
                 @include('layout.errorsvalidate')
-                @if($expiry)
-                        {{$expiry}}
-                    @endif
+                <div class=success>{!!session()->has('success') ? session('success') : ""!!}</div>
                 <div class="l-title" id="l-title">이메일을 인증해주세요.</div>
                 <div class="form members">
                     <form id="table" action="{{route('users.chkverify')}}" method="post">
                         @csrf
                             <div class="login__input">
                                 <div class="line">
+                                    <input type="text" class="l-input short-input" name="code" id="code" >
                                     <label for="code" class="title">인증 코드</label>
-                                    <input type="text" class="l-input short-input" name="code" id="code" required>
+                                    
+                                    <button class="l-btn" type="submit">인증하기</button>
                                 </div>
-                            <button class="l-btn" type="submit">인증하기</button>
                     </form>
+                    
                     
                 </div>
             </section>

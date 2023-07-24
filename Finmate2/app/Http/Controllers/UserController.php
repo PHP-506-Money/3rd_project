@@ -111,7 +111,7 @@ class UserController extends Controller
 
         // 회원가입 완료 로그인 페이지로 이동
         // $success = '<div class="success">✓ Success!<br>회원가입을 완료 했습니다.<br>가입하신 아이디와 비밀번호로 로그인 해주십시오.</div>';
-        $success = '<div class="success">✓ Success!<br>회원가입을 완료 했습니다.<br>이메일을 인증해주세요./div>';
+        $success = '<div class="success">✓ Success!<br>회원가입을 완료 했습니다.<br>이메일로 인증코드를 발송했습니다. 인증을 완료하면 서비스를 이용하실수 있습니다./div>';
         return redirect()
             // ->route('users.login')
             ->route('users.verify')
@@ -143,9 +143,21 @@ class UserController extends Controller
         $expire_at = $verify->expire_at;
         
         if($now > $expire_at) {
-            $expiry = '인증 코드가 만료';
-            // Mail::to($req->email)->send(new SendEmail($user,$verify));
-            return view('emailverify')->with('expiry', $expiry)->with('verify',$verify);
+            $error = '인증 코드가 만료되었습니다. 새로운 코드를 이메일로 발송했습니다.';
+
+            $user = User::where('userid',$verify->userid)->first();
+            $verifyCode = mt_rand(100000, 999999);
+            $expire_at = now()->addMinute(5);
+
+            $emailVerify['userid'] = $user->userid;
+            $emailVerify['useremail'] = $user->useremail;
+            $emailVerify['token'] = $verifyCode;
+            $emailVerify['expire_at'] = $expire_at;
+
+            $resentemail = EmailVerify::create($emailVerify);
+
+            Mail::to($user->useremail)->send(new SendEmail($user,$resentemail));
+            return view('emailverify')->with('error', $error)->with('verify',$verify);
         }
 
         $user = User::where('userid',$verify->userid)->first();

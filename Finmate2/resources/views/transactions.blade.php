@@ -92,6 +92,16 @@
         text-align:center;
     }
 
+    @media (max-width: 1024px){
+            .assetTable{
+            width: 88vw;
+        }
+        .assetTable td{
+            width: 90px;
+            height: 100px;
+            font-size: 14px;
+        }
+    }
     @media (max-width: 600px) {
         .scriptCalendar {
         width: 80vw;
@@ -120,6 +130,14 @@
         .calendarDays td {
         font-size: 1.2rem;
         }
+        .assetTable{
+            width: 80vw;
+        }
+        .assetTable td{
+            width: 80px;
+            height: 82px;
+            font-size: 12px;
+        }
     }
 
     @media (max-width: 450px) {
@@ -134,6 +152,11 @@
 
         .calendarDays td {
         font-size: 1rem;
+        }
+        .assetTable td{
+            width: 80px;
+            height: 60px;
+            font-size: 10px;
         }
     }
 
