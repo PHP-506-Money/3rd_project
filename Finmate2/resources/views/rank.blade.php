@@ -40,7 +40,7 @@
         <li id="tab3" class="btnCon"><a class="tabname">아이템뽑기</a>
         </li>
     </ul>
-        <div class="tabCon active">
+        <div class="tabCon tabCon1 active">
             {{-- <h2>포인트 순위</h2> --}}
             <table>
                 <thead>
@@ -114,7 +114,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="tabCon">
+        <div class="tabCon tabCon2">
             {{-- <h2>로그인 순위</h2> --}}
             <table>
                 <thead>
@@ -188,7 +188,7 @@
                 </tbody>
             </table>
         </div>
-        <div class="tabCon">
+        <div class="tabCon tabCon3">
             {{-- <h2>아이템뽑기 순위</h2> --}}
             <table>
                 <thead>
@@ -263,6 +263,53 @@
             </table>
         </div>
 </div>
+
+<script>
+    $(document).ready(function(){
+        $('#tab1').on('click',function(){
+            $('#tab1 a').addClass('active');
+            $('#tab1').addClass('active');
+            $('.tabCon1').addClass('active');
+
+            $('#tab2 a').removeClass('active');
+            $('#tab2').removeClass('active');
+            $('.tabCon2').removeClass('active');
+            $('#tab3 a').removeClass('active');
+            $('#tab3').removeClass('active');
+            $('.tabCon3').removeClass('active');
+        })
+
+        $('#tab2').on('click',function(){
+            $('#tab2 a').addClass('active');
+            $('#tab2').addClass('active');
+            $('.tabCon2').addClass('active');
+
+            $('#tab1 a').removeClass('active');
+            $('#tab1').removeClass('active');
+            $('.tabCon1').removeClass('active');
+            $('#tab3 a').removeClass('active');
+            $('#tab3').removeClass('active');
+            $('.tabCon3').removeClass('active');
+        })
+
+        $('#tab3').on('click',function(){
+            $('#tab3 a').addClass('active');
+            $('#tab3').addClass('active');
+            $('.tabCon3').addClass('active');
+
+            $('#tab1 a').removeClass('active');
+            $('#tab1').removeClass('active');
+            $('.tabCon1').removeClass('active');
+            $('#tab2 a').removeClass('active');
+            $('#tab2').removeClass('active');
+            $('.tabCon2').removeClass('active');
+        })
+
+    })
+
+</script>
+
+
 
 {{-- <script>location.href = "#tab1";
 </script> --}}
