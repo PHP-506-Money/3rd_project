@@ -31,7 +31,7 @@ class TransactionController extends Controller
             ->select('transactions.*' , 'assets.assetname', 'categories.name')
             ->where('assets.userid', $userid)
             ->orderBy('trantime', 'desc') // 거래일시를 기준으로 내림차순 정렬
-            ->get();
+            ->paginate(8);
 
         // 월별 총 수입 및 지출 계산
         $monthly_income = [];
