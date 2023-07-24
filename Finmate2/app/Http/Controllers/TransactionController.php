@@ -101,9 +101,7 @@ class TransactionController extends Controller
             $query->where('categories.no', $req->input('search_category'));
         })
         ->orderBy('transactions.trantime', 'desc')
-        ->get()
-        ->toArray();
-
+        ->get();
 
         return view('transactions', [
             'transactions' => $transactions,
