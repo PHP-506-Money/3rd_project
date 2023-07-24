@@ -7,6 +7,22 @@
 @section('contents')
     <link rel="stylesheet" href="{{ asset('/css/style.css')  }}" >
     <link rel="stylesheet" href="{{ asset('/css/hj.css')  }}" >
+    <style>
+            @media (max-width: 1024px) {
+            .itemlist > button{
+                width:200px;
+                height: 200px;
+            }
+
+        }
+        @media (max-width: 600px) {
+            .itemlist > button{
+                width:280px;
+                height: 280px;
+            }
+
+        }
+    </style>
     <div class="top1"></div>
     {{-- <div class="success">{!!session()->has('success') ? session('success') : ""!!}</div> --}}
     @include('layout.errorsvalidate')
