@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('token')->unique();
             $table->dateTime('expire_at')->nullable();
             $table->timestamps();
-            $table->char('email_verified',1)->default('0');
         });
         
     }

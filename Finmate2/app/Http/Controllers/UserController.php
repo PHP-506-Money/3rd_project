@@ -46,6 +46,12 @@ class UserController extends Controller
             return redirect()->back()->with('error', $error);
         }
 
+        // $verifychk = User::where('userid',$req->id)->first();
+        if($user->email_verified == 0){
+            $exMsg = "인증이 완료되지 않았습니다. 인증을 먼저 해주세요";
+            return redirect()->route('emailverify')->with('verify',$user)->with('exmsg',$exMsg);
+        }
+
         // 유저 인증작업
         Auth::login($user); // 테스트시 비활성화 하고 테스트하면 됨.
         if(Auth::check()) {
@@ -142,8 +148,10 @@ class UserController extends Controller
             return view('emailverify')->with('expiry', $expiry)->with('verify',$verify);
         }
 
-        $verify->email_verified = '1';
-        $verify->save();
+        $user = User::where('userid',$verify->userid)->first();
+
+        $user->email_verified = '1';
+        $user->save();
 
         $success = '<div class="success">✓ Success!<br>회원가입을 완료 했습니다.<br>가입하신 아이디와 비밀번호로 로그인 해주십시오.</div>';
 
