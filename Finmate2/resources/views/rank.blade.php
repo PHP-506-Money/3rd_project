@@ -33,241 +33,242 @@
 
 <div class="tabmenu">
     <ul>
-        <li id="tab1" class="btnCon"><a class="tabname first" href="#tab1" >포인트</a>
-            <div class="tabCon">
-                {{-- <h2>포인트 순위</h2> --}}
-                <table>
-                    <thead>
-                        <tr>
-                            <th>순위</th>
-                            <th>닉네임</th>
-                            <th>포인트</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($pointrank as $key => $value)
-                            @if($key == 0)
-                                <div class="rankeruser">
-                                    <p>{{$key +1}} 위</p>
-                                    <div class="moffin">
-                                        <img class ="mof" src="{{ asset('/img/moffin' . $value->moffintype . '.png') }}" alt="">
-                                        <div class="charitem">
-                                            @foreach ($pointranker as $item)
-                                                @if($item->userid == $value->userid)
-                                                    <input type="hidden" name="itemflg{{ $item->itemno }}" value="{{ $item->itemflg }}">
-                                                    <img id="charitem{{ $item->itemno }}" class="{{ $item->itemflg == 1 ? '' : 'noneimg' }} imgposition" src="{{ asset('/img/charitem'.$item->itemno.'.png') }}">
-                                                @endif
-                                            @endforeach
-                                        </div>
-                                    </div>
-                                    <p><a href={{ url('/users/profile'.'/' . $value->userid) }}>{{$value->username}}</a></p>
-                                    <p>{{$value->point}}</p>
-                                </div>
-                            @elseif($key == 1)
-                                <div class="rankeruser">
-                                    <p>{{$key +1}} 위</p>
-                                    <div class="moffin">
-                                        <img class ="mof" src="{{ asset('/img/moffin' . $value->moffintype . '.png') }}" alt="">
-                                        <div class="charitem">
-                                            @foreach ($pointranker as $item)
-                                                @if($item->userid == $value->userid)
-                                                    <input type="hidden" name="itemflg{{ $item->itemno }}" value="{{ $item->itemflg }}">
-                                                    <img id="charitem{{ $item->itemno }}" class="{{ $item->itemflg == 1 ? '' : 'noneimg' }} imgposition" src="{{ asset('/img/charitem'.$item->itemno.'.png') }}">
-                                                @endif
-                                            @endforeach
-                                        </div>
-                                    </div>
-                                    <p><a href={{ url('/users/profile'.'/' . $value->userid) }}>{{$value->username}}</a></p>
-                                    <p>{{$value->point}}</p>
-                                </div>
-                            @elseif($key == 2)
-                                <div class="rankeruser">
-                                    <p>{{$key +1}} 위</p>
-                                    <div class="moffin">
-                                        <img class ="mof" src="{{ asset('/img/moffin' . $value->moffintype . '.png') }}" alt="">
-                                        <div class="charitem">
-                                            @foreach ($pointranker as $item)
-                                                @if($item->userid == $value->userid)
-                                                    <input type="hidden" name="itemflg{{ $item->itemno }}" value="{{ $item->itemflg }}">
-                                                    <img id="charitem{{ $item->itemno }}" class="{{ $item->itemflg == 1 ? '' : 'noneimg' }} imgposition" src="{{ asset('/img/charitem'.$item->itemno.'.png') }}">
-                                                @endif
-                                            @endforeach
-                                        </div>
-                                    </div>
-                                    <p><a href={{ url('/users/profile'.'/' . $value->userid) }}>{{$value->username}}</a></p>
-                                    <p>{{$value->point}}</p>
-                                </div>
-                            @else
-                                <tr>
-                                    <td>{{$key +1}} 위</td>
-                                    <td><a href={{ url('/users/profile'.'/' . $value->userid) }}>{{$value->username}}</a></td>
-                                    <td>{{$value->point}}</td>
-                                </tr>
-                            @endif
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
+        <li id="tab1" class="btnCon active"><a class="tabname active">포인트</a>
+
         </li>
 
-        <li id="tab2" class="btnCon"><a class="tabname" href="#tab2">로그인</a>
-            <div class="tabCon">
-                {{-- <h2>로그인 순위</h2> --}}
-                <table>
-                    <thead>
-                        <tr>
-                            <th>순위</th>
-                            <th>닉네임</th>
-                            <th>로그인횟수</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach($loginrank as $key => $value)
-                            @if($key == 0)
-                                <div class="rankeruser">
-                                    <p>{{$key +1}} 위</p>
-                                    <div class="moffin">
-                                        <img class ="mof" src="{{ asset('/img/moffin' . $value->moffintype . '.png') }}" alt="">
-                                        <div class="charitem">
-                                            @foreach ($loginranker as $item)
-                                                @if($item->userid == $value->userid)
-                                                    <input type="hidden" name="itemflg{{ $item->itemno }}" value="{{ $item->itemflg }}">
-                                                    <img id="charitem{{ $item->itemno }}" class="{{ $item->itemflg == 1 ? '' : 'noneimg' }} imgposition" src="{{ asset('/img/charitem'.$item->itemno.'.png') }}">
-                                                @endif
-                                            @endforeach
-                                        </div>
-                                    </div>
-                                    <p><a href={{ url('/users/profile'.'/' . $value->userid) }}>{{$value->username}}</a></p>
-                                    <p>{{$value->login_count}}</p>
-                                </div>
-                            @elseif($key == 1)
-                                <div class="rankeruser">
-                                    <p>{{$key +1}} 위</p>
-                                    <div class="moffin">
-                                        <img class ="mof" src="{{ asset('/img/moffin' . $value->moffintype . '.png') }}" alt="">
-                                        <div class="charitem">
-                                            @foreach ($loginranker as $item)
-                                                @if($item->userid == $value->userid)
-                                                    <input type="hidden" name="itemflg{{ $item->itemno }}" value="{{ $item->itemflg }}">
-                                                    <img id="charitem{{ $item->itemno }}" class="{{ $item->itemflg == 1 ? '' : 'noneimg' }} imgposition" src="{{ asset('/img/charitem'.$item->itemno.'.png') }}">
-                                                @endif
-                                            @endforeach
-                                        </div>
-                                    </div>
-                                    <p><a href={{ url('/users/profile'.'/' . $value->userid) }}>{{$value->username}}</a></p>
-                                    <p>{{$value->login_count}}</p>
-                                </div>
-                            @elseif($key == 2)
-                                <div class="rankeruser">
-                                    <p>{{$key +1}} 위</p>
-                                    <div class="moffin">
-                                        <img class ="mof" src="{{ asset('/img/moffin' . $value->moffintype . '.png') }}" alt="">
-                                        <div class="charitem">
-                                            @foreach ($loginranker as $item)
-                                            @if($item->userid == $value->userid)
-                                                    <input type="hidden" name="itemflg{{ $item->itemno }}" value="{{ $item->itemflg }}">
-                                                    <img id="charitem{{ $item->itemno }}" class="{{ $item->itemflg == 1 ? '' : 'noneimg' }} imgposition" src="{{ asset('/img/charitem'.$item->itemno.'.png') }}">
-                                                @endif
-                                            @endforeach
-                                        </div>
-                                    </div>
-                                    <p><a href={{ url('/users/profile'.'/' . $value->userid) }}>{{$value->username}}</a></p>
-                                    <p>{{$value->login_count}}</p>
-                                </div>
-                            @else
-                                <tr>
-                                    <td>{{$key +1}} 위</td>
-                                    <td><a href={{ url('/users/profile'.'/' . $value->userid) }}>{{$value->username}}</a></td>
-                                    <td>{{$value->login_count}}</td>
-                                </tr>
-                            @endif
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
+        <li id="tab2" class="btnCon"><a class="tabname">로그인</a>
         </li>    
 
-        <li id="tab3" class="btnCon"><a class="tabname" href="#tab3">아이템뽑기</a>
-            <div class="tabCon">
-                {{-- <h2>아이템뽑기 순위</h2> --}}
-                <table>
-                    <thead>
-                        <tr>
-                            <th>순위</th>
-                            <th>닉네임</th>
-                            <th>아이템뽑기 횟수</th>
-                        </tr>
-                    </thead>
-                    <tbody> 
-                        @foreach($itemdrawrank as $key => $value)
-                            @if($key == 0)
-                                <div class="rankeruser">
-                                    <p>{{$key +1}} 위</p>
-                                    <div class="moffin">
-                                        <img class ="mof" src="{{ asset('/img/moffin' . $value->moffintype . '.png') }}" alt="">
-                                        <div class="charitem">
-                                            @foreach ($drawranker as $item)
-                                                @if($item->userid == $value->userid)
-                                                    <input type="hidden" name="itemflg{{ $item->itemno }}" value="{{ $item->itemflg }}">
-                                                    <img id="charitem{{ $item->itemno }}" class="{{ $item->itemflg == 1 ? '' : 'noneimg' }} imgposition" src="{{ asset('/img/charitem'.$item->itemno.'.png') }}">
-                                                @endif
-                                            @endforeach
-                                        </div>
-                                    </div>
-                                    <p><a href={{ url('/users/profile'.'/' . $value->userid) }}>{{$value->username}}</a></p>
-                                    <p>{{$value->item_draw_count}}</p>
-                                </div>
-                            @elseif($key == 1)
-                                <div class="rankeruser">
-                                    <p>{{$key +1}} 위</p>
-                                    <div class="moffin">
-                                        <img class ="mof" src="{{ asset('/img/moffin' . $value->moffintype . '.png') }}" alt="">
-                                        <div class="charitem">
-                                            @foreach ($drawranker as $item)
-                                                @if($item->userid == $value->userid)
-                                                    <input type="hidden" name="itemflg{{ $item->itemno }}" value="{{ $item->itemflg }}">
-                                                    <img id="charitem{{ $item->itemno }}" class="{{ $item->itemflg == 1 ? '' : 'noneimg' }} imgposition" src="{{ asset('/img/charitem'.$item->itemno.'.png') }}">
-                                                @endif
-                                            @endforeach
-                                        </div>
-                                    </div>
-                                    <p><a href={{ url('/users/profile'.'/' . $value->userid) }}>{{$value->username}}</a></p>
-                                    <p>{{$value->item_draw_count}}</p>
-                                </div>
-                            @elseif($key == 2)
-                                <div class="rankeruser">
-                                    <p>{{$key +1}} 위</p>
-                                    <div class="moffin">
-                                        <img class ="mof" src="{{ asset('/img/moffin' . $value->moffintype . '.png') }}" alt="">
-                                        <div class="charitem">
-                                            @foreach ($drawranker as $item)
-                                                @if($item->userid == $value->userid)
-                                                    <input type="hidden" name="itemflg{{ $item->itemno }}" value="{{ $item->itemflg }}">
-                                                    <img id="charitem{{ $item->itemno }}" class="{{ $item->itemflg == 1 ? '' : 'noneimg' }} imgposition" src="{{ asset('/img/charitem'.$item->itemno.'.png') }}">
-                                                @endif
-                                            @endforeach
-                                        </div>
-                                    </div>
-                                    <p><a href={{ url('/users/profile'.'/' . $value->userid) }}>{{$value->username}}</a></p>
-                                    <p>{{$value->item_draw_count}}</p>
-                                </div>
-                            @else
-                                <tr>
-                                    <td>{{$key +1}} 위</td>
-                                    <td><a href={{ url('/users/profile'.'/' . $value->userid) }}>{{$value->username}}</a></td>
-                                    <td>{{$value->item_draw_count}}</td>
-                                </tr>
-                            @endif
-                        @endforeach
-                    </tbody>
-                </table>
-            </div>
+        <li id="tab3" class="btnCon"><a class="tabname">아이템뽑기</a>
         </li>
     </ul>
+        <div class="tabCon active">
+            {{-- <h2>포인트 순위</h2> --}}
+            <table>
+                <thead>
+                    <tr>
+                        <th>순위</th>
+                        <th>닉네임</th>
+                        <th>포인트</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($pointrank as $key => $value)
+                        @if($key == 0)
+                            <div class="rankeruser">
+                                <p>{{$key +1}} 위</p>
+                                <div class="moffin">
+                                    <img class ="mof" src="{{ asset('/img/moffin' . $value->moffintype . '.png') }}" alt="">
+                                    <div class="charitem">
+                                        @foreach ($pointranker as $item)
+                                            @if($item->userid == $value->userid)
+                                                <input type="hidden" name="itemflg{{ $item->itemno }}" value="{{ $item->itemflg }}">
+                                                <img id="charitem{{ $item->itemno }}" class="{{ $item->itemflg == 1 ? '' : 'noneimg' }} imgposition" src="{{ asset('/img/charitem'.$item->itemno.'.png') }}">
+                                            @endif
+                                        @endforeach
+                                    </div>
+                                </div>
+                                <p><a href={{ url('/users/profile'.'/' . $value->userid) }}>{{$value->username}}</a></p>
+                                <p>{{$value->point}}</p>
+                            </div>
+                        @elseif($key == 1)
+                            <div class="rankeruser">
+                                <p>{{$key +1}} 위</p>
+                                <div class="moffin">
+                                    <img class ="mof" src="{{ asset('/img/moffin' . $value->moffintype . '.png') }}" alt="">
+                                    <div class="charitem">
+                                        @foreach ($pointranker as $item)
+                                            @if($item->userid == $value->userid)
+                                                <input type="hidden" name="itemflg{{ $item->itemno }}" value="{{ $item->itemflg }}">
+                                                <img id="charitem{{ $item->itemno }}" class="{{ $item->itemflg == 1 ? '' : 'noneimg' }} imgposition" src="{{ asset('/img/charitem'.$item->itemno.'.png') }}">
+                                            @endif
+                                        @endforeach
+                                    </div>
+                                </div>
+                                <p><a href={{ url('/users/profile'.'/' . $value->userid) }}>{{$value->username}}</a></p>
+                                <p>{{$value->point}}</p>
+                            </div>
+                        @elseif($key == 2)
+                            <div class="rankeruser">
+                                <p>{{$key +1}} 위</p>
+                                <div class="moffin">
+                                    <img class ="mof" src="{{ asset('/img/moffin' . $value->moffintype . '.png') }}" alt="">
+                                    <div class="charitem">
+                                        @foreach ($pointranker as $item)
+                                            @if($item->userid == $value->userid)
+                                                <input type="hidden" name="itemflg{{ $item->itemno }}" value="{{ $item->itemflg }}">
+                                                <img id="charitem{{ $item->itemno }}" class="{{ $item->itemflg == 1 ? '' : 'noneimg' }} imgposition" src="{{ asset('/img/charitem'.$item->itemno.'.png') }}">
+                                            @endif
+                                        @endforeach
+                                    </div>
+                                </div>
+                                <p><a href={{ url('/users/profile'.'/' . $value->userid) }}>{{$value->username}}</a></p>
+                                <p>{{$value->point}}</p>
+                            </div>
+                        @else
+                            <tr>
+                                <td>{{$key +1}} 위</td>
+                                <td><a href={{ url('/users/profile'.'/' . $value->userid) }}>{{$value->username}}</a></td>
+                                <td>{{$value->point}}</td>
+                            </tr>
+                        @endif
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+        <div class="tabCon">
+            {{-- <h2>로그인 순위</h2> --}}
+            <table>
+                <thead>
+                    <tr>
+                        <th>순위</th>
+                        <th>닉네임</th>
+                        <th>로그인횟수</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($loginrank as $key => $value)
+                        @if($key == 0)
+                            <div class="rankeruser">
+                                <p>{{$key +1}} 위</p>
+                                <div class="moffin">
+                                    <img class ="mof" src="{{ asset('/img/moffin' . $value->moffintype . '.png') }}" alt="">
+                                    <div class="charitem">
+                                        @foreach ($loginranker as $item)
+                                            @if($item->userid == $value->userid)
+                                                <input type="hidden" name="itemflg{{ $item->itemno }}" value="{{ $item->itemflg }}">
+                                                <img id="charitem{{ $item->itemno }}" class="{{ $item->itemflg == 1 ? '' : 'noneimg' }} imgposition" src="{{ asset('/img/charitem'.$item->itemno.'.png') }}">
+                                            @endif
+                                        @endforeach
+                                    </div>
+                                </div>
+                                <p><a href={{ url('/users/profile'.'/' . $value->userid) }}>{{$value->username}}</a></p>
+                                <p>{{$value->login_count}}</p>
+                            </div>
+                        @elseif($key == 1)
+                            <div class="rankeruser">
+                                <p>{{$key +1}} 위</p>
+                                <div class="moffin">
+                                    <img class ="mof" src="{{ asset('/img/moffin' . $value->moffintype . '.png') }}" alt="">
+                                    <div class="charitem">
+                                        @foreach ($loginranker as $item)
+                                            @if($item->userid == $value->userid)
+                                                <input type="hidden" name="itemflg{{ $item->itemno }}" value="{{ $item->itemflg }}">
+                                                <img id="charitem{{ $item->itemno }}" class="{{ $item->itemflg == 1 ? '' : 'noneimg' }} imgposition" src="{{ asset('/img/charitem'.$item->itemno.'.png') }}">
+                                            @endif
+                                        @endforeach
+                                    </div>
+                                </div>
+                                <p><a href={{ url('/users/profile'.'/' . $value->userid) }}>{{$value->username}}</a></p>
+                                <p>{{$value->login_count}}</p>
+                            </div>
+                        @elseif($key == 2)
+                            <div class="rankeruser">
+                                <p>{{$key +1}} 위</p>
+                                <div class="moffin">
+                                    <img class ="mof" src="{{ asset('/img/moffin' . $value->moffintype . '.png') }}" alt="">
+                                    <div class="charitem">
+                                        @foreach ($loginranker as $item)
+                                        @if($item->userid == $value->userid)
+                                                <input type="hidden" name="itemflg{{ $item->itemno }}" value="{{ $item->itemflg }}">
+                                                <img id="charitem{{ $item->itemno }}" class="{{ $item->itemflg == 1 ? '' : 'noneimg' }} imgposition" src="{{ asset('/img/charitem'.$item->itemno.'.png') }}">
+                                            @endif
+                                        @endforeach
+                                    </div>
+                                </div>
+                                <p><a href={{ url('/users/profile'.'/' . $value->userid) }}>{{$value->username}}</a></p>
+                                <p>{{$value->login_count}}</p>
+                            </div>
+                        @else
+                            <tr>
+                                <td>{{$key +1}} 위</td>
+                                <td><a href={{ url('/users/profile'.'/' . $value->userid) }}>{{$value->username}}</a></td>
+                                <td>{{$value->login_count}}</td>
+                            </tr>
+                        @endif
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+        <div class="tabCon">
+            {{-- <h2>아이템뽑기 순위</h2> --}}
+            <table>
+                <thead>
+                    <tr>
+                        <th>순위</th>
+                        <th>닉네임</th>
+                        <th>아이템뽑기 횟수</th>
+                    </tr>
+                </thead>
+                <tbody> 
+                    @foreach($itemdrawrank as $key => $value)
+                        @if($key == 0)
+                            <div class="rankeruser">
+                                <p>{{$key +1}} 위</p>
+                                <div class="moffin">
+                                    <img class ="mof" src="{{ asset('/img/moffin' . $value->moffintype . '.png') }}" alt="">
+                                    <div class="charitem">
+                                        @foreach ($drawranker as $item)
+                                            @if($item->userid == $value->userid)
+                                                <input type="hidden" name="itemflg{{ $item->itemno }}" value="{{ $item->itemflg }}">
+                                                <img id="charitem{{ $item->itemno }}" class="{{ $item->itemflg == 1 ? '' : 'noneimg' }} imgposition" src="{{ asset('/img/charitem'.$item->itemno.'.png') }}">
+                                            @endif
+                                        @endforeach
+                                    </div>
+                                </div>
+                                <p><a href={{ url('/users/profile'.'/' . $value->userid) }}>{{$value->username}}</a></p>
+                                <p>{{$value->item_draw_count}}</p>
+                            </div>
+                        @elseif($key == 1)
+                            <div class="rankeruser">
+                                <p>{{$key +1}} 위</p>
+                                <div class="moffin">
+                                    <img class ="mof" src="{{ asset('/img/moffin' . $value->moffintype . '.png') }}" alt="">
+                                    <div class="charitem">
+                                        @foreach ($drawranker as $item)
+                                            @if($item->userid == $value->userid)
+                                                <input type="hidden" name="itemflg{{ $item->itemno }}" value="{{ $item->itemflg }}">
+                                                <img id="charitem{{ $item->itemno }}" class="{{ $item->itemflg == 1 ? '' : 'noneimg' }} imgposition" src="{{ asset('/img/charitem'.$item->itemno.'.png') }}">
+                                            @endif
+                                        @endforeach
+                                    </div>
+                                </div>
+                                <p><a href={{ url('/users/profile'.'/' . $value->userid) }}>{{$value->username}}</a></p>
+                                <p>{{$value->item_draw_count}}</p>
+                            </div>
+                        @elseif($key == 2)
+                            <div class="rankeruser">
+                                <p>{{$key +1}} 위</p>
+                                <div class="moffin">
+                                    <img class ="mof" src="{{ asset('/img/moffin' . $value->moffintype . '.png') }}" alt="">
+                                    <div class="charitem">
+                                        @foreach ($drawranker as $item)
+                                            @if($item->userid == $value->userid)
+                                                <input type="hidden" name="itemflg{{ $item->itemno }}" value="{{ $item->itemflg }}">
+                                                <img id="charitem{{ $item->itemno }}" class="{{ $item->itemflg == 1 ? '' : 'noneimg' }} imgposition" src="{{ asset('/img/charitem'.$item->itemno.'.png') }}">
+                                            @endif
+                                        @endforeach
+                                    </div>
+                                </div>
+                                <p><a href={{ url('/users/profile'.'/' . $value->userid) }}>{{$value->username}}</a></p>
+                                <p>{{$value->item_draw_count}}</p>
+                            </div>
+                        @else
+                            <tr>
+                                <td>{{$key +1}} 위</td>
+                                <td><a href={{ url('/users/profile'.'/' . $value->userid) }}>{{$value->username}}</a></td>
+                                <td>{{$value->item_draw_count}}</td>
+                            </tr>
+                        @endif
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
 </div>
 
-<script>location.href = "#tab1";
-</script>
+{{-- <script>location.href = "#tab1";
+</script> --}}
 
 {{-- @if(session()->has('errmsg'))
         {{ session('errmsg') }}

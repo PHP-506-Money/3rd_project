@@ -208,10 +208,11 @@ th {
 ul{list-style:none;}
 
 .tabmenu{ 
-    width:90%; 
-    margin: 0 auto;
+    width: 100%; 
+    /* margin: 0 auto; */
+    text-align: center;
     position:relative; 
-    height: 780px;
+    /* height: 780px; */
     margin-top: 30px;
 }
 .tabmenu ul li{
@@ -221,6 +222,11 @@ ul{list-style:none;}
     text-align:center; 
   /* background :#f9f9f9; */
 }
+
+.tabmenu ul li:hover {
+    cursor: pointer;
+}
+
 .tabmenu ul li a{
     display:block;
     line-height:40px;
@@ -239,22 +245,20 @@ ul{list-style:none;}
     text-align:center; 
     padding: 20px;
     box-sizing: border-box; 
-    position:absolute; 
+    /* position:absolute; 
     left:3px; top:40px; 
-    width: 100%;
-    
-
+    width: 100%; */
 }
-.btnCon:target  {
+.btnCon.active  {
     border-bottom: 1px solid black;
     /* margin-bottom: 4rem; */
 }
 
-.tapbtn:target {
+.tapbtn.active {
     color:rgb(0, 0, 0);
 }
 
-.btnCon:target .tabCon{
+.tabCon.active{
     display: block;
 }
 thead{
@@ -298,7 +302,7 @@ tbody{
     color: #aaa9a9;
 }
 
-.tabname:target {
+.tabname.active {
     border-bottom: 1px solid #000000;
     color: rgb(0, 0, 0);
 }
@@ -335,9 +339,9 @@ tbody{
 }
 
 @media (max-width: 880px){
-    #wrap {
+    /* #wrap {
         min-height: 2200px;
-    }
+    } */
 
     .rankeruser {
         display: block;
@@ -354,16 +358,16 @@ tbody{
         left: 0%;
     }
 
-    #footer {
+    /* #footer {
         position: fixed;
         width: 100%;
         z-index: 99;
         margin: 13rem auto 0 auto;
-        /* padding-bottom: 15rem; */
+       
         padding-left: 0;
         padding-right: 0;
         bottom: 0;
-    }
+    } */
 }
 
 .rankeruser p{
