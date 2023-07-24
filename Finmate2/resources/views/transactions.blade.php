@@ -530,27 +530,27 @@ currentMonth = currentMonth < 10 ? '0' + currentMonth : currentMonth; updateMont
 
                     // @details 현재일보다 이전인 경우이면서 현재월에 포함되는 일인경우
                     if (nowDate.getDate() > day && Math.sign(day) == 1) {
-                        column.style.cursor = "pointer";
+                        //column.style.cursor = "pointer";
                         column.style.color = "#607EAA";
 
                     }
 
                     // @details 현재일보다 이후이면서 현재월에 포함되는 일인경우
                     else if (nowDate.getDate() < day && lastDate.getDate() >= day) {
-                        column.style.cursor = "pointer";
+                        //column.style.cursor = "pointer";
                     }
 
                     // @details 현재일인 경우
                     else if (nowDate.getDate() == day) {
                         column.style.backgroundColor = "#FF7676";
 
-                        column.style.cursor = "pointer";
+                        //column.style.cursor = "pointer";
                     }
 
                     // @details 현재월보다 이전인경우
                 } else if (toDay.getMonth() < nowDate.getMonth()) {
                     if (Math.sign(day) == 1 && day <= lastDate.getDate()) {
-                        column.style.cursor = "pointer";
+                        //column.style.cursor = "pointer";
                         column.style.color = "#607EAA";
                     }
                 }
@@ -558,7 +558,7 @@ currentMonth = currentMonth < 10 ? '0' + currentMonth : currentMonth; updateMont
                 // @details 현재월보다 이후인경우
                 else {
                     if (Math.sign(day) == 1 && day <= lastDate.getDate()) {
-                        column.style.cursor = "pointer";
+                        //column.style.cursor = "pointer";
                     }
                 }
             }

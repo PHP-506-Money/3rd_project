@@ -52,10 +52,10 @@ class SocialController extends Controller
         
         if(Auth::check()){
             session(['userid' => $userid]);
-            return redirect()->route('main');
+            return redirect()->route('main2');
         }
     
         //     // return view('kakaologin', compact('email'));
-            return redirect()->route('main');
+            return redirect()->route('main2');
     }
 }
