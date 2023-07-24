@@ -334,7 +334,6 @@
         </tbody>
 
     </table>
-            <div class="pagina">{{ $transactions->links() }}</div>
 
 
 

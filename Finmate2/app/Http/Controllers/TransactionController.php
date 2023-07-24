@@ -31,7 +31,7 @@ class TransactionController extends Controller
             ->select('transactions.*' , 'assets.assetname', 'categories.name')
             ->where('assets.userid', $userid)
             ->orderBy('trantime', 'desc') // 거래일시를 기준으로 내림차순 정렬
-            ->paginate(8);
+            ->get();
 
         // 월별 총 수입 및 지출 계산
         $monthly_income = [];
@@ -97,7 +97,9 @@ class TransactionController extends Controller
             $query->where('transactions.TYPE', $req->input('search_tran'));
         })
         ->whereBetween('transactions.trantime', [$req->input('startdate'), $req->input('enddate')])
-        ->when($req->input('search_category') != 99, function ($query) use ($req) {
+        ->when($req->input('search_category') != 99, 
+        function ($query) use ($req) 
+        {
             $query->where('categories.no', $req->input('search_category'));
         })
         ->orderBy('transactions.trantime', 'desc')

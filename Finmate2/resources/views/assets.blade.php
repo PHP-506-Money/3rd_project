@@ -134,7 +134,7 @@
                                             <input type="hidden" name="search_category" value="99">
                                             <button class="view-more-link" type="submit">자산내역보러가기</button>
                                             </form>
-                                            {{-- <a class="view-more-link" href="{{ route('transactions.search',[auth()->user()->userid]) }}">자산 내역 보러가기</a> --}}
+                                           
                                         </div>
                                     </div>
                                 </div>
@@ -146,5 +146,22 @@
         </div>
     </div>
 </div>
+{{-- <div>
+<form action="{{ route('assets.search',[auth()->user()->userid]) }}" method="post">
+ @csrf
+        <div>
+        <div><label for="prompt">질문을 입력해주세요</label></div>
+        <textarea id="prompt" name="prompt" cols="40" rows="3" required></textarea>
+        </div>
+        <div>
+        <input type="submit" value="Submit">
+        </div>
+</form>
+</div>
+<div>
+@if(isset($response))
+    {{var_dump($response)}}
+@endif
+</div> --}}
 
 @endsection
