@@ -75,7 +75,7 @@
 								</button> --}}
 							</div>
 						</div>
-												<div class="main-box main-box_hight">
+						<div class="main-box main-box_hight">
 							<div class="main-txt-area wow fadeInUp">
 								<div class="goobne-text">
 									<p class="mid">목표를 설정하여</p>
@@ -89,6 +89,23 @@
 							<div class="goobne-bg wow fadeInUp">
 								<div class="goobne-img">
 									<img src="/resources/assets/images/banner/main_slide4.png" alt="">
+								</div>
+							</div>
+						</div>
+						<div class="main-box main-box_hight">
+							<div class="main-txt-area wow fadeInUp">
+								<div class="goobne-text">
+									<p class="mid">랭킹에 이름을</p>
+									<p class="last">장식해보세요!</span></p>
+								</div>
+								<div class="goobne-text line">
+									<p class="mid">랭킹에 이름을</p>
+									<p class="last">장식해보세요!</span></p>
+								</div>
+							</div>
+							<div class="goobne-bg wow fadeInUp">
+								<div class="goobne-img">
+									<img src="/resources/assets/images/banner/main_slide5.png" alt="">
 								</div>
 							</div>
 						</div>
