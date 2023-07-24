@@ -35,7 +35,7 @@
     <ul>
         <li id="tab1" class="btnCon"><a class="tabname first" href="#tab1" >포인트</a>
             <div class="tabCon">
-                <h2>포인트 순위</h2>
+                {{-- <h2>포인트 순위</h2> --}}
                 <table>
                     <thead>
                         <tr>
@@ -48,7 +48,7 @@
                         @foreach($pointrank as $key => $value)
                             @if($key == 0)
                                 <div class="rankeruser">
-                                    <p>{{$key +1}}</p>
+                                    <p>{{$key +1}} 위</p>
                                     <div class="moffin">
                                         <img class ="mof" src="{{ asset('/img/moffin' . $value->moffintype . '.png') }}" alt="">
                                         <div class="charitem">
@@ -65,7 +65,7 @@
                                 </div>
                             @elseif($key == 1)
                                 <div class="rankeruser">
-                                    <p>{{$key +1}}</p>
+                                    <p>{{$key +1}} 위</p>
                                     <div class="moffin">
                                         <img class ="mof" src="{{ asset('/img/moffin' . $value->moffintype . '.png') }}" alt="">
                                         <div class="charitem">
@@ -82,7 +82,7 @@
                                 </div>
                             @elseif($key == 2)
                                 <div class="rankeruser">
-                                    <p>{{$key +1}}</p>
+                                    <p>{{$key +1}} 위</p>
                                     <div class="moffin">
                                         <img class ="mof" src="{{ asset('/img/moffin' . $value->moffintype . '.png') }}" alt="">
                                         <div class="charitem">
@@ -99,7 +99,7 @@
                                 </div>
                             @else
                                 <tr>
-                                    <td>{{$key +1}}</td>
+                                    <td>{{$key +1}} 위</td>
                                     <td><a href={{ url('/users/profile'.'/' . $value->userid) }}>{{$value->username}}</a></td>
                                     <td>{{$value->point}}</td>
                                 </tr>
@@ -112,7 +112,7 @@
 
         <li id="tab2" class="btnCon"><a class="tabname" href="#tab2">로그인</a>
             <div class="tabCon">
-                <h2>로그인 순위</h2>
+                {{-- <h2>로그인 순위</h2> --}}
                 <table>
                     <thead>
                         <tr>
@@ -125,7 +125,7 @@
                         @foreach($loginrank as $key => $value)
                             @if($key == 0)
                                 <div class="rankeruser">
-                                    <p>{{$key +1}}</p>
+                                    <p>{{$key +1}} 위</p>
                                     <div class="moffin">
                                         <img class ="mof" src="{{ asset('/img/moffin' . $value->moffintype . '.png') }}" alt="">
                                         <div class="charitem">
@@ -142,7 +142,7 @@
                                 </div>
                             @elseif($key == 1)
                                 <div class="rankeruser">
-                                    <p>{{$key +1}}</p>
+                                    <p>{{$key +1}} 위</p>
                                     <div class="moffin">
                                         <img class ="mof" src="{{ asset('/img/moffin' . $value->moffintype . '.png') }}" alt="">
                                         <div class="charitem">
@@ -159,7 +159,7 @@
                                 </div>
                             @elseif($key == 2)
                                 <div class="rankeruser">
-                                    <p>{{$key +1}}</p>
+                                    <p>{{$key +1}} 위</p>
                                     <div class="moffin">
                                         <img class ="mof" src="{{ asset('/img/moffin' . $value->moffintype . '.png') }}" alt="">
                                         <div class="charitem">
@@ -176,7 +176,7 @@
                                 </div>
                             @else
                                 <tr>
-                                    <td>{{$key +1}}</td>
+                                    <td>{{$key +1}} 위</td>
                                     <td><a href={{ url('/users/profile'.'/' . $value->userid) }}>{{$value->username}}</a></td>
                                     <td>{{$value->login_count}}</td>
                                 </tr>
@@ -189,7 +189,7 @@
 
         <li id="tab3" class="btnCon"><a class="tabname" href="#tab3">아이템뽑기</a>
             <div class="tabCon">
-                <h2>아이템뽑기 순위</h2>
+                {{-- <h2>아이템뽑기 순위</h2> --}}
                 <table>
                     <thead>
                         <tr>
@@ -202,7 +202,7 @@
                         @foreach($itemdrawrank as $key => $value)
                             @if($key == 0)
                                 <div class="rankeruser">
-                                    <p>{{$key +1}}</p>
+                                    <p>{{$key +1}} 위</p>
                                     <div class="moffin">
                                         <img class ="mof" src="{{ asset('/img/moffin' . $value->moffintype . '.png') }}" alt="">
                                         <div class="charitem">
@@ -219,7 +219,7 @@
                                 </div>
                             @elseif($key == 1)
                                 <div class="rankeruser">
-                                    <p>{{$key +1}}</p>
+                                    <p>{{$key +1}} 위</p>
                                     <div class="moffin">
                                         <img class ="mof" src="{{ asset('/img/moffin' . $value->moffintype . '.png') }}" alt="">
                                         <div class="charitem">
@@ -236,7 +236,7 @@
                                 </div>
                             @elseif($key == 2)
                                 <div class="rankeruser">
-                                    <p>{{$key +1}}</p>
+                                    <p>{{$key +1}} 위</p>
                                     <div class="moffin">
                                         <img class ="mof" src="{{ asset('/img/moffin' . $value->moffintype . '.png') }}" alt="">
                                         <div class="charitem">
@@ -253,7 +253,7 @@
                                 </div>
                             @else
                                 <tr>
-                                    <td>{{$key +1}}</td>
+                                    <td>{{$key +1}} 위</td>
                                     <td><a href={{ url('/users/profile'.'/' . $value->userid) }}>{{$value->username}}</a></td>
                                     <td>{{$value->item_draw_count}}</td>
                                 </tr>

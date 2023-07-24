@@ -201,24 +201,24 @@ th {
     background-color: #1C3879;
     color: white;
 }
-td{
-    /* background-color: #FFFBF0; */
-}
+/* td{ 
+    background-color: #FFFBF0;
+    } */
 
 ul{list-style:none;}
 
 .tabmenu{ 
-  width:90%; 
-  margin: 0 auto;
-  position:relative; 
-  height: 780px;
-  margin-top: 30px;
+    width:90%; 
+    margin: 0 auto;
+    position:relative; 
+    height: 780px;
+    margin-top: 30px;
 }
 .tabmenu ul li{
-  display:  inline-block;
-  width:30%; 
-  float:left;  
-  text-align:center; 
+    display: inline-block;
+    width:30%; 
+    /* float:left;   */
+    text-align:center; 
   /* background :#f9f9f9; */
 }
 .tabmenu ul li a{
@@ -227,7 +227,6 @@ ul{list-style:none;}
     height:40px;
     text-decoration:none; 
     /* color: #000; */
-
 }
 .tapbtn {
     font-size: 2.1rem;
@@ -236,17 +235,19 @@ ul{list-style:none;}
 }
 
 .tabCon{
-  display:none; 
-  text-align:center; 
-  padding: 20px;
-  box-sizing: border-box; 
-  position:absolute; 
-  left:3px; top:40px; 
-  width: 100%;
+    display:none; 
+    text-align:center; 
+    padding: 20px;
+    box-sizing: border-box; 
+    position:absolute; 
+    left:3px; top:40px; 
+    width: 100%;
+    
 
 }
 .btnCon:target  {
-  border-bottom: 1px solid black;
+    border-bottom: 1px solid black;
+    /* margin-bottom: 4rem; */
 }
 
 .tapbtn:target {
@@ -254,7 +255,7 @@ ul{list-style:none;}
 }
 
 .btnCon:target .tabCon{
-  display: block;
+    display: block;
 }
 thead{
     font-size: 1.7rem;
@@ -264,6 +265,8 @@ thead{
 tbody{
     font-size: 1.5rem;
 }
+
+
 
 .rankname{
     font-size: 1.9rem;
@@ -313,15 +316,59 @@ tbody{
 }
 
 .rankeruser{
+    display: inline-block;
     border: 1px solid rgb(197, 197, 194);
     border-radius: 0.4rem ;
-    width: 15%;
-    height: 30%;
+    width: 24%;
     position: relative;
+    margin: 2%;
+    bottom: 0;
+}
+
+.rankeruser:nth-child(1){
+    left: 28%;
+    border: 1px solid rgb(255, 144, 144);
+}
+
+.rankeruser:nth-child(2) {
+    left: -28%;
+}
+
+@media (max-width: 880px){
+    #wrap {
+        min-height: 2200px;
+    }
+
+    .rankeruser {
+        display: block;
+        width: 60%;
+        margin: 1% auto;
+        /* height: 60vw; */
+    }
+    .rankeruser:nth-child(1) {
+        left: 0%;
+
+    }
+
+    .rankeruser:nth-child(2) {
+        left: 0%;
+    }
+
+    #footer {
+        position: fixed;
+        width: 100%;
+        z-index: 99;
+        margin: 13rem auto 0 auto;
+        /* padding-bottom: 15rem; */
+        padding-left: 0;
+        padding-right: 0;
+        bottom: 0;
+    }
 }
 
 .rankeruser p{
     font-size: 1.5rem;
+    padding: 1% 0;
 }
 
 #charitem1, #charitem3, #charitem4, #charitem7, #charitem8, #charitem11, #charitem12, #charitem13, #charitem15, #charitem16, #charitem17, #charitem19, #charitem20, #charitem21, #charitem22
@@ -329,11 +376,12 @@ tbody{
     z-index: 2;
 }
 
-#charitem2, #charitem5 {
+#charitem2, #charitem5,
+#charitem14 {
     z-index: 3;
 }
 
-#charitem6, #charitem10, #charitem14 {
+#charitem6, #charitem10 {
     z-index: 0;
 }
 
@@ -342,7 +390,7 @@ tbody{
 }
 
 .moffin img {
-    width: 70%;
+    width: 66%;
 }
 
 .charitem img {
@@ -357,7 +405,7 @@ tbody{
 .imgposition{
     position: absolute;
     left: 50%;
-    top: 40%;
+    top: 39%;
     transform: translate(-50%, -50%);
 }
 
