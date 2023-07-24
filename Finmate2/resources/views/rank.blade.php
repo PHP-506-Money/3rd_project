@@ -34,12 +34,9 @@
 <div class="tabmenu">
     <ul>
         <li id="tab1" class="btnCon active"><a class="tabname active">포인트</a>
-
         </li>
-
         <li id="tab2" class="btnCon"><a class="tabname">로그인</a>
         </li>    
-
         <li id="tab3" class="btnCon"><a class="tabname">아이템뽑기</a>
         </li>
     </ul>
