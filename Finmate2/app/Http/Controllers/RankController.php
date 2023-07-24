@@ -45,50 +45,15 @@ class RankController extends Controller
         
         // v002 add start kim  add
 
-        $pointranker = DB::select( " 
-        SELECT us.userid as userid , it.itemno as itemno , it.itemflg as itemflg
-        FROM users us INNER JOIN items it ON us.userid = it.userid
-        WHERE us.deleted_at IS NULL 
-        AND us.userid IN (
-            SELECT userid
-            FROM (
-                SELECT userid, RANK() OVER (ORDER BY point DESC) AS point_RANK
-                FROM users
-            ) ranked_users
-            WHERE point_RANK <= 3
-        )
-        ORDER by us.point desc " );
+        $query = DB::table('users')
+        ->join('items','items.userid','=','users.userid')
+        ->select('users.userid as userid','items.itemno as itemno','items.itemflg as itemflg')
+        ->whereNull('users.deleted_at');
 
-        $loginranker = DB::select(" 
-        SELECT us.userid as userid , it.itemno as itemno , it.itemflg as itemflg
-        FROM users us INNER JOIN items it ON us.userid = it.userid
-        WHERE us.deleted_at IS NULL 
-        AND us.userid IN (
-            SELECT userid
-            FROM (
-                SELECT userid, RANK() OVER (ORDER BY login_count DESC) AS point_RANK
-                FROM users
-            ) ranked_users
-            WHERE point_RANK <= 3
-        )
-        ORDER by us.login_count desc
-        ");
+        $pointranker = $query->orderBy('users.point','desc')->get();
+        $loginranker = $query->orderBy('users.login_count','desc')->get();
+        $drawranker = $query->orderBy('users.item_draw_count','desc')->get();
 
-        $drawranker = DB::select(" 
-        SELECT us.userid as userid , it.itemno as itemno , it.itemflg as itemflg
-        FROM users us INNER JOIN items it ON us.userid = it.userid
-        WHERE us.deleted_at IS NULL 
-        AND us.userid IN (
-            SELECT userid
-            FROM (
-                SELECT userid, RANK() OVER (ORDER BY item_draw_count DESC) AS point_RANK
-                FROM users
-            ) ranked_users
-            WHERE point_RANK <= 3
-        )
-        ORDER by us.item_draw_count desc
-        ");
-        
         return view('rank')
         ->with('pointrank', $pointrank)->with('loginrank', $loginrank)->with('itemdrawrank', $itemdrawrank)
         ->with('pointranker', $pointranker)->with('loginranker', $loginranker)->with('drawranker', $drawranker);

@@ -59,22 +59,26 @@ span:hover + p.arrow_box {
 }
 
 .success {
-    background-color: var(--btn-color);
-    color: white;
+    color: #000000;
     font-weight: 500;
     border-radius: 10px;
     margin: 10px;
+
 }
 
 .error {
     color: var(--active-color);
     font-weight: 400;
-    margin-bottom: 30px;
+    margin-bottom: 3rem;
+    font-size: 1.3rem;
+    width: 28rem;
+    margin: 0 auto;
+    height: 2rem;
 }
 
 #errMsg {
     text-align: center;
-    font-size: small;
+    font-size: 1.5rem;
     color: red;
     margin-top: 3px;
 }
@@ -92,19 +96,6 @@ span:hover + p.arrow_box {
     text-align: center;
     font-size: small;
 }
-
-/* [type="radio"]:not(:checked) { 
-    background-image: url('../img/none.png');
-    background-repeat: no-repeat;
-    width: 2.5rem;
-    height: 2.5rem;
-}
-[type="radio"]:checked { 
-    background-image: url('../img/chk.png');
-    background-repeat: no-repeat;
-    width: 2.5rem;
-    height: 2.5rem;
-} */
 
 label>.mofin-rabbit{
     background-image: url('../img/rabbit2.png');
@@ -156,7 +147,7 @@ label>.mofin-penguin{
     background-size: contain;
 }
 
-#panda:not(:checked) + label>.mofin-panda{
+/* #panda:not(:checked) + label>.mofin-panda{
     filter: grayscale(1);
 }
 #penguin:not(:checked) + label>.mofin-penguin{
@@ -164,7 +155,12 @@ label>.mofin-penguin{
 }
 #panda:not(:checked) + label>.mofin-panda{
     filter: grayscale(1);
+} */
+
+.btnverify{
+    margin-top: 2rem;
 }
+
 
 /*******    랭킹    *********/
 .rankTit {
@@ -331,11 +327,16 @@ tbody{
 
 .rankeruser:nth-child(1){
     left: 28%;
-    border: 1px solid rgb(255, 144, 144);
+
+    border: 2px solid rgb(255, 144, 144);
 }
 
 .rankeruser:nth-child(2) {
     left: -28%;
+}
+
+.rankk {
+    font-size: 1.8rem;
 }
 
 @media (max-width: 880px){
@@ -418,3 +419,10 @@ tbody{
     display: none;
 }
 
+.mofinmsg{
+    margin: 0 auto;
+    margin-top: 0.8rem;
+    width: 15rem;
+    font-size: 1.3rem;
+    color: var(--active-color);
+}

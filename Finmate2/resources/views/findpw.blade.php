@@ -5,7 +5,7 @@
 @section('header', 'FIND PASSWORD')
 
 @section('contents')
-
+<link rel="stylesheet" href="{{ asset('/css/kjav2.css')  }}" >
     <div id="content">
         <article class="l-layout login find-id">
             <section class="login__inner">
