@@ -5,7 +5,7 @@
 @section('header', 'MY TRANSACTIONS')
 
 @section('contents')
-
+    {{-- <link rel="stylesheet" href="{{ asset('/css/hj.css')  }}" > --}}
 <style>
  ul {
         font-size:20px;
@@ -297,7 +297,7 @@
             
     <table id="assetTable" class="assetTable" style=" width:50%; text-align:center; font-size:20px; margin:0px auto; margin-top:20px " >
         <thead>
-            <tr>
+            <tr style="margin-bottom:10px;">
                 <th>자산명</th>
                 <th>거래구분</th>
                 <th>거래처</th>

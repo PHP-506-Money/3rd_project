@@ -297,3 +297,17 @@ ul{list-style:none;}
     align-items: center;
     justify-content: center;
 }
+@media (max-width: 1024px) {
+    .itemlist > button{
+        width:200px;
+        height: 200px;
+    }
+
+}
+@media (max-width: 600px) {
+    .itemlist > button{
+        width:280px;
+        height: 280px;
+    }
+
+}
