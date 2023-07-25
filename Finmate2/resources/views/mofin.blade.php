@@ -294,7 +294,7 @@
 </div>
 <br><br>
 <div style="text-align : center; font-size:40px; ">내 컬렉션</div>
-
+    <span> 천사날개와 꼬마악마 아이템 조합가능(레어)</span>
 <div class="item-list">
     @foreach ($itemname as $value)
         <div class="item-box">
@@ -320,10 +320,11 @@
 @endphp
 
 @if ($filteredItems->where('itemno', 6)->isNotEmpty() && $filteredItems->where('itemno', 18)->isNotEmpty())
-    <span> 천사날개와 악마날개를 조합하시겠습니까?(악마날개 완성)</span>
+    <span style="font-size : 25px ;"> 천사날개와 악마날개를 조합하시겠습니까?(성공률20% -300pt)</span>
     <form id="mixitem" name="mixitem" action="{{route('mofin.itemmix',[auth()->user()->userid])}}" method="post"> 
     @csrf
-    <button onclick="confirmmix()" > 조합하기 </button>
+    
+    <button class="l-btn buttonn" onclick="confirmmix()" type="button"> 조합하기 </button>
     </form>
 @endif
 </div>
@@ -377,7 +378,7 @@
                 }
             }
             function confirmmix() {
-                if (confirm("정말 조합하시겠습니까?(20%성공) \n 조합비용 300pt")) {
+                if (confirm("정말 조합하시겠습니까?(20%성공) \n 조합비용 300pt \n 실패시 조합아이템은 사라집니다" )) {
                 document.getElementById('mixitem').submit();
                 }
             }

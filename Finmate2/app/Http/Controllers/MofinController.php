@@ -20,6 +20,11 @@ class MofinController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+//----------------------최혁재----------------------------
+// 함수명   : index                                      -
+// 기능     : 뽑기 페이지 뷰 표시(정보출력)               -
+//--------------------------------------------------------    
     public function index($id)
     {
         $current_user_id = auth()->user()->userid;
@@ -52,6 +57,10 @@ class MofinController extends Controller
 
     }
 
+//----------------------최혁재----------------------------
+// 함수명   : point                                      -
+// 기능     : 포인트를 투자해 랜덤 포인트 뽑기            -
+//--------------------------------------------------------
     public function point($id)
     {
         // 유저의 포인트 조회
@@ -120,6 +129,10 @@ class MofinController extends Controller
 
     }
 
+//----------------------최혁재----------------------------
+// 함수명   : item                                       -
+// 기능     : 포인트를 투자해 랜덤아이템 뽑기             -
+//--------------------------------------------------------
     public function item($id)
     {
         $result  = DB::table('users')
@@ -209,6 +222,10 @@ class MofinController extends Controller
 
         return view('mofin')->with('data', $result)->with('itemname', $itemname)->with('pt1', $pt1);
     }
+//----------------------최혁재----------------------------
+// 함수명   : search                                     -
+// 기능     : 유저검색후 유저 모핀이 구경 기능            -
+//--------------------------------------------------------
     
     public function search(Request $req, $id){
         $result = DB::table('users')->select('userid')->whereNull('deleted_at')->where('userid',$req->search_name)->first();
@@ -224,7 +241,10 @@ class MofinController extends Controller
         }
 
     }
-
+//----------------------최혁재----------------------------
+// 함수명   : itemsell                                   -
+// 기능     : 아이템 판매해서 포인트로 변환               -
+//--------------------------------------------------------
     public function itemsell(Request $req, $id){
         $current_user_id = auth()->user()->userid;
         if ($current_user_id != $id) {
@@ -274,8 +294,10 @@ class MofinController extends Controller
         
 
     }
-
-
+//----------------------최혁재----------------------------
+// 함수명   : itemmix                                    -
+// 기능     : 아이템 조합해서 성공시 레어아이템 획득가능  -
+//--------------------------------------------------------
     public function itemmix($id){
 
 
@@ -289,15 +311,9 @@ class MofinController extends Controller
         ->where('userid', $id)
         ->first();
 
-
-
         $userpoint = $userinfo->point;
 
-
         if($userpoint>300){
-
-        
-
 
                 $userpoint -= 300;    
 
@@ -326,7 +342,7 @@ class MofinController extends Controller
                     
                     }
 
-                    else if($angelcount == 1 && $devilcount == 0){
+                    else if($angelcount > 0 && $devilcount == 0){
 
                         $angelcount = $angelcount-1 ;
                         DB::table('items')
@@ -337,14 +353,12 @@ class MofinController extends Controller
                         DB::table('items')
                         ->where('userid', $id)
                         ->where('itemno', 18)->delete();
-
-
-
                     }
 
-                    else if($angelcount == 0 && $devilcount == 1){
+                    else if($angelcount == 0 && $devilcount > 0){
 
                         $devilcount = $devilcount-1 ;
+
                         DB::table('items')
                         ->where('userid', $id)
                         ->where('itemno', 18)
@@ -353,10 +367,9 @@ class MofinController extends Controller
                         DB::table('items')
                         ->where('userid', $id)
                         ->where('itemno', 6)->delete();
-
                     }
                     
-                    else if($angelcount  > 0 && $devilcount > 0){
+                    else if($angelcount > 0 && $devilcount > 0){
 
                         $angelcount = $angelcount-1 ;
                         $devilcount = $devilcount-1 ;
@@ -372,14 +385,10 @@ class MofinController extends Controller
                         ->update(['itemcount' =>$devilcount]);
                     }
 
-
-
                 $uniqueitem = rand(23,26);
-
 
                 if($uniqueitem == 23){
 
-                
                 $data['userno'] = $userinfo->userno;
                 $data['userid'] = $id;
                 $data['itemno'] = $uniqueitem;
@@ -399,17 +408,16 @@ class MofinController extends Controller
                         // 해당 아이템이 없으면 아이템을 추가
                         DB::table('items')->insert($data);
                     }
-                    $pt1 = "축하합니다 조합에 성공하셨습니다!";
+                $pt1 = "축하합니다 조합에 성공하셨습니다!";
 
-                    $itemname = DB::table('iteminfos')
-                    ->join('items', 'iteminfos.itemno', '=', 'items.itemno')
-                    ->where('items.userid', $id)
-                    ->get();
+                $itemname = DB::table('iteminfos')
+                ->join('items', 'iteminfos.itemno', '=', 'items.itemno')
+                ->where('items.userid', $id)
+                ->get();
 
-                    $userinfo = DB::table('users')
-                    ->where('userid', $id)
-                    ->first();
-
+                $userinfo = DB::table('users')
+                ->where('userid', $id)
+                ->first();
 
                 return view('mofin')->with('data', $userinfo)->with('itemname', $itemname)->with('pt1', $pt1);
 
