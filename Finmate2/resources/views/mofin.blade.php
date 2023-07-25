@@ -312,6 +312,21 @@
         </div>
     @endforeach
 </div>
+<div>
+@php
+    $filteredItems = $itemname->filter(function ($item) {
+        return $item->itemno == 6 || $item->itemno == 18;
+    });
+@endphp
+
+@if ($filteredItems->where('itemno', 6)->isNotEmpty() && $filteredItems->where('itemno', 18)->isNotEmpty())
+    <span> 천사날개와 악마날개를 조합하시겠습니까?(악마날개 완성)</span>
+    <form id="mixitem" name="mixitem" action="{{route('mofin.itemmix',[auth()->user()->userid])}}" method="post"> 
+    @csrf
+    <button onclick="confirmmix()" > 조합하기 </button>
+    </form>
+@endif
+</div>
 
     <script>
 
@@ -359,6 +374,11 @@
             function confirmsell($num) {
                 if (confirm("판매가격은 100원입니다 정말 파시겠습니까?")) {
                     document.getElementById(`itemsell${$num}`).submit();
+                }
+            }
+            function confirmmix() {
+                if (confirm("정말 조합하시겠습니까?(20%성공) \n 조합비용 300pt")) {
+                document.getElementById('mixitem').submit();
                 }
             }
 

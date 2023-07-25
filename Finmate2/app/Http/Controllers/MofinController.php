@@ -206,7 +206,7 @@ class MofinController extends Controller
         ->join('items', 'iteminfos.itemno', '=', 'items.itemno')
         ->where('items.userid', $id)
         ->get();
-        
+
         return view('mofin')->with('data', $result)->with('itemname', $itemname)->with('pt1', $pt1);
     }
     
@@ -272,6 +272,181 @@ class MofinController extends Controller
 
         }
         
+
+    }
+
+
+    public function itemmix($id){
+
+
+
+        $current_user_id = auth()->user()->userid;
+        if ($current_user_id != $id) {
+            return redirect('/unauthorized-access'); // 잘못된 접근 페이지로 리다이렉트
+        }
+
+        $userinfo = DB::table('users')
+        ->where('userid', $id)
+        ->first();
+
+
+
+        $userpoint = $userinfo->point;
+
+
+        if($userpoint>300){
+
+        
+
+
+                $userpoint -= 300;    
+
+                DB::table('users')
+                ->where('userid', $id)
+                ->update(['point' =>$userpoint]); // 여기서 유저포인트 300 줄이고
+                
+                $angelcount = DB::table('items')
+                ->select('itemcount')
+                ->where('userid', $id)
+                ->where('itemno',6)
+                ->value('itemcount');
+
+                $devilcount = DB::table('items')
+                ->select('itemcount')
+                ->where('userid', $id)
+                ->where('itemno',18)
+                ->value('itemcount');
+
+
+                    if($angelcount == 0 && $devilcount == 0){
+
+                    DB::table('items')
+                    ->where('userid', $id)
+                    ->where('itemno',6)->orWhere('itemno', 18)->delete();
+                    
+                    }
+
+                    else if($angelcount == 1 && $devilcount == 0){
+
+                        $angelcount = $angelcount-1 ;
+                        DB::table('items')
+                        ->where('userid', $id)
+                        ->where('itemno', 6)
+                        ->update(['itemcount' =>$angelcount]);
+
+                        DB::table('items')
+                        ->where('userid', $id)
+                        ->where('itemno', 18)->delete();
+
+
+
+                    }
+
+                    else if($angelcount == 0 && $devilcount == 1){
+
+                        $devilcount = $devilcount-1 ;
+                        DB::table('items')
+                        ->where('userid', $id)
+                        ->where('itemno', 18)
+                        ->update(['itemcount' =>$devilcount]);
+
+                        DB::table('items')
+                        ->where('userid', $id)
+                        ->where('itemno', 6)->delete();
+
+                    }
+                    
+                    else if($angelcount  > 0 && $devilcount > 0){
+
+                        $angelcount = $angelcount-1 ;
+                        $devilcount = $devilcount-1 ;
+
+                        DB::table('items')
+                        ->where('userid', $id)
+                        ->where('itemno', 6)
+                        ->update(['itemcount' =>$angelcount]);
+
+                        DB::table('items')
+                        ->where('userid', $id)
+                        ->where('itemno', 18)
+                        ->update(['itemcount' =>$devilcount]);
+                    }
+
+
+
+                $uniqueitem = rand(23,26);
+
+
+                if($uniqueitem == 23){
+
+                
+                $data['userno'] = $userinfo->userno;
+                $data['userid'] = $id;
+                $data['itemno'] = $uniqueitem;
+
+                $existingItem = DB::table('items')
+                ->where('userid', $id)
+                ->where('itemno', $uniqueitem)
+                ->first();
+                
+                    if ($existingItem) {
+                        // 이미 해당 아이템이 있으면 itemcount를 증가시킴
+                        DB::table('items')
+                            ->where('userno', $existingItem->userno)
+                            ->where('itemno', $uniqueitem)
+                            ->increment('itemcount');
+                    } else {
+                        // 해당 아이템이 없으면 아이템을 추가
+                        DB::table('items')->insert($data);
+                    }
+                    $pt1 = "축하합니다 조합에 성공하셨습니다!";
+
+                    $itemname = DB::table('iteminfos')
+                    ->join('items', 'iteminfos.itemno', '=', 'items.itemno')
+                    ->where('items.userid', $id)
+                    ->get();
+
+                    $userinfo = DB::table('users')
+                    ->where('userid', $id)
+                    ->first();
+
+
+                return view('mofin')->with('data', $userinfo)->with('itemname', $itemname)->with('pt1', $pt1);
+
+                }
+
+                else{
+                    $pt1 = '조합에 실패하였습니다!';
+
+
+                    $itemname = DB::table('iteminfos')
+                    ->join('items', 'iteminfos.itemno', '=', 'items.itemno')
+                    ->where('items.userid', $id)
+                    ->get();
+
+                    $userinfo = DB::table('users')
+                    ->where('userid', $id)
+                    ->first();
+
+                return view('mofin')->with('data', $userinfo)->with('itemname', $itemname)->with('pt1', $pt1);
+                
+                }
+        }
+        else
+        {
+            $pt1 = '포인트가 부족합니다!';
+            $itemname = DB::table('iteminfos')
+            ->join('items', 'iteminfos.itemno', '=', 'items.itemno')
+            ->where('items.userid', $id)
+            ->get();
+
+            $userinfo = DB::table('users')
+            ->where('userid', $id)
+            ->first();
+
+            return view('mofin')->with('data', $userinfo)->with('itemname', $itemname)->with('pt1', $pt1);
+
+        }
 
     }
 }
