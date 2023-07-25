@@ -299,34 +299,15 @@
     @foreach ($itemname as $value)
         <div class="item-box">
             <img class="item-img" src="{{asset('/img/charitem'.$value->itemno.'.png')}}">
-            {{-- @if ($value === '선글라스')
-                <img class="item-img" src="{{ asset('/img/charitem1.png') }}">
-            @elseif ($value === '검')
-                <img class="item-img" src="{{ asset('/img/charitem2.png') }}">
-            @elseif ($value === '안전모')
-                <img class="item-img" src="{{ asset('/img/charitem3.png') }}">
-            @elseif ($value === '에어팟맥스')
-                <img class="item-img" src="{{ asset('/img/charitem4.png') }}">
-            @elseif ($value === '사원증')
-                <img class="item-img" src="{{ asset('/img/charitem5.png') }}">
-            @elseif($value === '날개')
-                <img class="item-img" src="{{ asset('/img/charitem6.png') }}">
-            @elseif($value === '티셔츠')
-                <img class="item-img" src="{{ asset('/img/charitem7.png') }}">
-            @elseif($value === '야구배트')
-                <img class="item-img" src="{{ asset('/img/charitem8.png') }}">
-            @elseif($value === '아잉눈')
-                <img class="item-img" src="{{ asset('/img/charitem9.png') }}">
-            @elseif($value === '노트북')
-                <img class="item-img" src="{{ asset('/img/charitem10.png') }}">
-            @elseif($value === '여성한복')
-                <img class="item-img" src="{{ asset('/img/charitem11.png') }}">
-            @elseif($value === '남성한복')
-                <img class="item-img" src="{{ asset('/img/charitem12.png') }}">
-            @elseif($value === '유아복')
-                <img class="item-img" src="{{ asset('/img/charitem13.png') }}">
-            @endif --}}
+
             <span class="item-name">{{ $value->itemname }}</span>
+            <span>{{ $value->itemcount+1 }}</span>
+            <form id="itemsell{{$value->itemno}}" name="itemsell{{$value->itemno}}" action="{{route('mofin.itemsell',[auth()->user()->userid])}}" method="post">
+            @csrf
+            <input type="hidden" name ="item_no" value="{{ $value->itemno }}">
+            <input type="hidden" name ="item_count" value="{{ $value->itemcount }}">
+            <button type="button" onclick="confirmsell({{$value->itemno}})">팔기</button>
+            </form>
 
         </div>
     @endforeach
@@ -375,6 +356,12 @@
             customAlert.alert('{{ session('pt1') }}');
 
         }); */
+            function confirmsell($num) {
+                if (confirm("판매가격은 100원입니다 정말 파시겠습니까?")) {
+                    document.getElementById(`itemsell${$num}`).submit();
+                }
+            }
+
     </script>
 
 @if($pt1 != null)
@@ -382,6 +369,4 @@
         customAlert.alert('{{ $pt1 }}');
     </script>
 @endif
-
-
 @endsection

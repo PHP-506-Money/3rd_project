@@ -119,6 +119,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/mofin/{userid}', [MofinController::class,'index'])->name('mofin.index');
     Route::post('/mofin/post/{userid}', [MofinController::class, 'point'])->name('mofin.point');
     Route::post('/mofin/item/{userno}', [MofinController::class,'item'])->name('mofin.item');
+    Route::post('/mofin/itemsell/{userid}', [MofinController::class,'itemsell'])->name('mofin.itemsell');
     Route::post('/mofin/{userid}', [MofinController::class,'search'])->name('mofin.search');
     Route::get('/users/profile/{userid}', [UserController::class, 'profile'])->name('users.profile');
     Route::post('/users/itemflg', [UserController::class, 'itemflg'])->name('users.itemflg');

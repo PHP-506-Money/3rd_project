@@ -202,6 +202,11 @@ class MofinController extends Controller
             // $itemonly = array_unique($item_name);       
             // return view('mofin')->with('data', $result)->with('itemname', $itemname);
         }
+        $itemname = DB::table('iteminfos')
+        ->join('items', 'iteminfos.itemno', '=', 'items.itemno')
+        ->where('items.userid', $id)
+        ->get();
+        
         return view('mofin')->with('data', $result)->with('itemname', $itemname)->with('pt1', $pt1);
     }
     
@@ -217,6 +222,56 @@ class MofinController extends Controller
         else{
             return redirect('users/profile/'.$req->search_name);
         }
+
+    }
+
+    public function itemsell(Request $req, $id){
+        $current_user_id = auth()->user()->userid;
+        if ($current_user_id != $id) {
+            return redirect('/unauthorized-access'); // 잘못된 접근 페이지로 리다이렉트
+        }
+
+        $userinfo = DB::table('users')
+        ->where('userid', $id)
+        ->first();
+
+        $itemcount = $req->item_count;
+        $userpoint = $userinfo->point;
+        $userpoint += 100;
+
+
+        if ($itemcount > 0) {
+
+            $itemcount = $itemcount-1;
+
+
+            DB::table('users')
+            ->where('userid', $id)
+            ->update(['point' =>$userpoint]);
+
+            DB::table('items')
+            ->where('userid', $id)
+            ->where('itemno', $req->item_no)
+            ->update(['itemcount' =>$itemcount]);
+
+            return redirect()->route('mofin.index',['userid' => $id]);
+
+
+        }
+        else if ($itemcount == 0 ){
+            DB::table('users')
+            ->where('userid', $id)
+            ->update(['point' =>$userpoint]);
+            
+            DB::table('items')
+            ->where('userid', $id)
+            ->where('itemno', $req->item_no)->delete();
+
+
+            return redirect()->route('mofin.index',['userid' => $id]);
+
+        }
+        
 
     }
 }
