@@ -46,22 +46,22 @@ class UserController extends Controller
             return redirect()->back()->with('error', $error);
         }
 
-        if($user->email_verified == 0){
-            $msgg = "인증이 완료되지 않았습니다. 이메일을 통해 인증코드를 확인해 주세요.";
+        // if($user->email_verified == 0){
+        //     $msgg = "인증이 완료되지 않았습니다. 이메일을 통해 인증코드를 확인해 주세요.";
 
-            $verifyCode = mt_rand(100000, 999999);
-            $expire_at = now()->addMinute(1);
+        //     $verifyCode = mt_rand(100000, 999999);
+        //     $expire_at = now()->addMinute(1);
 
-            $emailVerify['useremail'] = $user->useremail;
-            $emailVerify['token'] = $verifyCode;
-            $emailVerify['expire_at'] = $expire_at;
+        //     $emailVerify['useremail'] = $user->useremail;
+        //     $emailVerify['token'] = $verifyCode;
+        //     $emailVerify['expire_at'] = $expire_at;
 
-            $resentemail = EmailVerify::create($emailVerify);
+        //     $resentemail = EmailVerify::create($emailVerify);
 
-            Mail::to($user->useremail)->send(new SendEmail($resentemail));
+        //     Mail::to($user->useremail)->send(new SendEmail($resentemail));
 
-            return redirect()->route('users.verify')->with('verify',$user)->with('msgg',$msgg);
-        }
+        //     return redirect()->route('users.verify')->with('verify',$user)->with('msgg',$msgg);
+        // }
 
         // 유저 인증작업
         Auth::login($user); // 테스트시 비활성화 하고 테스트하면 됨.
