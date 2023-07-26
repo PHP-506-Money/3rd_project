@@ -143,9 +143,10 @@ if (!isValid) {
 });
 
 // 프로필 페이지
-function btnClick(){
-    alert('추후 도입 예정입니다.');
-}
+
+// function btnClick(){
+//     alert('이메일로 인증코드를 발송했습니다.');
+// }
 
 function moffinnameChan() {
     if(confirm('모핀이명을 변경하시겠습니까?')){

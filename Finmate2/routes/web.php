@@ -14,6 +14,7 @@ use App\Http\Controllers\ApiController;
 use App\Http\Controllers\BudgetController;
 use App\Http\Controllers\StaticController;
 use App\Http\Controllers\AchievementController;
+use App\Http\Controllers\ApiEmailController;
 use App\Http\Controllers\MainTwoController;
 use App\Http\Controllers\NewGoalController;
 use App\Http\Controllers\TransactionController;
@@ -69,6 +70,8 @@ Route::middleware(['guest'])->group(function () {
     Route::get('/users/verrifymail',[UserController::class,'emailverify'])->name('users.verify');
     Route::post('/users/chkmail',[UserController::class,'chkverify'])->name('users.chkverify');
 
+    Route::get('/users/email/{email}',[ApiEmailController::class , 'verifyemail']);
+    Route::put('/users/codechk/{email}',[ApiEmailController::class , 'codechk']);
 });
 
 

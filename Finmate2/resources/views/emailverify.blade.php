@@ -7,10 +7,26 @@
 @section('contents')
     <link rel="stylesheet" href="{{ asset('/css/kjav2.css')  }}" >
     
+
+
+        @if(session()->has('msgg'))
+            <div id="myModal" class="modal">
+                <div class="modal_content">
+                    <div class="modalMsg">
+                        <p class = "emailresentpls">
+                            {{session('msgg')}}
+                        </p>
+                        <div onClick="close_pop();">
+                        <span class="pop_bt" >확인
+                </span>
+                        </div>
+                </div>
+            </div>
+        
+
     
-
+        @else            
     <div id="content">
-
         <div class=success>{!!session()->has('success') ? session('success') : ""!!}</div>
 
         <article class="l-layout login find-id">
@@ -29,12 +45,23 @@
                                 </div>
                     </form>
                     
-                    
                 </div>
                 </div>
             </section>
         </article>
     </div>
+@endif
+<script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('myModal').style.display = 'block';
+        });
+
+        function close_pop(flag) {
+            document.getElementById('myModal').style.display = 'none';
+            location.href = "{{ route('users.verify') }}";
+        }
+    </script>
+<script src="{{ asset('/js/email.js') }}"></script>
 
 @endsection
 

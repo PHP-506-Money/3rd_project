@@ -10,6 +10,44 @@
     display: inline-block;
 }
 
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%; 
+    overflow: auto;
+    /* background-color: var(--main-color); */
+    background-color: var(--sub-color);
+    /* backdrop-filter: blur(100px); */
+}
+
+.modal_content {
+    background-color: var(--sub-color);
+    margin: 20% auto;
+    padding: 20px;
+    border: 1px solid rgb(77, 47, 47);
+    width: 50%;
+}
+
+.emailresentpls{
+    margin: 0 auto;
+    margin-top: 3rem;
+    margin-bottom: 0.8rem;
+    width: 50%;
+    font-size: 1.3rem;
+    color: var(--active-color);
+}
+
+.pop_bt{
+    font-size: 13pt; 
+    color: var(--main-color);
+    cursor: pointer;
+    
+}
+
 .mofin-rabbit , .mofin-panda , .mofin-penguin{
     display: block;
     width: 80px;
@@ -63,7 +101,8 @@ span:hover + p.arrow_box {
     font-weight: 500;
     border-radius: 10px;
     margin: 10px;
-
+    font-size: 10rem;
+    width: 28rem;
 }
 
 .error {
@@ -103,7 +142,7 @@ label>.mofin-rabbit{
     height: 200px;
     background-repeat: no-repeat;
     background-size: contain;
-
+    margin-right: 1rem;
 }
 
 label>.mofin-panda{
@@ -112,7 +151,7 @@ label>.mofin-panda{
     height: 200px;
     background-repeat: no-repeat;
     background-size: contain;
-
+    margin-right: 1rem;
 }
 
 label>.mofin-penguin{
@@ -125,10 +164,11 @@ label>.mofin-penguin{
 
 #rabbit:checked + label>.mofin-rabbit {
     background-image: url('../img/rabbit3.png');
-    width: 100px;
+    width: 130px;
     height: 200px;
     background-repeat: no-repeat;
     background-size: contain;
+    filter: drop-shadow(4px 8px 8px hsl(0, 0%, 75%));
 }
 
 #penguin:checked + label>.mofin-penguin {
@@ -137,15 +177,32 @@ label>.mofin-penguin{
     height: 200px;
     background-repeat: no-repeat;
     background-size: contain;
+    filter: drop-shadow(4px 8px 8px hsl(0, 0%, 75%));
+
 }
 
 #panda:checked + label>.mofin-panda {
-    background-image: url('../img/panda3.png');
+    background-image: url('../img/panda4.png');
     width: 100px;
     height: 200px;
     background-repeat: no-repeat;
     background-size: contain;
+    filter: drop-shadow(4px 8px 8px hsl(0, 0%, 75%));
+
 }
+
+[type="radio"]:not(:checked) { 
+    background-image: url('../img/none.png');
+    width: 2.2rem;
+    height: 2.2rem;
+}
+[type="radio"]:checked { 
+    background-image: url('../img/chk.png');
+    width: 2.2rem;
+    height: 2.2rem;
+}
+
+
 
 /* #panda:not(:checked) + label>.mofin-panda{
     filter: grayscale(1);
@@ -326,9 +383,10 @@ tbody{
 }
 
 .rankeruser:nth-child(1){
-    left: 28%;
-
+    left: 29%;
     border: 2px solid rgb(255, 144, 144);
+    
+
 }
 
 .rankeruser:nth-child(2) {

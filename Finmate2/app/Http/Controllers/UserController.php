@@ -4,7 +4,7 @@
  * Directory    : Controllers
  * File Name    : UserController.php
  * History      : v001 0615 EY.Sin
- *                v002 0714 EY.Sin new
+ *                v002 0714 Kim new
  *******************************************/
 
 namespace App\Http\Controllers;
@@ -46,23 +46,22 @@ class UserController extends Controller
             return redirect()->back()->with('error', $error);
         }
 
-        // if($user->email_verified == 0){
-        //     $error = "인증이 완료되지 않았습니다. 이메일을 통해 인증코드를 확인해 주세요.";
+        if($user->email_verified == 0){
+            $msgg = "인증이 완료되지 않았습니다. 이메일을 통해 인증코드를 확인해 주세요.";
 
-        //     $verifyCode = mt_rand(100000, 999999);
-        //     $expire_at = now()->addMinute(1);
+            $verifyCode = mt_rand(100000, 999999);
+            $expire_at = now()->addMinute(1);
 
-        //     $emailVerify['userid'] = $user->userid;
-        //     $emailVerify['useremail'] = $user->useremail;
-        //     $emailVerify['token'] = $verifyCode;
-        //     $emailVerify['expire_at'] = $expire_at;
+            $emailVerify['useremail'] = $user->useremail;
+            $emailVerify['token'] = $verifyCode;
+            $emailVerify['expire_at'] = $expire_at;
 
-        //     $resentemail = EmailVerify::create($emailVerify);
+            $resentemail = EmailVerify::create($emailVerify);
 
-        //     Mail::to($user->useremail)->send(new SendEmail($user,$resentemail));
+            Mail::to($user->useremail)->send(new SendEmail($resentemail));
 
-        //     return redirect()->route('users.verify')->with('verify',$user)->with('error',$error);
-        // }
+            return redirect()->route('users.verify')->with('verify',$user)->with('msgg',$msgg);
+        }
 
         // 유저 인증작업
         Auth::login($user); // 테스트시 비활성화 하고 테스트하면 됨.
@@ -90,7 +89,7 @@ class UserController extends Controller
             ,'moffintype'   => 'required' // 모핀이 체크여부 확인
         ]);
 
-        // $data['name'] = $req->input('name'); // 밑의 방법과 동일함.
+        $data['name'] = $req->input('name'); // 밑의 방법과 동일함.
         $data['username'] = $req->name;
         $data['userid'] = $req->id;
         $data['userpw'] = Hash::make($req->password);
@@ -98,6 +97,14 @@ class UserController extends Controller
         $data['phone'] = $req->phone;
         $data['moffintype'] = $req->moffintype;
         
+        // $usersigndata =new EmailVerify();
+        // $usersigndata->username=$req->name;
+        // $usersigndata->userid=$req->id;
+        // $usersigndata->userpw=Hash::make($req->password);
+        // $usersigndata->phone=$req->phone;
+        // $usersigndata->moffintype=$req->moffintype;
+        // $data->save();
+
 
         $user = User::create($data); // insert. create ORM 모델
         if(!$user) {
@@ -108,26 +115,25 @@ class UserController extends Controller
         }
 
         // v002 add start KIM 이메일인증 
-        // $verifyCode = Str::random(5);
+        $verifyCode = Str::random(5);
         $verifyCode = mt_rand(100000, 999999);
         $expire_at = now()->addMinute(1);
 
-        $emailVerify['userid'] = $user->userid;
         $emailVerify['useremail'] = $user->useremail;
         $emailVerify['token'] = $verifyCode;
         $emailVerify['expire_at'] = $expire_at;
 
         $verify = EmailVerify::create($emailVerify);
 
-        Mail::to($req->email)->send(new SendEmail($user,$verify));
+        Mail::to($req->email)->send(new SendEmail($verify));
 
         // 회원가입 완료 로그인 페이지로 이동
-        // $success = '<div class="success">✓ Success!<br>회원가입을 완료 했습니다.<br>가입하신 아이디와 비밀번호로 로그인 해주십시오.</div>';
-        $success = '<div class="success">✓ Success!<br>회원가입을 완료 했습니다.<br>이메일로 인증코드를 발송했습니다. 인증을 완료하면 서비스를 이용하실수 있습니다./div>';
+        // $success = '✓ 회원가입을 완료 했습니다.가입하신 아이디와 비밀번호로 로그인 해주십시오.';
+        $msgg = '✓ 이메일로 인증코드를 발송했습니다. 인증을 완료하면 서비스를 이용하실수 있습니다.';
         return redirect()
             // ->route('users.login')
             ->route('users.verify')
-            ->with('success', $success)
+            ->with('msgg', $msgg)
             ->with('user',$user);
 
         // v002 end
@@ -139,12 +145,11 @@ class UserController extends Controller
 
     function chkverify(Request $req) {
         $req->validate([
+            'email'        => 'email:rfc,dns,filter|unique:users,useremail',
             'code'          => 'required'
         ]);
 
         $verify = EmailVerify::where('token',$req->code)->first();
-
-        // var_dump($verify);
 
         if(!$verify) {
             $error = '<div class="error">! 인증코드가 일치하지 않습니다.</div>';
@@ -155,24 +160,27 @@ class UserController extends Controller
         $expire_at = $verify->expire_at;
         
         if($now > $expire_at) {
-            $error = '인증 코드가 만료되었습니다. 새로운 코드를 이메일로 발송했습니다.';
+            $msgg = '인증 코드가 만료되었습니다. 새로운 인증코드를 받아주세요.';
 
-            $user = User::where('userid',$verify->userid)->first();
+            $user = User::where('useremail',$verify->useremail)->first();
+            
             $verifyCode = mt_rand(100000, 999999);
             $expire_at = now()->addMinute(1);
 
-            $emailVerify['userid'] = $user->userid;
             $emailVerify['useremail'] = $user->useremail;
             $emailVerify['token'] = $verifyCode;
             $emailVerify['expire_at'] = $expire_at;
 
             $resentemail = EmailVerify::create($emailVerify);
 
-            Mail::to($user->useremail)->send(new SendEmail($user,$resentemail));
-            return view('emailverify')->with('error', $error)->with('verify',$verify);
+            Mail::to($user->useremail)->send(new SendEmail($resentemail));
+
+            // return view('emailverify')->with('error', $error)->with('verify',$verify);
+            return redirect()->back()->with('msgg', $msgg)->with('verify',$verify);
         }
 
-        $user = User::where('userid',$verify->userid)->first();
+        
+        $user = User::where('useremail',$verify->useremail)->first();
 
         $user->email_verified = '1';
         $user->save();
@@ -251,8 +259,7 @@ class UserController extends Controller
         $expire_at = now()->addMinute(5);
         
         $EmailVerify=new EmailVerify();
-        $EmailVerify->userid=$req->id;
-        $EmailVerify->userid=$req->email;
+        $EmailVerify->useremail=$req->email;
         $EmailVerify->token=$token;
         $EmailVerify->expire_at=$expire_at;
         $EmailVerify->save();

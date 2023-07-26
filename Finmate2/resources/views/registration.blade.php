@@ -6,6 +6,7 @@
 
 @section('contents')
     <link rel="stylesheet" href="{{ asset('/css/kjav2.css')  }}" >
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <div id="content">
         <article class="l-layout join">
@@ -13,7 +14,7 @@
             <div class="l-inner joinForm_l-inner">
                 <div class="l-title">회원가입</div>
                 <form id="joinForm" action="{{route('users.registration.post')}}" method="post">
-                @csrf
+                    @csrf
                     <section class="join__input">
                         <div class="tit-area">
                             <p class="tit">기본정보</p>
@@ -54,8 +55,13 @@
                             <div class="sec-line">
                                 <label for="email" class="title">이메일<i class="point">*</i></label>
                                 <div class="right">
-                                        <input input type="email" class="l-input short-input" name="email" id="email" value="{{ old('email') }}" placeholder="이메일주소를 입력해주세요." onfocus="this.placeholder = ''" onblur="this.placeholder = '이메일주소를 입력해주세요.'" autocomplete="off" required>
-                                        <div id="chkerr"></div>
+                                    <input input type="email" class="l-input short-input" name="email" id="email" value="{{ old('email') }}" placeholder="이메일주소를 입력해주세요." onfocus="this.placeholder = ''" onblur="this.placeholder = '이메일주소를 입력해주세요.'" autocomplete="off" required>
+                                    {{-- <button type="button" id="sentbtn" class="l-btn buttonn" onclick="checkDupeemail();">인정번호 받기</button> --}}
+                                    <div id="chkerr"></div>
+                                    <div id="errMsg"></div>
+                                    {{-- <input type="text" name="emailcode"  class="l-input short-input" autocomplete="off" id="emailcode" placeholder="인증번호" disabled="true" required> --}}
+                                    {{-- <button type="button" id="codechk" class="l-btn buttonn" disabled="true" >인증하기</button> --}}
+                                {{-- <div id="codeerrMsg"></div> --}}
                                 </div>
                             </div>
                         <div class="sec-line">
@@ -101,7 +107,7 @@
         </label>
     </div>
 </div>
-                        <button type="submit" id="btnmove" >가입하기</button>
+                        <button type="submit" id="btnmove" class="signbtn">가입하기</button>
                     </div>
                 </section>
             </form>
@@ -111,4 +117,5 @@
 
 
 <script src="{{ asset('/js/user.js') }}"></script>
+{{-- <script src="{{ asset('/js/email.js') }}"></script> --}}
 @endsection

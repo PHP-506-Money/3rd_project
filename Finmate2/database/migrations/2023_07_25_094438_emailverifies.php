@@ -15,13 +15,11 @@ return new class extends Migration
     {
         Schema::create('emailverifies', function (Blueprint $table) {
             $table->id()->comment('id');
-            $table->string('userid',12);
             $table->string('useremail',50);
             $table->string('token')->unique();
             $table->dateTime('expire_at')->nullable();
             $table->timestamps();
         });
-        
     }
 
     /**

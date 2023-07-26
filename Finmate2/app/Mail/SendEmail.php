@@ -14,16 +14,15 @@ class SendEmail extends Mailable
 {
     use Queueable, SerializesModels;
 
-    protected $user;
+    
     protected $verify;
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(User $user , $verify)
+    public function __construct($verify)
     {
-        $this->user = $user;
         $this->verify = $verify;
     }
 
@@ -63,9 +62,8 @@ class SendEmail extends Mailable
 
     public function build()
     {
-        $user = $this->user;
         $verify = $this->verify;
-        return $this->view('email.sign', compact('user'))->with('verify',$verify)
+        return $this->view('email.sign')->with('verify',$verify)
             ->subject('이메일 인증코드를 보내드립니다.');
     }
 }
