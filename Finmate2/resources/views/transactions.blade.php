@@ -7,6 +7,22 @@
 @section('contents')
     {{-- <link rel="stylesheet" href="{{ asset('/css/hj.css')  }}" > --}}
 <style>
+
+@font-face {
+    font-family: 'Cafe24Oneprettynight';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Oneprettynight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Cafe24Danjunghae';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Danjunghae.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+*{
+      font-family: 'Cafe24Oneprettynight';
+}
  ul {
         font-size:20px;
         list-style: none;
@@ -250,7 +266,7 @@
 							<option value={{ $value->no }}>{{ $value->name }}</option>
                             @endforeach
             </select> 
-            <button type="submit">검색</button>
+            <button class="l-btn buttonn" type="submit">검색</button>
             </form>
             </div>
 

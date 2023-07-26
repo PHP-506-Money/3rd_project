@@ -294,14 +294,14 @@
 </div>
 <br><br>
 <div style="text-align : center; font-size:40px; ">내 컬렉션</div>
-    <span> 천사날개와 꼬마악마 아이템 조합가능(레어)</span>
+    <span style="font-size:20px;"> 천사날개와 꼬마악마 아이템 조합가능(레어)</span>
 <div class="item-list">
     @foreach ($itemname as $value)
-        <div class="item-box">
+        <div class="item-box" id="unique{{$value->itemno}}">
             <img class="item-img" src="{{asset('/img/charitem'.$value->itemno.'.png')}}">
 
             <span class="item-name">{{ $value->itemname }}</span>
-            <span>{{ $value->itemcount+1 }}</span>
+            <span>수량 {{ $value->itemcount+1 }}</span>
             <form id="itemsell{{$value->itemno}}" name="itemsell{{$value->itemno}}" action="{{route('mofin.itemsell',[auth()->user()->userid])}}" method="post">
             @csrf
             <input type="hidden" name ="item_no" value="{{ $value->itemno }}">
