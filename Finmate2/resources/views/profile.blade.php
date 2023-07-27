@@ -69,8 +69,8 @@
     </div>
                     {{-- 현재 로그인한 사용자의 경우 --}}
                     @else
-                        <div id="info2">
-                            {{ $user->username }} 님의 {{ $user->moffinname }}
+                        <div id="info">
+                            {{ $user->username }} 님의 <span class="myname">{{ $user->moffinname }}</span>
                         </div>
                         <div class="bottom2">
                             <button type="submit" class="button">저장하기</button>

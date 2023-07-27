@@ -262,9 +262,7 @@
 
 
 <div class="l-title" style="margin-top: 20rem;" >
-    <h2>
-        뽑기
-    </h2>
+    <h2>뽑기</h2>
     <p> 현재 포인트 : {{$data->point}} </p>
 </div>
 
@@ -292,26 +290,30 @@
         </button>
     </form>
 </div>
-<br><br>
-<div style="text-align : center; font-size:40px; ">내 컬렉션</div>
-    <span style="font-size:20px;"> 천사날개와 꼬마악마 아이템 조합가능(레어)</span>
-<div class="item-list">
-    @foreach ($itemname as $value)
-        <div class="item-box" id="unique{{$value->itemno}}">
-            <img class="item-img" src="{{asset('/img/charitem'.$value->itemno.'.png')}}">
-
-            <span class="item-name">{{ $value->itemname }}</span>
-            <span>수량 {{ $value->itemcount+1 }}</span>
-            <form id="itemsell{{$value->itemno}}" name="itemsell{{$value->itemno}}" action="{{route('mofin.itemsell',[auth()->user()->userid])}}" method="post">
-            @csrf
-            <input type="hidden" name ="item_no" value="{{ $value->itemno }}">
-            <input type="hidden" name ="item_count" value="{{ $value->itemcount }}">
-            <button type="button" onclick="confirmsell({{$value->itemno}})">팔기</button>
-            </form>
-
-        </div>
-    @endforeach
+<div class="event">
+    📢천사날개와 꼬마악마 아이템 조합가능(레어)
 </div>
+<div class="container2">
+    <div class="title">
+        INVENTORY
+    </div>
+    <div class="itemlist">
+        @foreach ($itemname as $value)
+            <div class="itembtn2" id="unique{{$value->itemno}}">
+                <img class="itemimg" src="{{asset('/img/charitem'.$value->itemno.'.png')}}">
+                <div class="item-name">{{ $value->itemname }}</div>
+                <div>수량 {{ $value->itemcount+1 }}</div>
+                <form id="itemsell{{$value->itemno}}" name="itemsell{{$value->itemno}}" action="{{route('mofin.itemsell',[auth()->user()->userid])}}" method="post">
+                @csrf
+                <input type="hidden" name ="item_no" value="{{ $value->itemno }}">
+                <input type="hidden" name ="item_count" value="{{ $value->itemcount }}">
+                <button type="button" onclick="confirmsell({{$value->itemno}})">팔기</button>
+                </form>
+            </div>
+        @endforeach
+    </div>
+</div>
+
 <div>
 @php
     $filteredItems = $itemname->filter(function ($item) {
@@ -320,7 +322,7 @@
 @endphp
 
 @if ($filteredItems->where('itemno', 6)->isNotEmpty() && $filteredItems->where('itemno', 18)->isNotEmpty())
-    <span style="font-size : 25px ;"> 천사날개와 악마날개를 조합하시겠습니까?(성공률20% -300pt)</span>
+    <div class="event2"> 천사날개와 악마날개를 조합하시겠습니까?(성공률 20%, -300pt)</div>
     <form id="mixitem" name="mixitem" action="{{route('mofin.itemmix',[auth()->user()->userid])}}" method="post"> 
     @csrf
     
