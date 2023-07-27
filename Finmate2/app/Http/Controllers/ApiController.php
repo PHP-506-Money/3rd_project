@@ -41,4 +41,6 @@ class ApiController extends Controller
         }
         return response()->json($arr, Response::HTTP_OK);
     }
+
+    
 }

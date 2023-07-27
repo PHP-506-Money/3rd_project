@@ -1,7 +1,9 @@
 // 회원가입 페이지
 // ID 체크 변수
 const idSpan = document.getElementById('errMsg');
+const emailSpan = document.getElementById('emailerrormessgepls');
 let apiData = null;
+// let apiDate = null;
 
 // 아이디 중복체크
 function checkDuplicateButton() {
@@ -28,6 +30,35 @@ function checkDuplicateButton() {
             } else{
                 idSpan.innerHTML = apiData["msg"];
                 idSpan.style.color = "green";
+            }
+        })
+        .catch(error=>alert(error.message));
+}
+
+function checkDupeemail() {
+    const email = document.getElementById('email');
+    const url = "/users/dupeemail/"+email.value;
+    if (email.value === '') { 
+        emailSpan.innerHTML = "! 이메일을 입력해 주세요.";
+        emailSpan.style.color = "red";
+        return;
+    }
+
+        fetch(url)
+        .then(data=>{
+            // Response Status 확인  (200번 외에는 에러 처리)
+        if(data.status !== 200){
+                throw new Error(data.status + ' : API Response Error');
+            }
+        return data.json();
+        })
+        .then(apiData =>{
+            if(apiData["errorcode"] === "E01"){
+                emailSpan.innerHTML = apiData["msg"];
+                emailSpan.style.color = "red";
+            } else{
+                emailSpan.innerHTML = apiData["msg"];
+                emailSpan.style.color = "green";
             }
         })
         .catch(error=>alert(error.message));

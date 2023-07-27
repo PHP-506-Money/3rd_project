@@ -54,11 +54,12 @@
                             </div>
                             <div class="sec-line">
                                 <label for="email" class="title">이메일<i class="point">*</i></label>
-                                <div class="right">
+                                <div class="input-btn" style="width:100%;">
                                     <input input type="email" class="l-input short-input" name="email" id="email" value="{{ old('email') }}" placeholder="이메일주소를 입력해주세요." onfocus="this.placeholder = ''" onblur="this.placeholder = '이메일주소를 입력해주세요.'" autocomplete="off" required>
-                                    {{-- <button type="button" id="sentbtn" class="l-btn buttonn" onclick="checkDupeemail();">인정번호 받기</button> --}}
+                                    <button type="button" class="l-btn buttonn" id="btn" onclick="checkDupeemail();">중복확인</button>
                                     <div id="chkerr"></div>
-                                    <div id="errMsg"></div>
+                                    <div id="emailerrormessgepls"></div>
+                                    {{-- <button type="button" id="sentbtn" class="l-btn buttonn" onclick="checkDupeemail();">인정번호 받기</button> --}}
                                     {{-- <input type="text" name="emailcode"  class="l-input short-input" autocomplete="off" id="emailcode" placeholder="인증번호" disabled="true" required> --}}
                                     {{-- <button type="button" id="codechk" class="l-btn buttonn" disabled="true" >인증하기</button> --}}
                                 {{-- <div id="codeerrMsg"></div> --}}

@@ -15,6 +15,7 @@ use App\Http\Controllers\BudgetController;
 use App\Http\Controllers\StaticController;
 use App\Http\Controllers\AchievementController;
 use App\Http\Controllers\ApiEmailController;
+use App\Http\Controllers\ApiMailController;
 use App\Http\Controllers\MainTwoController;
 use App\Http\Controllers\NewGoalController;
 use App\Http\Controllers\TransactionController;
@@ -58,6 +59,7 @@ Route::middleware(['guest'])->group(function () {
     Route::get('/users/registration', [UserController::class, 'registration'])->name('users.registration');
     Route::post('/users/registrationpost', [UserController::class, 'registrationpost'])->name('users.registration.post');
     Route::get('/users/registration/{userid}', [ApiController::class, 'getUserChk'])->name('users.registration.check');
+    Route::get('/users/dupeemail/{useremail}', [ApiMailController::class, 'emailChk'])->name('users.email.check');
 
     Route::get('/users/findid', [UserController::class, 'findid'])->name('users.findid');
     Route::post('/users/findidpost', [UserController::class, 'findidpost'])->name('users.findid.post');

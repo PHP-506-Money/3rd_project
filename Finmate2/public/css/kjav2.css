@@ -20,32 +20,40 @@
     height: 100%; 
     overflow: auto;
     /* background-color: var(--main-color); */
-    background-color: var(--sub-color);
-    /* backdrop-filter: blur(100px); */
+    background-color: rgba(248, 248, 248, 0.822);
+    backdrop-filter: blur(100px);
 }
 
 .modal_content {
     background-color: var(--sub-color);
-    margin: 20% auto;
+    margin: 12% auto;
     padding: 20px;
     border: 1px solid rgb(77, 47, 47);
-    width: 50%;
-}
-
-.emailresentpls{
-    margin: 0 auto;
-    margin-top: 3rem;
-    margin-bottom: 0.8rem;
-    width: 50%;
-    font-size: 1.3rem;
-    color: var(--active-color);
+    width: 35%;
+    position: absolute;
+    left: 30%;
 }
 
 .pop_bt{
     font-size: 13pt; 
     color: var(--main-color);
     cursor: pointer;
-    
+    margin-left: 30rem;
+    margin-top: 5rem;
+}
+
+.emailresentpls{
+    margin: 0 auto;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    width: 80%;
+    font-size: 1.3rem;
+    color: var(--active-color);
+    text-align: center;
+}
+
+#emailerrormessgepls {
+    font-size: 1.6rem;
 }
 
 .mofin-rabbit , .mofin-panda , .mofin-penguin{
@@ -142,7 +150,8 @@ label>.mofin-rabbit{
     height: 200px;
     background-repeat: no-repeat;
     background-size: contain;
-    margin-right: 1rem;
+    margin-right: 5rem;
+    margin-top: 3rem;
 }
 
 label>.mofin-panda{
@@ -151,7 +160,9 @@ label>.mofin-panda{
     height: 200px;
     background-repeat: no-repeat;
     background-size: contain;
-    margin-right: 1rem;
+    margin-left: 5rem;
+    margin-top: 3rem;
+
 }
 
 label>.mofin-penguin{
@@ -160,6 +171,8 @@ label>.mofin-penguin{
     height: 200px;
     background-repeat: no-repeat;
     background-size: contain;
+    margin-top: 3rem;
+
 }
 
 #rabbit:checked + label>.mofin-rabbit {
@@ -200,6 +213,18 @@ label>.mofin-penguin{
     background-image: url('../img/chk.png');
     width: 2.2rem;
     height: 2.2rem;
+}
+
+#rabbit {
+    margin-right: 6rem;
+}
+
+#penguin {
+    margin-right:3rem;
+}
+
+#panda {
+    margin-left: 5rem;
 }
 
 

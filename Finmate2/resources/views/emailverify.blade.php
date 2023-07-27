@@ -22,10 +22,18 @@
                         </div>
                 </div>
             </div>
-        
+            @endif
+            {{-- @if(session()->has('msgg'))
+    <script type="text/javascript">
+        document.addEventListener('DOMContentLoaded', function() {
+            alert("{{ session('msgg') }}");
+            location.href = "{{ route('users.verify') }}";
+        });
+    </script>
+@endif --}}
 
     
-        @else            
+        {{-- @else             --}}
     <div id="content">
         <div class=success>{!!session()->has('success') ? session('success') : ""!!}</div>
 
@@ -50,7 +58,7 @@
             </section>
         </article>
     </div>
-@endif
+{{-- @endif --}}
 <script type="text/javascript">
         document.addEventListener('DOMContentLoaded', function() {
             document.getElementById('myModal').style.display = 'block';
