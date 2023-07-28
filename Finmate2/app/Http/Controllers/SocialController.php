@@ -27,7 +27,7 @@ class SocialController extends Controller
             // $kakaoId = $user->getId();
             $randnum = rand(1,10000);
             $userid = 'kakao'.$randnum;
-            $username = "백백";
+            $username = $user->getNickname();
             $password = "password123!";
             $num = "01011112222";
             $mofintype = "1";
@@ -35,19 +35,20 @@ class SocialController extends Controller
  
      //     $userModel = Users::where('user_email', $email)->first();
      //     // return var_dump($userModel);
- 
-     if (!$userModel) {
-        //  사용자가 존재하지 않으면 새로운 사용자로 등록
-         $userModel = new User();
-         $userModel->userid = $userid;
-         $userModel->useremail = $email;
-         $userModel->username = $username;
-         $userModel->userpw = Hash::make($password);
-         $userModel->moffintype = $mofintype;
-         $userModel->phone = $num;
-         $userModel->save();
-     }
- 
+
+    if (!$userModel) {
+    //  사용자가 존재하지 않으면 새로운 사용자로 등록
+        $userModel = new User();
+        $userModel->userid = $userid;
+        $userModel->useremail = $email;
+        $userModel->username = $username;
+        $userModel->userpw = Hash::make($password);
+        $userModel->moffintype = $mofintype;
+        $userModel->phone = $num;
+        $userModel->email_verified = '1';
+        $userModel->save();
+    }
+
      // 사용자를 로그인 처리
         Auth::login($userModel);
         

@@ -380,7 +380,7 @@
                 }
             }
             function confirmmix() {
-                if (confirm("정말 조합하시겠습니까?(20%성공) \n 조합비용 300pt \n 실패시 조합아이템은 사라집니다" )) {
+                if (confirm("정말 조합 하시겠습니까?(20%성공) \n 조합비용 300pt \n 조합시 재료 아이템은 사라집니다" )) {
                 document.getElementById('mixitem').submit();
                 }
             }
