@@ -7,21 +7,10 @@
 @section('contents')
     {{-- <link rel="stylesheet" href="{{ asset('/css/hj.css')  }}" > --}}
 <style>
+@import url('https://cdn.rawgit.com/innks/NanumSquareRound/master/nanumsquareround.min.css');
 
-@font-face {
-    font-family: 'Cafe24Oneprettynight';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Oneprettynight.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'Cafe24Danjunghae';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Danjunghae.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
-}
 *{
-      font-family: 'Cafe24Oneprettynight';
+    font-family:'NanumSquareRound', 'Noto Sans KR', sans-serif;
 }
  ul {
         font-size:20px;

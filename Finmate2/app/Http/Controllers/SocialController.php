@@ -25,7 +25,8 @@ class SocialController extends Controller
             $userModel = User::where('useremail', $email)->first();
     
             // $kakaoId = $user->getId();
-            $userid = 'wo131';
+            $randnum = rand(1,10000);
+            $userid = 'kakao'.$randnum;
             $username = "백백";
             $password = "password123!";
             $num = "01011112222";
