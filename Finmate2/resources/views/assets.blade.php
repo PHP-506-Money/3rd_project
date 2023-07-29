@@ -116,6 +116,10 @@
                                 }
                             </script>
                         @else
+                        @php
+                            $nowdate = date('Ymd');
+                            $enddate = date('Ymd', strtotime('+1 month', strtotime($nowdate)));
+                        @endphp
                             @foreach($assets as $asset)
                                 <div class="asset-card wow fadeInUp">
                                     <div>
@@ -127,8 +131,8 @@
                                         <div  class="view-more-container">
                                             <form action="{{ route('transactions.search',[auth()->user()->userid]) }}" method="post">
                                             @csrf
-                                            <input type="hidden" name="startdate" value="20230430" >
-                                            <input type="hidden" name="enddate" value="20230730" >
+                                            <input type="hidden" name="startdate" value={{$nowdate}} >
+                                            <input type="hidden" name="enddate" value={{$enddate}}>
                                             <input type="hidden" name="search_asset" value="{{$asset->assetname}}" >
                                             <input type="hidden" name="search_tran" value="99" >
                                             <input type="hidden" name="search_category" value="99">
