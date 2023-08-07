@@ -5,7 +5,7 @@
 ### 제작과정
 __주제__ 동기부여형 자산관리 서비스<br>
 __작업기간__ 2023-07-14 ~ 2023-08-03<br>
-__팀원__ 신은영, 김진아, 노수빈, 최혁재 총 4명<br>
+__팀원__ 신은영, 김진아, 노수빈, 최혁재<br>
 
 ### 개발환경
 __언어__ <img src="https://img.shields.io/badge/PHP-777BB4?style=flat-square&logo=php&logoColor=white"/><br>
